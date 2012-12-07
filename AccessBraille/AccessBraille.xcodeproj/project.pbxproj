@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
+		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
+		A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3C1670034E00CE9475 /* CoreGraphics.framework */; };
+		A9479C431670034E00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C411670034E00CE9475 /* InfoPlist.strings */; };
+		A9479C451670034E00CE9475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C441670034E00CE9475 /* main.m */; };
+		A9479C491670034E00CE9475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C481670034E00CE9475 /* AppDelegate.m */; };
+		A9479C4B1670034E00CE9475 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9479C4A1670034E00CE9475 /* Default.png */; };
+		A9479C4D1670034E00CE9475 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9479C4C1670034E00CE9475 /* Default@2x.png */; };
+		A9479C4F1670034E00CE9475 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9479C4E1670034E00CE9475 /* Default-568h@2x.png */; };
+		A9479C521670034E00CE9475 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9479C501670034E00CE9475 /* MainStoryboard.storyboard */; };
+		A9479C551670034E00CE9475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C541670034E00CE9475 /* ViewController.m */; };
+		A9479C5D1670034E00CE9475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
+		A9479C5E1670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
+		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
+		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
+		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9479C601670034E00CE9475 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9479C2D1670034D00CE9475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9479C341670034E00CE9475;
+			remoteInfo = AccessBraille;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9479C351670034E00CE9475 /* AccessBraille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessBraille.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9479C381670034E00CE9475 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9479C3A1670034E00CE9475 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9479C3C1670034E00CE9475 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9479C401670034E00CE9475 /* AccessBraille-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AccessBraille-Info.plist"; sourceTree = "<group>"; };
+		A9479C421670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9479C441670034E00CE9475 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccessBraille-Prefix.pch"; sourceTree = "<group>"; };
+		A9479C471670034E00CE9475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9479C481670034E00CE9475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9479C4A1670034E00CE9475 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A9479C4C1670034E00CE9475 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A9479C4E1670034E00CE9475 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A9479C511670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A9479C531670034E00CE9475 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A9479C541670034E00CE9475 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A9479C5B1670034E00CE9475 /* AccessBrailleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessBrailleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9479C5C1670034E00CE9475 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A9479C641670034E00CE9475 /* AccessBrailleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AccessBrailleTests-Info.plist"; sourceTree = "<group>"; };
+		A9479C661670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9479C681670034F00CE9475 /* AccessBrailleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBrailleTests.h; sourceTree = "<group>"; };
+		A9479C691670034F00CE9475 /* AccessBrailleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBrailleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9479C321670034E00CE9475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */,
+				A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */,
+				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9479C571670034E00CE9475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C5D1670034E00CE9475 /* SenTestingKit.framework in Frameworks */,
+				A9479C5E1670034E00CE9475 /* UIKit.framework in Frameworks */,
+				A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9479C2C1670034D00CE9475 = {
+			isa = PBXGroup;
+			children = (
+				A9479C3E1670034E00CE9475 /* AccessBraille */,
+				A9479C621670034E00CE9475 /* AccessBrailleTests */,
+				A9479C371670034E00CE9475 /* Frameworks */,
+				A9479C361670034E00CE9475 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9479C361670034E00CE9475 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C351670034E00CE9475 /* AccessBraille.app */,
+				A9479C5B1670034E00CE9475 /* AccessBrailleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9479C371670034E00CE9475 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C381670034E00CE9475 /* UIKit.framework */,
+				A9479C3A1670034E00CE9475 /* Foundation.framework */,
+				A9479C3C1670034E00CE9475 /* CoreGraphics.framework */,
+				A9479C5C1670034E00CE9475 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9479C3E1670034E00CE9475 /* AccessBraille */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C471670034E00CE9475 /* AppDelegate.h */,
+				A9479C481670034E00CE9475 /* AppDelegate.m */,
+				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
+				A9479C531670034E00CE9475 /* ViewController.h */,
+				A9479C541670034E00CE9475 /* ViewController.m */,
+				A9479C3F1670034E00CE9475 /* Supporting Files */,
+			);
+			path = AccessBraille;
+			sourceTree = "<group>";
+		};
+		A9479C3F1670034E00CE9475 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C401670034E00CE9475 /* AccessBraille-Info.plist */,
+				A9479C411670034E00CE9475 /* InfoPlist.strings */,
+				A9479C441670034E00CE9475 /* main.m */,
+				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
+				A9479C4A1670034E00CE9475 /* Default.png */,
+				A9479C4C1670034E00CE9475 /* Default@2x.png */,
+				A9479C4E1670034E00CE9475 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9479C621670034E00CE9475 /* AccessBrailleTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C681670034F00CE9475 /* AccessBrailleTests.h */,
+				A9479C691670034F00CE9475 /* AccessBrailleTests.m */,
+				A9479C631670034E00CE9475 /* Supporting Files */,
+			);
+			path = AccessBrailleTests;
+			sourceTree = "<group>";
+		};
+		A9479C631670034E00CE9475 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9479C641670034E00CE9475 /* AccessBrailleTests-Info.plist */,
+				A9479C651670034E00CE9475 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9479C341670034E00CE9475 /* AccessBraille */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9479C6D1670034F00CE9475 /* Build configuration list for PBXNativeTarget "AccessBraille" */;
+			buildPhases = (
+				A9479C311670034E00CE9475 /* Sources */,
+				A9479C321670034E00CE9475 /* Frameworks */,
+				A9479C331670034E00CE9475 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccessBraille;
+			productName = AccessBraille;
+			productReference = A9479C351670034E00CE9475 /* AccessBraille.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9479C5A1670034E00CE9475 /* AccessBrailleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9479C701670034F00CE9475 /* Build configuration list for PBXNativeTarget "AccessBrailleTests" */;
+			buildPhases = (
+				A9479C561670034E00CE9475 /* Sources */,
+				A9479C571670034E00CE9475 /* Frameworks */,
+				A9479C581670034E00CE9475 /* Resources */,
+				A9479C591670034E00CE9475 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9479C611670034E00CE9475 /* PBXTargetDependency */,
+			);
+			name = AccessBrailleTests;
+			productName = AccessBrailleTests;
+			productReference = A9479C5B1670034E00CE9475 /* AccessBrailleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9479C2D1670034D00CE9475 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = RIT;
+			};
+			buildConfigurationList = A9479C301670034E00CE9475 /* Build configuration list for PBXProject "AccessBraille" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A9479C2C1670034D00CE9475;
+			productRefGroup = A9479C361670034E00CE9475 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9479C341670034E00CE9475 /* AccessBraille */,
+				A9479C5A1670034E00CE9475 /* AccessBrailleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9479C331670034E00CE9475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C431670034E00CE9475 /* InfoPlist.strings in Resources */,
+				A9479C4B1670034E00CE9475 /* Default.png in Resources */,
+				A9479C4D1670034E00CE9475 /* Default@2x.png in Resources */,
+				A9479C4F1670034E00CE9475 /* Default-568h@2x.png in Resources */,
+				A9479C521670034E00CE9475 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9479C581670034E00CE9475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9479C591670034E00CE9475 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9479C311670034E00CE9475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C451670034E00CE9475 /* main.m in Sources */,
+				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
+				A9479C551670034E00CE9475 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9479C561670034E00CE9475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9479C611670034E00CE9475 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9479C341670034E00CE9475 /* AccessBraille */;
+			targetProxy = A9479C601670034E00CE9475 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9479C411670034E00CE9475 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9479C421670034E00CE9475 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A9479C501670034E00CE9475 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9479C511670034E00CE9475 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		A9479C651670034E00CE9475 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9479C661670034E00CE9475 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9479C6B1670034F00CE9475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_STRICT_ALIASING = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A9479C6C1670034F00CE9475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_STRICT_ALIASING = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9479C6E1670034F00CE9475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A9479C6F1670034F00CE9475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A9479C711670034F00CE9475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A9479C721670034F00CE9475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9479C301670034E00CE9475 /* Build configuration list for PBXProject "AccessBraille" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9479C6B1670034F00CE9475 /* Debug */,
+				A9479C6C1670034F00CE9475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9479C6D1670034F00CE9475 /* Build configuration list for PBXNativeTarget "AccessBraille" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9479C6E1670034F00CE9475 /* Debug */,
+				A9479C6F1670034F00CE9475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A9479C701670034F00CE9475 /* Build configuration list for PBXNativeTarget "AccessBrailleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9479C711670034F00CE9475 /* Debug */,
+				A9479C721670034F00CE9475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9479C2D1670034D00CE9475 /* Project object */;
+}
