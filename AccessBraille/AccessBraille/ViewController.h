@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Drawing.h"
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Drawing.h"
+#import "CalibrationPoint.h"
 
 @interface ViewController ()
 
@@ -25,11 +27,15 @@
     UITapGestureRecognizer *BRFiveTap;
     UITapGestureRecognizer *BRSixTap;
 
+    // Calibration Points
+    NSMutableDictionary *cpByFinger;
+    
     // State Change Gestues
     UILongPressGestureRecognizer *twoFingerHold;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
+@synthesize DrawingView = _DrawingView;
 
 - (void)viewDidLoad
 {
@@ -61,8 +67,8 @@
         [BRSixTap setEnabled:NO];
     
     // State Switch **two finger for simulater testing**
-    twoFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerLong:)];
-    [twoFingerHold setNumberOfTouchesRequired:2];
+    twoFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
+    [twoFingerHold setNumberOfTouchesRequired:6];
     twoFingerHold.minimumPressDuration = .75;
 
     // Add Recognizers to view
@@ -74,7 +80,8 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:twoFingerHold];
     
-    // Set starting states for objects
+    // Set starting states for objects and init variables
+    cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
 }
 
@@ -83,13 +90,19 @@
     // Assuming valid tap, continue typing
     [self beginTyping];
     NSLog(@"Typing: %@ Taps: %d", isTypingMode ? @"Enabled" : @"Disabled", (int)reg.numberOfTouches);
-    if ((int)reg.numberOfTouches == 1){
-        CGPoint point = [reg locationInView:reg.view];
-        NSLog(@"Point (%f,%f)", point.x, point.y);
+    for(int t = 0; t < (int)reg.numberOfTouches; t++){
+        CGPoint point = [reg locationOfTouch:t inView:reg.view];
+        NSLog(@"Point %d (%f,%f)", t, point.x, point.y);
     }
 }
 
-- (void)twoFingerLong:(UILongPressGestureRecognizer *)reg{
+- (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
+    // Creating any variables used in switch scope
+    NSArray *rawTouch;
+    NSArray *sortedTouchPoints;
+    NSArray *fingerIDs = @[@3,@2,@1,@4,@5,@6];
+    NSSortDescriptor *sortXValues = [[NSSortDescriptor alloc] initWithKey:@"x" ascending:TRUE];
+    NSArray *sorters = @[ sortXValues ];
     switch (reg.state) {
         case 1: // On Recognition
             // Disable all navigation gestures
@@ -102,6 +115,22 @@
             [BRSixTap setEnabled:YES];
             
             // Set callibration points
+            rawTouch = @[
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:0 inView:reg.view] withTmpID:@0],
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:1 inView:reg.view] withTmpID:@1],
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:2 inView:reg.view] withTmpID:@2],
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:3 inView:reg.view] withTmpID:@3],
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:4 inView:reg.view] withTmpID:@4],
+                 [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:5 inView:reg.view] withTmpID:@5]
+            ];
+            
+            sortedTouchPoints = [rawTouch sortedArrayUsingDescriptors:sorters];
+            for (int i = 0; i < 6; i++){
+                CalibrationPoint *tmp = [sortedTouchPoints objectAtIndex:i];
+                [tmp setNewID:[fingerIDs objectAtIndex:i]];
+                [cpByFinger setValue:tmp forKey:[[tmp getCurrentID] stringValue]];
+            }
+            
             // Audio feedback tone up
             NSLog(@"Typing Enabled");
             break;
@@ -111,7 +140,7 @@
             break;
             
         default:
-            NSLog(@"Unchecked state: %d", reg.state);
+            // NSLog(@"Unchecked state: %d", reg.state);
             break;
     }
 }
@@ -131,6 +160,12 @@
 
 - (void)endTyping{
     NSLog(@"Timeout reached");
+    // Test dump
+    for (NSNumber *key in cpByFinger){
+        CalibrationPoint *tmp = [cpByFinger objectForKey:key];
+        NSLog(@"ID: %@ (%f, %f)", [tmp getCurrentID], tmp.point.x, tmp.point.y);
+    }
+    
     // Disable Typing
     isTypingMode = false;
     [_typingStateOutlet setText:@"False"];
@@ -151,4 +186,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setDrawingView:nil];
+    [super viewDidUnload];
+}
 @end

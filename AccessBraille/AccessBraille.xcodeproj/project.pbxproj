@@ -23,6 +23,8 @@
 		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
 		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
+		A974257016763EBF00289C8D /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A974256F16763EBF00289C8D /* Drawing.m */; };
+		A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A97425721677BFA400289C8D /* CalibrationPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		A9479C661670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9479C681670034F00CE9475 /* AccessBrailleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBrailleTests.h; sourceTree = "<group>"; };
 		A9479C691670034F00CE9475 /* AccessBrailleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBrailleTests.m; sourceTree = "<group>"; };
+		A974256E16763EBF00289C8D /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawing.h; sourceTree = "<group>"; };
+		A974256F16763EBF00289C8D /* Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawing.m; sourceTree = "<group>"; };
+		A97425711677BFA400289C8D /* CalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationPoint.h; sourceTree = "<group>"; };
+		A97425721677BFA400289C8D /* CalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalibrationPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
 				A9479C531670034E00CE9475 /* ViewController.h */,
 				A9479C541670034E00CE9475 /* ViewController.m */,
+				A974256E16763EBF00289C8D /* Drawing.h */,
+				A974256F16763EBF00289C8D /* Drawing.m */,
+				A97425711677BFA400289C8D /* CalibrationPoint.h */,
+				A97425721677BFA400289C8D /* CalibrationPoint.m */,
 				A9479C3F1670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBraille;
@@ -273,6 +283,8 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* ViewController.m in Sources */,
+				A974257016763EBF00289C8D /* Drawing.m in Sources */,
+				A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +345,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -349,6 +362,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -365,6 +380,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -374,6 +390,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -457,6 +474,7 @@
 				A9479C6F1670034F00CE9475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9479C701670034F00CE9475 /* Build configuration list for PBXNativeTarget "AccessBrailleTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +483,7 @@
 				A9479C721670034F00CE9475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
