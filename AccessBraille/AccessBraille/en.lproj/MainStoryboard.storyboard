@@ -17,10 +17,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3L-aX-kX9">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="ALa-nG-rdy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qBr-xA-W2r" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="G3k-H1-3Vc"/>
+                            <constraint firstAttribute="trailing" secondItem="e3L-aX-kX9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LVS-9P-aOm"/>
+                            <constraint firstItem="e3L-aX-kX9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="NqU-4r-jNh"/>
+                            <constraint firstItem="e3L-aX-kX9" firstAttribute="baseline" secondItem="qBr-xA-W2r" secondAttribute="baseline" type="default" id="ToN-cq-NsM"/>
                             <constraint firstItem="qBr-xA-W2r" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nTi-b1-rhs"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -28,6 +39,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="DrawingView" destination="5" id="Czh-eR-SuS"/>
+                        <outlet property="textOutput" destination="e3L-aX-kX9" id="I31-Bk-5yd"/>
                         <outlet property="typingStateOutlet" destination="qBr-xA-W2r" id="eRv-1O-hL1"/>
                     </connections>
                 </viewController>

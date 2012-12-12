@@ -12,5 +12,6 @@
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *textOutput;
 
 @end

@@ -25,12 +25,26 @@
     return self;
 }
 
+- (int)tapInRadius:(CGPoint)touchPoint {
+    
+    float dx = ABS(_point.x - touchPoint.x);
+    float dy = ABS(_point.y - touchPoint.y);
+    float d = sqrtf(powf(dx, 2) + powf(dy, 2));
+    if (d <= [detectRadius floatValue]) {
+        return 1;
+    } if (d - 25 <= [detectRadius floatValue]) {
+        return 2;
+    } else {
+        return 0;
+    }
+}
+
 - (NSNumber *)getCurrentID{
     return fingerID;
 }
 
 - (void)setRadius:(NSNumber *)radius{
-    detectRadius = radius;
+    detectRadius = radius < @25 ? @25 : radius;
 }
 
 - (void)setNewID:(NSNumber *)newID{

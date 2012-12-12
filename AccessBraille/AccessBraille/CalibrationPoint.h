@@ -11,6 +11,7 @@
 @interface CalibrationPoint : NSObject
 
 - (id)initWithCGPoint:(CGPoint)point withTmpID:(NSNumber *)finger;
+- (int)tapInRadius:(CGPoint)touchPoint;
 - (void)setRadius:(NSNumber *)radius;
 - (void)setNewID:(NSNumber *)newID;
 - (NSNumber *)getCurrentID;

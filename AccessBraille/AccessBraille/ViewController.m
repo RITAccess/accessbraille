@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Drawing.h"
 #import "CalibrationPoint.h"
+#import "BrailleInterpreter.h"
 
 @interface ViewController ()
 
@@ -31,10 +32,11 @@
     NSMutableDictionary *cpByFinger;
     
     // State Change Gestues
-    UILongPressGestureRecognizer *twoFingerHold;
+    UILongPressGestureRecognizer *sixFingerHold;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
+@synthesize textOutput = _textOutput;
 @synthesize DrawingView = _DrawingView;
 
 - (void)viewDidLoad
@@ -67,9 +69,9 @@
         [BRSixTap setEnabled:NO];
     
     // State Switch **two finger for simulater testing**
-    twoFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
-    [twoFingerHold setNumberOfTouchesRequired:6];
-    twoFingerHold.minimumPressDuration = .75;
+    sixFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
+    [sixFingerHold setNumberOfTouchesRequired:6];
+    sixFingerHold.minimumPressDuration = .75;
 
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -78,7 +80,7 @@
     [self.view addGestureRecognizer:BRFourTap];
     [self.view addGestureRecognizer:BRFiveTap];
     [self.view addGestureRecognizer:BRSixTap];
-    [self.view addGestureRecognizer:twoFingerHold];
+    [self.view addGestureRecognizer:sixFingerHold];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -89,11 +91,31 @@
     // Audio feedback click
     // Assuming valid tap, continue typing
     [self beginTyping];
-    NSLog(@"Typing: %@ Taps: %d", isTypingMode ? @"Enabled" : @"Disabled", (int)reg.numberOfTouches);
+    BrailleInterpreter *bi = [[BrailleInterpreter alloc] init];
     for(int t = 0; t < (int)reg.numberOfTouches; t++){
         CGPoint point = [reg locationOfTouch:t inView:reg.view];
-        NSLog(@"Point %d (%f,%f)", t, point.x, point.y);
+        for (NSString *key in cpByFinger){
+            CalibrationPoint *tmp = [cpByFinger objectForKey:key];
+            switch ([tmp tapInRadius:point]) {
+                case 1:
+                    [bi addCalibrationPoint:tmp withCGPoint:point withState:@1];
+                    break;
+                case 2:
+                    [bi addCalibrationPoint:tmp withCGPoint:point withState:@2];
+                case 0:
+                    break;
+            }
+        }
     }
+    NSString *letter = [bi getChar];
+    if (![letter isEqualToString:@"invalid"]) {
+        NSString *tmp = [_textOutput text];
+        tmp = [tmp stringByAppendingString:[bi getChar]];
+        _textOutput.text = tmp;
+    } else {
+        NSLog(@"Letter was null");
+    }
+    
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
@@ -106,6 +128,7 @@
     switch (reg.state) {
         case 1: // On Recognition
             // Disable all navigation gestures
+            [sixFingerHold setEnabled:NO];
             // Enable Braille Recognizers
             [BROneTap setEnabled:YES];
             [BRTwoTap setEnabled:YES];
@@ -128,6 +151,11 @@
             for (int i = 0; i < 6; i++){
                 CalibrationPoint *tmp = [sortedTouchPoints objectAtIndex:i];
                 [tmp setNewID:[fingerIDs objectAtIndex:i]];
+                
+                
+                [tmp setRadius:@50];
+                
+                
                 [cpByFinger setValue:tmp forKey:[[tmp getCurrentID] stringValue]];
             }
             
@@ -177,6 +205,7 @@
     [BRFiveTap setEnabled:NO];
     [BRSixTap setEnabled:NO];
     // Enable Navigation Gestures
+    [sixFingerHold setEnabled:YES];
     // Audio feedback tone down
 }
 
@@ -188,6 +217,7 @@
 
 - (void)viewDidUnload {
     [self setDrawingView:nil];
+    [self setTextOutput:nil];
     [super viewDidUnload];
 }
 @end
