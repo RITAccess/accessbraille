@@ -51,4 +51,8 @@
     fingerID = newID;
 }
 
+- (id)stringValue{
+    return [NSString stringWithFormat:@"CP %@ at (%f,%f)", fingerID, _point.x, _point.y];
+}
+
 @end

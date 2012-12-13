@@ -27,6 +27,9 @@
     UITapGestureRecognizer *BRFourTap;
     UITapGestureRecognizer *BRFiveTap;
     UITapGestureRecognizer *BRSixTap;
+    
+    // Interpreter
+    BrailleInterpreter *bi;
 
     // Calibration Points
     NSMutableDictionary *cpByFinger;
@@ -85,23 +88,24 @@
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
+    bi = [[BrailleInterpreter alloc] init];
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
     // Audio feedback click
     // Assuming valid tap, continue typing
     [self beginTyping];
-    BrailleInterpreter *bi = [[BrailleInterpreter alloc] init];
     for(int t = 0; t < (int)reg.numberOfTouches; t++){
         CGPoint point = [reg locationOfTouch:t inView:reg.view];
         for (NSString *key in cpByFinger){
             CalibrationPoint *tmp = [cpByFinger objectForKey:key];
             switch ([tmp tapInRadius:point]) {
                 case 1:
-                    [bi addCalibrationPoint:tmp withCGPoint:point withState:@1];
+                    
                     break;
                 case 2:
-                    [bi addCalibrationPoint:tmp withCGPoint:point withState:@2];
+                    
+                    break;
                 case 0:
                     break;
             }
@@ -151,13 +155,11 @@
             for (int i = 0; i < 6; i++){
                 CalibrationPoint *tmp = [sortedTouchPoints objectAtIndex:i];
                 [tmp setNewID:[fingerIDs objectAtIndex:i]];
-                
-                
-                [tmp setRadius:@50];
-                
-                
                 [cpByFinger setValue:tmp forKey:[[tmp getCurrentID] stringValue]];
+                [bi addCalibrationPoint:tmp];
             }
+            // Configure radius and buffers in BI
+            [bi setUpCalibration];
             
             // Audio feedback tone up
             NSLog(@"Typing Enabled");

@@ -15,6 +15,7 @@
 - (void)setRadius:(NSNumber *)radius;
 - (void)setNewID:(NSNumber *)newID;
 - (NSNumber *)getCurrentID;
+- (id)stringValue;
 
 @property CGPoint point;
 @property float x;

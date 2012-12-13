@@ -12,7 +12,8 @@
 @interface BrailleInterpreter : NSObject
 
 - (id)init;
-- (void)addCalibrationPoint:(CalibrationPoint *)cp withCGPoint:(CGPoint)point withState:(NSNumber *)state;
+- (void)addCalibrationPoint:(CalibrationPoint *)cp;
+- (void)setUpCalibration;
 - (NSString *)getChar;
 
 @end
