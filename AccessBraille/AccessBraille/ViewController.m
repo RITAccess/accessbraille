@@ -130,9 +130,7 @@
     NSSortDescriptor *sortXValues = [[NSSortDescriptor alloc] initWithKey:@"x" ascending:TRUE];
     NSArray *sorters = @[ sortXValues ];
     switch (reg.state) {
-        case 1: // On Recognition
-            // Disable all navigation gestures
-            [sixFingerHold setEnabled:NO];
+        case 1:
             // Enable Braille Recognizers
             [BROneTap setEnabled:YES];
             [BRTwoTap setEnabled:YES];
@@ -162,11 +160,13 @@
             [bi setUpCalibration];
             
             // Audio feedback tone up
-            NSLog(@"Typing Enabled");
             break;
             
         case 3: // On Release
             [self beginTyping];
+            // Disable all navigation gestures
+            [sixFingerHold setEnabled:NO];
+            NSLog(@"Typing Enabled");
             break;
             
         default:

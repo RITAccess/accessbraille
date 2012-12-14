@@ -27,24 +27,40 @@
 }
 
 - (void)addCalibrationPoint:(CalibrationPoint *)cp {
-    [CPPPoints setObject:cp forKey:[[cp getCurrentID] stringValue]];
+    [CPPPoints setObject:cp forKey:[cp getCurrentID]];
 }
 
-- (void)setUpCalibration{
-    [self findDeltas];
+- (void)setUpCalibration {
+    NSMutableArray *deltas = [self findDeltas];
     
-}
-
-- (NSMutableDictionary *)findDeltas{
-    NSMutableDictionary *deltas = [[NSMutableDictionary alloc] init];
-    for (int i = 1; i <= 6; i++) {
-        NSNumber *tmpID = [NSNumber numberWithInt:i];
-        
-        NSLog(@"%@", [[CPPPoints objectForKey:tmpID] stringValue]);
-        
+    float minDelta = [deltas[0] floatValue];
+    int minIndex = 0;
+    for (int i = 1; i <= 4; i++) {
+        if ([deltas[i] floatValue] < minDelta) {
+            minDelta = [deltas[i] floatValue];
+            minIndex = i;
+        }
     }
     
+    for (int n = 1; n <= 6; n++){
+        NSNumber *i = [NSNumber numberWithInt:n];
+        CalibrationPoint *tmp = [CPPPoints objectForKey:i];
+        [tmp setRadius:[NSNumber numberWithFloat:( minDelta / 2.0 )]];
+    }
+
     
+}
+
+- (NSMutableArray *)findDeltas{
+    NSMutableArray *deltas = [[NSMutableArray alloc] init];
+    for (int i = 1; i <= 5; i++) {
+        CalibrationPoint *tmp1 = [CPPPoints objectForKey:[NSNumber numberWithInt:i]];
+        CalibrationPoint *tmp2 = [CPPPoints objectForKey:[NSNumber numberWithInt:i + 1]];
+        NSNumber *delta = [NSNumber numberWithFloat:(
+            sqrtf(powf(tmp1.point.x - tmp2.point.x, 2) - powf(tmp1.point.y - tmp2.point.y, 2))
+        )];
+        [deltas addObject:delta];
+    }
     return deltas;
 }
 

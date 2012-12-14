@@ -11,6 +11,7 @@
 @implementation CalibrationPoint {
     NSNumber *detectRadius;
     NSNumber *fingerID;
+    NSNumber *buffer;
 }
 
 @synthesize point = _point;
@@ -32,7 +33,7 @@
     float d = sqrtf(powf(dx, 2) + powf(dy, 2));
     if (d <= [detectRadius floatValue]) {
         return 1;
-    } if (d - 25 <= [detectRadius floatValue]) {
+    } if (d - [buffer floatValue] <= [detectRadius floatValue]) {
         return 2;
     } else {
         return 0;
@@ -47,11 +48,15 @@
     detectRadius = radius < @25 ? @25 : radius;
 }
 
+- (void)setBuffer:(NSNumber *)bufferRF {
+    buffer = bufferRF;
+}
+
 - (void)setNewID:(NSNumber *)newID{
     fingerID = newID;
 }
 
-- (id)stringValue{
+- (NSString *)description {
     return [NSString stringWithFormat:@"CP %@ at (%f,%f)", fingerID, _point.x, _point.y];
 }
 

@@ -13,9 +13,10 @@
 - (id)initWithCGPoint:(CGPoint)point withTmpID:(NSNumber *)finger;
 - (int)tapInRadius:(CGPoint)touchPoint;
 - (void)setRadius:(NSNumber *)radius;
+- (void)setBuffer:(NSNumber *)bufferRF;
 - (void)setNewID:(NSNumber *)newID;
 - (NSNumber *)getCurrentID;
-- (id)stringValue;
+- (NSString *)description;
 
 @property CGPoint point;
 @property float x;
