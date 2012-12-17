@@ -11,7 +11,7 @@
 
 @interface BrailleInterpreter : NSObject
 
-- (id)init;
+- (id)initWithViewController:(UIViewController *)view;
 - (void)addCalibrationPoint:(CalibrationPoint *)cp;
 - (void)setUpCalibration;
 - (NSString *)getChar;

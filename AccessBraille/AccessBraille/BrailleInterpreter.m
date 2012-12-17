@@ -8,20 +8,24 @@
 
 #import "BrailleInterpreter.h"
 #import "CalibrationPoint.h"
+#import "Drawing.h"
+#import "ViewController.h"
 
 @implementation BrailleInterpreter{
     
     NSDictionary *grad1LookUp;
     NSMutableDictionary *CPPPoints;
+    UIViewController *mainView;
     
 }
 
-- (id)init {
+- (id)initWithViewController:(UIViewController *)view {
     if (self = [super init]) {
         CPPPoints = [[NSMutableDictionary alloc] init];
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"grade1lookup.plist"];
         grad1LookUp = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+        mainView = view;
     }
     return self;
 }
@@ -46,6 +50,8 @@
         NSNumber *i = [NSNumber numberWithInt:n];
         CalibrationPoint *tmp = [CPPPoints objectForKey:i];
         [tmp setRadius:[NSNumber numberWithFloat:( minDelta / 2.0 )]];
+        Drawing *test = [[Drawing alloc] initWithPoint:tmp.point radius:[[tmp getRadius] floatValue]];
+        [mainView.view addSubview:test];
     }
 
     

@@ -2,7 +2,7 @@
 //  Drawing.h
 //  AccessBraille
 //
-//  Created by Michael on 12/10/12.
+//  Created by Michael on 12/17/12.
 //  Copyright (c) 2012 RIT. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 @interface Drawing : UIView
 
-- (void)drawRect:(CGRect)rect;
+- (id)initWithPoint:(CGPoint)point radius:(int)radius;
 
 @end

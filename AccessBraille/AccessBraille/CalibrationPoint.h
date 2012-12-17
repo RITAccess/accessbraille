@@ -15,6 +15,7 @@
 - (void)setRadius:(NSNumber *)radius;
 - (void)setBuffer:(NSNumber *)bufferRF;
 - (void)setNewID:(NSNumber *)newID;
+- (NSNumber *)getRadius;
 - (NSNumber *)getCurrentID;
 - (NSString *)description;
 

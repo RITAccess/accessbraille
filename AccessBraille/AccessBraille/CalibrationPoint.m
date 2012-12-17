@@ -17,6 +17,7 @@
 @synthesize point = _point;
 @synthesize x = _x;
 
+
 - (id)initWithCGPoint:(CGPoint)point withTmpID:(NSNumber *)finger{
     if (self = [super init]) {
         _point = point;
@@ -46,6 +47,10 @@
 
 - (void)setRadius:(NSNumber *)radius{
     detectRadius = radius < @25 ? @25 : radius;
+}
+
+- (NSNumber *)getRadius{
+    return detectRadius;
 }
 
 - (void)setBuffer:(NSNumber *)bufferRF {

@@ -25,8 +25,8 @@
 		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
 		A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */; };
 		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
-		A974257016763EBF00289C8D /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A974256F16763EBF00289C8D /* Drawing.m */; };
 		A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A97425721677BFA400289C8D /* CalibrationPoint.m */; };
+		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +65,10 @@
 		A95FFC1916792C2300BF966C /* BrailleInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleInterpreter.h; sourceTree = "<group>"; };
 		A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleInterpreter.m; sourceTree = "<group>"; };
 		A95FFC251679394600BF966C /* grade1lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade1lookup.plist; sourceTree = "<group>"; };
-		A974256E16763EBF00289C8D /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawing.h; sourceTree = "<group>"; };
-		A974256F16763EBF00289C8D /* Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawing.m; sourceTree = "<group>"; };
 		A97425711677BFA400289C8D /* CalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationPoint.h; sourceTree = "<group>"; };
 		A97425721677BFA400289C8D /* CalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalibrationPoint.m; sourceTree = "<group>"; };
+		A9C960D3167F7B4F00084764 /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawing.h; sourceTree = "<group>"; };
+		A9C960D4167F7B4F00084764 /* Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +133,12 @@
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
 				A9479C531670034E00CE9475 /* ViewController.h */,
 				A9479C541670034E00CE9475 /* ViewController.m */,
-				A974256E16763EBF00289C8D /* Drawing.h */,
-				A974256F16763EBF00289C8D /* Drawing.m */,
 				A97425711677BFA400289C8D /* CalibrationPoint.h */,
 				A97425721677BFA400289C8D /* CalibrationPoint.m */,
 				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
 				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
+				A9C960D3167F7B4F00084764 /* Drawing.h */,
+				A9C960D4167F7B4F00084764 /* Drawing.m */,
 				A9479C3F1670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBraille;
@@ -292,9 +292,9 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* ViewController.m in Sources */,
-				A974257016763EBF00289C8D /* Drawing.m in Sources */,
 				A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */,
 				A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */,
+				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

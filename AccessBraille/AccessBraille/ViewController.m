@@ -88,7 +88,7 @@
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
-    bi = [[BrailleInterpreter alloc] init];
+    bi = [[BrailleInterpreter alloc] initWithViewController:self];
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
@@ -104,7 +104,7 @@
                     
                     break;
                 case 2:
-                    
+                   
                     break;
                 case 0:
                     break;
