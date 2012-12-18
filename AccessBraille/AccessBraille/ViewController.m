@@ -95,31 +95,21 @@
     // Audio feedback click
     // Assuming valid tap, continue typing
     [self beginTyping];
+    NSMutableDictionary *touchPoints = [[NSMutableDictionary alloc] init];
     for(int t = 0; t < (int)reg.numberOfTouches; t++){
         CGPoint point = [reg locationOfTouch:t inView:reg.view];
         for (NSString *key in cpByFinger){
             CalibrationPoint *tmp = [cpByFinger objectForKey:key];
-            switch ([tmp tapInRadius:point]) {
-                case 1:
-                    
-                    break;
-                case 2:
-                   
-                    break;
-                case 0:
-                    break;
+            if ([tmp tapInRadius:point]) {
+                [touchPoints setObject:tmp forKey:[tmp getCurrentID]];
             }
         }
     }
-    NSString *letter = [bi getChar];
-    if (![letter isEqualToString:@"invalid"]) {
-        NSString *tmp = [_textOutput text];
-        tmp = [tmp stringByAppendingString:[bi getChar]];
-        _textOutput.text = tmp;
-    } else {
-        NSLog(@"Letter was null");
-    }
-    
+    NSString *check = [bi getChar:touchPoints];
+    NSString *letter = [check isEqualToString:@"not"] ? @"" : check;
+    NSString *currentText = _textOutput.text;
+    _textOutput.text = [currentText stringByAppendingString:letter];
+    NSLog(@"%@", letter);
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
@@ -193,7 +183,7 @@
     // Test dump
     for (NSNumber *key in cpByFinger){
         CalibrationPoint *tmp = [cpByFinger objectForKey:key];
-        NSLog(@"ID: %@ (%f, %f)", [tmp getCurrentID], tmp.point.x, tmp.point.y);
+        NSLog(@"%@", [tmp description]);
     }
     
     // Disable Typing
@@ -208,6 +198,12 @@
     [BRSixTap setEnabled:NO];
     // Enable Navigation Gestures
     [sixFingerHold setEnabled:YES];
+    // Clear subview
+    for (Drawing *v in [self.view subviews]){
+        if ([v isKindOfClass:[Drawing class]]) {
+            [v removeFromSuperview];
+        }
+    }
     // Audio feedback tone down
 }
 

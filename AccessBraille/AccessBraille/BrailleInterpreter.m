@@ -46,14 +46,13 @@
         }
     }
     
-    for (int n = 1; n <= 6; n++){
-        NSNumber *i = [NSNumber numberWithInt:n];
-        CalibrationPoint *tmp = [CPPPoints objectForKey:i];
-        [tmp setRadius:[NSNumber numberWithFloat:( minDelta / 2.0 )]];
-        Drawing *test = [[Drawing alloc] initWithPoint:tmp.point radius:[[tmp getRadius] floatValue]];
-        [mainView.view addSubview:test];
+    for (NSNumber *key in CPPPoints){
+        CalibrationPoint *cp = [CPPPoints objectForKey:key];
+        [cp setRadius:[NSNumber numberWithFloat:( minDelta / 2.0 )]];
+        Drawing *touch = [[Drawing alloc] initWithPoint:[cp point] radius:[[cp getRadius] intValue]];
+        [mainView.view addSubview:touch];
     }
-
+    
     
 }
 
@@ -70,21 +69,29 @@
     return deltas;
 }
 
-- (NSString *)getChar{
-    NSString *brailleCode = @"";
-    for (int i = 1; i <= 6; i++){
-        NSString *index = [[NSNumber numberWithInt:i] stringValue];
-        if ([CPPPoints valueForKey:index]){
-            brailleCode = [brailleCode stringByAppendingString:@"1"];
+- (NSString *)getChar:(NSMutableDictionary *)touchPoints{
+    NSString *lookupKey = @"";
+    for (int s = 1; s <= 6; s++){
+        NSNumber *key = [NSNumber numberWithInt:s];
+        if ([touchPoints objectForKey:key]) {
+            lookupKey = [lookupKey stringByAppendingString:@"1"];
         } else {
-            brailleCode = [brailleCode stringByAppendingString:@"0"];
+            lookupKey = [lookupKey stringByAppendingString:@"0"];
         }
     }
-    
-    NSString *letter = [grad1LookUp valueForKey:brailleCode];
-    NSString *returnLetter = [letter length] == 1 ? letter : @"invalid";
-    return returnLetter;
+    NSString *letter = [grad1LookUp objectForKey:lookupKey] ? [grad1LookUp objectForKey:lookupKey] : @"not";
+    return letter;
 }
 
 
 @end
+
+
+
+
+
+
+
+
+
+

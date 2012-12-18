@@ -14,6 +14,7 @@
 - (id)initWithViewController:(UIViewController *)view;
 - (void)addCalibrationPoint:(CalibrationPoint *)cp;
 - (void)setUpCalibration;
-- (NSString *)getChar;
+- (NSString *)getChar:(NSMutableDictionary *)touchPoints;
+
 
 @end

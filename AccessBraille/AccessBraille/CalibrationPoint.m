@@ -46,7 +46,7 @@
 }
 
 - (void)setRadius:(NSNumber *)radius{
-    detectRadius = radius < @25 ? @25 : radius;
+    detectRadius = radius;
 }
 
 - (NSNumber *)getRadius{
@@ -62,7 +62,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"CP %@ at (%f,%f)", fingerID, _point.x, _point.y];
+    return [NSString stringWithFormat:@"CP %@ at (%f,%f) radius %@", fingerID, _point.x, _point.y, detectRadius];
+    
 }
 
 @end
