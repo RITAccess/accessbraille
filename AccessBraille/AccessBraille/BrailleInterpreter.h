@@ -15,6 +15,8 @@
 - (void)addCalibrationPoint:(CalibrationPoint *)cp;
 - (void)setUpCalibration;
 - (NSString *)getChar:(NSMutableDictionary *)touchPoints;
-
+- (float)getAverageYValue;
+- (float)getMaxYDelta;
+- (NSString *)description;
 
 @end

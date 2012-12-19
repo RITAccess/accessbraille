@@ -36,7 +36,6 @@
 
 - (void)setUpCalibration {
     NSMutableArray *deltas = [self findDeltas];
-    
     float minDelta = [deltas[0] floatValue];
     int minIndex = 0;
     for (int i = 1; i <= 4; i++) {
@@ -83,6 +82,38 @@
     return letter;
 }
 
+- (float)getAverageYValue {
+    float count = 0;
+    for (NSNumber *key in CPPPoints){
+        CalibrationPoint *cp = [CPPPoints objectForKey:key];
+        count += cp.point.y;
+    }
+    return count / 6;
+}
+
+- (float)getMaxYDelta{
+    float max = 0;
+    float min = INFINITY;
+    for (NSNumber *key in CPPPoints) {
+        CalibrationPoint *tmp = [CPPPoints objectForKey:key];
+        if (tmp.point.y > max) {
+            max = tmp.point.y;
+        }
+        if (tmp.point.y < min) {
+            min = tmp.point.y;
+        }
+    }
+    return max - min;
+}
+
+- (NSString *)description{
+    NSString *builder = @"BrailleInterpreter Dump\n";
+    for (NSNumber *key in CPPPoints){
+        CalibrationPoint *tmp = [CPPPoints objectForKey:key];
+        builder = [builder stringByAppendingFormat:@"%@\n", [tmp description]];
+    }
+    return builder;
+}
 
 @end
 

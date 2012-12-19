@@ -10,6 +10,7 @@
 #import "Drawing.h"
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
 
@@ -36,6 +37,7 @@
     
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
+    UITapGestureRecognizer *doubleTapExit;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -75,6 +77,10 @@
     sixFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
     [sixFingerHold setNumberOfTouchesRequired:6];
     sixFingerHold.minimumPressDuration = .75;
+    doubleTapExit = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(exitTyping:)];
+    [doubleTapExit setNumberOfTapsRequired:2];
+    [doubleTapExit setNumberOfTouchesRequired:1];
+    [doubleTapExit setEnabled:NO];
 
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -84,6 +90,7 @@
     [self.view addGestureRecognizer:BRFiveTap];
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
+    [self.view addGestureRecognizer:doubleTapExit];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -105,11 +112,19 @@
             }
         }
     }
-    NSString *check = [bi getChar:touchPoints];
-    NSString *letter = [check isEqualToString:@"not"] ? @"" : check;
-    NSString *currentText = _textOutput.text;
-    _textOutput.text = [currentText stringByAppendingString:letter];
-    NSLog(@"%@", letter);
+    if (touchPoints.count > 0) {
+        NSString *check = [bi getChar:touchPoints];
+        NSString *letter = [check isEqualToString:@"not"] ? @"" : check;
+        NSString *currentText = _textOutput.text;
+        _textOutput.text = [currentText stringByAppendingString:letter];
+        NSLog(@"%@", letter);
+    } else {
+        if ([bi getAverageYValue] < [reg locationInView:reg.view].y){
+            NSString *currentText = _textOutput.text;
+            _textOutput.text = [currentText stringByAppendingString:@" "];
+            NSLog(@"Space");
+        }
+    }
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
@@ -128,6 +143,7 @@
             [BRFourTap setEnabled:YES];
             [BRFiveTap setEnabled:YES];
             [BRSixTap setEnabled:YES];
+            [doubleTapExit setEnabled:YES];
             
             // Set callibration points
             rawTouch = @[
@@ -154,6 +170,7 @@
             
         case 3: // On Release
             [self beginTyping];
+            NSLog(@"%@", [bi description]);
             // Disable all navigation gestures
             [sixFingerHold setEnabled:NO];
             NSLog(@"Typing Enabled");
@@ -178,14 +195,16 @@
     }
 }
 
-- (void)endTyping{
-    NSLog(@"Timeout reached");
-    // Test dump
-    for (NSNumber *key in cpByFinger){
-        CalibrationPoint *tmp = [cpByFinger objectForKey:key];
-        NSLog(@"%@", [tmp description]);
+- (void)exitTyping:(UITapGestureRecognizer *)reg{
+    if ([bi getAverageYValue] > ([reg locationInView:reg.view].y + [bi getMaxYDelta])) {
+        [self endTyping];
     }
-    
+}
+
+- (void)endTyping{
+    // End Timer
+    [typingTimeout invalidate];
+    NSLog(@"End Typing");
     // Disable Typing
     isTypingMode = false;
     [_typingStateOutlet setText:@"False"];
@@ -196,6 +215,7 @@
     [BRFourTap setEnabled:NO];
     [BRFiveTap setEnabled:NO];
     [BRSixTap setEnabled:NO];
+    [doubleTapExit setEnabled:NO];
     // Enable Navigation Gestures
     [sixFingerHold setEnabled:YES];
     // Clear subview
