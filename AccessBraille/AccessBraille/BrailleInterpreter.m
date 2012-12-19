@@ -19,6 +19,8 @@
     
 }
 
+@synthesize delta = _delta;
+
 - (id)initWithViewController:(UIViewController *)view {
     if (self = [super init]) {
         CPPPoints = [[NSMutableDictionary alloc] init];
@@ -47,7 +49,9 @@
     
     for (NSNumber *key in CPPPoints){
         CalibrationPoint *cp = [CPPPoints objectForKey:key];
-        [cp setRadius:[NSNumber numberWithFloat:( minDelta / 2.0 )]];
+        NSNumber *rad = [NSNumber numberWithFloat:( minDelta / 2.0 )];
+        NSLog(@"%@", rad);
+        [cp setRadius:[rad floatValue] < [@25 floatValue] ? @25 : rad];
         Drawing *touch = [[Drawing alloc] initWithPoint:[cp point] radius:[[cp getRadius] intValue]];
         [mainView.view addSubview:touch];
     }
@@ -65,6 +69,7 @@
         )];
         [deltas addObject:delta];
     }
+    _delta = deltas;
     return deltas;
 }
 

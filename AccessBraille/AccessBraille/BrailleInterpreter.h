@@ -11,6 +11,8 @@
 
 @interface BrailleInterpreter : NSObject
 
+@property NSMutableArray *delta;
+
 - (id)initWithViewController:(UIViewController *)view;
 - (void)addCalibrationPoint:(CalibrationPoint *)cp;
 - (void)setUpCalibration;
@@ -18,5 +20,6 @@
 - (float)getAverageYValue;
 - (float)getMaxYDelta;
 - (NSString *)description;
+
 
 @end
