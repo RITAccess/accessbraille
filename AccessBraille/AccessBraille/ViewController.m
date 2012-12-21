@@ -28,6 +28,7 @@
     UITapGestureRecognizer *BRFourTap;
     UITapGestureRecognizer *BRFiveTap;
     UITapGestureRecognizer *BRSixTap;
+    UIPinchGestureRecognizer *threeFingerClearAll;
     
     // Interpreter
     BrailleInterpreter *bi;
@@ -47,6 +48,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Test Audio
+    
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
@@ -81,7 +84,10 @@
     [doubleTapExit setNumberOfTapsRequired:2];
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
-
+    
+    // Text Editing gestures
+    threeFingerClearAll = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(clearText:)];
+        
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
     [self.view addGestureRecognizer:BRTwoTap];
@@ -91,6 +97,7 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
+    [self.view addGestureRecognizer:threeFingerClearAll];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -125,6 +132,13 @@
             NSLog(@"Space");
         }
     }
+}
+
+- (void)clearText:(UIPinchGestureRecognizer *)reg {
+    
+    NSLog(@"TEST %lu", (unsigned long)reg.numberOfTouches);
+    
+    // _textOutput.text = @"";
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
@@ -173,6 +187,7 @@
             NSLog(@"%@", [bi description]);
             // Disable all navigation gestures
             [sixFingerHold setEnabled:NO];
+            [threeFingerClearAll setEnabled:NO];
             NSLog(@"Typing Enabled");
             break;
             
@@ -218,6 +233,7 @@
     [doubleTapExit setEnabled:NO];
     // Enable Navigation Gestures
     [sixFingerHold setEnabled:YES];
+    [threeFingerClearAll setEnabled:YES];
     // Clear subview
     for (Drawing *v in [self.view subviews]){
         if ([v isKindOfClass:[Drawing class]]) {

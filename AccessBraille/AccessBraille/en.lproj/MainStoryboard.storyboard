@@ -20,6 +20,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3L-aX-kX9">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="ALa-nG-rdy"/>
+                                    <constraint firstAttribute="height" constant="172" id="adf-QT-43r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -28,10 +29,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="e3L-aX-kX9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="36" id="6wV-v1-Stx"/>
                             <constraint firstItem="qBr-xA-W2r" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="G3k-H1-3Vc"/>
-                            <constraint firstAttribute="trailing" secondItem="e3L-aX-kX9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LVS-9P-aOm"/>
-                            <constraint firstItem="e3L-aX-kX9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="NqU-4r-jNh"/>
-                            <constraint firstItem="e3L-aX-kX9" firstAttribute="baseline" secondItem="qBr-xA-W2r" secondAttribute="baseline" type="default" id="ToN-cq-NsM"/>
+                            <constraint firstItem="e3L-aX-kX9" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="HfF-qW-RuL"/>
                             <constraint firstItem="qBr-xA-W2r" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nTi-b1-rhs"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
