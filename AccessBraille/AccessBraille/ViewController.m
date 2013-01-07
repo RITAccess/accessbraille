@@ -10,6 +10,8 @@
 #import "Drawing.h"
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
+#import "UIThreeFingerPinch.h"
+
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
@@ -28,7 +30,7 @@
     UITapGestureRecognizer *BRFourTap;
     UITapGestureRecognizer *BRFiveTap;
     UITapGestureRecognizer *BRSixTap;
-    UIPinchGestureRecognizer *threeFingerClearAll;
+    UIThreeFingerPinch *threeFingerClearAll;
     
     // Interpreter
     BrailleInterpreter *bi;
@@ -86,7 +88,7 @@
     [doubleTapExit setEnabled:NO];
     
     // Text Editing gestures
-    threeFingerClearAll = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(clearText:)];
+    threeFingerClearAll = [[UIThreeFingerPinch alloc] initWithTarget:self action:@selector(clearText:)];
         
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -136,7 +138,9 @@
 
 - (void)clearText:(UIPinchGestureRecognizer *)reg {
     
-    NSLog(@"TEST %lu", (unsigned long)reg.numberOfTouches);
+    if (reg.numberOfTouches == 3) {
+        NSLog(@"Pinch is three fingered");
+    }
     
     // _textOutput.text = @"";
 }
