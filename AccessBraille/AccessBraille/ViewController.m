@@ -10,6 +10,7 @@
 #import "Drawing.h"
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
+#import "NavigationView.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
@@ -38,15 +39,22 @@
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
+    UISwipeGestureRecognizer *navPullout;
+    UILongPressGestureRecognizer *dragging;
+    
+    // View
+    NavigationView *nav;
+    
+    
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
 @synthesize textOutput = _textOutput;
 @synthesize DrawingView = _DrawingView;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
@@ -81,6 +89,13 @@
     [doubleTapExit setNumberOfTapsRequired:2];
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
+    
+    // Nav pullout
+    navPullout = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(navPullOut:)];
+    [navPullout setNumberOfTouchesRequired:1];
+    [navPullout setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    
 
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -91,11 +106,48 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
+    [self.view addGestureRecognizer:navPullout];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
+}
+
+-(void)navPullOut:(UISwipeGestureRecognizer *)reg {
+    float x = [reg locationInView:self.view].x;
+    if (x < 10){
+        NSLog(@"Swipe start X %f", x);
+        dragging = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(navDragging:)];
+        [dragging setNumberOfTouchesRequired:1];
+        dragging.minimumPressDuration = 0;
+        [dragging setAccessibilityLabel:@"NAV"];
+        [self.view addGestureRecognizer:dragging];
+    }  
+}
+
+-(void)navDragging:(UILongPressGestureRecognizer *)reg {
+    CGPoint touch = [reg locationOfTouch:0 inView:self.view];
+    switch (reg.state) {
+        case 1:
+            nav = [[NavigationView alloc] initWithFrame:CGRectMake(touch.x - 100, 0, 100, 748)];
+            [self.view addSubview:nav];
+            NSLog(@"start draggin");
+            break;
+            
+        case 2:
+            // update location
+            [nav updateWithCGPoint:touch];
+            NSLog(@"draggin");
+            break;
+        case 3:
+            
+            [self.view removeGestureRecognizer:dragging];
+            
+            NSLog(@"end");
+            break;
+    }
+    
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
