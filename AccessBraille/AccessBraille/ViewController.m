@@ -39,8 +39,8 @@
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
-    UISwipeGestureRecognizer *navPullout;
-    UILongPressGestureRecognizer *dragging;
+    UIPanGestureRecognizer *testPanGR;
+    _Bool isActiveNav;
     
     // View
     NavigationView *nav;
@@ -91,9 +91,9 @@
     [doubleTapExit setEnabled:NO];
     
     // Nav pullout
-    navPullout = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(navPullOut:)];
-    [navPullout setNumberOfTouchesRequired:1];
-    [navPullout setDirection:UISwipeGestureRecognizerDirectionRight];
+    nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
+    testPanGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(navDragging:)];
+    [self.view addGestureRecognizer:testPanGR];
     
     
 
@@ -106,7 +106,7 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
-    [self.view addGestureRecognizer:navPullout];
+    [self.view addGestureRecognizer:testPanGR];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -114,40 +114,26 @@
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
 }
 
--(void)navPullOut:(UISwipeGestureRecognizer *)reg {
-    float x = [reg locationInView:self.view].x;
-    if (x < 10){
-        NSLog(@"Swipe start X %f", x);
-        dragging = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(navDragging:)];
-        [dragging setNumberOfTouchesRequired:1];
-        dragging.minimumPressDuration = 0;
-        [dragging setAccessibilityLabel:@"NAV"];
-        [self.view addGestureRecognizer:dragging];
-    }  
-}
-
--(void)navDragging:(UILongPressGestureRecognizer *)reg {
-    CGPoint touch = [reg locationOfTouch:0 inView:self.view];
-    switch (reg.state) {
-        case 1:
-            nav = [[NavigationView alloc] initWithFrame:CGRectMake(touch.x - 100, 0, 100, 748)];
-            [self.view addSubview:nav];
-            NSLog(@"start draggin");
-            break;
-            
-        case 2:
-            // update location
-            [nav updateWithCGPoint:touch];
-            NSLog(@"draggin");
-            break;
-        case 3:
-            
-            [self.view removeGestureRecognizer:dragging];
-            
-            NSLog(@"end");
-            break;
-    }
+-(void)navDragging:(UIPanGestureRecognizer *)reg {
+    if (reg.numberOfTouches > 0){
     
+        CGPoint touch = [reg locationOfTouch:0 inView:self.view];
+        switch (reg.state) {
+            case 1:
+                [self.view addSubview:nav];
+                NSLog(@"start draggin");
+                break;
+                
+            case 2:
+                // update location
+                [nav updateWithCGPoint:touch];
+                break;
+        }
+    } else {
+        isActiveNav = [nav isActive];
+        [nav touchesEnd];
+        NSLog(@"END STATE NavActive? %@", isActiveNav ? @"True" : @"False");
+    }
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{

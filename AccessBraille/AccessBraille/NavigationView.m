@@ -10,7 +10,7 @@
 
 @implementation NavigationView {
     
-    CGPoint lastTouchLocation;
+    
     
 }
 
@@ -23,15 +23,30 @@
 }
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation {
-    NSLog(@"Touch Point update called");
-    
-    int locationXDelta = 0;
     int xpos = touchLocation.x <= 100 ? touchLocation.x - 100 : 0;
     [super setFrame:CGRectMake(xpos, 0, 100, 748)];
-    
-    lastTouchLocation = touchLocation;
 }
 
+-(void)touchesEnd {
+    NSLog(@"Touch ended");
+    if (![self isActive]){
+        [UIView animateWithDuration:0.5 animations:^{
+            [super setFrame:CGRectMake(-100, 0, 100, 748)];
+        }];
+    }
+    
+}
+
+-(Boolean)isActive {
+    
+    CGPoint navPoint = [super frame].origin;
+    NSLog(@"%f", navPoint.x);
+    if (navPoint.x == 0) {
+        return true;
+    }
+    
+    return false;
+}
 
 
 @end

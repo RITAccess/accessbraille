@@ -11,5 +11,7 @@
 @interface NavigationView : UIView
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
+-(void)touchesEnd;
+-(Boolean)isActive;
 
 @end
