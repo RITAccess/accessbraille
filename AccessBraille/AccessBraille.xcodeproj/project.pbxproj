@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
 		A94471E6169CAC1000B66193 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E5169CAC1000B66193 /* NavigationView.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezelGestureRecognizer.h; sourceTree = "<group>"; };
+		A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezelGestureRecognizer.m; sourceTree = "<group>"; };
 		A94471E4169CAC1000B66193 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
 		A94471E5169CAC1000B66193 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		A9479C351670034E00CE9475 /* AccessBraille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessBraille.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9343268169F47D700C659C1 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */,
+				A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */,
+			);
+			name = Gestures;
+			sourceTree = "<group>";
+		};
 		A9479C2C1670034D00CE9475 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 		A9479C3E1670034E00CE9475 /* AccessBraille */ = {
 			isa = PBXGroup;
 			children = (
+				A9343268169F47D700C659C1 /* Gestures */,
 				A9479C471670034E00CE9475 /* AppDelegate.h */,
 				A9479C481670034E00CE9475 /* AppDelegate.m */,
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
@@ -305,6 +318,7 @@
 				A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A94471E6169CAC1000B66193 /* NavigationView.m in Sources */,
+				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
