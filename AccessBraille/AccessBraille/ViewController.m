@@ -11,6 +11,7 @@
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
 #import "NavigationView.h"
+#import "UIBezelGestureRecognizer.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
@@ -39,7 +40,7 @@
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
-    UIPanGestureRecognizer *testPanGR;
+    UIBezelGestureRecognizer *leftSideSwipe;
     _Bool isActiveNav;
     
     // View
@@ -92,8 +93,7 @@
     
     // Nav pullout
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
-    testPanGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(navDragging:)];
-    [self.view addGestureRecognizer:testPanGR];
+    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
     
     
 
@@ -106,7 +106,7 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
-    [self.view addGestureRecognizer:testPanGR];
+    [self.view addGestureRecognizer:leftSideSwipe];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -114,26 +114,26 @@
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
 }
 
--(void)navDragging:(UIPanGestureRecognizer *)reg {
-    if (reg.numberOfTouches > 0){
+-(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
     
-        CGPoint touch = [reg locationOfTouch:0 inView:self.view];
-        switch (reg.state) {
-            case 1:
-                [self.view addSubview:nav];
-                NSLog(@"start draggin");
-                break;
-                
-            case 2:
-                // update location
-                [nav updateWithCGPoint:touch];
-                break;
-        }
-    } else {
-        isActiveNav = [nav isActive];
-        [nav touchesEnd];
-        NSLog(@"END STATE NavActive? %@", isActiveNav ? @"True" : @"False");
+    switch (reg.state) {
+        case UIGestureRecognizerStateChanged:
+            NSLog(@"State Changing");
+            break;
+            
+        case UIGestureRecognizerStateBegan:
+            NSLog(@"State Started");
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            NSLog(@"State Ended");
+            break;
+            
+        default:
+            break;
     }
+    
+    
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
