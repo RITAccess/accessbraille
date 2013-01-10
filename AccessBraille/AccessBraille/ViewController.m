@@ -93,6 +93,7 @@
     
     // Nav pullout
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
+    [self.view addSubview:nav];
     leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
     
     
@@ -115,10 +116,11 @@
 }
 
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-    
+    CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-            NSLog(@"State Changing");
+            printf(".");
+            [nav updateWithCGPoint:touch];
             break;
             
         case UIGestureRecognizerStateBegan:
@@ -126,7 +128,11 @@
             break;
             
         case UIGestureRecognizerStateEnded:
+            printf("\n");
             NSLog(@"State Ended");
+            if (touch.x < 100) {
+                [nav close];
+            }
             break;
             
         default:

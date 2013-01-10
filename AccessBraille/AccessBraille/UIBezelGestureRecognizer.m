@@ -52,5 +52,4 @@
 //    NSLog(@"Gesture reset");
 }
 
-
 @end

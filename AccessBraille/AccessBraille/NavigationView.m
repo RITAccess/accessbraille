@@ -8,11 +8,7 @@
 
 #import "NavigationView.h"
 
-@implementation NavigationView {
-    
-    
-    
-}
+@implementation NavigationView 
 
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -27,14 +23,10 @@
     [super setFrame:CGRectMake(xpos, 0, 100, 748)];
 }
 
--(void)touchesEnd {
-    NSLog(@"Touch ended");
-    if (![self isActive]){
-        [UIView animateWithDuration:0.5 animations:^{
-            [super setFrame:CGRectMake(-100, 0, 100, 748)];
-        }];
-    }
-    
+-(void)close {
+    [UIView animateWithDuration:0.5 animations:^{
+        [super setFrame:CGRectMake(-100, 0, 100, 748)];
+    }];
 }
 
 -(Boolean)isActive {
