@@ -11,6 +11,7 @@
 @interface NavigationView : UIView
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
+-(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
 -(void)close;
 
 @end

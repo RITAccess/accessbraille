@@ -153,9 +153,9 @@
 }
 
 -(void)panMenu:(UIPanGestureRecognizer *)reg{
-    
-    NSLog(@"panning");
-    
+    if (reg.state == UIGestureRecognizerStateChanged){
+        [nav updateMenuWithCGPoint:[reg locationOfTouch:0 inView:self.view]];
+    }
 }
 
 -(void)closeMenu:(UIGestureRecognizer *)reg {
