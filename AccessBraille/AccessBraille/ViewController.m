@@ -40,8 +40,10 @@
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
+    UITapGestureRecognizer *tapToCloseMenu;
     UIBezelGestureRecognizer *leftSideSwipe;
-    _Bool isActiveNav;
+    UIPanGestureRecognizer *menuTrav;
+    
     
     // View
     NavigationView *nav;
@@ -95,7 +97,13 @@
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
     [self.view addSubview:nav];
     leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    
+    tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenu:)];
+    [tapToCloseMenu setNumberOfTapsRequired:1];
+    [tapToCloseMenu setEnabled:NO];
+    menuTrav = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMenu:)];
+    [menuTrav setMinimumNumberOfTouches:1];
+    [menuTrav setMaximumNumberOfTouches:1];
+    [menuTrav setEnabled:NO];
     
 
     // Add Recognizers to view
@@ -108,6 +116,8 @@
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
     [self.view addGestureRecognizer:leftSideSwipe];
+    [self.view addGestureRecognizer:tapToCloseMenu];
+    [self.view addGestureRecognizer:menuTrav];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -124,6 +134,8 @@
             break;
             
         case UIGestureRecognizerStateBegan:
+            [tapToCloseMenu setEnabled:TRUE];
+            [menuTrav setEnabled:TRUE];
             NSLog(@"State Started");
             break;
             
@@ -131,16 +143,34 @@
             printf("\n");
             NSLog(@"State Ended");
             if (touch.x < 100) {
-                [nav close];
+                [self closeMenu:reg];
             }
             break;
             
         default:
             break;
     }
+}
+
+-(void)panMenu:(UIPanGestureRecognizer *)reg{
     
+    NSLog(@"panning");
     
 }
+
+-(void)closeMenu:(UIGestureRecognizer *)reg {
+    if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
+        [nav close];
+        [tapToCloseMenu setEnabled:NO];
+        [menuTrav setEnabled:NO];
+    }
+    if ([reg locationOfTouch:0 inView:self.view].x > 100) {
+        [nav close];
+        [tapToCloseMenu setEnabled:NO];
+        [menuTrav setEnabled:NO];
+    }
+}
+
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
     // Audio feedback click
