@@ -96,6 +96,9 @@
     // Nav pullout
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
     [self.view addSubview:nav];
+    
+    [nav setGesturesWithSelector:@selector(menuItemPressed:)];
+    
     leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
     tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenu:)];
     [tapToCloseMenu setNumberOfTapsRequired:1];
@@ -153,11 +156,21 @@
 }
 
 -(void)panMenu:(UIPanGestureRecognizer *)reg{
-    if (reg.state == UIGestureRecognizerStateChanged){
-        [nav updateMenuWithCGPoint:[reg locationOfTouch:0 inView:self.view]];
+    switch (reg.state){
+        case UIGestureRecognizerStateChanged:
+            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
+            break;
+        case UIGestureRecognizerStateBegan:
+            [nav setStartNavigation];
+            break;
     }
 }
 
+-(void)menuItemPressed:(UITapGestureRecognizer *)reg {
+    
+    NSLog(@"Tap");
+    
+}
 -(void)closeMenu:(UIGestureRecognizer *)reg {
     if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
         [nav close];

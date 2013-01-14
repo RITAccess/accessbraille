@@ -12,6 +12,8 @@
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
 -(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
+-(void)setStartNavigation;
+-(void)setGesturesWithSelector:(SEL)selector;
 -(void)close;
 
 @end

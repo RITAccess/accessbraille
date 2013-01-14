@@ -15,6 +15,11 @@
     UIImageView *item3;
     UIImageView *item4;
     
+    CGPoint sItem1;
+    CGPoint sItem2;
+    CGPoint sItem3;
+    CGPoint sItem4;
+
 }
 
 -(id)initWithFrame:(CGRect)frame{
@@ -45,6 +50,28 @@
     return self;
 }
 
+-(void)setGesturesWithSelector:(SEL)selector {
+    
+    UITapGestureRecognizer *menuSelect = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test)];
+    [menuSelect setNumberOfTapsRequired:1];
+    [item1 addGestureRecognizer:menuSelect];
+    [item2 addGestureRecognizer:menuSelect];
+    [item3 addGestureRecognizer:menuSelect];
+    [item4 addGestureRecognizer:menuSelect];
+    
+}
+
+-(void)test{
+    NSLog(@"test");
+}
+
+-(void)setStartNavigation{
+    sItem1 = CGPointMake(10, self.frame.size.height - item1.frame.origin.y);
+    sItem2 = CGPointMake(10, self.frame.size.height - item2.frame.origin.y);
+    sItem3 = CGPointMake(10, self.frame.size.height - item3.frame.origin.y);
+    sItem4 = CGPointMake(10, self.frame.size.height - item4.frame.origin.y);
+}
+
 -(void)updateWithCGPoint:(CGPoint)touchLocation {
     int xpos = touchLocation.x <= 100 ? touchLocation.x - 100 : 0;
     [super setFrame:CGRectMake(xpos, 0, 100, 748)];
@@ -53,15 +80,11 @@
     }
 }
 
--(void)updateMenuWithCGPoint:(CGPoint)touchLocation {
-    float Y = touchLocation.y;
-    float Yi = 748 - Y;
-    
-    float pos = Yi / 2;
-    
-    NSLog(@"test Y: %f", pos);
-    
-    
+-(void)updateMenuWithCGPoint:(CGPoint)touchTran {
+    [item1 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem1.y), 75, 75)];
+    [item2 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem2.y), 75, 75)];
+    [item3 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem3.y), 75, 75)];
+    [item4 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem4.y), 75, 75)];
 }
 
 -(void)close {
@@ -77,15 +100,13 @@
 -(void)activeMenuItems{
     
     [UIView animateWithDuration:0.5 animations:^{
-        [item1 setFrame:CGRectMake(10, 20, 75, 75)];
-        [item2 setFrame:CGRectMake(10, 100, 75, 75)];
-        [item3 setFrame:CGRectMake(10, 180, 75, 75)];
-        [item4 setFrame:CGRectMake(10, 260, 75, 75)];
+        [item1 setFrame:CGRectMake(10, 300, 75, 75)];
+        [item2 setFrame:CGRectMake(10, 380, 75, 75)];
+        [item3 setFrame:CGRectMake(10, 460, 75, 75)];
+        [item4 setFrame:CGRectMake(10, 540, 75, 75)];
     }];
     
 }
-
-
 
 -(Boolean)isActive {
     CGPoint navPoint = [super frame].origin;
