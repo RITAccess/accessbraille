@@ -1,3 +1,9 @@
 .DS_Store
 *.swp
-AccessBraille/AccessBreaille.xcodeproj
+*.lock
+profile
+*~.nib
+xcuserdata
+!xcshareddata
+!xcschemes
+*.moved-aside
