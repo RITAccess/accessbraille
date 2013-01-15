@@ -10,7 +10,6 @@
 #import "Drawing.h"
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
-#import "UIThreeFingerPinch.h"
 
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -30,7 +29,6 @@
     UITapGestureRecognizer *BRFourTap;
     UITapGestureRecognizer *BRFiveTap;
     UITapGestureRecognizer *BRSixTap;
-    UIThreeFingerPinch *threeFingerClearAll;
     
     // Interpreter
     BrailleInterpreter *bi;
@@ -86,9 +84,6 @@
     [doubleTapExit setNumberOfTapsRequired:2];
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
-    
-    // Text Editing gestures
-    threeFingerClearAll = [[UIThreeFingerPinch alloc] initWithTarget:self action:@selector(clearText:)];
         
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -99,7 +94,6 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
-    [self.view addGestureRecognizer:threeFingerClearAll];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
@@ -191,7 +185,6 @@
             NSLog(@"%@", [bi description]);
             // Disable all navigation gestures
             [sixFingerHold setEnabled:NO];
-            [threeFingerClearAll setEnabled:NO];
             NSLog(@"Typing Enabled");
             break;
             
@@ -237,7 +230,6 @@
     [doubleTapExit setEnabled:NO];
     // Enable Navigation Gestures
     [sixFingerHold setEnabled:YES];
-    [threeFingerClearAll setEnabled:YES];
     // Clear subview
     for (Drawing *v in [self.view subviews]){
         if ([v isKindOfClass:[Drawing class]]) {

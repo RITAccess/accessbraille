@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A94471E3169B271300B66193 /* UIThreeFingerPinch.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E2169B271300B66193 /* UIThreeFingerPinch.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3C1670034E00CE9475 /* CoreGraphics.framework */; };
@@ -42,8 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A94471E1169B271300B66193 /* UIThreeFingerPinch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIThreeFingerPinch.h; sourceTree = "<group>"; };
-		A94471E2169B271300B66193 /* UIThreeFingerPinch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIThreeFingerPinch.m; sourceTree = "<group>"; };
 		A9479C351670034E00CE9475 /* AccessBraille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessBraille.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9479C381670034E00CE9475 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9479C3A1670034E00CE9475 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,8 +143,6 @@
 				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
 				A9C960D3167F7B4F00084764 /* Drawing.h */,
 				A9C960D4167F7B4F00084764 /* Drawing.m */,
-				A94471E1169B271300B66193 /* UIThreeFingerPinch.h */,
-				A94471E2169B271300B66193 /* UIThreeFingerPinch.m */,
 				A9479C3F1670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBraille;
@@ -304,7 +299,6 @@
 				A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */,
 				A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
-				A94471E3169B271300B66193 /* UIThreeFingerPinch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
