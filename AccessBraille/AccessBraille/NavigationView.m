@@ -29,40 +29,56 @@
         
         UIImage *img1 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
         item1 = [[UIImageView alloc] initWithFrame:CGRectMake(-75, 20, 75, 75)];
+        item1.userInteractionEnabled = true;
         [item1 setImage:img1];
         [self addSubview:item1];
         
         UIImage *img2 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
         item2 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 75, 75)];
+        item2.userInteractionEnabled = true;
         [item2 setImage:img2];
         [self addSubview:item2];
         
         UIImage *img3 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
         item3 = [[UIImageView alloc] initWithFrame:CGRectMake(-125, 180, 75, 75)];
+        item3.userInteractionEnabled = true;
         [item3 setImage:img3];
         [self addSubview:item3];
         
         UIImage *img4 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
         item4 = [[UIImageView alloc] initWithFrame:CGRectMake(-150, 260, 75, 75)];
+        item4.userInteractionEnabled = true;
         [item4 setImage:img4];
         [self addSubview:item4];
+        
+        [self setGesturesWithSelector];
     }
     return self;
 }
 
--(void)setGesturesWithSelector:(SEL)selector {
+-(void)setGesturesWithSelector {
     
-    UITapGestureRecognizer *menuSelect = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test)];
-    [menuSelect setNumberOfTapsRequired:1];
-    [item1 addGestureRecognizer:menuSelect];
-    [item2 addGestureRecognizer:menuSelect];
-    [item3 addGestureRecognizer:menuSelect];
-    [item4 addGestureRecognizer:menuSelect];
+    UITapGestureRecognizer *menuSelect1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    UITapGestureRecognizer *menuSelect2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    UITapGestureRecognizer *menuSelect3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    UITapGestureRecognizer *menuSelect4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    [item1 addGestureRecognizer:menuSelect1];
+    [item1 setTag:1];
+    [item2 addGestureRecognizer:menuSelect2];
+    [item2 setTag:2];
+    [item3 addGestureRecognizer:menuSelect3];
+    [item3 setTag:3];
+    [item4 addGestureRecognizer:menuSelect4];
+    [item4 setTag:4];
     
 }
 
--(void)test{
-    NSLog(@"test");
+-(void)test:(UITapGestureRecognizer *)reg {
+    
+    // Navigation segue logic
+    NSLog(@"%ld",(long)[[reg view] tag]);
+    
+    
 }
 
 -(void)setStartNavigation{
