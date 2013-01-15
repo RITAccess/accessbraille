@@ -11,6 +11,8 @@
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
 
+#import "NavigationView.h"
+#import "UIBezelGestureRecognizer.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
@@ -39,16 +41,23 @@
     // State Change Gestues
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
+    UITapGestureRecognizer *tapToCloseMenu;
+    UIBezelGestureRecognizer *leftSideSwipe;
+    UIPanGestureRecognizer *menuTrav;
+    
+    
+    // View
+    NavigationView *nav;
+    
+    
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
 @synthesize textOutput = _textOutput;
 @synthesize DrawingView = _DrawingView;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Test Audio
     
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
@@ -85,6 +94,20 @@
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
         
+    // Nav pullout
+    nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
+    [self.view addSubview:nav];
+    
+    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenu:)];
+    [tapToCloseMenu setNumberOfTapsRequired:1];
+    [tapToCloseMenu setEnabled:NO];
+    menuTrav = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMenu:)];
+    [menuTrav setMinimumNumberOfTouches:1];
+    [menuTrav setMaximumNumberOfTouches:1];
+    [menuTrav setEnabled:NO];
+    
+
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
     [self.view addGestureRecognizer:BRTwoTap];
@@ -94,12 +117,68 @@
     [self.view addGestureRecognizer:BRSixTap];
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
+    [self.view addGestureRecognizer:leftSideSwipe];
+    [self.view addGestureRecognizer:tapToCloseMenu];
+    [self.view addGestureRecognizer:menuTrav];
     
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
 }
+
+-(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
+    CGPoint touch = [reg locationInView:self.view];
+    switch (reg.state) {
+        case UIGestureRecognizerStateChanged:
+            printf(".");
+            [nav updateWithCGPoint:touch];
+            break;
+            
+        case UIGestureRecognizerStateBegan:
+            [tapToCloseMenu setEnabled:TRUE];
+            [menuTrav setEnabled:TRUE];
+            NSLog(@"State Started");
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            printf("\n");
+            NSLog(@"State Ended");
+            if (touch.x < 100) {
+                [self closeMenu:reg];
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)panMenu:(UIPanGestureRecognizer *)reg{
+    // Swipe navigation logic
+    switch (reg.state){
+        case UIGestureRecognizerStateChanged:
+            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
+            break;
+        case UIGestureRecognizerStateBegan:
+            [nav setStartNavigation];
+            break;
+    }
+}
+
+-(void)closeMenu:(UIGestureRecognizer *)reg {
+    if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
+        [nav close];
+        [tapToCloseMenu setEnabled:NO];
+        [menuTrav setEnabled:NO];
+    }
+    if ([reg locationOfTouch:0 inView:self.view].x > 100) {
+        [nav close];
+        [tapToCloseMenu setEnabled:NO];
+        [menuTrav setEnabled:NO];
+    }
+}
+
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
     // Audio feedback click
