@@ -9,7 +9,7 @@
 #import "BrailleInterpreter.h"
 #import "CalibrationPoint.h"
 #import "Drawing.h"
-#import "ViewController.h"
+#import "BrailleTyperController.h"
 
 @implementation BrailleInterpreter{
     

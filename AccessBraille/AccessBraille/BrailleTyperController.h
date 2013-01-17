@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Drawing.h"
 
-@interface ViewController : UIViewController
+@interface BrailleTyperController : UIViewController
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;

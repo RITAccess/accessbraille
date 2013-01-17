@@ -7,6 +7,7 @@
 //
 
 #import "NavigationView.h"
+#import "NavigationContainer.h"
 
 @implementation NavigationView {
     
@@ -19,12 +20,17 @@
     CGPoint sItem2;
     CGPoint sItem3;
     CGPoint sItem4;
+    
+    NavigationContainer *superSelf;
 
 }
 
--(id)initWithFrame:(CGRect)frame{
+-(id)initWithFrame:(CGRect)frame setSuper:(NavigationContainer *)superVC{
     self = [super initWithFrame:frame];
     if (self){
+        
+        superSelf = superVC;
+        
         self.backgroundColor = [UIColor orangeColor];
         
         UIImage *img1 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
@@ -77,7 +83,6 @@
     
     // Navigation segue logic
     NSLog(@"%ld",(long)[[reg view] tag]);
-    
     
 }
 

@@ -10,6 +10,4 @@
 
 @interface NavigationContainer : UIViewController
 
--(void)moveToViewController:(UIViewController *)controller;
-
 @end

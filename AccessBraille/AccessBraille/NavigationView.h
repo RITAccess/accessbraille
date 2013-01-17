@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationContainer.h"
 
 @interface NavigationView : UIView
 
+-(id)initWithFrame:(CGRect)frame setSuper:(NavigationContainer *)superVC;
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
 -(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
 -(void)setStartNavigation;
