@@ -7,7 +7,7 @@
 //
 
 #import "NavigationView.h"
-#import "NavigationContainer.h"
+#import "NavigationViewController.h"
 
 @implementation NavigationView {
     
@@ -21,11 +21,11 @@
     CGPoint sItem3;
     CGPoint sItem4;
     
-    NavigationContainer *superSelf;
+    NavigationViewController *superSelf;
 
 }
 
--(id)initWithFrame:(CGRect)frame setSuper:(NavigationContainer *)superVC{
+-(id)initWithFrame:(CGRect)frame setSuper:(NavigationViewController *)superVC{
     self = [super initWithFrame:frame];
     if (self){
         

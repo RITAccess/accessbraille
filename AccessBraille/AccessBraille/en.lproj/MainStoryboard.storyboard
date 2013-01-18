@@ -4,22 +4,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2077"/>
     </dependencies>
     <scenes>
-        <!--Navigation Container-->
-        <scene sceneID="4">
+        <!--Navigation View Controller-->
+        <scene sceneID="4ef-DR-bo4">
             <objects>
-                <viewController id="2" customClass="NavigationContainer" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5">
+                <viewController id="HnK-Mz-F2z" customClass="NavigationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1MM-yv-YFa">
                         <rect key="frame" x="0.0" y="20" width="320" height="748"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dED-LV-j2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-416" y="-627"/>
+        </scene>
+        <!--Navigation Container-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" customClass="NavigationContainer" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-780" y="-407"/>
+            <point key="canvasLocation" x="-1505" y="-219"/>
         </scene>
         <!--Braille Typer Controller-->
         <scene sceneID="cYN-nC-UlX">
@@ -54,7 +64,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="textOutput" destination="BYH-2G-vCw" id="9vA-8t-QGP"/>
                         <outlet property="typingStateOutlet" destination="0bj-zS-V4P" id="Hkt-UP-SHU"/>
@@ -62,28 +71,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiD-R1-rip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-412" y="-407"/>
+            <point key="canvasLocation" x="-416" y="233"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BrailleTyperController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
-                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Drawing" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NavigationContainer" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
