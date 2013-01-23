@@ -1,6 +1,6 @@
 Accessbraille
 =============
 
-A braille accessibility and learning app for iOS 
+A braille accessibility and learning app for iOS
 
-Current master branch allows for typing recognition and display
+Updated: Slideout navigation from left side presents options to switch between sub apps within the application.

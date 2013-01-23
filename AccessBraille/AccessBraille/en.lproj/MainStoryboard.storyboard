@@ -69,7 +69,18 @@
                     <view key="view" contentMode="scaleToFill" id="6EK-PO-34z">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test View Controller" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-bX-j6l">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.058823533356189728" green="0.12941177189350128" blue="0.20392158627510071" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="vNJ-bX-j6l" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="145" id="DIg-kA-0dF"/>
+                            <constraint firstItem="vNJ-bX-j6l" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" constant="126" id="yaR-Rd-ahv"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
