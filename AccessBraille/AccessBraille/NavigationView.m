@@ -7,9 +7,11 @@
 //
 
 #import "NavigationView.h"
-#import "NavigationViewController.h"
+#import "NavigationContainer.h"
 
 @implementation NavigationView {
+    
+    NavigationContainer *superViewController;
     
     UIImageView *item1;
     UIImageView *item2;
@@ -20,16 +22,12 @@
     CGPoint sItem2;
     CGPoint sItem3;
     CGPoint sItem4;
-    
-    NavigationViewController *superSelf;
 
 }
 
--(id)initWithFrame:(CGRect)frame setSuper:(NavigationViewController *)superVC{
+-(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self){
-        
-        superSelf = superVC;
         
         self.backgroundColor = [UIColor orangeColor];
         
@@ -62,12 +60,16 @@
     return self;
 }
 
+-(void)setParentViewController:(UIViewController *)parent {
+    superViewController = parent;
+}
+
 -(void)setGesturesWithSelector {
     
-    UITapGestureRecognizer *menuSelect1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
-    UITapGestureRecognizer *menuSelect2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
-    UITapGestureRecognizer *menuSelect3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
-    UITapGestureRecognizer *menuSelect4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    UITapGestureRecognizer *menuSelect1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
+    UITapGestureRecognizer *menuSelect2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
+    UITapGestureRecognizer *menuSelect3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
+    UITapGestureRecognizer *menuSelect4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
     [item1 addGestureRecognizer:menuSelect1];
     [item1 setTag:1];
     [item2 addGestureRecognizer:menuSelect2];
@@ -79,10 +81,19 @@
     
 }
 
--(void)test:(UITapGestureRecognizer *)reg {
+-(void)menuItemTapped:(UITapGestureRecognizer *)reg {
     
-    // Navigation segue logic
-    NSLog(@"%ld",(long)[[reg view] tag]);
+    switch ([[reg view] tag]) {
+        case 1:
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+            break;
+        case 2:
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"testVC"] animated:NO];
+            break;
+            
+        default:
+            break;
+    }
     
 }
 

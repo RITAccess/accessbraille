@@ -10,4 +10,17 @@
 
 @implementation newViewControllerTemplate
 
+-(void)viewDidLoad{
+
+}
+
+-(void)didMoveToParentViewController:(UIViewController *)parent{
+
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    [self.view setFrame:[[UIScreen mainScreen] bounds]];
+}
+
+
 @end

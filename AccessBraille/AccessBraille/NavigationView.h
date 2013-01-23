@@ -11,7 +11,8 @@
 
 @interface NavigationView : UIView
 
--(id)initWithFrame:(CGRect)frame setSuper:(NavigationContainer *)superVC;
+-(id)initWithFrame:(CGRect)frame;
+-(void)setParentViewController:(UIViewController *)parent;
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
 -(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
 -(void)setStartNavigation;

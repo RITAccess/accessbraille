@@ -10,9 +10,11 @@
 #import "Drawing.h"
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
-
+#import "NavigationContainer.h"
 #import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
+
+#import "newViewControllerTemplate.h"
 
 @interface BrailleTyperController ()
 
@@ -41,9 +43,6 @@
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
     
-    // Parent VC
-    UIViewController *parentVC;
-    
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -52,7 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"BrailleTyper did Load");
+    
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
@@ -87,9 +86,6 @@
     [doubleTapExit setNumberOfTapsRequired:2];
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
-        
-
-    
 
     // Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
@@ -101,19 +97,23 @@
     [self.view addGestureRecognizer:sixFingerHold];
     [self.view addGestureRecognizer:doubleTapExit];
 
-    
     // Set starting states for objects and init variables
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
 }
 
--(void)didMoveToParentViewController:(UIViewController *)parent{
-    NSLog(@"New Parent");
-    parentVC = parent;
+- (void)didMoveToParentViewController:(UIViewController *)parent{
+    
 }
 
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    [self.view setFrame:[[UIScreen mainScreen] bounds]];
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self endTyping];
+}
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
     // Audio feedback click
