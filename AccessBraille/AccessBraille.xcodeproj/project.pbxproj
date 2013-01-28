@@ -29,9 +29,11 @@
 		A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */; };
 		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
 		A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A97425721677BFA400289C8D /* CalibrationPoint.m */; };
+		A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */ = {isa = PBXBuildFile; fileRef = A97FF44B16B1CE1300116AEC /* Enabled.m */; };
 		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
 		A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */; };
 		A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */; };
+		A9FE03A316B6CB780065E9EC /* TextOut.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FE03A216B6CB780065E9EC /* TextOut.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		A95FFC251679394600BF966C /* grade1lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade1lookup.plist; sourceTree = "<group>"; };
 		A97425711677BFA400289C8D /* CalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationPoint.h; sourceTree = "<group>"; };
 		A97425721677BFA400289C8D /* CalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalibrationPoint.m; sourceTree = "<group>"; };
+		A97FF44A16B1CE1300116AEC /* Enabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enabled.h; sourceTree = "<group>"; };
+		A97FF44B16B1CE1300116AEC /* Enabled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enabled.m; sourceTree = "<group>"; };
 		A99671BE16810EFA00AAA322 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9C960D3167F7B4F00084764 /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawing.h; sourceTree = "<group>"; };
 		A9C960D4167F7B4F00084764 /* Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawing.m; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newViewControllerTemplate.m; sourceTree = "<group>"; };
 		A9ECC82916A7780B00998AD4 /* NavigationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationContainer.h; sourceTree = "<group>"; };
 		A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationContainer.m; sourceTree = "<group>"; };
+		A9FE03A116B6CB780065E9EC /* TextOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextOut.h; sourceTree = "<group>"; };
+		A9FE03A216B6CB780065E9EC /* TextOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextOut.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,10 @@
 				A9C960D4167F7B4F00084764 /* Drawing.m */,
 				A94471E4169CAC1000B66193 /* NavigationView.h */,
 				A94471E5169CAC1000B66193 /* NavigationView.m */,
+				A97FF44A16B1CE1300116AEC /* Enabled.h */,
+				A97FF44B16B1CE1300116AEC /* Enabled.m */,
+				A9FE03A116B6CB780065E9EC /* TextOut.h */,
+				A9FE03A216B6CB780065E9EC /* TextOut.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -365,6 +375,8 @@
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
 				A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
+				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
+				A9FE03A316B6CB780065E9EC /* TextOut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

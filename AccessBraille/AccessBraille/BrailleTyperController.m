@@ -13,7 +13,7 @@
 #import "NavigationContainer.h"
 #import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
-
+#import "Enabled.h"
 #import "newViewControllerTemplate.h"
 
 @interface BrailleTyperController ()
@@ -43,6 +43,11 @@
     UILongPressGestureRecognizer *sixFingerHold;
     UITapGestureRecognizer *doubleTapExit;
     
+    // Layout
+    Enabled *enabled;
+    
+    
+    
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -51,7 +56,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
@@ -101,6 +105,19 @@
     cpByFinger = [[NSMutableDictionary alloc] init];
     isTypingMode = false;
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
+    
+    // Draw views
+    
+    enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
+    [self.view addSubview:enabled];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent{
@@ -108,11 +125,15 @@
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
-    [self.view setFrame:[[UIScreen mainScreen] bounds]];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self endTyping];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.view setFrame:self.parentViewController.view.frame];
 }
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
@@ -213,7 +234,10 @@
         // Start timer and switch to typing mode
         typingTimeout = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(endTyping) userInfo:nil repeats:false];
         isTypingMode = true;
-        [_typingStateOutlet setText:@"True"];
+        enabled.enable = true;
+        [enabled removeFromSuperview];
+        [self.view addSubview:enabled];
+        
     } else {
         // Reset timer if in typing mode
         [typingTimeout invalidate];
@@ -233,7 +257,7 @@
     NSLog(@"End Typing");
     // Disable Typing
     isTypingMode = false;
-    [_typingStateOutlet setText:@"False"];
+    enabled.enable = false;
     // Disable Braille Recognizers
     [BROneTap setEnabled:NO];
     [BRTwoTap setEnabled:NO];

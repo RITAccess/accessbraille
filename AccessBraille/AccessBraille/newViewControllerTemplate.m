@@ -11,7 +11,7 @@
 @implementation newViewControllerTemplate
 
 -(void)viewDidLoad{
-
+    
 }
 
 -(void)didMoveToParentViewController:(UIViewController *)parent{
@@ -19,7 +19,11 @@
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
-    [self.view setFrame:[[UIScreen mainScreen] bounds]];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
 }
 
 

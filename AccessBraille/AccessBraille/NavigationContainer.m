@@ -47,22 +47,34 @@
     [self.view addGestureRecognizer:menuTrav];
 }
 
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
+
+- (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
+
 -(void)switchToController:(UIViewController*)controller animated:(BOOL)animated {
     
-    for (UIView *subview in self.view.subviews){
-        [subview removeFromSuperview]; // animated not taken into account yet
+    if (animated) {
+        
+        
+        
+        
+        
+    } else {
+        for (UIView *subview in self.view.subviews){
+            [subview removeFromSuperview]; // animated not taken into account yet
+        }
+        for (UIViewController *childViewController in self.childViewControllers){
+            [childViewController removeFromParentViewController];
+        }
+        
+        [self addChildViewController:controller];
+        
+        [self.view addSubview:controller.view];
+        [controller viewDidAppear:animated];
+        [self loadNavIntoView];
+        
+        [controller didMoveToParentViewController:self];
     }
-    for (UIViewController *childViewController in self.childViewControllers){
-        [childViewController removeFromParentViewController];
-    }
-    
-    [self addChildViewController:controller];
-    
-    [self.view addSubview:controller.view];
-    [self loadNavIntoView];
-    
-    [controller didMoveToParentViewController:self];
-    
 }
 
 // Navigation Logic
@@ -101,6 +113,8 @@
             break;
         case UIGestureRecognizerStateBegan:
             [nav setStartNavigation];
+            break;
+        default:
             break;
     }
 }
