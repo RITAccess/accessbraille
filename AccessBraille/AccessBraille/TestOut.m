@@ -31,8 +31,6 @@
     [textOut setText:@" "];
     wordList = [[NSMutableArray alloc] init];
     
-    /***************************************************************************
-    
     // Style
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -50,8 +48,6 @@
     CGContextAddRect(context, box);
     
     CGContextFillPath(context);
-     
-    ***************************************************************************/ 
 }
 
 - (void)appendToText:(NSString *)string {

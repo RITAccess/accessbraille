@@ -65,6 +65,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="TextDrawing" destination="yJQ-RL-3ax" id="F0s-Lc-tBy"/>
                         <outlet property="textOutput" destination="BYH-2G-vCw" id="9vA-8t-QGP"/>
                         <outlet property="typingStateOutlet" destination="0bj-zS-V4P" id="Hkt-UP-SHU"/>
                     </connections>
@@ -101,6 +102,32 @@
             <point key="canvasLocation" x="-290" y="610"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BrailleTyperController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
+                <relationship kind="outlet" name="TextDrawing" candidateClass="TextOut"/>
+                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="Drawing" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NavigationContainer" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
+        </class>
+        <class className="TextOut" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextOut.h"/>
+        </class>
+        <class className="newViewControllerTemplate" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/newViewControllerTemplate.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

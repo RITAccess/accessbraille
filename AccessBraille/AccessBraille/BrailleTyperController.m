@@ -15,6 +15,7 @@
 #import "UIBezelGestureRecognizer.h"
 #import "Enabled.h"
 #import "newViewControllerTemplate.h"
+#import "TextOut.h"
 
 @interface BrailleTyperController ()
 
@@ -51,7 +52,6 @@
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
-@synthesize textOutput = _textOutput;
 @synthesize DrawingView = _DrawingView;
 
 - (void)viewDidLoad {
@@ -109,6 +109,7 @@
     // Draw views
     
     enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
+    enabled.enable = FALSE;
     [self.view addSubview:enabled];
 }
 
@@ -152,26 +153,18 @@
     }
     if (touchPoints.count > 0) {
         NSString *check = [bi getChar:touchPoints];
-        NSString *letter = [check isEqualToString:@"not"] ? @"" : check;
-        NSString *currentText = _textOutput.text;
-        _textOutput.text = [currentText stringByAppendingString:letter];
-        NSLog(@"%@", letter);
+        if(![check isEqualToString:@"not"]){
+            [_TextDrawing appendToText:check];
+        }
     } else {
         if ([bi getAverageYValue] < [reg locationInView:reg.view].y){
-            NSString *currentText = _textOutput.text;
-            _textOutput.text = [currentText stringByAppendingString:@" "];
-            NSLog(@"Space");
+            [_TextDrawing appendToText:@" "];
         }
     }
 }
 
 - (void)clearText:(UIPinchGestureRecognizer *)reg {
-    
-    if (reg.numberOfTouches == 3) {
-        NSLog(@"Pinch is three fingered");
-    }
-    
-    // _textOutput.text = @"";
+
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
@@ -213,6 +206,8 @@
             [bi setUpCalibration];
             
             // Audio feedback tone up
+            enabled.enable = true;
+            [enabled setNeedsDisplay];
             break;
             
         case 3: // On Release
@@ -234,9 +229,9 @@
         // Start timer and switch to typing mode
         typingTimeout = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(endTyping) userInfo:nil repeats:false];
         isTypingMode = true;
-        enabled.enable = true;
         [enabled removeFromSuperview];
         [self.view addSubview:enabled];
+        [_TextDrawing typingDidStart];
         
     } else {
         // Reset timer if in typing mode
@@ -258,6 +253,8 @@
     // Disable Typing
     isTypingMode = false;
     enabled.enable = false;
+    [_TextDrawing typingDidEnd];
+    [enabled setNeedsDisplay];
     // Disable Braille Recognizers
     [BROneTap setEnabled:NO];
     [BRTwoTap setEnabled:NO];
@@ -286,6 +283,7 @@
 - (void)viewDidUnload {
     [self setDrawingView:nil];
     [self setTextOutput:nil];
+    [self setTextDrawing:nil];
     [super viewDidUnload];
 }
 @end

@@ -10,4 +10,10 @@
 
 @interface TextOut : UIView
 
+-(void)appendToText:(NSString *)string;
+-(NSString *)getCurrentText;
+-(void)clearText;
+-(void)typingDidStart;
+-(void)typingDidEnd;
+
 @end
