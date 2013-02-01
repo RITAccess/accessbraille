@@ -16,7 +16,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
-        self.backgroundColor = self.superview.backgroundColor;
+        //
     }
     return self;
 }
@@ -31,27 +31,24 @@
     [textOut setText:@" "];
     wordList = [[NSMutableArray alloc] init];
     
-    /***************************************************************************
-    
     // Style
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // Colors
-    CGColorRef fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0].CGColor;
-    CGColorRef fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0].CGColor;
+    UIColor *fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
+    UIColor *fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
     
     CGRect box = CGRectMake(5, 5, self.frame.size.width - 10, self.frame.size.height - 10);
     // Shadow
-    CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow);
+    CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow.CGColor);
     CGContextAddRect(context, box);
     CGContextFillPath(context);
     // Box
-    CGContextSetFillColorWithColor(context, fillBox);
+    CGContextSetFillColorWithColor(context, fillBox.CGColor);
     CGContextAddRect(context, box);
     
     CGContextFillPath(context);
-     
-    ***************************************************************************/ 
+    
 }
 
 - (void)appendToText:(NSString *)string {

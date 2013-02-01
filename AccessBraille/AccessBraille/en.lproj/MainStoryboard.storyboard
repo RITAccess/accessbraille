@@ -29,36 +29,15 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-zS-V4P">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="KIa-P6-UBN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYH-2G-vCw">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="581" id="DUS-k8-FyE"/>
-                                    <constraint firstAttribute="height" constant="228" id="eJ2-YA-12l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJQ-RL-3ax" customClass="TextOut">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.92549026012420654" green="0.92549026012420654" blue="0.92549026012420654" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0bj-zS-V4P" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CRz-ks-2M2"/>
                             <constraint firstItem="yJQ-RL-3ax" firstAttribute="centerX" secondItem="E3Q-qa-Umh" secondAttribute="centerX" type="default" id="Q6a-mM-su8"/>
                             <constraint firstItem="yJQ-RL-3ax" firstAttribute="top" secondItem="E3Q-qa-Umh" secondAttribute="top" constant="65" id="W5e-VJ-ub8"/>
                             <constraint firstItem="yJQ-RL-3ax" firstAttribute="leading" secondItem="E3Q-qa-Umh" secondAttribute="leading" constant="90" id="WyT-2Y-Jai"/>
-                            <constraint firstItem="BYH-2G-vCw" firstAttribute="top" secondItem="E3Q-qa-Umh" secondAttribute="top" constant="158" id="Wyt-nM-Y5Z"/>
-                            <constraint firstItem="BYH-2G-vCw" firstAttribute="leading" secondItem="E3Q-qa-Umh" secondAttribute="leading" constant="397" id="eFn-Lx-n53"/>
-                            <constraint firstItem="0bj-zS-V4P" firstAttribute="top" secondItem="E3Q-qa-Umh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gcG-N1-Syx"/>
                             <constraint firstAttribute="bottom" secondItem="yJQ-RL-3ax" secondAttribute="bottom" constant="503" id="jmX-Im-TFc"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -66,8 +45,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="TextDrawing" destination="yJQ-RL-3ax" id="F0s-Lc-tBy"/>
-                        <outlet property="textOutput" destination="BYH-2G-vCw" id="9vA-8t-QGP"/>
-                        <outlet property="typingStateOutlet" destination="0bj-zS-V4P" id="Hkt-UP-SHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiD-R1-rip" userLabel="First Responder" sceneMemberID="firstResponder"/>
