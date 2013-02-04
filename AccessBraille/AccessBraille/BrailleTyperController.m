@@ -16,6 +16,9 @@
 #import "Enabled.h"
 #import "newViewControllerTemplate.h"
 #import "TextOut.h"
+#import "AppDelegate.h"
+#import "BrailleTyper.h"
+#import <CoreData/CoreData.h>
 
 @interface BrailleTyperController ()
 
@@ -46,13 +49,13 @@
     
     // Layout
     Enabled *enabled;
-    
-    
-    
+
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
 @synthesize DrawingView = _DrawingView;
+
+# pragma mark - ViewController Methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,6 +114,9 @@
     enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
+    
+    // Load from CoreData
+//    [self insertIntoTableString:@"It works!"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -136,6 +142,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self.view setFrame:self.parentViewController.view.frame];
 }
+
+# pragma mark - Typing Methods
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
     // Audio feedback click
@@ -286,4 +294,27 @@
     [self setTextDrawing:nil];
     [super viewDidUnload];
 }
+
+#pragma mark - Core Data
+
+- (void)insertIntoTableString:(NSString *)content {
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    BrailleTyper *cdEntry = (BrailleTyper *)[NSEntityDescription insertNewObjectForEntityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext];
+    [cdEntry setTypedString:content];
+    [app.managedObjectContext save:nil];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

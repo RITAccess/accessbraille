@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Drawing.h"
 #import "TextOut.h"
+#import <CoreData/CoreData.h>
 
-@interface BrailleTyperController : UIViewController
+@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet TextOut *TextDrawing;
 @end

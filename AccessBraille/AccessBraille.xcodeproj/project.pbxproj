@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C48079316C01CD0001E3EF1 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C48079216C01CD0001E3EF1 /* BrailleTyper.m */; };
+		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
+		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
 		A934326E16A0729200C659C1 /* menuItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = A934326D16A0729200C659C1 /* menuItem1.png */; };
 		A94471E6169CAC1000B66193 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E5169CAC1000B66193 /* NavigationView.m */; };
@@ -47,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C48079116C01CD0001E3EF1 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
+		4C48079216C01CD0001E3EF1 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
+		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezelGestureRecognizer.h; sourceTree = "<group>"; };
 		A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezelGestureRecognizer.m; sourceTree = "<group>"; };
 		A934326D16A0729200C659C1 /* menuItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem1.png; path = Images/menuItem1.png; sourceTree = "<group>"; };
@@ -97,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */,
 				A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */,
 				A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */,
 				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
@@ -116,6 +124,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C48079016C01CAF001E3EF1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */,
+				4C48079116C01CD0001E3EF1 /* BrailleTyper.h */,
+				4C48079216C01CD0001E3EF1 /* BrailleTyper.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		A9343268169F47D700C659C1 /* Gestures */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +169,7 @@
 		A9479C2C1670034D00CE9475 = {
 			isa = PBXGroup;
 			children = (
+				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
 				A99671BE16810EFA00AAA322 /* AudioToolbox.framework */,
 				A9479C3E1670034E00CE9475 /* AccessBraille */,
 				A9479C621670034E00CE9475 /* AccessBrailleTests */,
@@ -182,6 +201,7 @@
 		A9479C3E1670034E00CE9475 /* AccessBraille */ = {
 			isa = PBXGroup;
 			children = (
+				4C48079016C01CAF001E3EF1 /* CoreData */,
 				A9ECC82216A764E900998AD4 /* Controllers */,
 				A9ECC82116A764C300998AD4 /* Resources */,
 				A934326C16A070CB00C659C1 /* Images */,
@@ -377,6 +397,8 @@
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
 				A9FE03A316B6CB780065E9EC /* TextOut.m in Sources */,
+				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
+				4C48079316C01CD0001E3EF1 /* BrailleTyper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +600,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */,
+			);
+			currentVersion = 4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */;
+			path = ApplicationStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A9479C2D1670034D00CE9475 /* Project object */;
 }
