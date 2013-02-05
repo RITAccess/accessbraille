@@ -6,6 +6,10 @@
 //  Copyright (c) 2012 RIT. All rights reserved.
 //
 
+/**
+    Object to store the information about finger calibration points
+ */
+
 #import "CalibrationPoint.h"
 
 @implementation CalibrationPoint {
@@ -19,6 +23,9 @@
 
 
 - (id)initWithCGPoint:(CGPoint)point withTmpID:(NSNumber *)finger{
+    /**
+        Takes a point and finger id to set position data.
+     */
     if (self = [super init]) {
         _point = point;
         _x = point.x;
@@ -28,7 +35,12 @@
 }
 
 - (int)tapInRadius:(CGPoint)touchPoint {
-    
+    /**
+        checks the status of a point and returns status by
+            0 : False
+            1 : True
+            2 : In Buffer
+     */
     float dx = ABS(_point.x - touchPoint.x);
     float dy = ABS(_point.y - touchPoint.y);
     float d = sqrtf(powf(dx, 2) + powf(dy, 2));

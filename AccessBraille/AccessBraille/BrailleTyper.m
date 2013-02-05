@@ -12,5 +12,6 @@
 @implementation BrailleTyper
 
 @dynamic typedString;
+@dynamic timeStamp;
 
 @end

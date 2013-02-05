@@ -13,5 +13,6 @@
 @interface BrailleTyper : NSManagedObject
 
 @property (nonatomic, retain) NSString * typedString;
+@property (nonatomic, retain) NSDate * timeStamp;
 
 @end

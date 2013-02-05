@@ -16,4 +16,6 @@
 -(void)typingDidStart;
 -(void)typingDidEnd;
 
+@property(nonatomic, readwrite) NSString *buf;
+
 @end

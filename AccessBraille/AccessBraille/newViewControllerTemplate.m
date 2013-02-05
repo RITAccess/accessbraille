@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
+/**
+    Test ViewController
+ */
+
+
 #import "newViewControllerTemplate.h"
 
 @implementation newViewControllerTemplate

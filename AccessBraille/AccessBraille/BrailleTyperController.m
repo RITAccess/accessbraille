@@ -6,6 +6,10 @@
 //  Copyright (c) 2012 RIT. All rights reserved.
 //
 
+/**
+    Controller for the Braille Typing interface
+ */
+
 #import "BrailleTyperController.h"
 #import "Drawing.h"
 #import "CalibrationPoint.h"
@@ -58,6 +62,10 @@
 # pragma mark - ViewController Methods
 
 - (void)viewDidLoad {
+    /**
+        Runs after load
+     */
+    
     [super viewDidLoad];
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
@@ -114,38 +122,58 @@
     enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
-    
-    // Load from CoreData
-//    [self insertIntoTableString:@"It works!"];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    /**
+        Forwards autorotation to subviews
+     */
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    /**
+        View Did Appear
+     */
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent{
-    
+    /**
+        Did Move To Parent View Controller
+     */
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
-    
+    /**
+        Will Move To Parent View Controller
+     */
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    /**
+        View Will Disappear
+     */
     [self endTyping];
+    [self updateLastValue:[_TextDrawing getCurrentText]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    /**
+        View Will Appear
+     */
     [self.view setFrame:self.parentViewController.view.frame];
+    _TextDrawing.buf = [self getLastItemInTable];
 }
 
 # pragma mark - Typing Methods
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
+    /**
+        Gets called when in typing mode, proccesses taps and sends them off to the BrailleInterpreter class
+     */
+    
     // Audio feedback click
     // Assuming valid tap, continue typing
     [self beginTyping];
@@ -172,10 +200,16 @@
 }
 
 - (void)clearText:(UIPinchGestureRecognizer *)reg {
-
+    /**
+        Clears Text
+     */
 }
 
 - (void)sixFingerLong:(UILongPressGestureRecognizer *)reg{
+    /**
+        Six finger long press gesture calls this and switches the app into typing mode
+     */
+    
     // Creating any variables used in switch scope
     NSArray *rawTouch;
     NSArray *sortedTouchPoints;
@@ -233,6 +267,10 @@
 }
 
 - (void)beginTyping{
+    /**
+        Starts the typing mode
+     */
+    
     if (!isTypingMode){
         // Start timer and switch to typing mode
         typingTimeout = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(endTyping) userInfo:nil repeats:false];
@@ -249,12 +287,18 @@
 }
 
 - (void)exitTyping:(UITapGestureRecognizer *)reg{
+    /**
+        Double tap to exit typing mode if above typing location
+     */
     if ([bi getAverageYValue] > ([reg locationInView:reg.view].y + [bi getMaxYDelta])) {
         [self endTyping];
     }
 }
 
 - (void)endTyping{
+    /**
+        Disables the typing mode
+     */
     // End Timer
     [typingTimeout invalidate];
     NSLog(@"End Typing");
@@ -282,39 +326,74 @@
     // Audio feedback tone down
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+    /**
+        Did receive memory warning
+     */
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidUnload {
+    /**
+        view did unload
+     */
     [self setDrawingView:nil];
     [self setTextOutput:nil];
     [self setTextDrawing:nil];
     [super viewDidUnload];
 }
 
-#pragma mark - Core Data
+#pragma mark - Access Core Data Methods
 
-- (void)insertIntoTableString:(NSString *)content {
+- (void)updateLastValue:(NSString *)content {
+    /**
+        Update CoreData object for this controller with new typed value. Creates a new row if one does not exist.
+     */
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    BrailleTyper *cdEntry = (BrailleTyper *)[NSEntityDescription insertNewObjectForEntityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext];
-    [cdEntry setTypedString:content];
-    [app.managedObjectContext save:nil];
+    NSFetchRequest *req = [[NSFetchRequest alloc] init];
+    [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
+    NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
+    NSLog(@"%@", results);
+    if ([results count] == 0) {
+        // Add row if empty
+        BrailleTyper *cdEntry = (BrailleTyper *)[NSEntityDescription insertNewObjectForEntityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext];
+        [cdEntry setTypedString:content];
+        [cdEntry setTimeStamp:[NSDate date]];
+        [app.managedObjectContext save:nil];
+    } else {
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+        NSFetchRequest *req = [[NSFetchRequest alloc] init];
+        [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
+        [req setSortDescriptors:@[sortDescriptor]];
+        NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
+        BrailleTyper *updateEntity = [results objectAtIndex:0];
+        [updateEntity setTypedString:content];
+        [updateEntity setTimeStamp:[NSDate date]];
+        [app.managedObjectContext save:nil];
+    }
 }
 
+- (NSString *)getLastItemInTable {
+    /**
+        Returns the last row from the CoreData object for this controller. Returns empty string if no table exists.
+     */
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    NSFetchRequest *req = [[NSFetchRequest alloc] init];
+    [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
 
-
-
-
-
-
-
-
-
-
-
-
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
+    [req setSortDescriptors:@[sortDescriptor]];
+    
+    NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
+    if ([results count] == 0){
+        return @"";
+    }
+    BrailleTyper *latestEntity = [results objectAtIndex:0];
+    
+    NSLog(@"%@ pulled from table", latestEntity.typedString);
+    return latestEntity.typedString;
+}
 
 @end

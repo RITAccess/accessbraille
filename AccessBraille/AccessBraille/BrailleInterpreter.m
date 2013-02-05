@@ -6,6 +6,10 @@
 //  Copyright (c) 2012 RIT. All rights reserved.
 //
 
+/**
+    Proccess the touch points to return their letter equivilant
+ */
+
 #import "BrailleInterpreter.h"
 #import "CalibrationPoint.h"
 #import "Drawing.h"
@@ -22,6 +26,9 @@
 @synthesize delta = _delta;
 
 - (id)initWithViewController:(UIViewController *)view {
+    /**
+        Init with viewControllerter
+     */
     if (self = [super init]) {
         CPPPoints = [[NSMutableDictionary alloc] init];
         NSString *path = [[NSBundle mainBundle] bundlePath];

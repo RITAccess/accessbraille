@@ -11,12 +11,14 @@
 @implementation TextOut {
     UILabel *textOut;
     NSMutableArray *wordList;
+    bool loaded;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
-        //
+        loaded = NO;
+        _buf = @"";
     }
     return self;
 }
@@ -27,9 +29,9 @@
     NSLog(@"drawRect");
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width, 50)];
     textOut.backgroundColor = [UIColor clearColor];
-    [self addSubview:textOut];
-    [textOut setText:@" "];
     wordList = [[NSMutableArray alloc] init];
+    [self addSubview:textOut];
+    [self setWordsToOutput:_buf];
     
     // Style
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -49,6 +51,34 @@
     
     CGContextFillPath(context);
     
+}
+
+- (NSMutableArray *)stringToArray:(NSString *)str {
+    if ([str isEqualToString:@""]){
+        return false;
+    }
+    NSMutableArray *chars = [[NSMutableArray alloc] init];
+    NSString *buildWord = @"";
+    for(int index = 0; index<=[str length]-1; index++){
+        if ([str characterAtIndex:index] == 32){
+            [chars addObject:buildWord];
+            buildWord = @"";
+        } else {
+            buildWord = [buildWord stringByAppendingString:[NSString stringWithFormat:@"%c", [str characterAtIndex:index]]];
+        }
+    }
+    [chars addObject:buildWord];
+    buildWord = @"";
+    return chars;
+}
+
+
+- (void)setWordsToOutput:(NSString *)buf {
+    [wordList removeAllObjects];
+    if ([self stringToArray:buf]) {
+        [wordList addObjectsFromArray:[self stringToArray:buf]];
+    }
+    [self rewrite];
 }
 
 - (void)appendToText:(NSString *)string {
@@ -110,9 +140,6 @@
 }
 
 -(void)updateOutputWithFormat {
-    
-    
-    
     
 }
 
