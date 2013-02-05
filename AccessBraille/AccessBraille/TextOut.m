@@ -86,7 +86,8 @@
         NSLog(@"Completed Word");
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
-        [wordList addObject:[self parseLastWordfromString:textOut.text]];
+        [wordList removeAllObjects];
+        [wordList addObjectsFromArray:[self stringToArray:tmp]];
     } else {
         NSLog(@"Appending %@ to %@", string, textOut.text);
         NSString *tmp = [textOut.text stringByAppendingString:string];
@@ -96,8 +97,9 @@
 }
 
 -(NSString *)parseLastWordfromString:(NSString *)string {
-    
-    // Check Duplicate?
+    /**
+        Depricated
+     */
     
     const char *charArray = [string UTF8String];
     int charLength = (int)[string length];
@@ -123,7 +125,8 @@
 
 -(void)typingDidEnd {
     NSLog(@"Typing Ended");
-    [wordList addObject:[self parseLastWordfromString:textOut.text]];
+    [wordList removeAllObjects];
+    [wordList addObjectsFromArray:[self stringToArray:textOut.text]];
     [self rewrite];
     NSLog(@"%@", wordList);
 }
@@ -149,6 +152,7 @@
 
 -(void)clearText{
     [textOut setText:@""];
+    [wordList removeAllObjects];
 }
 
 @end
