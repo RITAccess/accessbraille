@@ -65,7 +65,7 @@
     /**
         Runs after load
      */
-    
+    NSLog(@"BTC Loaded");
     [super viewDidLoad];
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
@@ -137,6 +137,7 @@
         View Did Appear
      */
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.view setNeedsDisplay];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent{

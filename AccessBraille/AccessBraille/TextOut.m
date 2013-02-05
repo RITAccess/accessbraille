@@ -12,11 +12,14 @@
     UILabel *textOut;
     NSMutableArray *wordList;
     bool loaded;
+    
+    UILongPressGestureRecognizer *clearText;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
+        NSLog(@"Init");
         loaded = NO;
         _buf = @"";
     }
@@ -32,6 +35,12 @@
     wordList = [[NSMutableArray alloc] init];
     [self addSubview:textOut];
     [self setWordsToOutput:_buf];
+    
+    // Clear Text
+    clearText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clearText)];
+    [clearText setNumberOfTouchesRequired:3];
+    [self addGestureRecognizer:clearText];
+    
     
     // Style
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -151,8 +160,10 @@
 }
 
 -(void)clearText{
+    NSLog(@"Cleared Text");
     [textOut setText:@""];
     [wordList removeAllObjects];
+    [self rewrite];
 }
 
 @end

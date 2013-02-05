@@ -24,17 +24,14 @@
 }
 
 -(void)viewDidLoad {
-    /**
-        Runs after view loads
-     */
-    [self switchToController:[self.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+
 }
 
 -(void)loadNavIntoView {
     /**
         Will load the navigation views into the controller's view
      */
-    // Nav pullout
+    
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
     [nav setParentViewController:self];
     [self.view addSubview:nav];
@@ -120,7 +117,6 @@
     /**
         Called by gesture framework to navigate the menu
      */
-    // Swipe navigation logic
     switch (reg.state){
         case UIGestureRecognizerStateChanged:
             [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
@@ -135,7 +131,7 @@
 
 -(void)closeMenu:(UIGestureRecognizer *)reg {
     /**
-        closes the menu
+        Closes the menu
      */
     if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
         [nav close];

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "NavigationContainer.h"
+#import "BrailleTyperController.h"
 #import <CoreData/CoreData.h>
 
 @implementation AppDelegate
@@ -94,6 +96,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSLog(@"Launched");
+    
+    NavigationContainer *nc = (NavigationContainer *) self.window.rootViewController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+    
     return YES;
 }
 							
@@ -115,7 +124,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
-{
+{    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
