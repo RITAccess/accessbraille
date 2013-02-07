@@ -61,10 +61,10 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO];
             break;
         case 2:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"testVC"] animated:NO];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
             break;
             
         default:

@@ -101,7 +101,7 @@
     
     NavigationContainer *nc = (NavigationContainer *) self.window.rootViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO];
     
     return YES;
 }
@@ -113,11 +113,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    BrailleTyperController *bt = [storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"];
-    [bt saveState];
-    
+{    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
