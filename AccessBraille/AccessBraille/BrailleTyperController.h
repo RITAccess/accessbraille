@@ -10,10 +10,23 @@
 #import "Drawing.h"
 #import "TextOut.h"
 #import <CoreData/CoreData.h>
+#import <Slt/Slt.h>
+#import <Kal/Kal.h>
+#import <OpenEars/FliteController.h>
 
-@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate> {
+    
+    FliteController *fliteController;
+    Slt *slt;
+    Kal *kal;
+    
+}
 
 -(void)saveState;
+
+@property (strong, nonatomic) FliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
+@property (strong, nonatomic) Kal *kal;
 
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;

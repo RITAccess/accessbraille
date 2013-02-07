@@ -28,6 +28,8 @@
 
 @end
 
+#pragma mark Implementation
+
 @implementation BrailleTyperController {
     // Typing Mode
     NSTimer *typingTimeout;
@@ -58,6 +60,10 @@
 
 @synthesize typingStateOutlet = _typingStateOutlet;
 @synthesize DrawingView = _DrawingView;
+
+@synthesize fliteController;
+@synthesize slt;
+@synthesize kal;
 
 # pragma mark - ViewController Methods
 
@@ -122,6 +128,12 @@
     enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
+    
+    
+    // Say something
+    
+    [self.fliteController say:@"This app is using Open Ears to handle it's voice feedback" withVoice:self.slt
+     ];
 
 }
 
@@ -408,6 +420,29 @@
     
     NSLog(@"%@ pulled from table", latestEntity.typedString);
     return latestEntity.typedString;
+}
+
+# pragma mark - TTS Methods
+
+- (FliteController *)fliteController {
+	if (fliteController == nil) {
+		fliteController = [[FliteController alloc] init];
+	}
+	return fliteController;
+}
+
+- (Slt *)slt {
+	if (slt == nil) {
+		slt = [[Slt alloc] init];
+	}
+	return slt;
+}
+
+- (Kal *)kal {
+    if (kal == nil) {
+        kal = [[Kal alloc] init];
+    }
+    return kal;
 }
 
 @end
