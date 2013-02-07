@@ -132,8 +132,7 @@
     
     // Say something
     
-    [self.fliteController say:@"This app is using Open Ears to handle it's voice feedback" withVoice:self.slt
-     ];
+    // [self.fliteController say:@"This app is using Open Ears to handle it's voice feedback" withVoice:self.slt];
 
 }
 
