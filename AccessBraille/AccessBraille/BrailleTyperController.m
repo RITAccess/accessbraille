@@ -157,7 +157,7 @@
         View Will Disappear
      */
     [self endTyping];
-    [self updateLastValue:[_TextDrawing getCurrentText]];
+    [self saveState];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -166,6 +166,13 @@
      */
     [self.view setFrame:self.parentViewController.view.frame];
     _TextDrawing.buf = [self getLastItemInTable];
+}
+
+-(void)saveState {
+    /**
+        Save all persistant varables
+    */
+    [self updateLastValue:[_TextDrawing getCurrentText]];
 }
 
 # pragma mark - Typing Methods
@@ -194,8 +201,14 @@
             [_TextDrawing appendToText:check];
         }
     } else {
-        if ([bi getAverageYValue] < [reg locationInView:reg.view].y){
+        
+        int backSpaceBuf = 850;
+        
+        if ([bi getAverageYValue] < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x < backSpaceBuf){
+            
             [_TextDrawing appendToText:@" "];
+        } else if ([bi getAverageYValue] - 100 < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x >= backSpaceBuf) {
+            NSLog(@"Back space");
         }
     }
 }
@@ -324,6 +337,7 @@
             [v removeFromSuperview];
         }
     }
+    [self updateLastValue:[_TextDrawing getCurrentText]];
     // Audio feedback tone down
 }
 
@@ -355,7 +369,6 @@
     NSFetchRequest *req = [[NSFetchRequest alloc] init];
     [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
     NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
-    NSLog(@"%@", results);
     if ([results count] == 0) {
         // Add row if empty
         BrailleTyper *cdEntry = (BrailleTyper *)[NSEntityDescription insertNewObjectForEntityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext];

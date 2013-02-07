@@ -30,11 +30,12 @@
     
     // Text Output
     NSLog(@"drawRect");
-    textOut = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width, 50)];
+    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     textOut.backgroundColor = [UIColor clearColor];
     wordList = [[NSMutableArray alloc] init];
     [self addSubview:textOut];
     [self setWordsToOutput:_buf];
+    
     
     // Clear Text
     clearText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clearText)];
@@ -49,7 +50,9 @@
     UIColor *fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
     UIColor *fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
     
-    CGRect box = CGRectMake(5, 5, self.frame.size.width - 10, self.frame.size.height - 10);
+    // Writing Area
+    CGRect box = CGRectMake(20,0,850,240);
+    
     // Shadow
     CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow.CGColor);
     CGContextAddRect(context, box);

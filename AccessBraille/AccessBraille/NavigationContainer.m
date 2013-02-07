@@ -66,7 +66,7 @@
         
     } else {
         for (UIView *subview in self.view.subviews){
-            [subview removeFromSuperview]; // animated not taken into account yet
+            [subview removeFromSuperview]; 
         }
         for (UIViewController *childViewController in self.childViewControllers){
             [childViewController removeFromParentViewController];
