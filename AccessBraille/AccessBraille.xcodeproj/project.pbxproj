@@ -26,6 +26,8 @@
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C4FEB3516C4492600434F60 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3416C4492600434F60 /* Kal.framework */; };
+		4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BC9F16C9481800F76B45 /* hop.mp3 */; };
+		4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BCA116C9499C00F76B45 /* disable.mp3 */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
@@ -89,6 +91,8 @@
 		4C4FEB2116C4463700434F60 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4C4FEB3416C4492600434F60 /* Kal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kal.framework; sourceTree = "<group>"; };
+		4C52BC9F16C9481800F76B45 /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hop.mp3; sourceTree = "<group>"; };
+		4C52BCA116C9499C00F76B45 /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = disable.mp3; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		4C65356216C443A900611B6F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -246,9 +250,6 @@
 		A9479C2C1670034D00CE9475 = {
 			isa = PBXGroup;
 			children = (
-				4C4FEB3216C446A500434F60 /* AVFoundation.framework */,
-				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
-				A99671BE16810EFA00AAA322 /* AudioToolbox.framework */,
 				A9479C3E1670034E00CE9475 /* AccessBraille */,
 				A9479C621670034E00CE9475 /* AccessBrailleTests */,
 				A9479C371670034E00CE9475 /* Frameworks */,
@@ -269,6 +270,9 @@
 			isa = PBXGroup;
 			children = (
 				4C4FEB1116C4463700434F60 /* OpenEars */,
+				4C4FEB3216C446A500434F60 /* AVFoundation.framework */,
+				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
+				A99671BE16810EFA00AAA322 /* AudioToolbox.framework */,
 				A9479C381670034E00CE9475 /* UIKit.framework */,
 				A9479C3A1670034E00CE9475 /* Foundation.framework */,
 				A9479C3C1670034E00CE9475 /* CoreGraphics.framework */,
@@ -281,10 +285,10 @@
 			isa = PBXGroup;
 			children = (
 				4C48079016C01CAF001E3EF1 /* Models */,
+				A934326F16A075A400C659C1 /* View */,
 				A9ECC82216A764E900998AD4 /* Controllers */,
 				A9ECC82116A764C300998AD4 /* Resources */,
 				A934326C16A070CB00C659C1 /* Images */,
-				A934326F16A075A400C659C1 /* View */,
 				A9343268169F47D700C659C1 /* Gestures */,
 				A9479C471670034E00CE9475 /* AppDelegate.h */,
 				A9479C481670034E00CE9475 /* AppDelegate.m */,
@@ -331,6 +335,8 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
+				4C52BC9F16C9481800F76B45 /* hop.mp3 */,
 				4CE588E416C1ACD50046274D /* Default-Landscape@2x~ipad.png */,
 				A97425711677BFA400289C8D /* CalibrationPoint.h */,
 				A97425721677BFA400289C8D /* CalibrationPoint.m */,
@@ -447,6 +453,8 @@
 				4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */,
 				4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */,
 				4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */,
+				4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */,
+				4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

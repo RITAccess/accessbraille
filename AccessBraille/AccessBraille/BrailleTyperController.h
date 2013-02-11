@@ -16,10 +16,11 @@
 
 @interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate> {
     
+    // Voice Over
+    
     FliteController *fliteController;
     Slt *slt;
     Kal *kal;
-    
 }
 
 -(void)saveState;

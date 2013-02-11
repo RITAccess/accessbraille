@@ -23,6 +23,7 @@
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface BrailleTyperController ()
 
@@ -55,6 +56,10 @@
     
     // Layout
     Enabled *enabled;
+    
+    // Audio
+    SystemSoundID enabledSound;
+    SystemSoundID disabledSound;
 
 }
 
@@ -129,10 +134,13 @@
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
     
+    // Audio
+    enabledSound = [self createSoundID:@"hop.mp3"];
+    disabledSound = [self createSoundID:@"disable.mp3"];
     
     // Say something
     
-    // [self.fliteController say:@"This app is using Open Ears to handle it's voice feedback" withVoice:self.slt];
+//    [self.fliteController say:@"Herp Derp" withVoice:self.slt];
 
 }
 
@@ -167,7 +175,9 @@
     /**
         View Will Disappear
      */
-    [self endTyping];
+    if (isTypingMode){
+        [self endTyping];
+    }
     [self saveState];
 }
 
@@ -194,6 +204,9 @@
      */
     
     // Audio feedback click
+    
+    
+    
     // Assuming valid tap, continue typing
     [self beginTyping];
     NSMutableDictionary *touchPoints = [[NSMutableDictionary alloc] init];
@@ -209,6 +222,7 @@
     if (touchPoints.count > 0) {
         NSString *check = [bi getChar:touchPoints];
         if(![check isEqualToString:@"not"]){
+            [self.fliteController say:check withVoice:self.slt];
             [_TextDrawing appendToText:check];
         }
     } else {
@@ -273,6 +287,7 @@
             [bi setUpCalibration];
             
             // Audio feedback tone up
+            AudioServicesPlaySystemSound(enabledSound);
             enabled.enable = true;
             [enabled setNeedsDisplay];
             break;
@@ -328,6 +343,7 @@
     [typingTimeout invalidate];
     NSLog(@"End Typing");
     // Disable Typing
+    AudioServicesPlaySystemSound(disabledSound);
     isTypingMode = false;
     enabled.enable = false;
     [_TextDrawing typingDidEnd];
@@ -421,7 +437,7 @@
     return latestEntity.typedString;
 }
 
-# pragma mark - TTS Methods
+# pragma mark - TTS Methods and Audio
 
 - (FliteController *)fliteController {
 	if (fliteController == nil) {
@@ -442,6 +458,15 @@
         kal = [[Kal alloc] init];
     }
     return kal;
+}
+
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 
 @end

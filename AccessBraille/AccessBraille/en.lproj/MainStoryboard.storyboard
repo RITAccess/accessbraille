@@ -79,8 +79,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.058823533356189728" green="0.12941177189350128" blue="0.20392158627510071" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="WXR-sO-hbo" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="181" id="5uP-D3-cmq"/>
                             <constraint firstItem="WXR-sO-hbo" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" constant="370" id="EBg-AE-KPf"/>
+                            <constraint firstItem="WXR-sO-hbo" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="357" id="T4k-qe-Dff"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

@@ -8,13 +8,16 @@
 
 #import "Drawing.h"
 
-@implementation Drawing
+@implementation Drawing {
+    bool touched;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        touched = false;
     }
     return self;
 }
@@ -28,14 +31,34 @@
     return self;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    touched = true;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    touched = false;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    touched = false;
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 4.0);
     CGContextSetStrokeColorWithColor(context,[UIColor blueColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
     CGRect rectangle = CGRectMake(2, 2, self.frame.size.width - 4, self.frame.size.height - 4);
     CGContextAddEllipseInRect(context, rectangle);
+    if (touched){
+        CGContextFillPath(context);
+    }
     CGContextStrokePath(context);
+    
 }
 
 @end
