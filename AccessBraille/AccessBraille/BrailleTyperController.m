@@ -10,6 +10,9 @@
     Controller for the Braille Typing interface
  */
 
+
+# define testing true
+
 #import "BrailleTyperController.h"
 #import "Drawing.h"
 #import "CalibrationPoint.h"
@@ -76,7 +79,7 @@
     /**
         Runs after load
      */
-    NSLog(@"BTC Loaded");
+//    NSLog(@"BTC Loaded");
     [super viewDidLoad];
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
@@ -142,6 +145,18 @@
     
 //    [self.fliteController say:@"Herp Derp" withVoice:self.slt];
 
+// Testing
+# if testing
+    NSOperationQueue *wait = [[NSOperationQueue alloc] init];
+    [wait addOperationWithBlock:^{
+        NSLog(@"Starting tests in 3 seconds");
+        sleep(3);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self startTest];
+        }];
+    }];
+# endif
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -196,6 +211,24 @@
     [self updateLastValue:[_TextDrawing getCurrentText]];
 }
 
+- (void)didReceiveMemoryWarning {
+    /**
+     Did receive memory warning
+     */
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidUnload {
+    /**
+     view did unload
+     */
+    [self setDrawingView:nil];
+    [self setTextOutput:nil];
+    [self setTextDrawing:nil];
+    [super viewDidUnload];
+}
+
 # pragma mark - Typing Methods
 
 - (void)BRTap:(UITapGestureRecognizer *)reg{
@@ -230,10 +263,11 @@
         int backSpaceBuf = 850;
         
         if ([bi getAverageYValue] < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x < backSpaceBuf){
-            
             [_TextDrawing appendToText:@" "];
+            [self.fliteController say:[_TextDrawing parseLastWordfromString:[_TextDrawing getCurrentText]] withVoice:self.slt];
+            
         } else if ([bi getAverageYValue] - 100 < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x >= backSpaceBuf) {
-            NSLog(@"Back space");
+//            NSLog(@"Back space");
         }
     }
 }
@@ -249,67 +283,69 @@
         Six finger long press gesture calls this and switches the app into typing mode
      */
     
-    // Creating any variables used in switch scope
+    switch (reg.state) {
+        case 1:
+            [self setUpTyping:reg];
+            break;
+            
+        case 3:
+            [self beginTyping];
+            [sixFingerHold setEnabled:NO];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setUpTyping:(UILongPressGestureRecognizer *)reg {
     NSArray *rawTouch;
     NSArray *sortedTouchPoints;
     NSArray *fingerIDs = @[@3,@2,@1,@4,@5,@6];
     NSSortDescriptor *sortXValues = [[NSSortDescriptor alloc] initWithKey:@"x" ascending:TRUE];
     NSArray *sorters = @[ sortXValues ];
-    switch (reg.state) {
-        case 1:
-            // Enable Braille Recognizers
-            [BROneTap setEnabled:YES];
-            [BRTwoTap setEnabled:YES];
-            [BRThreeTap setEnabled:YES];
-            [BRFourTap setEnabled:YES];
-            [BRFiveTap setEnabled:YES];
-            [BRSixTap setEnabled:YES];
-            [doubleTapExit setEnabled:YES];
-            
-            // Set callibration points
-            rawTouch = @[
+    
+    // Enable Braille Recognizers
+    [BROneTap setEnabled:YES];
+    [BRTwoTap setEnabled:YES];
+    [BRThreeTap setEnabled:YES];
+    [BRFourTap setEnabled:YES];
+    [BRFiveTap setEnabled:YES];
+    [BRSixTap setEnabled:YES];
+    [doubleTapExit setEnabled:YES];
+    
+    // Set callibration points
+    rawTouch = @[
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:0 inView:reg.view] withTmpID:@0],
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:1 inView:reg.view] withTmpID:@1],
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:2 inView:reg.view] withTmpID:@2],
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:3 inView:reg.view] withTmpID:@3],
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:4 inView:reg.view] withTmpID:@4],
                  [[CalibrationPoint alloc] initWithCGPoint:[reg locationOfTouch:5 inView:reg.view] withTmpID:@5]
-            ];
-            
-            sortedTouchPoints = [rawTouch sortedArrayUsingDescriptors:sorters];
-            for (int i = 0; i < 6; i++){
-                CalibrationPoint *tmp = [sortedTouchPoints objectAtIndex:i];
-                [tmp setNewID:[fingerIDs objectAtIndex:i]];
-                [cpByFinger setValue:tmp forKey:[[tmp getCurrentID] stringValue]];
-                [bi addCalibrationPoint:tmp];
-            }
-            // Configure radius and buffers in BI
-            [bi setUpCalibration];
-            
-            // Audio feedback tone up
-            AudioServicesPlaySystemSound(enabledSound);
-            enabled.enable = true;
-            [enabled setNeedsDisplay];
-            break;
-            
-        case 3: // On Release
-            [self beginTyping];
-            NSLog(@"%@", [bi description]);
-            // Disable all navigation gestures
-            [sixFingerHold setEnabled:NO];
-            NSLog(@"Typing Enabled");
-            break;
-            
-        default:
-            // NSLog(@"Unchecked state: %d", reg.state);
-            break;
+                 ];
+    
+    sortedTouchPoints = [rawTouch sortedArrayUsingDescriptors:sorters];
+    for (int i = 0; i < 6; i++){
+        CalibrationPoint *tmp = [sortedTouchPoints objectAtIndex:i];
+        [tmp setNewID:[fingerIDs objectAtIndex:i]];
+        [cpByFinger setValue:tmp forKey:[[tmp getCurrentID] stringValue]];
+        [bi addCalibrationPoint:tmp];
     }
+    // Configure radius and buffers in BI
+    [bi setUpCalibration];
+    
+    // Audio feedback tone up
+    AudioServicesPlaySystemSound(enabledSound);
+    enabled.enable = true;
+    [enabled setNeedsDisplay];
 }
 
-- (void)beginTyping{
+- (void)beginTyping {
     /**
         Starts the typing mode
      */
+    
+    _TextDrawing.end = [[NSDate alloc] init];
     
     if (!isTypingMode){
         // Start timer and switch to typing mode
@@ -341,7 +377,7 @@
      */
     // End Timer
     [typingTimeout invalidate];
-    NSLog(@"End Typing");
+//    NSLog(@"End Typing");
     // Disable Typing
     AudioServicesPlaySystemSound(disabledSound);
     isTypingMode = false;
@@ -366,24 +402,6 @@
     }
     [self updateLastValue:[_TextDrawing getCurrentText]];
     // Audio feedback tone down
-}
-
-- (void)didReceiveMemoryWarning {
-    /**
-        Did receive memory warning
-     */
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidUnload {
-    /**
-        view did unload
-     */
-    [self setDrawingView:nil];
-    [self setTextOutput:nil];
-    [self setTextDrawing:nil];
-    [super viewDidUnload];
 }
 
 #pragma mark - Access Core Data Methods
@@ -433,7 +451,7 @@
     }
     BrailleTyper *latestEntity = [results objectAtIndex:0];
     
-    NSLog(@"%@ pulled from table", latestEntity.typedString);
+//    NSLog(@"%@ pulled from table", latestEntity.typedString);
     return latestEntity.typedString;
 }
 
@@ -468,5 +486,47 @@
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
     return soundID;
 }
+
+# pragma mark - Testing
+# if testing
+
+- (void)startTest {
+    NSLog(@"Running Tests");
+    NSLog(@"[self typeWords]");
+    [self typeWords];
+}
+
+- (void) typeWords {
+    
+    NSLog(@"Clearing text");
+    [_TextDrawing clearText];
+    
+    NSArray *sent1 = @[@"t",@"h",@"i",@"s",@" ",@"i",@"s",@" ",@"a",@" ",@"t",@"e",@"s",@"t",@" ",@"s",@"e",@"n",@"t",@"a",@"n",@"c",@"e",@" ",@"u",@"s",@"e",@"d",@" ",@"t",@"o",@" ",@"t",@"e",@"s",@"t",@" ",@"a",@"c",@"c",@"e",@"s",@"s",@"b",@"r",@"a",@"i",@"l",@"l",@"e"];
+    NSArray *sent2 = @[@"h",@"e",@"l",@"l",@"o",@" ",@"m",@"y",@" ",@"n",@"a",@"m",@"e",@" ",@"i",@"s",@" ",@"m",@"i",@"c",@"h",@"a",@"e",@"l"];
+    NSNumber *index = @0;
+    NSNumber *max = [[NSNumber alloc] initWithInteger:[sent2 count] - 1];
+    
+    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithDictionary:@{ @"words":sent2, @"index":index, @"max":max }];
+  
+    NSTimer *letterSend = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(send:) userInfo:userInfo repeats:true];
+    [self setUpTyping:nil];
+    [self beginTyping];
+    [letterSend fire];
+
+}
+
+- (void) send:(NSTimer *)timer {
+    NSMutableDictionary *userInfo = [timer userInfo];
+    
+    NSLog(@"Sending %@", [userInfo[@"words"] objectAtIndex:[userInfo[@"index"] intValue]]);
+    [_TextDrawing appendToText:[userInfo[@"words"] objectAtIndex:[userInfo[@"index"] intValue]]];
+    [self beginTyping];
+    if ([userInfo[@"max"] isEqual:userInfo[@"index"]]){
+        [timer invalidate];
+    }
+    userInfo[@"index"] = [[NSNumber alloc] initWithInt:([(NSNumber *)[userInfo objectForKey:@"index"] intValue] + 1)];
+}
+
+# endif
 
 @end

@@ -12,10 +12,12 @@
 
 -(void)appendToText:(NSString *)string;
 -(NSString *)getCurrentText;
+-(NSString *)parseLastWordfromString:(NSString *)string;
 -(void)clearText;
 -(void)typingDidStart;
 -(void)typingDidEnd;
 
 @property(nonatomic, readwrite) NSString *buf;
+@property(nonatomic, readwrite) NSDate *end;
 
 @end

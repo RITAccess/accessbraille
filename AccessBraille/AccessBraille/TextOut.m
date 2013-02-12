@@ -10,8 +10,12 @@
 
 @implementation TextOut {
     UILabel *textOut;
+    UILabel *wpm;
     NSMutableArray *wordList;
     bool loaded;
+    
+    // WPM count
+    NSDate *start;
     
     UILongPressGestureRecognizer *clearText;
 }
@@ -19,7 +23,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
-        NSLog(@"Init");
+//        NSLog(@"Init");
         loaded = NO;
         _buf = @"";
     }
@@ -29,11 +33,15 @@
 -(void)drawRect:(CGRect)rect {
     
     // Text Output
-    NSLog(@"drawRect");
+//    NSLog(@"drawRect");
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     textOut.backgroundColor = [UIColor clearColor];
+    wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
+    wpm.backgroundColor = [UIColor clearColor];
+    wpm.text = @"nill wps";
     wordList = [[NSMutableArray alloc] init];
     [self addSubview:textOut];
+    [self addSubview:wpm];
     [self setWordsToOutput:_buf];
     
     
@@ -95,24 +103,20 @@
 
 - (void)appendToText:(NSString *)string {
     if ([string isEqualToString:@" "]) {
-        NSLog(@"Completed Word");
+//        NSLog(@"Completed Word");
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
         [wordList removeAllObjects];
         [wordList addObjectsFromArray:[self stringToArray:tmp]];
     } else {
-        NSLog(@"Appending %@ to %@", string, textOut.text);
+//        NSLog(@"Appending %@ to %@", string, textOut.text);
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
     }
-    NSLog(@"%@", wordList);
+//    NSLog(@"%@", wordList);
 }
 
--(NSString *)parseLastWordfromString:(NSString *)string {
-    /**
-        Depricated
-     */
-    
+-(NSString *)parseLastWordfromString:(NSString *)string {    
     const char *charArray = [string UTF8String];
     int charLength = (int)[string length];
     NSString *word = @"";
@@ -132,29 +136,34 @@
 }
 
 -(void)typingDidStart {
-
+    start = [[NSDate alloc] init];
 }
 
 -(void)typingDidEnd {
-    NSLog(@"Typing Ended");
+    [self updateWordsPerMinute];
+//    NSLog(@"Typing Ended");
     [wordList removeAllObjects];
     [wordList addObjectsFromArray:[self stringToArray:textOut.text]];
     [self rewrite];
-    NSLog(@"%@", wordList);
+//    NSLog(@"%@", wordList);
 }
 
 - (void)rewrite {
+    
+    [wordList removeObjectIdenticalTo:@""];
+    
     textOut.text = @" ";
     for(NSString *word in wordList){
-        if ([word isEqualToString:@""]) {
-            continue;
-        }
         textOut.text = [textOut.text stringByAppendingString:word];
         textOut.text = [textOut.text stringByAppendingString:@" "];
     }
 }
 
--(void)updateOutputWithFormat {
+-(void) updateWordsPerMinute {
+    
+    float wpmf = (([wordList count]/([_end timeIntervalSinceDate:start])) * 60.0);
+    
+    wpm.text = [NSString stringWithFormat:@"%f",wpmf];
     
 }
 
@@ -163,7 +172,7 @@
 }
 
 -(void)clearText{
-    NSLog(@"Cleared Text");
+//    NSLog(@"Cleared Text");
     [textOut setText:@""];
     [wordList removeAllObjects];
     [self rewrite];

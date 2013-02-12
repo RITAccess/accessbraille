@@ -48,7 +48,7 @@
     switch (reg.state) {
         case UIGestureRecognizerStateBegan:
             origin = [reg locationInView:self.superview];
-            NSLog(@"%f,%f", origin.x, origin.y);
+//            NSLog(@"%f,%f", origin.x, origin.y);
             break;
         case UIGestureRecognizerStateChanged:
 

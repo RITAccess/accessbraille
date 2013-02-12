@@ -90,19 +90,19 @@
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-            printf(".");
+//            printf(".");
             [nav updateWithCGPoint:touch];
             break;
             
         case UIGestureRecognizerStateBegan:
             [tapToCloseMenu setEnabled:TRUE];
             [menuTrav setEnabled:TRUE];
-            NSLog(@"State Started");
+//            NSLog(@"State Started");
             break;
             
         case UIGestureRecognizerStateEnded:
-            printf("\n");
-            NSLog(@"State Ended");
+//            printf("\n");
+//            NSLog(@"State Ended");
             if (touch.x < 100) {
                 [self closeMenu:reg];
             }

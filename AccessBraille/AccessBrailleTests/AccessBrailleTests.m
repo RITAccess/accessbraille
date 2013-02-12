@@ -12,7 +12,6 @@
 #import "BrailleTyperController.h"
 
 @implementation AccessBrailleTests
-
 - (void)setUp
 {
     [super setUp];
