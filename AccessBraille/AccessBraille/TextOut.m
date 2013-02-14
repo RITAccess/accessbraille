@@ -38,7 +38,7 @@
     textOut.backgroundColor = [UIColor clearColor];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
     wpm.backgroundColor = [UIColor clearColor];
-    wpm.text = @"nill wps";
+    wpm.text = @"N/A WPM";
     wordList = [[NSMutableArray alloc] init];
     [self addSubview:textOut];
     [self addSubview:wpm];
@@ -163,7 +163,7 @@
     
     float wpmf = (([wordList count]/([_end timeIntervalSinceDate:start])) * 60.0);
     
-    wpm.text = [NSString stringWithFormat:@"%f",wpmf];
+    wpm.text = [NSString stringWithFormat:@"%d WPM",(int)wpmf];
     
 }
 

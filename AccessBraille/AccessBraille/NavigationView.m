@@ -24,7 +24,7 @@
     self = [super initWithFrame:frame];
     if (self){
         
-        self.backgroundColor = [UIColor orangeColor];
+        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"slideOutMenu.png"]]];
         
         UIImage *img1 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 1]];
         item1 = [[UIImageView alloc] initWithFrame:CGRectMake(-75, 20, 75, 75)];
@@ -61,10 +61,10 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO withMenu:NO];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:YES withMenu:NO];
             break;
         case 2:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:YES withMenu:YES];
             break;
             
         default:

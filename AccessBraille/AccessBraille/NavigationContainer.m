@@ -60,8 +60,21 @@
      */
     if (animated) {
         
+        for (UIView *subview in self.view.subviews){
+            [subview removeFromSuperview];
+        }
+        for (UIViewController *childViewController in self.childViewControllers){
+            [childViewController removeFromParentViewController];
+        }
         
+        [self addChildViewController:controller];
         
+        [self.view addSubview:controller.view];
+        [controller viewDidAppear:animated];
+        if (menu) {
+            [self loadNavIntoView];
+        }
+        [controller didMoveToParentViewController:self];
         
         
     } else {
