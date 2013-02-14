@@ -11,7 +11,7 @@
  */
 
 
-# define testing true
+# define testing false
 
 #import "BrailleTyperController.h"
 #import "Drawing.h"
@@ -133,7 +133,7 @@
     
     // Draw views
     
-    enabled = [[Enabled alloc] initWithFrame:CGRectMake(900, 50, 44, 44)];
+    enabled = [[Enabled alloc] initWithFrame:CGRectMake(971.5, 695.5, 44, 44)];
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
     

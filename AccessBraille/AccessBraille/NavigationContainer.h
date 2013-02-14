@@ -10,6 +10,6 @@
 
 @interface NavigationContainer : UIViewController
 
--(void)switchToController:(UIViewController*)controller animated:(BOOL)animated;
+-(void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu;
 
 @end

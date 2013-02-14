@@ -32,6 +32,8 @@
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4CE588E516C1ACD50046274D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE588E416C1ACD50046274D /* Default-Landscape@2x~ipad.png */; };
+		4CEC5E5816CD7F3B00858B66 /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5716CD7F3B00858B66 /* mainMenu.png */; };
+		4CEC5E5C16CD83A700858B66 /* menuItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5B16CD83A700858B66 /* menuItem.png */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
 		A934326E16A0729200C659C1 /* menuItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = A934326D16A0729200C659C1 /* menuItem1.png */; };
 		A94471E6169CAC1000B66193 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E5169CAC1000B66193 /* NavigationView.m */; };
@@ -98,6 +100,8 @@
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4CE588E416C1ACD50046274D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		4CEC5E5716CD7F3B00858B66 /* mainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenu.png; sourceTree = "<group>"; };
+		4CEC5E5B16CD83A700858B66 /* menuItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem.png; sourceTree = "<group>"; };
 		A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezelGestureRecognizer.h; sourceTree = "<group>"; };
 		A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezelGestureRecognizer.m; sourceTree = "<group>"; };
 		A934326D16A0729200C659C1 /* menuItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem1.png; path = Images/menuItem1.png; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CEC5E5B16CD83A700858B66 /* menuItem.png */,
+				4CEC5E5716CD7F3B00858B66 /* mainMenu.png */,
 				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
 				4C52BC9F16C9481800F76B45 /* hop.mp3 */,
 				4CE588E416C1ACD50046274D /* Default-Landscape@2x~ipad.png */,
@@ -455,6 +461,8 @@
 				4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */,
 				4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */,
 				4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */,
+				4CEC5E5816CD7F3B00858B66 /* mainMenu.png in Resources */,
+				4CEC5E5C16CD83A700858B66 /* menuItem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -61,10 +61,10 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO withMenu:NO];
             break;
         case 2:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO];
+            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
             break;
             
         default:
@@ -88,7 +88,7 @@
 
 -(void)updateMenuWithCGPoint:(CGPoint)touchTran {
     [item1 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem1.y), 75, 75)];
-    [item2 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem2.y), 75, 75)];
+    [item2 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem2.y), 75, 75)];    
 }
 
 -(void)close {
