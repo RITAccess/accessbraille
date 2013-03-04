@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainMenuNavigation.h"
 
 @interface MainMenu : UIViewController
-- (IBAction)buttonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *BrailleTyperButton;
+@property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
+- (IBAction)brailleTyper:(id)sender;
+- (IBAction)settings:(id)sender;
 
 @end

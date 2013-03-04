@@ -55,17 +55,17 @@
         <scene sceneID="brf-ns-DtG">
             <objects>
                 <viewController storyboardIdentifier="menu" id="4MA-eS-osw" customClass="MainMenu" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6EK-PO-34z">
+                    <view key="view" contentMode="scaleToFill" id="6EK-PO-34z" customClass="MainMenuNavigation">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainMenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJu-Oc-4ph"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zT1-PK-2AR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainMenu@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJu-Oc-4ph"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-Eg-6Xf">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="0GL-ab-Cot"/>
-                                    <constraint firstAttribute="width" constant="252" id="5XF-gX-0qB"/>
+                                    <constraint firstAttribute="height" constant="44" id="hep-dO-pki"/>
+                                    <constraint firstAttribute="width" constant="251" id="oKP-72-c1h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Start Typing" backgroundImage="menuItem.png">
                                     <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,61 +74,85 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="4MA-eS-osw" eventType="touchUpInside" id="v4I-sT-7al"/>
+                                    <action selector="brailleTyper:" destination="4MA-eS-osw" eventType="touchUpInside" id="73F-N7-3Q3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imo-RN-UHf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="782-fL-Ek6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Settings" backgroundImage="menuItem.png">
+                                    <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settings:" destination="4MA-eS-osw" eventType="touchUpInside" id="qmW-OP-iol"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="bottom" secondItem="6EK-PO-34z" secondAttribute="bottom" type="default" id="0qc-Dp-r5N"/>
+                            <constraint firstItem="imo-RN-UHf" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="8px-ho-mGP"/>
+                            <constraint firstItem="imo-RN-UHf" firstAttribute="trailing" secondItem="LVy-Eg-6Xf" secondAttribute="trailing" type="default" id="EnG-EL-2M1"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" type="default" id="Ylo-c6-MaV"/>
+                            <constraint firstItem="LVy-Eg-6Xf" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="154" id="ZgE-xW-MeF"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="trailing" secondItem="6EK-PO-34z" secondAttribute="trailing" type="default" id="bnx-U5-6Gz"/>
-                            <constraint firstItem="zT1-PK-2AR" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="39" id="fom-6i-BLR"/>
-                            <constraint firstItem="zT1-PK-2AR" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" constant="-1" id="k6z-fY-Fzz"/>
+                            <constraint firstItem="LVy-Eg-6Xf" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="efd-HG-wZP"/>
+                            <constraint firstItem="imo-RN-UHf" firstAttribute="top" secondItem="LVy-Eg-6Xf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pVi-PN-1Yu"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="v2i-yG-P3u"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="BrailleTyperButton" destination="LVy-Eg-6Xf" id="Jmk-Xd-AMe"/>
+                        <outlet property="menuView" destination="6EK-PO-34z" id="kgt-c7-8Jq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5Z-tE-ZsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-290" y="610"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RPd-1y-RLf">
+            <objects>
+                <viewController storyboardIdentifier="settings" id="Rzf-i4-cCU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QW3-PE-pRt">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-2J-NRJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="0AE-Wz-XbN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lPr-2J-NRJ" firstAttribute="top" secondItem="QW3-PE-pRt" secondAttribute="top" constant="317" id="Dil-94-Z0y"/>
+                            <constraint firstAttribute="trailing" secondItem="lPr-2J-NRJ" secondAttribute="trailing" constant="390" id="Njw-Xy-hsY"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWV-rh-Usu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="-480"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="mainMenu.png" width="4267" height="3200"/>
-        <image name="menuItem.png" width="4354" height="752"/>
+        <image name="mainMenu@2x.png" width="2048" height="1536"/>
+        <image name="menuItem.png" width="4350" height="767"/>
     </resources>
-    <classes>
-        <class className="BrailleTyperController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
-                <relationship kind="outlet" name="TextDrawing" candidateClass="TextOut"/>
-                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Drawing" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
-        </class>
-        <class className="MainMenu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonPressed:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NavigationContainer" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
-        </class>
-        <class className="TextOut" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextOut.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

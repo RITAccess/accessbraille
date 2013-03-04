@@ -54,7 +54,7 @@
 
 - (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
 
--(void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
+- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
     /**
         Takes in a UIViewController and switches the view to that controller
      */

@@ -9,10 +9,21 @@
 #import "MainMenu.h"
 #import "NavigationContainer.h"
 #import "BrailleInterpreter.h"
+#import "MainMenuNavigation.h"
 
-@implementation MainMenu
+@implementation MainMenu {
+    
+    UIPanGestureRecognizer *scrollMenu;
+    
+}
+
+@synthesize menuView;
 
 -(void)viewDidLoad{
+    
+    scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
+    scrollMenu.minimumNumberOfTouches = 2;
+    [self.view addGestureRecognizer:scrollMenu];
     
 }
 
@@ -30,13 +41,53 @@
 
 
 - (void)viewDidUnload {
+    [self setBrailleTyperButton:nil];
+    [self setMenuView:nil];
     [super viewDidUnload];
 }
-- (IBAction)buttonPressed:(id)sender {
+
+- (void)scrollMenu:(UIPanGestureRecognizer *)reg {
+    MainMenuNavigation *view = menuView;
+    switch (reg.state) {
+        case UIGestureRecognizerStateBegan:
+            
+            [view setVisible:YES];
+            
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            [view setLocation:[reg locationInView:self.view]];
+            if ([reg velocityInView:self.view].x > 4000) {
+                [self brailleTyper:nil];
+                [scrollMenu setEnabled:NO];
+            }
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            [view setVisible:NO];
+            break;
+            
+        case UIGestureRecognizerStateCancelled:
+            [view setVisible:NO];
+            break;
+        default:
+            break;
+    }
+    [self.view setNeedsDisplay];
+}
+
+- (IBAction)brailleTyper:(id)sender {
     
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+}
+
+- (IBAction)settings:(id)sender {
     
+    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"settings"] animated:NO withMenu:YES];
+
 }
 @end
