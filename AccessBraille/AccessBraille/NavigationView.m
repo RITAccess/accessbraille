@@ -11,7 +11,7 @@
 
 @implementation NavigationView {
     
-    void (^activateController)(NSString *);
+    void (^activateController)(NSString *storyboardInstance, BOOL menu, BOOL animated);
     
     UIImageView *item1;
     UIImageView *item2;
@@ -51,7 +51,7 @@
     return self;
 }
 
--(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance))callback {
+-(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance, BOOL menu, BOOL animated))callback {
     
     activateController = callback;
     
@@ -74,13 +74,13 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            activateController(@"menu");
+            activateController(@"menu", NO, YES);
             break;
         case 2:
-            activateController(@"brailleTyper");
+            activateController(@"brailleTyper", YES, YES);
             break;
         case 3:
-            activateController(@"settings");
+            activateController(@"settings", YES, YES);
             break;
             
         default:

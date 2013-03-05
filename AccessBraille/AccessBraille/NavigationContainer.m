@@ -48,8 +48,8 @@
     [self.view addGestureRecognizer:tapToCloseMenu];
     [self.view addGestureRecognizer:menuTrav];
     
-    [nav setControllerWithBlock:^(NSString *storyboardInstance) {
-        [self switchToController:[self.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:YES withMenu:YES];
+    [nav setControllerWithBlock:^(NSString *storyboardInstance, BOOL menu, BOOL animated) {
+        [self switchToController:[self.storyboard instantiateViewControllerWithIdentifier:storyboardInstance] animated:animated withMenu:menu];
     }];
     
 }

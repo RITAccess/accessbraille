@@ -12,7 +12,7 @@
 @interface NavigationView : UIView
 
 -(id)initWithFrame:(CGRect)frame;
--(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance))callback;
+-(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance, BOOL menu, BOOL animated))callback;
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
 -(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
 -(void)setStartNavigation;
