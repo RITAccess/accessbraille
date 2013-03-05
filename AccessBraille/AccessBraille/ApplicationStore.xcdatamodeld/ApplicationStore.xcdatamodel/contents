@@ -5,6 +5,6 @@
         <attribute name="typedString" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BrailleTyper" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="BrailleTyper" positionX="-4716" positionY="-1332" width="128" height="75"/>
     </elements>
 </model>

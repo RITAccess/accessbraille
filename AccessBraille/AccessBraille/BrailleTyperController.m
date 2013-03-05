@@ -11,8 +11,6 @@
  */
 
 
-# define testing false
-
 #import "BrailleTyperController.h"
 #import "Drawing.h"
 #import "CalibrationPoint.h"
@@ -143,20 +141,11 @@
     
     // Say something
     
-//    [self.fliteController say:@"Herp Derp" withVoice:self.slt];
+    NSString *alf = @"abcdefghijklmnopqrstuvwxyz";
+    for (int i = 0; i < 26; i++){
+        [self.fliteController say:[NSString stringWithUTF8String:[alf characterAtIndex:i]] withVoice:self.slt];
+    }
 
-// Testing
-# if testing
-    NSOperationQueue *wait = [[NSOperationQueue alloc] init];
-    [wait addOperationWithBlock:^{
-        NSLog(@"Starting tests in 3 seconds");
-        sleep(3);
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self startTest];
-        }];
-    }];
-# endif
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -178,12 +167,14 @@
     /**
         Did Move To Parent View Controller
      */
+    
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     /**
         Will Move To Parent View Controller
      */
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -486,47 +477,5 @@
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
     return soundID;
 }
-
-# pragma mark - Testing
-# if testing
-
-- (void)startTest {
-    NSLog(@"Running Tests");
-    NSLog(@"[self typeWords]");
-    [self typeWords];
-}
-
-- (void) typeWords {
-    
-    NSLog(@"Clearing text");
-    [_TextDrawing clearText];
-    
-    NSArray *sent1 = @[@"t",@"h",@"i",@"s",@" ",@"i",@"s",@" ",@"a",@" ",@"t",@"e",@"s",@"t",@" ",@"s",@"e",@"n",@"t",@"a",@"n",@"c",@"e",@" ",@"u",@"s",@"e",@"d",@" ",@"t",@"o",@" ",@"t",@"e",@"s",@"t",@" ",@"a",@"c",@"c",@"e",@"s",@"s",@"b",@"r",@"a",@"i",@"l",@"l",@"e"];
-    NSArray *sent2 = @[@"h",@"e",@"l",@"l",@"o",@" ",@"m",@"y",@" ",@"n",@"a",@"m",@"e",@" ",@"i",@"s",@" ",@"m",@"i",@"c",@"h",@"a",@"e",@"l"];
-    NSNumber *index = @0;
-    NSNumber *max = [[NSNumber alloc] initWithInteger:[sent2 count] - 1];
-    
-    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithDictionary:@{ @"words":sent2, @"index":index, @"max":max }];
-  
-    NSTimer *letterSend = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(send:) userInfo:userInfo repeats:true];
-    [self setUpTyping:nil];
-    [self beginTyping];
-    [letterSend fire];
-
-}
-
-- (void) send:(NSTimer *)timer {
-    NSMutableDictionary *userInfo = [timer userInfo];
-    
-    NSLog(@"Sending %@", [userInfo[@"words"] objectAtIndex:[userInfo[@"index"] intValue]]);
-    [_TextDrawing appendToText:[userInfo[@"words"] objectAtIndex:[userInfo[@"index"] intValue]]];
-    [self beginTyping];
-    if ([userInfo[@"max"] isEqual:userInfo[@"index"]]){
-        [timer invalidate];
-    }
-    userInfo[@"index"] = [[NSNumber alloc] initWithInt:([(NSNumber *)[userInfo objectForKey:@"index"] intValue] + 1)];
-}
-
-# endif
 
 @end
