@@ -141,10 +141,10 @@
     
     // Say something
     
-    NSString *alf = @"abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0; i < 26; i++){
-        [self.fliteController say:[NSString stringWithUTF8String:[alf characterAtIndex:i]] withVoice:self.slt];
-    }
+//    NSString *alf = @"abcdefghijklmnopqrstuvwxyz";
+//    for (int i = 0; i < 26; i++){
+//        [self.fliteController say:[NSString stringWithUTF8String:[alf characterAtIndex:i]] withVoice:self.slt];
+//    }
 
 }
 
