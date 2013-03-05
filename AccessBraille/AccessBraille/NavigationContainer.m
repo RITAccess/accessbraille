@@ -33,7 +33,6 @@
      */
     
     nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
-    [nav setParentViewController:self];
     [self.view addSubview:nav];
     
     leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
@@ -48,6 +47,11 @@
     [self.view addGestureRecognizer:leftSideSwipe];
     [self.view addGestureRecognizer:tapToCloseMenu];
     [self.view addGestureRecognizer:menuTrav];
+    
+    [nav setControllerWithBlock:^(NSString *storyboardInstance) {
+        [self switchToController:[self.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:YES withMenu:YES];
+    }];
+    
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }

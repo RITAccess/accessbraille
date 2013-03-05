@@ -11,7 +11,7 @@
 
 @implementation NavigationView {
     
-    NavigationContainer *superViewController;
+    void (^activateController)(NSString *);
     
     UIImageView *item1;
     UIImageView *item2;
@@ -51,8 +51,10 @@
     return self;
 }
 
--(void)setParentViewController:(UIViewController *)parent {
-    superViewController = parent;
+-(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance))callback {
+    
+    activateController = callback;
+    
 }
 
 -(void)setGesturesWithSelector {
@@ -72,13 +74,13 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:YES withMenu:NO];
+            activateController(@"menu");
             break;
         case 2:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:YES withMenu:YES];
+            activateController(@"brailleTyper");
             break;
         case 3:
-            [superViewController switchToController:[superViewController.storyboard instantiateViewControllerWithIdentifier:@"settings"] animated:YES withMenu:YES];
+            activateController(@"settings");
             break;
             
         default:
