@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationView.h"
 
 @interface NavigationContainer : UIViewController
 

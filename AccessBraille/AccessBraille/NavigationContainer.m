@@ -48,9 +48,7 @@
     [self.view addGestureRecognizer:tapToCloseMenu];
     [self.view addGestureRecognizer:menuTrav];
     
-    [nav setControllerWithBlock:^(NSString *storyboardInstance, BOOL menu, BOOL animated) {
-        [self switchToController:[self.storyboard instantiateViewControllerWithIdentifier:storyboardInstance] animated:animated withMenu:menu];
-    }];
+    [nav setDelegate:self];
     
 }
 

@@ -11,8 +11,6 @@
 
 @implementation NavigationView {
     
-    void (^activateController)(NSString *storyboardInstance, BOOL menu, BOOL animated);
-    
     UIImageView *item1;
     UIImageView *item2;
     UIImageView *item3;
@@ -51,12 +49,6 @@
     return self;
 }
 
--(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance, BOOL menu, BOOL animated))callback {
-    
-    activateController = callback;
-    
-}
-
 -(void)setGesturesWithSelector {
     
     UITapGestureRecognizer *menuSelect1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
@@ -74,13 +66,25 @@
     
     switch ([[reg view] tag]) {
         case 1:
-            activateController(@"menu", NO, YES);
+            if ([_delegate respondsToSelector:@selector(switchToController:animated:withMenu:)]) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                UIViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+                [_delegate switchToController:newController animated:YES withMenu:NO];
+            }
             break;
         case 2:
-            activateController(@"brailleTyper", YES, YES);
+            if ([_delegate respondsToSelector:@selector(switchToController:animated:withMenu:)]) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                UIViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"];
+                [_delegate switchToController:newController animated:YES withMenu:YES];
+            }
             break;
         case 3:
-            activateController(@"settings", YES, YES);
+            if ([_delegate respondsToSelector:@selector(switchToController:animated:withMenu:)]) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                UIViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"settings"];
+                [_delegate switchToController:newController animated:YES withMenu:YES];
+            }
             break;
             
         default:

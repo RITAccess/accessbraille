@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "NavigationContainer.h"
 
+@protocol NavigationDelegate
+@required
+
+- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu;
+
+@end
+
 @interface NavigationView : UIView
 
+@property (weak) id delegate;
+
 -(id)initWithFrame:(CGRect)frame;
--(void)setControllerWithBlock:(void (^)(NSString *storyboardInstance, BOOL menu, BOOL animated))callback;
 -(void)updateWithCGPoint:(CGPoint)touchLocation;
 -(void)updateMenuWithCGPoint:(CGPoint)touchLocation;
 -(void)setStartNavigation;
