@@ -222,13 +222,10 @@
 
 # pragma mark - Typing Methods
 
-- (void)BRTap:(UITapGestureRecognizer *)reg{
-    /**
-        Gets called when in typing mode, proccesses taps and sends them off to the BrailleInterpreter class
-     */
-    
-    // Audio feedback click
-    
+/**
+ Gets called when in typing mode, proccesses taps and sends them off to the BrailleInterpreter class
+ */
+- (void)BRTap:(UITapGestureRecognizer *)reg{   
     
     
     // Assuming valid tap, continue typing
@@ -258,7 +255,7 @@
             [self.fliteController say:[_TextDrawing parseLastWordfromString:[_TextDrawing getCurrentText]] withVoice:self.slt];
             
         } else if ([bi getAverageYValue] - 100 < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x >= backSpaceBuf) {
-//            NSLog(@"Back space");
+            [_TextDrawing removeCharacter]; // Calls TextOut's removeCharacter()
         }
     }
 }

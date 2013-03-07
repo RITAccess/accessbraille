@@ -3,6 +3,7 @@
 //  AccessBraille
 //
 //  Created by Michael on 1/28/13.
+//  Edited by Piper on 3/6/13.
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
@@ -16,6 +17,7 @@
 -(void)clearText;
 -(void)typingDidStart;
 -(void)typingDidEnd;
+-(void)removeCharacter; // Backspace method
 
 @property(nonatomic, readwrite) NSString *buf;
 @property(nonatomic, readwrite) NSDate *end;
