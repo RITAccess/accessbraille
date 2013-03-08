@@ -57,7 +57,6 @@
     for (NSNumber *key in CPPPoints){
         CalibrationPoint *cp = [CPPPoints objectForKey:key];
         NSNumber *rad = [NSNumber numberWithFloat:( minDelta / 2.0 )];
-//        NSLog(@"%@", rad);
         [cp setRadius:[rad floatValue] < [@25 floatValue] ? @25 : rad];
         Drawing *touch = [[Drawing alloc] initWithPoint:[cp point] radius:[[cp getRadius] intValue]];
         [mainView.view addSubview:touch];

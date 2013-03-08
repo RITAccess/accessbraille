@@ -10,17 +10,42 @@
 
 @implementation MainMenuNavigation
 
+- (void)makeClear {
+    /**
+     *  Sets the views background color to clear.
+     */
+    self.backgroundColor = [UIColor clearColor];
+}
 
 - (void)drawRect:(CGRect)rect {
+    /**
+     *  Called by system to draw view
+     */
     
+    // Only draw is visible property is true
+    if (_visible) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        
+        // Size of highted area
+        CGRect size = CGRectMake(0, _location.y - 25, 500, 50);
+        
+        // Coloring for highted bar
+        UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:1.0];
+        
+        // Draw on screen
+        CGContextSetFillColorWithColor(context, fillBox.CGColor);
+        CGContextAddRect(context, size);
+        CGContextFillPath(context);
+    }
 }
 
-- (void)setVisible:(bool)visible {
-    NSLog(@"Is Visible: %@", visible ? @"true" : @"false");
-}
-
-- (void)setLocation:(CGPoint)point {
-    NSLog(@"%f", point.y);
+- (void)setVisible:(BOOL)visible {
+    _visible = visible;
+    if (visible) {
+        [self.superview bringSubviewToFront:self];
+    } else {
+        [self.superview sendSubviewToBack:self];
+    }
 }
 
 @end

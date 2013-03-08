@@ -15,6 +15,7 @@
     
     UIPanGestureRecognizer *scrollMenu;
     
+    
 }
 
 @synthesize menuView;
@@ -22,8 +23,10 @@
 -(void)viewDidLoad{
     
     scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
-    scrollMenu.minimumNumberOfTouches = 2;
+    scrollMenu.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:scrollMenu];
+    [self.menuView makeClear];
+    [self.view sendSubviewToBack:menuView];
     
 }
 
@@ -73,7 +76,7 @@
         default:
             break;
     }
-    [self.view setNeedsDisplay];
+    [self.menuView setNeedsDisplay];
 }
 
 - (IBAction)brailleTyper:(id)sender {

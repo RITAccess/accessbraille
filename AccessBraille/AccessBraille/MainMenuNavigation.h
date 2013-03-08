@@ -10,7 +10,10 @@
 
 @interface MainMenuNavigation : UIView
 
-- (void)setVisible:(bool)visible;
-- (void)setLocation:(CGPoint)point;
+/* Access the diplay properties */
+@property(nonatomic) CGPoint location;
+@property(nonatomic) BOOL visible;
+
+- (void)makeClear;
 
 @end
