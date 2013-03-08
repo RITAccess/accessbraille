@@ -3,6 +3,7 @@
 //  AccessBraille
 //
 //  Created by Michael on 1/28/13.
+//  Edited by Piper on 3/7/13.
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
@@ -32,8 +33,6 @@
 
 -(void)drawRect:(CGRect)rect {
     
-    // Text Output
-//    NSLog(@"drawRect");
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     textOut.backgroundColor = [UIColor clearColor];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
@@ -167,15 +166,20 @@
     
 }
 
+// Possibly not necessary
 - (NSString *)getCurrentText{
     return textOut.text;
 }
 
 -(void)clearText{
-//    NSLog(@"Cleared Text");
     [textOut setText:@""];
     [wordList removeAllObjects];
     [self rewrite];
+}
+
+-(void)removeCharacter{
+    if ( textOut.text.length > 0)
+        textOut.text = [textOut.text substringToIndex: textOut.text.length - 1];
 }
 
 @end
