@@ -90,4 +90,10 @@
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"settings"] animated:NO withMenu:YES];
 
 }
+
+- (IBAction)instructions:(id)sender {
+    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"InstructionsMenu"] animated:NO withMenu:YES];
+}
 @end

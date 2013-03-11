@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CA012B116E914D800EBC931 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA012B016E914D800EBC931 /* InstructionsMenu.m */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C3C91A216CE8F0A00954A54 /* menuItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91A116CE8F0A00954A54 /* menuItem.png */; };
 		4C3C91AC16CE91CF00954A54 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91AB16CE91CF00954A54 /* Default-Landscape@2x~ipad.png */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2CA012AF16E914D800EBC931 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
+		2CA012B016E914D800EBC931 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
 		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
 		4C3C91A116CE8F0A00954A54 /* menuItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem.png; path = ../menuItem.png; sourceTree = "<group>"; };
@@ -388,12 +391,14 @@
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
 				A9479C541670034E00CE9475 /* BrailleTyperController.m */,
+				A9ECC82316A7652500998AD4 /* newViewControllerTemplate.h */,
 				4C65356116C443A900611B6F /* MainMenu.h */,
 				4C65356216C443A900611B6F /* MainMenu.m */,
-				A9ECC82316A7652500998AD4 /* newViewControllerTemplate.h */,
 				A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */,
 				4CA076E016D58A3A006DDBD3 /* Settings.h */,
 				4CA076E116D58A3A006DDBD3 /* Settings.m */,
+				2CA012AF16E914D800EBC931 /* InstructionsMenu.h */,
+				2CA012B016E914D800EBC931 /* InstructionsMenu.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */,
+				2CA012B116E914D800EBC931 /* InstructionsMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
