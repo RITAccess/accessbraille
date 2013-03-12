@@ -10,7 +10,7 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 
-@interface InstructionsMenu : UIViewController{
+@interface InstructionsMenu : UIViewController {
     
     // Voice Over
     FliteController *fliteController;
@@ -19,6 +19,7 @@
 
 - (IBAction)buttonPress:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *bulletedSpace;
 
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;

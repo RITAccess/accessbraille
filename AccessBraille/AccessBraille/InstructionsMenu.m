@@ -17,11 +17,26 @@
 @synthesize fliteController;
 @synthesize slt;
 
+
+
+- (FliteController *)fliteController {
+    if (fliteController == nil) {
+        fliteController = [[FliteController alloc] init];
+    }
+    return fliteController;
+}
+
+- (Slt *)slt {
+    if (slt == nil) {
+        slt = [[Slt alloc] init];
+    }
+    return slt;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    CGFloat deviceWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat deviceHeight = [UIScreen mainScreen].bounds.size.height;
     
     // Title
@@ -45,8 +60,14 @@
     for (NSString *item in instructions)
     {
         [bulletList appendFormat:@"\u2022 %@\n", item];
+        
     }
     instructionsInfo.text = bulletList;
+    
+    for (NSInteger i = 0; i < sizeof(instructions); i++){
+        [self.fliteController say:[instructions objectAtIndex:i] withVoice:self.slt];
+        sleep(10);
+     }
 }
 
 
