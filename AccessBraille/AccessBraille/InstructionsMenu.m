@@ -42,32 +42,22 @@
     // Title
     UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
     [title setBackgroundColor:[UIColor clearColor]];
-    [title setText:@"Instructions Menu"]; /// Will be passed in from external class
+    [title setText:@"How to Use"]; /// Will be passed in from external class
     title.center = CGPointMake(550, 50);
     [title setFont: [UIFont fontWithName:@"Arial" size:30.0f]];
     [[self view] addSubview:title];
     
     // TextField
-    UITextField *instructionsInfo = [[UITextField alloc] initWithFrame:CGRectMake(deviceHeight / 4, 150, deviceHeight - 100, 500)];
+    UITextView *instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
+    [instructionsInfo setText:@"Swipe from the left at any time to bring up the navigation menu.\n\nIn BT, swipe 6 fingers up to enter Typing Mode.\n\nWhen in Typing Mode, tap to the right of the screen to backspace, or the center to add a space.\n\nTap above the contacts to exit Typing Mode.\n\nThese instructions can be accessed at any time."];
     [instructionsInfo setBackgroundColor:[UIColor clearColor]];
-    [instructionsInfo setFont:[UIFont fontWithName:@"Arial" size:18.0f]];
+    [instructionsInfo setFont:[UIFont fontWithName:@"Arial" size:24.0f]];
     [instructionsInfo setUserInteractionEnabled:NO];
     [[self view] addSubview:instructionsInfo];
+
+    // Speech
+    [self.fliteController say:instructionsInfo.text withVoice:self.slt];
     
-    // Bulleteted List
-    NSArray *instructions = [NSArray arrayWithObjects:@"Swipe from the left at any time to bring up the navigation menu.",  nil];
-    NSMutableString *bulletList = [NSMutableString stringWithCapacity:instructions.count*30];
-    for (NSString *item in instructions)
-    {
-        [bulletList appendFormat:@"\u2022 %@\n", item];
-        
-    }
-    instructionsInfo.text = bulletList;
-    
-    for (NSInteger i = 0; i < sizeof(instructions); i++){
-        [self.fliteController say:[instructions objectAtIndex:i] withVoice:self.slt];
-        sleep(10);
-     }
 }
 
 
