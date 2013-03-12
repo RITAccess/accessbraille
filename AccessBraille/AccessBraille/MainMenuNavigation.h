@@ -11,7 +11,6 @@
 @interface MainMenuNavigation : UIView
 
 /* Access the diplay properties */
-@property(nonatomic) CGPoint location;
 @property(nonatomic) BOOL visible;
 
 - (void)makeClear;

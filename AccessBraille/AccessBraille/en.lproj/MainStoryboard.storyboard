@@ -60,39 +60,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainMenu@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJu-Oc-4ph"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-Eg-6Xf">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="hep-dO-pki"/>
-                                    <constraint firstAttribute="width" constant="251" id="oKP-72-c1h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Start Typing" backgroundImage="menuItem.png">
-                                    <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="brailleTyper:" destination="4MA-eS-osw" eventType="touchUpInside" id="73F-N7-3Q3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imo-RN-UHf">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="782-fL-Ek6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Settings" backgroundImage="menuItem.png">
-                                    <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="settings:" destination="4MA-eS-osw" eventType="touchUpInside" id="qmW-OP-iol"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwL-Jh-eN4" customClass="MainMenuNavigation">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -100,24 +67,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="bottom" secondItem="6EK-PO-34z" secondAttribute="bottom" type="default" id="0qc-Dp-r5N"/>
-                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="6rY-lh-EbJ"/>
-                            <constraint firstItem="imo-RN-UHf" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="8px-ho-mGP"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="trailing" secondItem="6EK-PO-34z" secondAttribute="trailing" type="default" id="9WK-jf-BU6"/>
-                            <constraint firstItem="imo-RN-UHf" firstAttribute="trailing" secondItem="LVy-Eg-6Xf" secondAttribute="trailing" type="default" id="EnG-EL-2M1"/>
+                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="trailing" secondItem="6EK-PO-34z" secondAttribute="trailing" type="default" id="FTl-9J-Yet"/>
+                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="bottom" secondItem="6EK-PO-34z" secondAttribute="bottom" type="default" id="Kdd-Pm-l8T"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="LOa-At-IV2"/>
-                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" type="default" id="O9g-qS-OlV"/>
                             <constraint firstItem="uJu-Oc-4ph" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" type="default" id="Ylo-c6-MaV"/>
-                            <constraint firstItem="LVy-Eg-6Xf" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" constant="154" id="ZgE-xW-MeF"/>
-                            <constraint firstItem="LVy-Eg-6Xf" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="efd-HG-wZP"/>
-                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="bottom" secondItem="6EK-PO-34z" secondAttribute="bottom" type="default" id="fN0-IQ-Xo9"/>
-                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="trailing" secondItem="6EK-PO-34z" secondAttribute="trailing" type="default" id="ndE-Aa-3UK"/>
-                            <constraint firstItem="imo-RN-UHf" firstAttribute="top" secondItem="LVy-Eg-6Xf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pVi-PN-1Yu"/>
+                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="leading" secondItem="6EK-PO-34z" secondAttribute="leading" type="default" id="l2y-ny-dkJ"/>
+                            <constraint firstItem="HwL-Jh-eN4" firstAttribute="top" secondItem="6EK-PO-34z" secondAttribute="top" type="default" id="r8Z-ul-zse"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="BrailleTyperButton" destination="LVy-Eg-6Xf" id="Jmk-Xd-AMe"/>
                         <outlet property="menuView" destination="HwL-Jh-eN4" id="qU8-fL-tK9"/>
                     </connections>
                 </viewController>
@@ -176,8 +137,49 @@
     </scenes>
     <resources>
         <image name="mainMenu@2x.png" width="2048" height="1536"/>
-        <image name="menuItem.png" width="4350" height="767"/>
     </resources>
+    <classes>
+        <class className="BrailleTyperController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
+                <relationship kind="outlet" name="TextDrawing" candidateClass="TextOut"/>
+                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="Drawing" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
+        </class>
+        <class className="MainMenu" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
+            <relationships>
+                <relationship kind="action" name="brailleTyper:"/>
+                <relationship kind="action" name="settings:"/>
+                <relationship kind="outlet" name="BrailleTyperButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="menuView" candidateClass="MainMenuNavigation"/>
+            </relationships>
+        </class>
+        <class className="MainMenuNavigation" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuNavigation.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NavigationContainer" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
+        </class>
+        <class className="Settings" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Settings.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonPress:"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TextOut" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextOut.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

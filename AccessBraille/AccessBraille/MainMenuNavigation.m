@@ -27,10 +27,10 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
         
         // Size of highted area
-        CGRect size = CGRectMake(0, _location.y - 25, 500, 50);
+        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, 500, 200);
         
         // Coloring for highted bar
-        UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:1.0];
+        UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:0.4];
         
         // Draw on screen
         CGContextSetFillColorWithColor(context, fillBox.CGColor);

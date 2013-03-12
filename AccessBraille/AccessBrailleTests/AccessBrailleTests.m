@@ -10,6 +10,7 @@
 #import "CalibrationPoint.h"
 #import "BrailleInterpreter.h"
 #import "BrailleTyperController.h"
+#import "MainMenu.h"
 
 @implementation AccessBrailleTests
 - (void)setUp
@@ -22,6 +23,11 @@
 - (void)tearDown
 {
     // Tear-down code here.
+    
+    
+    MainMenu *testMenu = [[MainMenu alloc] init];
+    
+    [testMenu moveMenuItemsByDelta:20];
     
     [super tearDown];
 }

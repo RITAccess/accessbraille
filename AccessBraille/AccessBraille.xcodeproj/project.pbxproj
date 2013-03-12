@@ -44,6 +44,8 @@
 		4CEC5E5E16CD8CA500858B66 /* slideOutMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */; };
 		4CEC5E6416CD91E200858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6216CD91E200858B66 /* icon144.png */; };
 		4CEC5E6616CD91EC00858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6516CD91EC00858B66 /* icon144.png */; };
+		4CEFD38916EE1D4700961754 /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD38816EE1D4700961754 /* menuItem0x90.png */; };
+		4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
 		A94471E6169CAC1000B66193 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E5169CAC1000B66193 /* NavigationView.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
@@ -123,6 +125,9 @@
 		4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideOutMenu.png; sourceTree = "<group>"; };
 		4CEC5E6216CD91E200858B66 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
 		4CEC5E6516CD91EC00858B66 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		4CEFD38816EE1D4700961754 /* menuItem0x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem0x90.png; path = ../menuItem0x90.png; sourceTree = "<group>"; };
+		4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectSubsets.h"; sourceTree = "<group>"; };
+		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
 		A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezelGestureRecognizer.h; sourceTree = "<group>"; };
 		A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezelGestureRecognizer.m; sourceTree = "<group>"; };
 		A94471E4169CAC1000B66193 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
@@ -239,6 +244,13 @@
 			path = hub4wsj_sc_8k;
 			sourceTree = "<group>";
 		};
+		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "AccessBraille Framework";
+			sourceTree = "<group>";
+		};
 		A9343268169F47D700C659C1 /* Gestures */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +263,7 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4CEFD38816EE1D4700961754 /* menuItem0x90.png */,
 				4CA076E316D595F3006DDBD3 /* menuItem2.png */,
 				4CA076DE16D5889C006DDBD3 /* menuItem1.png */,
 				4CA076DA16D58590006DDBD3 /* menuItem0.png */,
@@ -320,6 +333,7 @@
 		A9479C3E1670034E00CE9475 /* AccessBraille */ = {
 			isa = PBXGroup;
 			children = (
+				4CEFD38D16EE388E00961754 /* AccessBraille Framework */,
 				4C48079016C01CAF001E3EF1 /* Models */,
 				A934326F16A075A400C659C1 /* View */,
 				A9ECC82216A764E900998AD4 /* Controllers */,
@@ -377,6 +391,8 @@
 				A97425721677BFA400289C8D /* CalibrationPoint.m */,
 				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
 				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
+				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
+				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -501,6 +517,7 @@
 				4CA076DB16D58590006DDBD3 /* menuItem0.png in Resources */,
 				4CA076DF16D5889C006DDBD3 /* menuItem1.png in Resources */,
 				4CA076E416D595F3006DDBD3 /* menuItem2.png in Resources */,
+				4CEFD38916EE1D4700961754 /* menuItem0x90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +569,7 @@
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */,
+				4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

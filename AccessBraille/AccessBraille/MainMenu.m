@@ -10,12 +10,16 @@
 #import "NavigationContainer.h"
 #import "BrailleInterpreter.h"
 #import "MainMenuNavigation.h"
+#import "NSArray+ObjectSubsets.h"
+
+@interface MainMenu ()
+
+@property (nonatomic) float menuRootItemPosition;
+
+@end
 
 @implementation MainMenu {
-    
     UIPanGestureRecognizer *scrollMenu;
-    
-    
 }
 
 @synthesize menuView;
@@ -28,7 +32,27 @@
     [self.menuView makeClear];
     [self.view sendSubviewToBack:menuView];
     
+    // Root MenuItem - BrailleTyper
+    UIImageView *menuItem1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", @0]]];
+    [menuItem1 setFrame:CGRectMake(0, 0, 180, 180)];
+    [menuItem1 setCenter:CGPointMake(125, 384)];
+    [menuItem1 setTag:31];
+    [self setMenuRootItemPosition:menuItem1.frame.origin.y]; // Only for root menuItem
+    [self.view addSubview:menuItem1];
+    
 }
+
+- (void)moveMenuItemsByDelta:(float)delta {
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag == 31);
+    }];
+    for (UIImageView *item in menuItems){
+        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta > 0 ? _menuRootItemPosition + delta : 0 , item.frame.size.width, item.frame.size.height)];
+    }
+}
+
+
 
 -(void)didMoveToParentViewController:(UIViewController *)parent{
     
@@ -51,6 +75,7 @@
 
 - (void)scrollMenu:(UIPanGestureRecognizer *)reg {
     MainMenuNavigation *view = menuView;
+
     switch (reg.state) {
         case UIGestureRecognizerStateBegan:
             
@@ -59,7 +84,9 @@
             break;
             
         case UIGestureRecognizerStateChanged:
-            [view setLocation:[reg locationInView:self.view]];
+            
+            [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
+            
             if ([reg velocityInView:self.view].x > 4000) {
                 [self brailleTyper:nil];
                 [scrollMenu setEnabled:NO];
@@ -67,6 +94,7 @@
             break;
             
         case UIGestureRecognizerStateEnded:
+            _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y < 0 ? 0 : _menuRootItemPosition + [reg translationInView:self.view].y;
             [view setVisible:NO];
             break;
             
@@ -78,6 +106,8 @@
     }
     [self.menuView setNeedsDisplay];
 }
+
+
 
 - (IBAction)brailleTyper:(id)sender {
     
