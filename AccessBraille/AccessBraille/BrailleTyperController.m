@@ -69,7 +69,6 @@
 
 @synthesize fliteController;
 @synthesize slt;
-@synthesize kal;
 
 # pragma mark - ViewController Methods
 
@@ -138,13 +137,6 @@
     // Audio
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
-    
-    // Say something
-    
-//    NSString *alf = @"abcdefghijklmnopqrstuvwxyz";
-//    for (int i = 0; i < 26; i++){
-//        [self.fliteController say:[NSString stringWithUTF8String:[alf characterAtIndex:i]] withVoice:self.slt];
-//    }
 
 }
 
@@ -457,13 +449,6 @@
 		slt = [[Slt alloc] init];
 	}
 	return slt;
-}
-
-- (Kal *)kal {
-    if (kal == nil) {
-        kal = [[Kal alloc] init];
-    }
-    return kal;
 }
 
 - (SystemSoundID) createSoundID: (NSString*)name

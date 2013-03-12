@@ -101,7 +101,7 @@
     
     NavigationContainer *nc = (NavigationContainer *) self.window.rootViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:NO withMenu:NO];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"keyboardTest"] animated:NO withMenu:NO];
     
     return YES;
 }
