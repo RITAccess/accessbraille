@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C51D1ED16F0C2AC00D6BA73 /* menuItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C51D1EC16F0C2AC00D6BA73 /* menuItem3.png */; };
 		2CA012B116E914D800EBC931 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA012B016E914D800EBC931 /* InstructionsMenu.m */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C3C91A216CE8F0A00954A54 /* menuItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91A116CE8F0A00954A54 /* menuItem.png */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C51D1EC16F0C2AC00D6BA73 /* menuItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem3.png; sourceTree = "<group>"; };
 		2CA012AF16E914D800EBC931 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
 		2CA012B016E914D800EBC931 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				4CA076E316D595F3006DDBD3 /* menuItem2.png */,
 				4CA076DE16D5889C006DDBD3 /* menuItem1.png */,
 				4CA076DA16D58590006DDBD3 /* menuItem0.png */,
+				2C51D1EC16F0C2AC00D6BA73 /* menuItem3.png */,
 				4C3C91AF16CE962500954A54 /* mainMenu@2x.png */,
 				4CEC5E5716CD7F3B00858B66 /* mainMenu.png */,
 				4C3C91A116CE8F0A00954A54 /* menuItem.png */,
@@ -506,6 +509,7 @@
 				4CA076DB16D58590006DDBD3 /* menuItem0.png in Resources */,
 				4CA076DF16D5889C006DDBD3 /* menuItem1.png in Resources */,
 				4CA076E416D595F3006DDBD3 /* menuItem2.png in Resources */,
+				2C51D1ED16F0C2AC00D6BA73 /* menuItem3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
