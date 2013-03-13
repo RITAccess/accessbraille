@@ -12,13 +12,25 @@
 @implementation ABActivateKeyboardGestureRecognizer
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"a.%d", [touches count]);
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"b.%d", [touches count]);
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    for (UITouch *tap in touches) {
-        if ([tap locationInView:self.view].y < 200) {
-            self.state = UIGestureRecognizerStateFailed;
-        }
-    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
+}
+
+
+
+- (void)reset {
+    NSLog(@"Reset");
 }
 
 @end
