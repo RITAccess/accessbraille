@@ -62,7 +62,6 @@
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
     SystemSoundID backspaceSound;
-
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
