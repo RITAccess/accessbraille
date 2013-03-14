@@ -32,23 +32,36 @@
     [self.menuView makeClear];
     [self.view sendSubviewToBack:menuView];
     
-    // Root MenuItem - BrailleTyper
-    UIImageView *menuItem1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", @0]]];
-    [menuItem1 setFrame:CGRectMake(0, 0, 180, 180)];
-    [menuItem1 setCenter:CGPointMake(125, 384)];
-    [menuItem1 setTag:31];
-    [self setMenuRootItemPosition:menuItem1.frame.origin.y]; // Only for root menuItem
-    [self.view addSubview:menuItem1];
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
+    NSDictionary *menuItems = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
+    NSLog(@"%@", menuItems);
+    
+    int startTag = 31;
+    int startPos = 293;
+    _menuRootItemPosition = startPos;
+    
+    for (NSNumber *key in menuItems) {
+        UIImageView *menuItem = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", key]]];
+        [menuItem setFrame:CGRectMake(30, startPos, 180, 180)];
+        [menuItem setTag:startTag];
+        [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
+        [self.view addSubview:menuItem];
+        startTag++;
+        startPos = startPos + 180;
+    }
 }
 
 - (void)moveMenuItemsByDelta:(float)delta {
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
-        return (img.tag == 31);
+        return (img.tag >= 31);
     }];
     for (UIImageView *item in menuItems){
-        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta > 0 ? _menuRootItemPosition + delta : 0 , item.frame.size.width, item.frame.size.height)];
+        // May only work for top menu item
+        float diffFromRoot = 180 * (item.tag - 31);
+        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
     }
 }
 
@@ -94,7 +107,8 @@
             break;
             
         case UIGestureRecognizerStateEnded:
-            _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y < 0 ? 0 : _menuRootItemPosition + [reg translationInView:self.view].y;
+            _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y;
+            NSLog(@"%f", _menuRootItemPosition);
             [view setVisible:NO];
             break;
             
@@ -114,6 +128,7 @@
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+    
 }
 
 - (IBAction)settings:(id)sender {

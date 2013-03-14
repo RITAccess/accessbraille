@@ -34,6 +34,8 @@
 -(void)drawRect:(CGRect)rect {
     
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
+    UIFont *font = textOut.font;
+    [textOut setFont:[font fontWithSize:32]];
     textOut.backgroundColor = [UIColor clearColor];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
     wpm.backgroundColor = [UIColor clearColor];
