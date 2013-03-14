@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C51D1ED16F0C2AC00D6BA73 /* menuItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C51D1EC16F0C2AC00D6BA73 /* menuItem3.png */; };
+		2C811D3E16F217A200E4A2E4 /* backspace.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C811D3D16F217A200E4A2E4 /* backspace.aiff */; };
 		2CA012B116E914D800EBC931 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA012B016E914D800EBC931 /* InstructionsMenu.m */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C3C91A216CE8F0A00954A54 /* menuItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91A116CE8F0A00954A54 /* menuItem.png */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		2C51D1EC16F0C2AC00D6BA73 /* menuItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem3.png; sourceTree = "<group>"; };
+		2C811D3D16F217A200E4A2E4 /* backspace.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = backspace.aiff; sourceTree = "<group>"; };
 		2CA012AF16E914D800EBC931 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
 		2CA012B016E914D800EBC931 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C811D3D16F217A200E4A2E4 /* backspace.aiff */,
 				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
 				4C52BC9F16C9481800F76B45 /* hop.mp3 */,
 				A97425711677BFA400289C8D /* CalibrationPoint.h */,
@@ -510,6 +513,7 @@
 				4CA076DF16D5889C006DDBD3 /* menuItem1.png in Resources */,
 				4CA076E416D595F3006DDBD3 /* menuItem2.png in Resources */,
 				2C51D1ED16F0C2AC00D6BA73 /* menuItem3.png in Resources */,
+				2C811D3E16F217A200E4A2E4 /* backspace.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

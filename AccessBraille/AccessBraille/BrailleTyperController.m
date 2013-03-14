@@ -139,7 +139,7 @@
     // Audio
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
-    backspaceSound = [self createSoundID:@"hop.mp3"];
+    backspaceSound = [self createSoundID:@"backspace.aiff"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
