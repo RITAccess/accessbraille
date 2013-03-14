@@ -21,9 +21,14 @@
     UIPanGestureRecognizer *menuTrav;
     
     UIViewController *currentVC;
+    
+    // Audio
+    SystemSoundID openNavSound;
 }
 
 -(void)viewDidLoad {
+    
+    openNavSound = [self createSoundID:@"navClick.aiff"];
 
 }
 
@@ -111,6 +116,8 @@
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
             [nav updateWithCGPoint:touch];
+            NSLog(@"Changed!");
+            AudioServicesPlaySystemSound(openNavSound);
             break;
             
         case UIGestureRecognizerStateBegan:
@@ -164,5 +171,14 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+}
+
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 @end

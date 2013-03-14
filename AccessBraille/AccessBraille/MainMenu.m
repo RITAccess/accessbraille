@@ -57,6 +57,7 @@
             
         case UIGestureRecognizerStateChanged:
             [view setLocation:[reg locationInView:self.view]];
+            
             if ([reg velocityInView:self.view].x > 4000) {
                 [self brailleTyper:nil];
                 [scrollMenu setEnabled:NO];
@@ -64,6 +65,7 @@
             break;
             
         case UIGestureRecognizerStateEnded:
+            
             [view setVisible:NO];
             break;
             
