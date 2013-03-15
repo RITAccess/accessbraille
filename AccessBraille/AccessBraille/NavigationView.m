@@ -128,10 +128,10 @@
 }
 
 -(void)updateMenuWithCGPoint:(CGPoint)touchTran {
-    [item1 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem1.y), 75, 75)];
-    [item2 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem2.y), 75, 75)];
-    [item3 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem3.y), 75, 75)];
-    [item4 setFrame:CGRectMake(10, self.frame.size.height - (touchTran.y + sItem4.y), 75, 75)];
+    [item1 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem1.y), 75, 75)];
+    [item2 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem2.y), 75, 75)];
+    [item3 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem3.y), 75, 75)];
+    [item4 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem4.y), 75, 75)];
 }
 
 -(void)close {
