@@ -20,6 +20,7 @@
 
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
+    NSDictionary *menuItemsDict;
 }
 
 @synthesize menuView;
@@ -34,15 +35,13 @@
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
-    NSDictionary *menuItems = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
-    
-    NSLog(@"%@", menuItems);
+    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     int startTag = 31;
     int startPos = 293;
     _menuRootItemPosition = startPos;
     
-    for (NSNumber *key in menuItems) {
+    for (NSNumber *key in menuItemsDict) {
         UIImageView *menuItem = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", key]]];
         [menuItem setFrame:CGRectMake(30, startPos, 180, 180)];
         [menuItem setTag:startTag];
@@ -51,7 +50,32 @@
         startTag++;
         startPos = startPos + 180;
     }
+
 }
+
+- (NSNumber *)checkInBounds {
+    
+    // 284 - 484 highlight bounds
+    
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    
+    NSMutableSet *inBounds = [[NSMutableSet alloc] init];
+    
+    for (UIImageView *img in menuItems){
+        if (img.center.y > 284 && img.center.y < 484) {
+            [inBounds addObject:@(img.tag - 31)];
+        }
+    }
+    if (inBounds.count > 1) {
+        return nil;
+    } else if (inBounds.count == 1) {
+        return [[inBounds allObjects] objectAtIndex:0];
+    } else { return nil; }
+}
+
 
 - (void)moveMenuItemsByDelta:(float)delta {
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
@@ -65,9 +89,7 @@
     }
 }
 
-
-
--(void)didMoveToParentViewController:(UIViewController *)parent{
+-(void)didMoveToParentViewController:(UIViewController *)parent {
     
 }
 
@@ -99,16 +121,14 @@
         case UIGestureRecognizerStateChanged:
             
             [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
-            
             if ([reg velocityInView:self.view].x > 4000) {
-                [self brailleTyper:nil];
-                [scrollMenu setEnabled:NO];
+                [self switchToControllerWithID:[self checkInBounds]];
+//                [scrollMenu setEnabled:NO];
             }
             break;
             
         case UIGestureRecognizerStateEnded:
             _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y;
-            NSLog(@"%f", _menuRootItemPosition);
             [view setVisible:NO];
             break;
             
@@ -121,21 +141,21 @@
     [self.menuView setNeedsDisplay];
 }
 
-
-
-- (IBAction)brailleTyper:(id)sender {
+- (void)switchToControllerWithID:(NSNumber *)vcID {
     
+    // Gets storyboard name from menuItemsDict
+    NSString *key = [NSString stringWithFormat:@"%@", vcID];
+    NSString *controller = menuItemsDict[key];
+   
+    // Switches to that controller
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
+    
     
 }
 
-- (IBAction)settings:(id)sender {
-    
-    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"settings"] animated:NO withMenu:YES];
 
-}
+
+
 @end

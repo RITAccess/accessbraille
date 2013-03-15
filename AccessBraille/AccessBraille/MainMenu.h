@@ -15,8 +15,5 @@
 - (IBAction)brailleTyper:(id)sender;
 - (IBAction)settings:(id)sender;
 
-// FOR TESTING
-
-- (void)moveMenuItemsByDelta:(float)delta;
 
 @end
