@@ -138,14 +138,6 @@
     // Audio
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
-    
-    // Say something
-    
-//    NSString *alf = @"abcdefghijklmnopqrstuvwxyz";
-//    for (int i = 0; i < 26; i++){
-//        [self.fliteController say:[NSString stringWithUTF8String:[alf characterAtIndex:i]] withVoice:self.slt];
-//    }
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

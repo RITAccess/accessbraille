@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
 - (IBAction)brailleTyper:(id)sender;
 - (IBAction)settings:(id)sender;
+- (IBAction)instructions:(id)sender;
 
 
 @end
