@@ -35,6 +35,7 @@
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
+<<<<<<< HEAD
     menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     int startTag = 31;
@@ -44,13 +45,29 @@
     for (NSNumber *key in menuItemsDict) {
         UIImageView *menuItem = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", key]]];
         [menuItem setFrame:CGRectMake(30, startPos, 180, 180)];
+=======
+    NSDictionary *menuItems = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    
+    NSLog(@"%@", menuItems);
+    
+    int startTag = 31;
+    int startPos = 384;
+    
+    for (int i = 0; i < 3; i ++) {
+        UIImageView *menuItem = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        [menuItem setFrame:CGRectMake(0, 0, 180, 180)];
+        [menuItem setCenter:CGPointMake(125, startPos)];
+>>>>>>> 7c9f592795ccca9354e241688c9dca50dcb72bf5
         [menuItem setTag:startTag];
         [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
         [self.view addSubview:menuItem];
         startTag++;
         startPos = startPos + 180;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c9f592795ccca9354e241688c9dca50dcb72bf5
 }
 
 - (NSNumber *)checkInBounds {
@@ -61,6 +78,7 @@
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
     }];
+<<<<<<< HEAD
     
     NSMutableSet *inBounds = [[NSMutableSet alloc] init];
     
@@ -68,6 +86,11 @@
         if (img.center.y > 284 && img.center.y < 484) {
             [inBounds addObject:@(img.tag - 31)];
         }
+=======
+    for (UIImageView *item in menuItems){
+        // May only work for top menu item
+        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta > 0 ? _menuRootItemPosition + delta : 0 , item.frame.size.width, item.frame.size.height)];
+>>>>>>> 7c9f592795ccca9354e241688c9dca50dcb72bf5
     }
     if (inBounds.count > 1) {
         return nil;
@@ -150,8 +173,16 @@
     // Switches to that controller
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+<<<<<<< HEAD
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
     
+=======
+    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+    
+}
+
+- (IBAction)settings:(id)sender {
+>>>>>>> 7c9f592795ccca9354e241688c9dca50dcb72bf5
     
 }
 
