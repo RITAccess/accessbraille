@@ -10,11 +10,7 @@
 #import "MainMenuNavigation.h"
 
 @interface MainMenu : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *BrailleTyperButton;
-@property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
-- (IBAction)brailleTyper:(id)sender;
-- (IBAction)settings:(id)sender;
-- (IBAction)instructions:(id)sender;
 
+@property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
 
 @end

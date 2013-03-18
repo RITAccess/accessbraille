@@ -179,10 +179,6 @@
         <class className="MainMenu" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
             <relationships>
-                <relationship kind="action" name="brailleTyper:"/>
-                <relationship kind="action" name="instructions:"/>
-                <relationship kind="action" name="settings:"/>
-                <relationship kind="outlet" name="BrailleTyperButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="menuView" candidateClass="MainMenuNavigation"/>
             </relationships>
         </class>
