@@ -37,8 +37,6 @@
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
     menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
-    NSLog(@"%@", menuItemsDict);
-    
     int startTag = 31;
     int startPos = 293;
     _menuRootItemPosition = startPos;

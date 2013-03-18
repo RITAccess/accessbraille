@@ -58,7 +58,6 @@
 }
 
 - (IBAction)buttonPress:(id)sender {
-    NSLog(@"Testing");
     [self.fliteController say:@"testing" withVoice:self.slt];
     
 }

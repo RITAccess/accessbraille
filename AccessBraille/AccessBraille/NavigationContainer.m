@@ -114,7 +114,6 @@
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
             [nav updateWithCGPoint:touch];
-            NSLog(@"Changed!");
             AudioServicesPlaySystemSound(openNavSound);
             break;
             
