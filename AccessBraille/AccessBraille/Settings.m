@@ -18,11 +18,29 @@
 
 - (void)viewDidLoad {
     
+    [super viewDidLoad];
+    
+    CGFloat deviceHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    // Title
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
+    [title setBackgroundColor:[UIColor clearColor]];
+    [title setText:@"Settings"]; 
+    title.center = CGPointMake(550, 50);
+    [title setFont: [UIFont fontWithName:@"Arial" size:30.0f]];
+    [[self view] addSubview:title];
+    
+    // TextField
+    UITextView *instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
+    [instructionsInfo setText:@"Some instructions that we will include are:\n\n*Speech Speed\n\n*Game Difficulty\n\n*Reset Data"];
+    [instructionsInfo setBackgroundColor:[UIColor clearColor]];
+    [instructionsInfo setFont:[UIFont fontWithName:@"Arial" size:24.0f]];
+    [instructionsInfo setUserInteractionEnabled:NO];
+    [[self view] addSubview:instructionsInfo];
 }
 
 
 - (IBAction)buttonPress:(id)sender {
-    NSLog(@"Testing");
     [self.fliteController say:@"testing" withVoice:self.slt];
     
 }
