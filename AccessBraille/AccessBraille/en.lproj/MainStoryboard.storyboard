@@ -118,18 +118,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lPr-2J-NRJ" firstAttribute="leading" secondItem="QW3-PE-pRt" secondAttribute="leading" constant="329" id="3R2-tB-fee"/>
-                            <constraint firstItem="Rqv-el-A9D" firstAttribute="top" secondItem="QW3-PE-pRt" secondAttribute="top" constant="352" id="4Pa-1T-keI"/>
-                            <constraint firstAttribute="trailing" secondItem="Rqv-el-A9D" secondAttribute="trailing" constant="324" id="MtA-yp-743"/>
-                            <constraint firstItem="lPr-2J-NRJ" firstAttribute="top" secondItem="QW3-PE-pRt" secondAttribute="top" constant="182" id="qkI-P5-eGf"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="label" destination="lPr-2J-NRJ" id="9B4-ws-bso"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWV-rh-Usu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,7 +163,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionsMenu.h"/>
             <relationships>
                 <relationship kind="action" name="buttonPress:"/>
-                <relationship kind="outlet" name="bulletedSpace" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="label" candidateClass="UILabel"/>
             </relationships>
         </class>

@@ -11,13 +11,10 @@
 #import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-
 @implementation InstructionsMenu
 
 @synthesize fliteController;
 @synthesize slt;
-
-
 
 - (FliteController *)fliteController {
     if (fliteController == nil) {
@@ -60,12 +57,12 @@
     
 }
 
-
 - (IBAction)buttonPress:(id)sender {
     NSLog(@"Testing");
     [self.fliteController say:@"testing" withVoice:self.slt];
     
 }
+
 - (void)viewDidUnload {
     [self setLabel:nil];
     [super viewDidUnload];

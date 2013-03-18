@@ -19,7 +19,6 @@
 
 - (IBAction)buttonPress:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UILabel *bulletedSpace;
 
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
