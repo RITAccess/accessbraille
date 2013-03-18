@@ -55,7 +55,7 @@
         startTag++;
         startPos = startPos + 180;
     }
-
+    
 }
 
 - (NSNumber *)checkInBounds {
@@ -114,7 +114,7 @@
 
 - (void)scrollMenu:(UIPanGestureRecognizer *)reg {
     MainMenuNavigation *view = menuView;
-
+    
     switch (reg.state) {
         case UIGestureRecognizerStateBegan:
             
@@ -151,7 +151,7 @@
     // Gets storyboard name from menuItemsDict
     NSString *key = [NSString stringWithFormat:@"%@", vcID];
     NSString *controller = menuItemsDict[key];
-   
+    
     // Switches to that controller
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

@@ -61,7 +61,7 @@
     // Audio
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
-
+    SystemSoundID backspaceSound;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -73,12 +73,13 @@
 
 # pragma mark - ViewController Methods
 
+/**
+ Runs after load
+ */
 - (void)viewDidLoad {
-    /**
-        Runs after load
-     */
-//    NSLog(@"BTC Loaded");
+
     [super viewDidLoad];
+    
     // Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
@@ -130,7 +131,6 @@
     bi = [[BrailleInterpreter alloc] initWithViewController:self];
     
     // Draw views
-    
     enabled = [[Enabled alloc] initWithFrame:CGRectMake(971.5, 695.5, 44, 44)];
     enabled.enable = FALSE;
     [self.view addSubview:enabled];
@@ -138,6 +138,7 @@
     // Audio
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
+    backspaceSound = [self createSoundID:@"backspace.aiff"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -248,6 +249,7 @@
             
         } else if ([bi getAverageYValue] - 100 < [reg locationInView:reg.view].y && [reg locationInView:reg.view].x >= backSpaceBuf) {
             [_TextDrawing removeCharacter]; // Calls TextOut's removeCharacter()
+            AudioServicesPlaySystemSound(backspaceSound);
         }
     }
 }
