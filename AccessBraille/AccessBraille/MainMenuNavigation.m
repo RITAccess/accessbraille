@@ -10,17 +10,18 @@
 
 @implementation MainMenuNavigation
 
+/**
+ *  Sets the views background color to clear.
+ */
 - (void)makeClear {
-    /**
-     *  Sets the views background color to clear.
-     */
+    
     self.backgroundColor = [UIColor clearColor];
 }
 
+/**
+ *  Called by system to draw view
+ */
 - (void)drawRect:(CGRect)rect {
-    /**
-     *  Called by system to draw view
-     */
     
     // Only draw is visible property is true
     if (_visible) {
