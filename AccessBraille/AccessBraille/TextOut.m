@@ -29,6 +29,10 @@
     return self;
 }
 
+- (NSString *)getCurrentText {
+    return textOut.text;
+}
+
 -(void)drawRect:(CGRect)rect {
     
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
