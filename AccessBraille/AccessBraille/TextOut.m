@@ -29,6 +29,9 @@
     return self;
 }
 
+/**
+ * Creates and displays the text display area
+**/
 -(void)drawRect:(CGRect)rect {
     
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
@@ -72,22 +75,30 @@
     
 }
 
-- (NSMutableArray *)stringToArray:(NSString *)str {
-    if ([str isEqualToString:@""]){
+/**
+ * Creates new words by appending characters and strings together.
+ * 
+ * Cycles through an array to check for '32' as a space, then
+ * appends a string to the space as the next word.
+ *
+ * Returns the array of characters, or the next word.
+**/
+- (NSMutableArray *)stringToArray:(NSString *)newString {
+    if ([newString isEqualToString:@""]){
         return false;
     }
     NSMutableArray *chars = [[NSMutableArray alloc] init];
-    NSString *buildWord = @"";
-    for(int index = 0; index<=[str length]-1; index++){
-        if ([str characterAtIndex:index] == 32){
-            [chars addObject:buildWord];
-            buildWord = @"";
+    NSString *nextWord = @"";
+    for(int index = 0; index <=[newString length] - 1; index++){
+        if ([newString characterAtIndex:index] == 32){
+            [chars addObject:nextWord];
+            nextWord = @"";
         } else {
-            buildWord = [buildWord stringByAppendingString:[NSString stringWithFormat:@"%c", [str characterAtIndex:index]]];
+            nextWord = [nextWord stringByAppendingString:[NSString stringWithFormat:@"%c", [newString characterAtIndex:index]]];
         }
     }
-    [chars addObject:buildWord];
-    buildWord = @"";
+    [chars addObject:nextWord];
+    nextWord = @"";
     return chars;
 }
 
@@ -158,6 +169,11 @@
     
     wpm.text = [NSString stringWithFormat:@"%d WPM",(int)wpmf];
     
+}
+
+// Possibly not necessary
+- (NSString *)getCurrentText{
+    return textOut.text;
 }
 
 -(void)clearText{
