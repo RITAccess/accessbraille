@@ -17,14 +17,12 @@
     
     // WPM count
     NSDate *start;
-    
     UILongPressGestureRecognizer *clearText;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
-//        NSLog(@"Init");
         loaded = NO;
         _buf = @"";
     }
@@ -66,10 +64,10 @@
     CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow.CGColor);
     CGContextAddRect(context, box);
     CGContextFillPath(context);
+    
     // Box
     CGContextSetFillColorWithColor(context, fillBox.CGColor);
     CGContextAddRect(context, box);
-    
     CGContextFillPath(context);
     
 }
@@ -104,17 +102,14 @@
 
 - (void)appendToText:(NSString *)string {
     if ([string isEqualToString:@" "]) {
-//        NSLog(@"Completed Word");
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
         [wordList removeAllObjects];
         [wordList addObjectsFromArray:[self stringToArray:tmp]];
     } else {
-//        NSLog(@"Appending %@ to %@", string, textOut.text);
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
     }
-//    NSLog(@"%@", wordList);
 }
 
 -(NSString *)parseLastWordfromString:(NSString *)string {    
@@ -142,17 +137,14 @@
 
 -(void)typingDidEnd {
     [self updateWordsPerMinute];
-//    NSLog(@"Typing Ended");
     [wordList removeAllObjects];
     [wordList addObjectsFromArray:[self stringToArray:textOut.text]];
     [self rewrite];
-//    NSLog(@"%@", wordList);
 }
 
 - (void)rewrite {
     
     [wordList removeObjectIdenticalTo:@""];
-    
     textOut.text = @" ";
     for(NSString *word in wordList){
         textOut.text = [textOut.text stringByAppendingString:word];
@@ -166,11 +158,6 @@
     
     wpm.text = [NSString stringWithFormat:@"%d WPM",(int)wpmf];
     
-}
-
-// Possibly not necessary
-- (NSString *)getCurrentText{
-    return textOut.text;
 }
 
 -(void)clearText{
