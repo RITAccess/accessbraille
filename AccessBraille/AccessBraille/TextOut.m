@@ -13,6 +13,7 @@
     UILabel *textOut;
     UILabel *wpm;
     NSMutableArray *wordList;
+    UILabel *cursor;
     bool loaded;
     
     // WPM count
@@ -34,33 +35,42 @@
 **/
 -(void)drawRect:(CGRect)rect {
     
-    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     UIFont *font = textOut.font;
-    [textOut setFont:[font fontWithSize:32]];
-    textOut.backgroundColor = [UIColor clearColor];
+    
+    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
-    wpm.backgroundColor = [UIColor clearColor];
-    wpm.text = @"N/A WPM";
     wordList = [[NSMutableArray alloc] init];
+    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 30, 2, 15)];
+    
+    textOut.backgroundColor = [UIColor clearColor];
+    wpm.backgroundColor = [UIColor clearColor];
+    cursor.backgroundColor = [UIColor blackColor];
+    
+    [textOut setFont:[font fontWithSize:32]];
+    
+    wpm.text = @"N/A WPM";
+
+    /// Adding Subviews
     [self addSubview:textOut];
     [self addSubview:wpm];
+    [self addSubview:cursor];
+    
     [self setWordsToOutput:_buf];
     
-    
-    // Clear Text
+    /// Clear Text within Display Rectangle
     clearText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clearText)];
     [clearText setNumberOfTouchesRequired:3];
     [self addGestureRecognizer:clearText];
     
     
-    // Style
+    /// Style 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    // Colors
+    /// Colors
     UIColor *fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
     UIColor *fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
     
-    // Writing Area
+    /// Writing Area
     CGRect box = CGRectMake(20,0,850,240);
     
     // Shadow
@@ -73,10 +83,14 @@
     CGContextAddRect(context, box);
     CGContextFillPath(context);
     
+    [UIView animateWithDuration:5.0 animations:^{
+        cursor.alpha = 1.0;
+//       cursor.transform = CGAffineTransformMakeRotation(350);
+    }];
 }
 
 /**
- * Creates new words by appending characters and strings together.
+ * Accepts a string and converts it to an array.
  * 
  * Cycles through an array to check for '32' as a space, then
  * appends a string to the space as the next word.
@@ -84,11 +98,16 @@
  * Returns the array of characters, or the next word.
 **/
 - (NSMutableArray *)stringToArray:(NSString *)newString {
+    
+    /// Checks to see if the string is empty
     if ([newString isEqualToString:@""]){
         return false;
     }
+    
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
+    
+    /// Cycles through newString to check each character for spaces
     for(int index = 0; index <=[newString length] - 1; index++){
         if ([newString characterAtIndex:index] == 32){
             [chars addObject:nextWord];
@@ -97,12 +116,15 @@
             nextWord = [nextWord stringByAppendingString:[NSString stringWithFormat:@"%c", [newString characterAtIndex:index]]];
         }
     }
+    
     [chars addObject:nextWord];
     nextWord = @"";
     return chars;
 }
 
-
+/**
+ * Prepares words to be drawn in Typing Mode
+**/
 - (void)setWordsToOutput:(NSString *)buf {
     [wordList removeAllObjects];
     if ([self stringToArray:buf]) {
@@ -144,6 +166,9 @@
 
 -(void)typingDidStart {
     start = [[NSDate alloc] init];
+    
+
+    
 }
 
 -(void)typingDidEnd {
