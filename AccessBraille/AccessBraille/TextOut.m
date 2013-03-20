@@ -8,6 +8,7 @@
 //
 
 #import "TextOut.h"
+#import "BrailleTyperController.m"
 
 @implementation TextOut {
     UILabel *textOut;
@@ -96,6 +97,8 @@
     
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
+    
+//    [BrailleTyperController updateCursorPosition:5];
     
     /// Cycles through newString to check each character for spaces
     for(int index = 0; index <=[newString length] - 1; index++){

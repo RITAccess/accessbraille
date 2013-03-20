@@ -28,6 +28,8 @@
 
 @interface BrailleTyperController ()
 
+
+
 @end
 
 #pragma mark Implementation
@@ -174,8 +176,15 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.75];
     cursor.alpha = 1;
-    [UIView commitAnimations];
-    
+    [UIView commitAnimations];    
+}
+
+/**
+ * Potentially moves the cursor depending on number of pixels
+ * moved in the x-plane.
+*/
+- (void) updateCursorPosition:(NSInteger)pixelsMoved{
+        cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -264,6 +273,7 @@
     for(int t = 0; t < (int)reg.numberOfTouches; t++){
         CGPoint point = [reg locationOfTouch:t inView:reg.view];
         for (NSString *key in cpByFinger){
+            
             CalibrationPoint *tmp = [cpByFinger objectForKey:key];
             if ([tmp tapInRadius:point]) {
                 [touchPoints setObject:tmp forKey:[tmp getCurrentID]];
