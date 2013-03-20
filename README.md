@@ -3,4 +3,4 @@ Accessbraille
 
 A braille accessibility and learning app for iOS
 
-Updated: Slideout navigation from left side presents options to switch between sub apps within the application.
+The idea behind AccessBraille is to introduce the practice of typing in the braille typeface to young children (seeing and blind) in an interactive and engaging way. 
