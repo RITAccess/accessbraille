@@ -36,35 +36,7 @@
     [self.menuView makeClear];
     [self.view sendSubviewToBack:menuView];
     
-    NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
-    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
-    
-    int startTag = 31;
-    int startPos = 293;
-    _menuRootItemPosition = startPos;
-    
-    // set menu item posisions and add gesture to image view
-    for (int i = 0; i < menuItemsDict.count; i++) {
-        // load image and set tag
-        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
-        [menuItem setUserInteractionEnabled:YES];
-        [menuItem setFrame:CGRectMake(30, startPos, 180, 180)];
-        [menuItem setTag:startTag];
-        if (i == 0){
-            [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
-        }
-        [self.view addSubview:menuItem];
-        // add gesture
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
-        [tap setNumberOfTapsRequired:1];
-        [menuItem addGestureRecognizer:tap];
-        [menuItem setDelegate:self];
-        
-        // increment
-        startTag++;
-        startPos = startPos + 180;
-    }
+    [self loadMenuItemsAnimated:YES];
     
 }
 
@@ -130,6 +102,57 @@
     }
 }
 
+/**
+ * Loads menu items into view
+ **/
+- (void)loadMenuItemsAnimated:(BOOL)animated {
+    
+    // Get menu information
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
+    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    
+    int startTag = 31;
+    int startPos = 293;
+    _menuRootItemPosition = startPos;
+    
+    // set menu item posisions and add gesture to image view
+    for (int i = 0; i < menuItemsDict.count; i++) {
+        // load image and set tag
+        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        [menuItem setUserInteractionEnabled:YES];
+        [menuItem setFrame:CGRectMake(animated ? -200 : 30, startPos, 180, 180)];
+        [menuItem setTag:startTag];
+        if (i == 0){
+            [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
+        }
+        [self.view addSubview:menuItem];
+        // add gesture
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
+        [tap setNumberOfTapsRequired:1];
+        [menuItem addGestureRecognizer:tap];
+        [menuItem setDelegate:self];
+        
+        // increment
+        startTag++;
+        startPos = startPos + 180;
+    }
+
+    if (animated) {
+        NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+            UIImageView *img = (UIImageView *)obj1;
+            return (img.tag >= 31);
+        }];
+        for (UIImageView *item in menuItems){
+            [UIView animateWithDuration:.3 animations:^{
+                [item setFrame:CGRectMake(30, item.frame.origin.y, item.frame.size.width, item.frame.size.height)];
+            }];
+        }
+
+    }
+    
+}
+
 
 /**
  * Menu Scrolling
@@ -178,15 +201,17 @@
     NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
     
     if (cvID.intValue == -1){
-        [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:1.0 animations:^{
+            [menuView setHightlightWidth:250];
             [_OverlayTitle setText:@""];
             [_OverlayDiscription setText:@""];
-        } completion:nil];
+        }];
     } else {
-        [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:2.0 animations:^{
+            [menuView setHightlightWidth:750];
             [_OverlayTitle setText:titles[cvID.intValue]];
             [_OverlayDiscription setText:context[cvID.intValue]];
-        } completion:nil];
+        }];
     }
 }
 

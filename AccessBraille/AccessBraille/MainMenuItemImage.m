@@ -21,7 +21,6 @@
 
 - (void)tapMenuItem:(UITapGestureRecognizer *)reg {
     int tag = self.tag;
-    NSLog(@"Menu Item Taped - %d", tag);
     if ([_delegate respondsToSelector:@selector(switchToControllerWithID:)]) {
         [_delegate switchToControllerWithID:@(tag - 31)];
     }

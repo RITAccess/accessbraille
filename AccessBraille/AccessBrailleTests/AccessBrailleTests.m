@@ -24,13 +24,10 @@
 {
     // Tear-down code here.
     
-    
-    MainMenu *testMenu = [[MainMenu alloc] init];
-    
-    [testMenu moveMenuItemsByDelta:20];
-    
     [super tearDown];
 }
 
-
+- (void)testTest {
+    STAssertEquals(1+2, 3, @"1+2 doesn not equal three");
+}
 @end
