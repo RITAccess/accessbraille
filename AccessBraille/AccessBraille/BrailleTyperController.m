@@ -62,6 +62,9 @@
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
     SystemSoundID backspaceSound;
+    
+    // Cursor
+    UILabel *cursor;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -75,12 +78,12 @@
 
 /**
  Runs after load
- */
+*/
 - (void)viewDidLoad {
 
     [super viewDidLoad];
     
-    // Braille Recognizer Gestures
+    /// Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
         [BROneTap setNumberOfTapsRequired:1];
@@ -106,7 +109,7 @@
         [BRSixTap setNumberOfTapsRequired:1];
         [BRSixTap setEnabled:NO];
     
-    // State Switch **two finger for simulater testing**
+    /// State Switch **two finger for simulater testing**
     sixFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
     [sixFingerHold setNumberOfTouchesRequired:6];
     sixFingerHold.minimumPressDuration = .75;
@@ -115,7 +118,7 @@
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
 
-    // Add Recognizers to view
+    /// Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
     [self.view addGestureRecognizer:BRTwoTap];
     [self.view addGestureRecognizer:BRThreeTap];
@@ -139,6 +142,40 @@
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
     backspaceSound = [self createSoundID:@"backspace.aiff"];
+    
+    // Cursor
+    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 28, 2, 15)];
+    cursor.backgroundColor = [UIColor blackColor];
+    cursor.alpha = 1;
+    [self.view addSubview:cursor];
+    [self startTimer];
+    
+}
+
+/**
+ * Initialized an NSTimer that will call flashCursor
+*/
+- (void) startTimer {
+    [NSTimer scheduledTimerWithTimeInterval:.75
+                                     target:self
+                                   selector:@selector(flashCursor:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+/**
+ * Controls the alpha level of the cursor
+*/
+- (void) flashCursor:(NSTimer *) timer {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.75];
+    cursor.alpha = 0;
+    [UIView commitAnimations];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.75];
+    cursor.alpha = 1;
+    [UIView commitAnimations];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

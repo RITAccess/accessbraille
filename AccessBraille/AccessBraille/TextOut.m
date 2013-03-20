@@ -13,7 +13,6 @@
     UILabel *textOut;
     UILabel *wpm;
     NSMutableArray *wordList;
-    UILabel *cursor;
     bool loaded;
     
     // WPM count
@@ -40,20 +39,16 @@
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
     wordList = [[NSMutableArray alloc] init];
-    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 30, 2, 15)];
     
     textOut.backgroundColor = [UIColor clearColor];
     wpm.backgroundColor = [UIColor clearColor];
-    cursor.backgroundColor = [UIColor blackColor];
     
     [textOut setFont:[font fontWithSize:32]];
-    
     wpm.text = @"N/A WPM";
 
     /// Adding Subviews
     [self addSubview:textOut];
     [self addSubview:wpm];
-    [self addSubview:cursor];
     
     [self setWordsToOutput:_buf];
     
@@ -82,11 +77,6 @@
     CGContextSetFillColorWithColor(context, fillBox.CGColor);
     CGContextAddRect(context, box);
     CGContextFillPath(context);
-    
-    [UIView animateWithDuration:5.0 animations:^{
-        cursor.alpha = 1.0;
-//       cursor.transform = CGAffineTransformMakeRotation(350);
-    }];
 }
 
 /**
@@ -96,7 +86,7 @@
  * appends a string to the space as the next word.
  *
  * Returns the array of characters, or the next word.
-**/
+*/
 - (NSMutableArray *)stringToArray:(NSString *)newString {
     
     /// Checks to see if the string is empty
@@ -124,7 +114,7 @@
 
 /**
  * Prepares words to be drawn in Typing Mode
-**/
+*/
 - (void)setWordsToOutput:(NSString *)buf {
     [wordList removeAllObjects];
     if ([self stringToArray:buf]) {
@@ -188,15 +178,18 @@
     }
 }
 
+/**
+ * Method that divides the number of words in the mutable array
+*/
 -(void) updateWordsPerMinute {
-    
     float wpmf = (([wordList count]/([_end timeIntervalSinceDate:start])) * 60.0);
-    
     wpm.text = [NSString stringWithFormat:@"%d WPM",(int)wpmf];
     
 }
 
-// Possibly not necessary
+/**
+ * Returns textOut.text
+*/
 - (NSString *)getCurrentText{
     return textOut.text;
 }
