@@ -82,6 +82,8 @@
 
 - (void)viewDidUnload {
     [self setMenuView:nil];
+    [self setOverlayTitle:nil];
+    [self setOverlayDiscription:nil];
     [super viewDidUnload];
 }
 
@@ -145,6 +147,7 @@
         case UIGestureRecognizerStateChanged:
             
             [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
+            [self setMenuContentInformationAtLocation:[self checkInBounds]];
             if ([reg velocityInView:self.view].x > 4000) {
                 [self switchToControllerWithID:[self checkInBounds]];
             }
@@ -165,10 +168,26 @@
 }
 
 /**
- * Tap recognizer for menu items
+ * Updates the the menu discription based on its ID and the contents of the menuDiscription.plist
  **/
-- (void)tapMenuItem:(UITapGestureRecognizer *)reg {
-    NSLog(@"menuTap");
+- (void)setMenuContentInformationAtLocation:(NSNumber *)cvID {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
+    NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
+    NSArray *titles = [[NSArray alloc] initWithContentsOfFile:titlePath];
+    NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
+    
+    if (cvID.intValue == -1){
+        [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            [_OverlayTitle setText:@""];
+            [_OverlayDiscription setText:@""];
+        } completion:nil];
+    } else {
+        [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [_OverlayTitle setText:titles[cvID.intValue]];
+            [_OverlayDiscription setText:context[cvID.intValue]];
+        } completion:nil];
+    }
 }
 
 /**
@@ -187,8 +206,5 @@
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
     
 }
-
-
-
 
 @end

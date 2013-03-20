@@ -13,9 +13,6 @@
 /* Access the display properties */
 @property (nonatomic) BOOL visible;
 
-/* Access and set the output text */
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *discription;
 
 - (void)makeClear;
 
