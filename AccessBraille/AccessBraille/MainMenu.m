@@ -143,14 +143,12 @@
             UIImageView *img = (UIImageView *)obj1;
             return (img.tag >= 31);
         }];
-        for (UIImageView *item in menuItems){
-            [UIView animateWithDuration:.3 animations:^{
+        [UIView animateWithDuration:.3 animations:^{
+            for (UIImageView *item in menuItems){
                 [item setFrame:CGRectMake(30, item.frame.origin.y, item.frame.size.width, item.frame.size.height)];
-            }];
-        }
-
+            }
+        }];
     }
-    
 }
 
 
@@ -221,15 +219,27 @@
 - (void)switchToControllerWithID:(NSNumber *)vcID {
     if ([vcID isEqual: @(-1)]) { return; }
     
-    // Gets storyboard name from menuItemsDict
-    NSString *key = [NSString stringWithFormat:@"%@", vcID];
-    NSString *controller = menuItemsDict[key];
-    
-    // Switches to that controller
-    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
-    
+    // Animate off screen
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    [UIView animateWithDuration:0.2 animations:^{
+        for (UIImageView *item in menuItems){
+            [item setFrame:CGRectMake(-200, item.frame.origin.y, item.frame.size.width, item.frame.size.height)];
+        }
+    } completion:^(BOOL finished) {
+
+        // Gets storyboard name from menuItemsDict
+        NSString *key = [NSString stringWithFormat:@"%@", vcID];
+        NSString *controller = menuItemsDict[key];
+        
+        // Switches to that controller
+        NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
+        
+    }];
 }
 
 @end
