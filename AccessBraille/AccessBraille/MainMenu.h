@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MainMenuNavigation.h"
+#import "MainMenuItemImage.h"
 
-@interface MainMenu : UIViewController
+@interface MainMenu : UIViewController <MenuImageTap>
 
 @property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
+
+- (void)switchToControllerWithID:(NSNumber *)vcID;
 
 @end

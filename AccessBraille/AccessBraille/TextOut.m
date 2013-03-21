@@ -32,9 +32,6 @@
     return self;
 }
 
-/**
- * Creates and displays the text display area
-**/
 -(void)drawRect:(CGRect)rect {
     
     UIFont *font = textOut.font;

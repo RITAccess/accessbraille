@@ -11,6 +11,7 @@
 #import "BrailleInterpreter.h"
 #import "MainMenuNavigation.h"
 #import "NSArray+ObjectSubsets.h"
+#import "MainMenuItemImage.h"
 
 @interface MainMenu ()
 
@@ -24,6 +25,8 @@
 }
 
 @synthesize menuView;
+
+#pragma mark - Load Methods
 
 -(void)viewDidLoad{
     
@@ -41,21 +44,53 @@
     int startPos = 293;
     _menuRootItemPosition = startPos;
     
-    // set menu item posisions
+    // set menu item posisions and add gesture to image view
     for (int i = 0; i < menuItemsDict.count; i++) {
-        UIImageView *menuItem = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        // load image and set tag
+        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        [menuItem setUserInteractionEnabled:YES];
         [menuItem setFrame:CGRectMake(30, startPos, 180, 180)];
         [menuItem setTag:startTag];
         if (i == 0){
             [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
         }
         [self.view addSubview:menuItem];
+        // add gesture
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
+        [tap setNumberOfTapsRequired:1];
+        [menuItem addGestureRecognizer:tap];
+        [menuItem setDelegate:self];
+        
+        // increment
         startTag++;
         startPos = startPos + 180;
     }
     
 }
 
+-(void)didMoveToParentViewController:(UIViewController *)parent {
+    
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+}
+
+- (void)viewDidUnload {
+    [self setMenuView:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - Menu Methods
+
+
+/**
+ * Checks what menu item is in the selection box and returns it's ID
+ **/
 - (NSNumber *)checkInBounds {
     
     // 284 - 484 highlight bounds
@@ -79,37 +114,24 @@
     } else { return @(-1); }
 }
 
-
+/**
+ * Moves the menu items a set distance from the root menu item position
+ **/
 - (void)moveMenuItemsByDelta:(float)delta {
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
     }];
     for (UIImageView *item in menuItems){
-        // May only work for top menu item
         float diffFromRoot = 180 * (item.tag - 31);
         [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
     }
 }
 
--(void)didMoveToParentViewController:(UIViewController *)parent {
-    
-}
 
-- (void)willMoveToParentViewController:(UIViewController *)parent {
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
-}
-
-
-- (void)viewDidUnload {
-    [self setMenuView:nil];
-    [super viewDidUnload];
-}
-
+/**
+ * Menu Scrolling
+ **/
 - (void)scrollMenu:(UIPanGestureRecognizer *)reg {
     MainMenuNavigation *view = menuView;
     
@@ -142,9 +164,18 @@
     [self.menuView setNeedsDisplay];
 }
 
+/**
+ * Tap recognizer for menu items
+ **/
+- (void)tapMenuItem:(UITapGestureRecognizer *)reg {
+    NSLog(@"menuTap");
+}
+
+/**
+ * Switches to a new controller by it's ID
+ **/
 - (void)switchToControllerWithID:(NSNumber *)vcID {
     if ([vcID isEqual: @(-1)]) { return; }
-    
     
     // Gets storyboard name from menuItemsDict
     NSString *key = [NSString stringWithFormat:@"%@", vcID];
@@ -154,7 +185,6 @@
     NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
-    
     
 }
 

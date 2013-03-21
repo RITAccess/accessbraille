@@ -10,24 +10,25 @@
 
 @implementation MainMenuNavigation
 
+/**
+ *  Sets the views background color to clear.
+ */
 - (void)makeClear {
-    /**
-     *  Sets the views background color to clear.
-     */
+    
     self.backgroundColor = [UIColor clearColor];
 }
 
+/**
+ *  Called by system to draw view
+ */
 - (void)drawRect:(CGRect)rect {
-    /**
-     *  Called by system to draw view
-     */
     
     // Only draw is visible property is true
     if (_visible) {
         CGContextRef context = UIGraphicsGetCurrentContext();
         
         // Size of highted area
-        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, 500, 200);
+        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, 750, 200);
         // Coloring for highted bar
         UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:0.4];
         
