@@ -8,7 +8,6 @@
 //
 
 #import "TextOut.h"
-#import "BrailleTyperController.m"
 
 @implementation TextOut {
     UILabel *textOut;
@@ -19,6 +18,9 @@
     // WPM count
     NSDate *start;
     UILongPressGestureRecognizer *clearText;
+    
+    // Cursor
+    UILabel *cursor;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -78,6 +80,13 @@
     CGContextSetFillColorWithColor(context, fillBox.CGColor);
     CGContextAddRect(context, box);
     CGContextFillPath(context);
+    
+    // Cursor
+    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 28, 2, 15)];
+    cursor.backgroundColor = [UIColor blackColor];
+    cursor.alpha = 1;
+    [self addSubview:cursor];
+    [self startTimer];
 }
 
 /**
@@ -98,8 +107,8 @@
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
     
-//    [BrailleTyperController updateCursorPosition:5];
-    
+    NSLog(@" Updating Cursor Position!");
+    [self updateCursorPosition:5];
     /// Cycles through newString to check each character for spaces
     for(int index = 0; index <=[newString length] - 1; index++){
         if ([newString characterAtIndex:index] == 32){
@@ -116,12 +125,48 @@
 }
 
 /**
+ * Initialized an NSTimer that will call flashCursor
+ */
+- (void) startTimer {
+    [NSTimer scheduledTimerWithTimeInterval:.75
+                                     target:self
+                                   selector:@selector(flashCursor:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+/**
+ * Controls the alpha level of the cursor
+ */
+- (void) flashCursor:(NSTimer *) timer {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.75];
+    cursor.alpha = 0;
+    [UIView commitAnimations];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.75];
+    cursor.alpha = 1;
+    [UIView commitAnimations];
+}
+
+/**
+ * Potentially moves the cursor depending on number of pixels
+ * moved in the x-plane.
+ */
+- (void) updateCursorPosition:(NSInteger)pixelsMoved{
+    cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+}
+
+/**
  * Prepares words to be drawn in Typing Mode
 */
 - (void)setWordsToOutput:(NSString *)buf {
     [wordList removeAllObjects];
     if ([self stringToArray:buf]) {
         [wordList addObjectsFromArray:[self stringToArray:buf]];
+        
+        NSLog(@"Updating Cursor Position!");
+        [self updateCursorPosition:5];
     }
     [self rewrite];
 }
@@ -159,9 +204,6 @@
 
 -(void)typingDidStart {
     start = [[NSDate alloc] init];
-    
-
-    
 }
 
 -(void)typingDidEnd {
@@ -172,7 +214,6 @@
 }
 
 - (void)rewrite {
-    
     [wordList removeObjectIdenticalTo:@""];
     textOut.text = @" ";
     for(NSString *word in wordList){
@@ -195,6 +236,13 @@
 */
 - (NSString *)getCurrentText{
     return textOut.text;
+}
+
+/**
+ * 
+*/
+- (void)getTextWidth{
+    
 }
 
 -(void)clearText{

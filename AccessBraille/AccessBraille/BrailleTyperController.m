@@ -64,9 +64,6 @@
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
     SystemSoundID backspaceSound;
-    
-    // Cursor
-    UILabel *cursor;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -144,48 +141,8 @@
     enabledSound = [self createSoundID:@"hop.mp3"];
     disabledSound = [self createSoundID:@"disable.mp3"];
     backspaceSound = [self createSoundID:@"backspace.aiff"];
-    
-    // Cursor
-    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 28, 2, 15)];
-    cursor.backgroundColor = [UIColor blackColor];
-    cursor.alpha = 1;
-    [self.view addSubview:cursor];
-    [self startTimer];
-    
 }
 
-/**
- * Initialized an NSTimer that will call flashCursor
-*/
-- (void) startTimer {
-    [NSTimer scheduledTimerWithTimeInterval:.75
-                                     target:self
-                                   selector:@selector(flashCursor:)
-                                   userInfo:nil
-                                    repeats:YES];
-}
-
-/**
- * Controls the alpha level of the cursor
-*/
-- (void) flashCursor:(NSTimer *) timer {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.75];
-    cursor.alpha = 0;
-    [UIView commitAnimations];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.75];
-    cursor.alpha = 1;
-    [UIView commitAnimations];    
-}
-
-/**
- * Potentially moves the cursor depending on number of pixels
- * moved in the x-plane.
-*/
-- (void) updateCursorPosition:(NSInteger)pixelsMoved{
-        cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     /**
