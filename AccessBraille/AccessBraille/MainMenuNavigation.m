@@ -10,32 +10,31 @@
 
 @implementation MainMenuNavigation
 
+/**
+ *  Sets the views background color to clear, and sets defaults for variables.
+ */
 - (void)makeClear {
-    /**
-     *  Sets the views background color to clear.
-     */
+    self.hightlightWidth = 750;
     self.backgroundColor = [UIColor clearColor];
 }
 
+/**
+ *  Called by system to draw view
+ */
 - (void)drawRect:(CGRect)rect {
-    /**
-     *  Called by system to draw view
-     */
     
     // Only draw is visible property is true
     if (_visible) {
         CGContextRef context = UIGraphicsGetCurrentContext();
         
+        // Highlight image background
+        UIImage *hlbg = [UIImage imageNamed:@"HightBar.png"];
+        
         // Size of highted area
-        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, 500, 200);
-        
-        // Coloring for highted bar
-        UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:0.4];
-        
+        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, self.hightlightWidth, 200);
+
         // Draw on screen
-        CGContextSetFillColorWithColor(context, fillBox.CGColor);
-        CGContextAddRect(context, size);
-        CGContextFillPath(context);
+        CGContextDrawImage(context, size, hlbg.CGImage);
     }
 }
 

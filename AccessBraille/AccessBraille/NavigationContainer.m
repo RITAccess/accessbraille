@@ -21,9 +21,14 @@
     UIPanGestureRecognizer *menuTrav;
     
     UIViewController *currentVC;
+    
+    // Audio
+    SystemSoundID openNavSound;
 }
 
 -(void)viewDidLoad {
+    
+    openNavSound = [self createSoundID:@"navClick.aiff"];
 
 }
 
@@ -98,27 +103,26 @@
     }
 }
 
-// Navigation Logic
+# pragma mark - Navigation Logic
+
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
+    
     /**
         Called by gesture framework and opens the navigation menu
      */
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-//            printf(".");
             [nav updateWithCGPoint:touch];
+            AudioServicesPlaySystemSound(openNavSound);
             break;
             
         case UIGestureRecognizerStateBegan:
             [tapToCloseMenu setEnabled:TRUE];
             [menuTrav setEnabled:TRUE];
-//            NSLog(@"State Started");
             break;
             
         case UIGestureRecognizerStateEnded:
-//            printf("\n");
-//            NSLog(@"State Ended");
             if (touch.x < 100) {
                 [self closeMenu:reg];
             }
@@ -164,5 +168,14 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+}
+
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 @end

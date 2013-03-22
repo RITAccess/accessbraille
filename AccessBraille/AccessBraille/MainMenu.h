@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MainMenuNavigation.h"
+#import "MainMenuItemImage.h"
 
-@interface MainMenu : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *BrailleTyperButton;
+@interface MainMenu : UIViewController <MenuImageTap>
+
 @property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
-- (IBAction)brailleTyper:(id)sender;
-- (IBAction)settings:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *OverlayTitle;
+@property (weak, nonatomic) IBOutlet UITextView *OverlayDiscription;
 
-// FOR TESTING
-
-- (void)moveMenuItemsByDelta:(float)delta;
+- (void)switchToControllerWithID:(NSNumber *)vcID;
 
 @end

@@ -11,50 +11,44 @@
 #import "BrailleInterpreter.h"
 #import "MainMenuNavigation.h"
 #import "NSArray+ObjectSubsets.h"
+#import "MainMenuItemImage.h"
 
 @interface MainMenu ()
-
+    
+/* Menu behavior properties */
 @property (nonatomic) float menuRootItemPosition;
+@property (readonly) float swipeSensitivity;
 
 @end
 
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
+    NSDictionary *menuItemsDict;
 }
 
 @synthesize menuView;
 
+#pragma mark - Load Methods
+
 -(void)viewDidLoad{
     
+    // Set menu properties
+    _swipeSensitivity = 2000;
+    
+    
+    // Pan gesture for scrolling and navigating
     scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
     scrollMenu.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:scrollMenu];
     [self.menuView makeClear];
     [self.view sendSubviewToBack:menuView];
     
-    // Root MenuItem - BrailleTyper
-    UIImageView *menuItem1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%@x90.png", @0]]];
-    [menuItem1 setFrame:CGRectMake(0, 0, 180, 180)];
-    [menuItem1 setCenter:CGPointMake(125, 384)];
-    [menuItem1 setTag:31];
-    [self setMenuRootItemPosition:menuItem1.frame.origin.y]; // Only for root menuItem
-    [self.view addSubview:menuItem1];
+    // Load side menu
+    [self loadMenuItemsAnimated:YES];
     
 }
 
-- (void)moveMenuItemsByDelta:(float)delta {
-    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
-        UIImageView *img = (UIImageView *)obj1;
-        return (img.tag == 31);
-    }];
-    for (UIImageView *item in menuItems){
-        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta > 0 ? _menuRootItemPosition + delta : 0 , item.frame.size.width, item.frame.size.height)];
-    }
-}
-
-
-
--(void)didMoveToParentViewController:(UIViewController *)parent{
+-(void)didMoveToParentViewController:(UIViewController *)parent {
     
 }
 
@@ -66,16 +60,112 @@
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
 }
 
-
 - (void)viewDidUnload {
-    [self setBrailleTyperButton:nil];
     [self setMenuView:nil];
+    [self setOverlayTitle:nil];
+    [self setOverlayDiscription:nil];
     [super viewDidUnload];
 }
 
+#pragma mark - Menu Methods
+
+
+/**
+ * Checks what menu item is in the selection box and returns it's ID
+ **/
+- (NSNumber *)checkInBounds {
+    
+    // 284 - 484 highlight bounds
+    
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    
+    NSMutableSet *inBounds = [[NSMutableSet alloc] init];
+    
+    for (UIImageView *img in menuItems){
+        if (img.center.y > 284 && img.center.y < 484) {
+            [inBounds addObject:@(img.tag - 31)];
+        }
+    }
+    if (inBounds.count > 1) {
+        return @(-1);
+    } else if (inBounds.count == 1) {
+        return [[inBounds allObjects] objectAtIndex:0];
+    } else { return @(-1); }
+}
+
+/**
+ * Moves the menu items a set distance from the root menu item position
+ **/
+- (void)moveMenuItemsByDelta:(float)delta {
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    for (UIImageView *item in menuItems){
+        float diffFromRoot = 180 * (item.tag - 31);
+        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
+    }
+}
+
+/**
+ * Loads menu items into view
+ **/
+- (void)loadMenuItemsAnimated:(BOOL)animated {
+    
+    // Get menu information
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
+    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    
+    int startTag = 31;
+    int startPos = 293;
+    _menuRootItemPosition = startPos;
+    
+    // set menu item posisions and add gesture to image view
+    for (int i = 0; i < menuItemsDict.count; i++) {
+        // load image and set tag
+        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        [menuItem setUserInteractionEnabled:YES];
+        [menuItem setFrame:CGRectMake(animated ? -200 : 30, startPos, 180, 180)];
+        [menuItem setTag:startTag];
+        if (i == 0){
+            [self setMenuRootItemPosition:menuItem.frame.origin.y]; // Only for root menuItem
+        }
+        [self.view addSubview:menuItem];
+        // add gesture
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
+        [tap setNumberOfTapsRequired:1];
+        [menuItem addGestureRecognizer:tap];
+        [menuItem setDelegate:self];
+        
+        // increment
+        startTag++;
+        startPos = startPos + 180;
+    }
+
+    if (animated) {
+        NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+            UIImageView *img = (UIImageView *)obj1;
+            return (img.tag >= 31);
+        }];
+        [UIView animateWithDuration:.3 animations:^{
+            for (UIImageView *item in menuItems){
+                [item setFrame:CGRectMake(30, item.frame.origin.y, item.frame.size.width, item.frame.size.height)];
+            }
+        }];
+    }
+}
+
+
+/**
+ * Menu Scrolling
+ **/
 - (void)scrollMenu:(UIPanGestureRecognizer *)reg {
     MainMenuNavigation *view = menuView;
-
+    
     switch (reg.state) {
         case UIGestureRecognizerStateBegan:
             
@@ -86,15 +176,14 @@
         case UIGestureRecognizerStateChanged:
             
             [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
-            
-            if ([reg velocityInView:self.view].x > 4000) {
-                [self brailleTyper:nil];
-                [scrollMenu setEnabled:NO];
+            [self setMenuContentInformationAtLocation:[self checkInBounds]];
+            if ([reg velocityInView:self.view].x > _swipeSensitivity) {
+                [self switchToControllerWithID:[self checkInBounds]];
             }
             break;
             
         case UIGestureRecognizerStateEnded:
-            _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y < 0 ? 0 : _menuRootItemPosition + [reg translationInView:self.view].y;
+            _menuRootItemPosition = _menuRootItemPosition + [reg translationInView:self.view].y;
             [view setVisible:NO];
             break;
             
@@ -107,20 +196,58 @@
     [self.menuView setNeedsDisplay];
 }
 
-
-
-- (IBAction)brailleTyper:(id)sender {
+/**
+ * Updates the the menu discription based on its ID and the contents of the menuDiscription.plist
+ **/
+- (void)setMenuContentInformationAtLocation:(NSNumber *)cvID {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
+    NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
+    NSArray *titles = [[NSArray alloc] initWithContentsOfFile:titlePath];
+    NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
     
-    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"brailleTyper"] animated:NO withMenu:YES];
+    if (cvID.intValue == -1){
+        [UIView animateWithDuration:1.0 animations:^{
+//            [menuView setHightlightWidth:250]; Pass on resizing for now
+            [_OverlayTitle setText:@""];
+            [_OverlayDiscription setText:@""];
+        }];
+    } else {
+        [UIView animateWithDuration:2.0 animations:^{
+            [menuView setHightlightWidth:750];
+            [_OverlayTitle setText:titles[cvID.intValue]];
+            [_OverlayDiscription setText:context[cvID.intValue]];
+        }];
+    }
 }
 
-- (IBAction)settings:(id)sender {
+/**
+ * Switches to a new controller by it's ID
+ **/
+- (void)switchToControllerWithID:(NSNumber *)vcID {
+    if ([vcID isEqual: @(-1)]) { return; }
     
-    NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"settings"] animated:NO withMenu:YES];
+    // Animate off screen
+    NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    [UIView animateWithDuration:0.2 animations:^{
+        for (UIImageView *item in menuItems){
+            [item setFrame:CGRectMake(-200, item.frame.origin.y, item.frame.size.width, item.frame.size.height)];
+        }
+    } completion:^(BOOL finished) {
 
+        // Gets storyboard name from menuItemsDict
+        NSString *key = [NSString stringWithFormat:@"%@", vcID];
+        NSString *controller = menuItemsDict[key];
+        
+        // Switches to that controller
+        NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:controller] animated:NO withMenu:YES];
+        
+    }];
 }
+
 @end

@@ -10,8 +10,9 @@
 
 @interface MainMenuNavigation : UIView
 
-/* Access the diplay properties */
-@property(nonatomic) BOOL visible;
+/* Access the display properties */
+@property (nonatomic) BOOL visible;
+@property (nonatomic) float hightlightWidth;
 
 - (void)makeClear;
 
