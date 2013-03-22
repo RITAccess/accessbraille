@@ -40,6 +40,7 @@
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C4FEB3516C4492600434F60 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3416C4492600434F60 /* Kal.framework */; };
+		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
 		4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BC9F16C9481800F76B45 /* hop.mp3 */; };
 		4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BCA116C9499C00F76B45 /* disable.mp3 */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
@@ -130,6 +131,7 @@
 		4C4FEB2116C4463700434F60 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4C4FEB3416C4492600434F60 /* Kal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kal.framework; sourceTree = "<group>"; };
+		4C508A7A16FB60430029FEB3 /* HightBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HightBar.png; sourceTree = "<group>"; };
 		4C52BC9F16C9481800F76B45 /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hop.mp3; sourceTree = "<group>"; };
 		4C52BCA116C9499C00F76B45 /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = disable.mp3; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C508A7A16FB60430029FEB3 /* HightBar.png */,
 				4CA076DA16D58590006DDBD3 /* menuItem0.png */,
 				4CEFD38816EE1D4700961754 /* menuItem0x90.png */,
 				4CA076E316D595F3006DDBD3 /* menuItem2.png */,
@@ -560,6 +563,7 @@
 				4C2F59E716F76CA5008F8185 /* navClick.aiff in Resources */,
 				4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */,
 				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
+				4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
