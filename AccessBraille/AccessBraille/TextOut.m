@@ -43,7 +43,7 @@
     textOut.backgroundColor = [UIColor clearColor];
     wpm.backgroundColor = [UIColor clearColor];
     
-    [textOut setFont:[font fontWithSize:32]];
+    [textOut setFont:[font fontWithSize:64]];
     wpm.text = @"N/A WPM";
 
     /// Adding Subviews
@@ -56,7 +56,6 @@
     clearText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clearText)];
     [clearText setNumberOfTouchesRequired:3];
     [self addGestureRecognizer:clearText];
-    
     
     /// Style 
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -106,6 +105,7 @@
     
     NSLog(@" Updating Cursor Position!");
     [self updateCursorPosition:5];
+    
     /// Cycles through newString to check each character for spaces
     for(int index = 0; index <=[newString length] - 1; index++){
         if ([newString characterAtIndex:index] == 32){
@@ -151,7 +151,13 @@
  * moved in the x-plane.
  */
 - (void) updateCursorPosition:(NSInteger)pixelsMoved{
-    cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+    
+    // Reset the Cursor to Origin
+    if (pixelsMoved == 0){
+        cursor.frame = CGRectMake(30, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+    }else{
+        cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+    }
 }
 
 /**
@@ -161,9 +167,6 @@
     [wordList removeAllObjects];
     if ([self stringToArray:buf]) {
         [wordList addObjectsFromArray:[self stringToArray:buf]];
-        
-        NSLog(@"Updating Cursor Position!");
-        [self updateCursorPosition:5];
     }
     [self rewrite];
 }
@@ -177,6 +180,8 @@
     } else {
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
+        NSLog(@"Set words Updating Cursor Position!");
+        [self updateCursorPosition:5];
     }
 }
 
@@ -210,6 +215,9 @@
     [self rewrite];
 }
 
+/**
+ * Removes objects identical to an empty string. Updates Cursor position
+*/
 - (void)rewrite {
     [wordList removeObjectIdenticalTo:@""];
     textOut.text = @" ";
@@ -235,16 +243,14 @@
     return textOut.text;
 }
 
-/**
- * 
-*/
-- (void)getTextWidth{
-    
-}
 
+/**
+ * Clears text and removes all objects from the WordList array. Calls
+*/
 -(void)clearText{
     [textOut setText:@""];
     [wordList removeAllObjects];
+    [self updateCursorPosition:0];
     [self rewrite];
 }
 
