@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum ABGestureDirection : NSUInteger ABGestureDirection;
+enum ABGestureDirection : NSUInteger {
+    ABGestureDirectionUP,
+    ABGestureDirectionDOWN
+};
+
 @interface ABActivateKeyboardGestureRecognizer : UIGestureRecognizer
+
+@property (nonatomic) ABGestureDirection activateDirection;
+@property (nonatomic) float translationFromStart;
 
 @end

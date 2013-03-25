@@ -7,10 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "ABActivateKeyboardGestureRecognizer.h"
 
-@interface ABKeyboard : NSObject
+@protocol ABKeyboard <NSObject>
+
+@optional
+
+/* Option to recieve status logs from keyboard */
+- (void)ABLog:(NSString *)log;
+
+@end
+
+@interface ABKeyboard : UIView
+
+/* Delegate */
+@property (strong, nonatomic) id delegate;
 
 /* Init methods to set up the Keyboard Controller */
 - (id)init;
+- (void)ABKeyboardRecognized:(ABActivateKeyboardGestureRecognizer *)reg;
 
 @end
