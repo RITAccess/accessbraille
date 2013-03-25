@@ -46,7 +46,7 @@
     textOut.backgroundColor = [UIColor clearColor];
     wpm.backgroundColor = [UIColor clearColor];
     
-    [textOut setFont:[font fontWithSize:64]];
+    [textOut setFont:[font fontWithSize:32]];
     wpm.text = @"N/A WPM";
 
     /// Adding Subviews
