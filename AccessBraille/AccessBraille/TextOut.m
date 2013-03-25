@@ -34,10 +34,13 @@
 
 -(void)drawRect:(CGRect)rect {
     
+    /// Writing Area
+    CGRect displayBox = CGRectMake(20,0,self.frame.size.width - 40,240);
+    
     UIFont *font = textOut.font;
     
-    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
-    wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
+    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, (displayBox.size.height / 2.5), self.frame.size.width, 50)];
+    wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 140, 10, 100, 50)];
     wordList = [[NSMutableArray alloc] init];
     
     textOut.backgroundColor = [UIColor clearColor];
@@ -64,25 +67,22 @@
     UIColor *fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
     UIColor *fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
     
-    /// Writing Area
-    CGRect box = CGRectMake(20,0,850,240);
-    
     // Shadow
     CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow.CGColor);
-    CGContextAddRect(context, box);
+    CGContextAddRect(context, displayBox);
     CGContextFillPath(context);
     
     // Box
     CGContextSetFillColorWithColor(context, fillBox.CGColor);
-    CGContextAddRect(context, box);
+    CGContextAddRect(context, displayBox);
     CGContextFillPath(context);
     
-    // Cursor
-    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 28, 2, 15)];
-    cursor.backgroundColor = [UIColor blackColor];
-    cursor.alpha = 1;
-    [self addSubview:cursor];
-    [self startTimer];
+//    // Cursor
+//    cursor = [[UILabel alloc] initWithFrame:CGRectMake(25, 30, 2, 15)];
+//    cursor.backgroundColor = [UIColor blackColor];
+//    cursor.alpha = 1;
+//    [self addSubview:cursor];
+//    [self startTimer];
 }
 
 /**
@@ -154,7 +154,7 @@
     
     // Reset the Cursor to Origin
     if (pixelsMoved == 0){
-        cursor.frame = CGRectMake(30, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+        cursor.frame = CGRectMake(30, 30, cursor.frame.size.width, cursor.frame.size.height);
     }else{
         cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
     }
@@ -180,12 +180,11 @@
     } else {
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
-        NSLog(@"Set words Updating Cursor Position!");
         [self updateCursorPosition:5];
     }
 }
 
--(NSString *)parseLastWordfromString:(NSString *)string {    
+-(NSString *)parseLastWordfromString:(NSString *)string {
     const char *charArray = [string UTF8String];
     int charLength = (int)[string length];
     NSString *word = @"";
