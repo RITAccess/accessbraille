@@ -46,7 +46,7 @@
     textOut.backgroundColor = [UIColor clearColor];
     wpm.backgroundColor = [UIColor clearColor];
     
-    [textOut setFont:[font fontWithSize:32]];
+    textOut.font = [UIFont fontWithName:@"Helvetica" size:62];
     wpm.text = @"N/A WPM";
 
     /// Adding Subviews
@@ -103,8 +103,7 @@
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
     
-    NSLog(@" Updating Cursor Position!");
-    [self updateCursorPosition:5];
+    //[self updateCursorPosition:5];
     
     /// Cycles through newString to check each character for spaces
     for(int index = 0; index <=[newString length] - 1; index++){
