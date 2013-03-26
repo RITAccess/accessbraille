@@ -27,7 +27,7 @@
     [keyboard setDelegate:self];
     
     ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self  action:@selector(activateKeyboard:)];
-    
+    [activate setTouchDelegate:keyboard];
     [self.view addGestureRecognizer:activate];
     
 }

@@ -6,10 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-
-#define ABLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-
-
 #import "ABKeyboard.h"
 #import "ABActivateKeyboardGestureRecognizer.h"
 
@@ -34,13 +30,29 @@
     }
 }
 
+- (void)touchColumnsWithInfo:(NSDictionary *)info {
+    if (info[@(ABColumnInfoValid)]) {
+        
+        NSLog(@"%@", info);
+        
+    }
+}
+
 - (void)ABKeyboardRecognized:(ABActivateKeyboardGestureRecognizer *)reg {
-    switch (reg.state) {
-        case UIGestureRecognizerStateBegan:
-            break;
+    switch (reg.activateDirection) {
+        case ABGestureDirectionUP:
             
-        case UIGestureRecognizerStateChanged:
-            ABLog(@"%f", reg.translationFromStart);
+            if (reg.translationFromStart > 200) {
+                [reg stopGesture];
+            }
+            
+            break;
+        case ABGestureDirectionDOWN:
+            
+            if (reg.translationFromStart > 200) {
+                NSLog(@"Keyboard Deactivate");
+            }
+            
             break;
         default:
             break;

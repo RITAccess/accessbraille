@@ -19,7 +19,7 @@
 
 @end
 
-@interface ABKeyboard : UIView
+@interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
 
 /* Delegate */
 @property (strong, nonatomic) id delegate;

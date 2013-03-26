@@ -8,15 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
+/* Defines the gestures direction to work for both activation and deactivation */
 typedef enum ABGestureDirection : NSUInteger ABGestureDirection;
 enum ABGestureDirection : NSUInteger {
     ABGestureDirectionUP,
     ABGestureDirectionDOWN
 };
+/* Defines the keys for touchColumnWithInfo: dictionary */
+typedef enum ABColumnInfo : NSUInteger ABColumnInfo;
+enum ABColumnInfo : NSUInteger {
+    ABColumnInfoValid
+};
+
+@protocol ABGestureRecognizerDelegate <NSObject>
+
+@required
+
+/* Gives the information about the touch locations for the keyboard */
+- (void)touchColumnsWithInfo:(NSDictionary *)info;
+
+@end
 
 @interface ABActivateKeyboardGestureRecognizer : UIGestureRecognizer
 
+/* State Properties */
 @property (nonatomic) ABGestureDirection activateDirection;
 @property (nonatomic) float translationFromStart;
+
+/* Delegate for ABGestureRecognizer */
+@property (strong, nonatomic) id touchDelegate;
+
+/* Stops the gesture recognition and starts the keyboard area parsing */
+- (void)stopGesture;
 
 @end
