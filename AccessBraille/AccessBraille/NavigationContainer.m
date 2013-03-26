@@ -133,10 +133,11 @@
     }
 }
 
+/** 
+ * Called by gesture framework to navigate the menu. 
+*/
 -(void)panMenu:(UIPanGestureRecognizer *)reg{
-    /**
-        Called by gesture framework to navigate the menu
-     */
+    
     switch (reg.state){
         case UIGestureRecognizerStateChanged:
             [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
@@ -149,10 +150,11 @@
     }
 }
 
+/**
+ * Closes the menu.
+*/
 -(void)closeMenu:(UIGestureRecognizer *)reg {
-    /**
-        Closes the menu
-     */
+    
     if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
         [nav close];
         [tapToCloseMenu setEnabled:NO];

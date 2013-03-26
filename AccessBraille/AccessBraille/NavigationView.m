@@ -141,7 +141,7 @@
     sItem2 = CGPointMake(10, self.frame.size.height - item2.frame.origin.y);
     sItem3 = CGPointMake(10, self.frame.size.height - item3.frame.origin.y);
     sItem4 = CGPointMake(10, self.frame.size.height - item4.frame.origin.y);
-    sItem5 = CGPointMake(10, self.frame.size.height - item4.frame.origin.y);
+    sItem5 = CGPointMake(10, self.frame.size.height - item5.frame.origin.y);
 }
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation {
@@ -157,7 +157,7 @@
     [item2 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem2.y), 75, 75)];
     [item3 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem3.y), 75, 75)];
     [item4 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem4.y), 75, 75)];
-    [item5 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem4.y), 75, 75)];
+    [item5 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem5.y), 75, 75)];
 }
 
 -(void)close {
