@@ -20,7 +20,7 @@
     UILongPressGestureRecognizer *clearText;
     
     // Cursor
-    UILabel *cursor;
+//    UILabel *cursor;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -36,8 +36,6 @@
     
     /// Writing Area
     CGRect displayBox = CGRectMake(20,0,self.frame.size.width - 40,240);
-    
-    UIFont *font = textOut.font;
     
     textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, (displayBox.size.height / 2.5), self.frame.size.width, 50)];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 140, 10, 100, 50)];
@@ -123,41 +121,41 @@
 /**
  * Initialized an NSTimer that will call flashCursor
  */
-- (void) startTimer {
-    [NSTimer scheduledTimerWithTimeInterval:.75
-                                     target:self
-                                   selector:@selector(flashCursor:)
-                                   userInfo:nil
-                                    repeats:YES];
-}
+//- (void) startTimer {
+//    [NSTimer scheduledTimerWithTimeInterval:.75
+//                                     target:self
+//                                   selector:@selector(flashCursor:)
+//                                   userInfo:nil
+//                                    repeats:YES];
+//}
 
 /**
  * Controls the alpha level of the cursor
  */
-- (void) flashCursor:(NSTimer *) timer {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.75];
-    cursor.alpha = 0;
-    [UIView commitAnimations];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.75];
-    cursor.alpha = 1;
-    [UIView commitAnimations];
-}
+//- (void) flashCursor:(NSTimer *) timer {
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:.75];
+//    cursor.alpha = 0;
+//    [UIView commitAnimations];
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:.75];
+//    cursor.alpha = 1;
+//    [UIView commitAnimations];
+//}
 
 /**
  * Potentially moves the cursor depending on number of pixels
  * moved in the x-plane.
  */
-- (void) updateCursorPosition:(NSInteger)pixelsMoved{
-    
-    // Reset the Cursor to Origin
-    if (pixelsMoved == 0){
-        cursor.frame = CGRectMake(30, 30, cursor.frame.size.width, cursor.frame.size.height);
-    }else{
-        cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
-    }
-}
+//- (void) updateCursorPosition:(NSInteger)pixelsMoved{
+//    
+//    // Reset the Cursor to Origin
+//    if (pixelsMoved == 0){
+//        cursor.frame = CGRectMake(30, 30, cursor.frame.size.width, cursor.frame.size.height);
+//    }else{
+//        cursor.frame = CGRectMake(cursor.frame.origin.x + pixelsMoved, cursor.frame.origin.y, cursor.frame.size.width, cursor.frame.size.height);
+//    }
+//}
 
 /**
  * Prepares words to be drawn in Typing Mode
@@ -179,7 +177,7 @@
     } else {
         NSString *tmp = [textOut.text stringByAppendingString:string];
         [textOut setText:tmp];
-        [self updateCursorPosition:5];
+//        [self updateCursorPosition:5];
     }
 }
 
@@ -248,7 +246,7 @@
 -(void)clearText{
     [textOut setText:@""];
     [wordList removeAllObjects];
-    [self updateCursorPosition:0];
+//    [self updateCursorPosition:0];
     [self rewrite];
 }
 

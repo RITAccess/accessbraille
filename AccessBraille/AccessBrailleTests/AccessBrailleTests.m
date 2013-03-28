@@ -13,6 +13,7 @@
 #import "MainMenu.h"
 
 @implementation AccessBrailleTests
+
 - (void)setUp
 {
     [super setUp];
@@ -31,6 +32,5 @@
     
     [super tearDown];
 }
-
 
 @end

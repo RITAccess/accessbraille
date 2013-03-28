@@ -15,7 +15,11 @@
 
 @end
 
-@implementation FlashCard
+@implementation FlashCard {
+ 
+    UILabel *title;
+    NSTimer *speechTimer;
+}
 
 @synthesize fliteController;
 @synthesize slt;
@@ -42,12 +46,21 @@
     [super viewDidLoad];
 	
     // Title
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
+    title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
     [title setBackgroundColor:[UIColor clearColor]];
     [title setText:@"Flash Card Mode"];
     title.center = CGPointMake(550, 50);
-    [title setFont: [UIFont fontWithName:@"Arial" size:30.0f]];
+    [title setFont: [UIFont fontWithName:@"Trebuchet MS" size:30.0f]];
     [[self view] addSubview:title];
+    
+    
+    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
+}
+
+/** Calls FliteController to speak. */
+- (void)speak
+{
+    [self.fliteController say:title.text withVoice:self.slt];
 }
 
 @end
