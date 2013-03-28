@@ -26,10 +26,9 @@
     keyboard = [[ABKeyboard alloc] init];
     [keyboard setDelegate:self];
     
-    ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self  action:@selector(activateKeyboard:)];
+    ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:keyboard action:@selector(ABKeyboardRecognized:)];
     [activate setTouchDelegate:keyboard];
     [self.view addGestureRecognizer:activate];
-    
 }
 
 /**
@@ -37,10 +36,6 @@
  */
 - (void)ABLog:(NSString *)log {
     NSLog(@"AB - %@", log);
-}
-
-- (void)activateKeyboard:(ABActivateKeyboardGestureRecognizer *)reg {
-    [keyboard ABKeyboardRecognized:reg];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,6 +10,14 @@
 
 @interface NSArray (ObjectSubsets)
 
+/* Returns a sub array from array */
 + (NSArray *)arrayFromArray:(NSArray *)array passingTest:(BOOL (^)(id obj1))compare;
+
+/* Adds arrays together and keeps them sorted **ONLY UITOUCHES** */
++ (NSArray *)addToArray:(NSArray *)arrayOrg from:(NSArray *)arrayAdd inView:(UIView *)view;
+
+/* Makes a nice one line statement */
+- (NSString *)oneLineNSStringOfArray;
+- (NSString *)oneLineNSStringOfArrayWithDescriptionBlock:(NSString * (^)(id obj))toString;
 
 @end

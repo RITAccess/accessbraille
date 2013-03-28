@@ -14,11 +14,9 @@ enum ABGestureDirection : NSUInteger {
     ABGestureDirectionUP,
     ABGestureDirectionDOWN
 };
-/* Defines the keys for touchColumnWithInfo: dictionary */
-typedef enum ABColumnInfo : NSUInteger ABColumnInfo;
-enum ABColumnInfo : NSUInteger {
-    ABColumnInfoValid
-};
+
+/* String Constansts for keys in info dictionary */
+static NSString *const ABGestureInfoStatus = @"ABGestureInfoStatus";
 
 @protocol ABGestureRecognizerDelegate <NSObject>
 
@@ -39,6 +37,6 @@ enum ABColumnInfo : NSUInteger {
 @property (strong, nonatomic) id touchDelegate;
 
 /* Stops the gesture recognition and starts the keyboard area parsing */
-- (void)stopGesture;
+- (void)getTouchInfo;
 
 @end

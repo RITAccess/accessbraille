@@ -30,12 +30,11 @@
     }
 }
 
+/**
+ * Gets touch colums from GR
+ */
 - (void)touchColumnsWithInfo:(NSDictionary *)info {
-    if (info[@(ABColumnInfoValid)]) {
-        
-        NSLog(@"%@", info);
-        
-    }
+    NSLog(@"%@", [info[ABGestureInfoStatus] boolValue] ? @"Valid" : @"Invalid");
 }
 
 - (void)ABKeyboardRecognized:(ABActivateKeyboardGestureRecognizer *)reg {
@@ -43,14 +42,14 @@
         case ABGestureDirectionUP:
             
             if (reg.translationFromStart > 200) {
-                [reg stopGesture];
+                [reg getTouchInfo];
             }
             
             break;
         case ABGestureDirectionDOWN:
             
             if (reg.translationFromStart > 200) {
-                NSLog(@"Keyboard Deactivate");
+                
             }
             
             break;

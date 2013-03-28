@@ -286,6 +286,8 @@
 				4CEE19A316FCA05400E36128 /* ABKeyboard.m */,
 				4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */,
 				4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */,
+				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
+				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = "AccessBraille Framework";
 			sourceTree = "<group>";
@@ -441,8 +443,6 @@
 				A97425721677BFA400289C8D /* CalibrationPoint.m */,
 				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
 				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
-				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
-				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
