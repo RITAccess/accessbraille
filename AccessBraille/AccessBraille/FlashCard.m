@@ -19,6 +19,7 @@
  
     UILabel *title;
     NSTimer *speechTimer;
+    NSMutableArray *cards;
 }
 
 @synthesize fliteController;
@@ -60,7 +61,17 @@
 /** Calls FliteController to speak. */
 - (void)speak
 {
+    [self.fliteController say:[self chooseCard] withVoice:self.slt];
     [self.fliteController say:title.text withVoice:self.slt];
+}
+
+/** Test method to pick a card from an array and call speak() to say the card. */
+- (NSString*)chooseCard{
+    cards = [NSArray arrayWithObjects:@"cat",@"red",@"top",nil];
+    
+    NSString *card = [cards objectAtIndex:1];
+    
+    return card;
 }
 
 @end

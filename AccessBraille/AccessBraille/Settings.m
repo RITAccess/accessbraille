@@ -39,11 +39,6 @@
     [[self view] addSubview:instructionsInfo];
 }
 
-
-- (IBAction)buttonPress:(id)sender {
-    [self.fliteController say:@"testing" withVoice:self.slt];
-    
-}
 - (void)viewDidUnload {
     [self setLabel:nil];
     [super viewDidUnload];
