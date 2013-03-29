@@ -58,7 +58,7 @@
 
     
     /** Timer will wait 500 miliseconds before speak is called. */
-    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.5  target:self selector:@selector(speak) userInfo:nil repeats:NO];
+    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
     
 }
 
