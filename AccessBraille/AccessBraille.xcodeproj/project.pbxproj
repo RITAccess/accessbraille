@@ -52,6 +52,7 @@
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
 		4CA076E416D595F3006DDBD3 /* menuItem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076E316D595F3006DDBD3 /* menuItem2.png */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
+		4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB222AD1706063E00BD3608 /* ABTypes.m */; };
 		4CEC5E5816CD7F3B00858B66 /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5716CD7F3B00858B66 /* mainMenu.png */; };
 		4CEC5E5E16CD8CA500858B66 /* slideOutMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */; };
 		4CEC5E6416CD91E200858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6216CD91E200858B66 /* icon144.png */; };
@@ -117,6 +118,7 @@
 		4C3C91AF16CE962500954A54 /* mainMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainMenu@2x.png"; sourceTree = "<group>"; };
 		4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuNavigation.h; sourceTree = "<group>"; };
 		4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuNavigation.m; sourceTree = "<group>"; };
+		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
 		4C4FEB1216C4463700434F60 /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
 		4C4FEB1416C4463700434F60 /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
 		4C4FEB1516C4463700434F60 /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		4CA076E316D595F3006DDBD3 /* menuItem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem2.png; sourceTree = "<group>"; };
 		4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuItemImage.h; sourceTree = "<group>"; };
 		4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuItemImage.m; sourceTree = "<group>"; };
+		4CB222AD1706063E00BD3608 /* ABTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTypes.m; sourceTree = "<group>"; };
 		4CEC5E5716CD7F3B00858B66 /* mainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenu.png; sourceTree = "<group>"; };
 		4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideOutMenu.png; sourceTree = "<group>"; };
 		4CEC5E6216CD91E200858B66 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4C433B8F1705DF4B003D2DE7 /* ABTypes.h */,
+				4CB222AD1706063E00BD3608 /* ABTypes.m */,
 				4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */,
 				4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */,
 				4CEE19A216FCA05400E36128 /* ABKeyboard.h */,
@@ -636,6 +641,7 @@
 				4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */,
 				4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */,
 				4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */,
+				4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +758,7 @@
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -768,6 +775,7 @@
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

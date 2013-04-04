@@ -23,12 +23,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    keyboard = [[ABKeyboard alloc] init];
-    [keyboard setDelegate:self];
-    
-    ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:keyboard action:@selector(ABKeyboardRecognized:)];
-    [activate setTouchDelegate:keyboard];
-    [self.view addGestureRecognizer:activate];
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+
 }
 
 /**

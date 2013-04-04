@@ -31,10 +31,12 @@
 @interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
 
 /* Delegate */
-@property (strong, nonatomic) id delegate;
+@property (strong, nonatomic) id<ABKeyboard> delegate;
+
+/* Access the Gesture */
+@property (strong, nonatomic) ABActivateKeyboardGestureRecognizer *keyboardGesture;
 
 /* Init methods to set up the Keyboard Controller */
-- (id)init;
-- (void)ABKeyboardRecognized:(ABActivateKeyboardGestureRecognizer *)reg;
+- (id)initWithDelegate:(id<ABKeyboard>)delegate;
 
 @end

@@ -9,6 +9,7 @@
 #import "ABActivateKeyboardGestureRecognizer.h"
 #import "NSArray+ObjectSubsets.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
+#import "ABTypes.h"
 
 @interface ABActivateKeyboardGestureRecognizer ()
 
@@ -17,23 +18,27 @@
 @end
 
 @implementation ABActivateKeyboardGestureRecognizer {
-    NSArray *allTouchesStart;
+    int allTouchesSize;
+    CGPoint allTouchesStart[6];
     NSArray *allTouchesCurrent;
 }
 
 - (id)initWithTarget:(id)target action:(SEL)action {
     self = [super initWithTarget:target action:action];
     if (self) {
-        allTouchesStart = @[];
+        allTouchesSize = 0;
         allTouchesCurrent = @[];
     }
     return self;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    allTouchesStart = [NSArray addToArray:allTouchesStart from:[touches allObjects] inView:self.view];
+    for (UITouch *t in touches){
+        allTouchesStart[allTouchesSize] = [t locationInView:self.view];
+        allTouchesSize++;
+    }
     _start = [[touches anyObject] locationInView:self.view].y;
-    if (allTouchesStart.count > 6) {
+    if (allTouchesSize > 6) {
         self.state = UIGestureRecognizerStateFailed;
     }
 }
@@ -78,23 +83,23 @@
  */
 - (void)getTouchInfo {
     // Don't run if gesture not propery recognized
-    if (allTouchesStart.count != 6) { return; }
+    if (allTouchesSize != 6) { return; }
     
+    // Info dictionary
     NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
-       
-    NSLog(@"%@", [allTouchesStart oneLineNSStringOfArrayWithDescriptionBlock:^NSString *(id obj) {
-        return [NSString stringWithFormat:@"%f", [(UITouch *)obj locationInView:self.view].y];
-    }]);
     
-    // If valid set as valid - incomp
-    if (allTouchesStart[0] == 0) {
-        info[ABGestureInfoStatus] = @0; // False
-    } else {
-        info[ABGestureInfoStatus] = @1; // True
+    // Put touch points into vectors to be used to set up columns later
+    ABVector trackedVectors[6];
+    for (int i = 0; i < 6; i++){
+        ABVector tmp = ABVectorMake(allTouchesStart[i], [allTouchesCurrent[i] locationInView:self.view]);
+        trackedVectors[i] = tmp;
     }
     
-    if ([_touchDelegate respondsToSelector:@selector(touchColumnsWithInfo:)]) {
-        [_touchDelegate touchColumnsWithInfo:info];
+    info[ABGestureInfoStatus] = @0; // False
+    
+    
+    if ([_touchDelegate respondsToSelector:@selector(touchColumns:withInfo:)]) {
+        [_touchDelegate touchColumns:trackedVectors withInfo:info];
     }
 
     self.state = UIGestureRecognizerStateEnded;
@@ -110,7 +115,7 @@
 
 - (void)reset {
     allTouchesCurrent = @[];
-    allTouchesStart = @[];
+    allTouchesSize = 0;
     _start = 0;
     _translationFromStart = 0;
     NSLog(@"Reset");

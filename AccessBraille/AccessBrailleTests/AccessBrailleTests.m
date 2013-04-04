@@ -7,10 +7,8 @@
 //
 
 #import "AccessBrailleTests.h"
-#import "CalibrationPoint.h"
-#import "BrailleInterpreter.h"
-#import "BrailleTyperController.h"
-#import "MainMenu.h"
+#import <UIKit/UIKit.h>
+#import "ABTypes.h"
 
 @implementation AccessBrailleTests
 - (void)setUp
@@ -27,7 +25,11 @@
     [super tearDown];
 }
 
-- (void)testTest {
-    STAssertEquals(1+2, 3, @"1+2 doesn not equal three");
+- (void)testABVectors {
+    
+    ABVector testVector = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 10));
+    
+    STAssertEquals(testVector.start.x, 0, @"Not Equal");
+    
 }
 @end

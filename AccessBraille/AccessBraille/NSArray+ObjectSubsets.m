@@ -26,11 +26,13 @@
 /**
  * Adds two arrays together and sorts them by the touch points x value
  */
-+ (NSArray *)addToArray:(NSArray *)arrayOrg from:(NSArray *)arrayAdd inView:(UIView *)view {
++ (NSArray *)addToArrayCopiesfrom:(NSArray *)arrayAdd withReferanceToView:(UIView *)view intoArray:(NSArray *)parentArray {
     
-    NSArray *newArray = [arrayOrg arrayByAddingObjectsFromArray:arrayAdd];
+    NSArray *all = [parentArray arrayByAddingObjectsFromArray:arrayAdd];
     
-    return [newArray sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(id obj1, id obj2) {
+    NSMutableArray *final = [[NSMutableArray alloc] initWithArray:all copyItems:YES];    
+    
+    return [final sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(id obj1, id obj2) {
         if ([(UITouch *)obj1 locationInView:view].x < [(UITouch *)obj2 locationInView:view].x) {
             return NSOrderedAscending;
         } else {
