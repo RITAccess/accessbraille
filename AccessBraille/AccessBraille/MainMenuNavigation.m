@@ -11,10 +11,10 @@
 @implementation MainMenuNavigation
 
 /**
- *  Sets the views background color to clear.
+ *  Sets the views background color to clear, and sets defaults for variables.
  */
 - (void)makeClear {
-    
+    self.hightlightWidth = 750;
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -28,7 +28,7 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
         
         // Size of highted area
-        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, 750, 200);
+        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, self.hightlightWidth, 200);
         // Coloring for highted bar
         UIColor *fillBox = [UIColor colorWithRed:225/255 green:0/255 blue:0/255 alpha:0.4];
         

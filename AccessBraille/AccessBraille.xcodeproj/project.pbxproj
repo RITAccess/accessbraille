@@ -43,6 +43,7 @@
 		4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BC9F16C9481800F76B45 /* hop.mp3 */; };
 		4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BCA116C9499C00F76B45 /* disable.mp3 */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
+		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4CA076DB16D58590006DDBD3 /* menuItem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076DA16D58590006DDBD3 /* menuItem0.png */; };
@@ -133,6 +134,7 @@
 		4C52BCA116C9499C00F76B45 /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = disable.mp3; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		4C65356216C443A900611B6F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4CA076DA16D58590006DDBD3 /* menuItem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem0.png; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				A9479C401670034E00CE9475 /* AccessBraille-Info.plist */,
 				4C11AEA116F0D5A500A9210A /* menu.plist */,
 				4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */,
+				4C751F1716FA052F003967D8 /* MenuTitles.plist */,
 				A9479C441670034E00CE9475 /* main.m */,
 				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
 				A9479C4A1670034E00CE9475 /* Default.png */,
@@ -556,6 +559,7 @@
 				4C2F59E616F76CA5008F8185 /* backspace.aiff in Resources */,
 				4C2F59E716F76CA5008F8185 /* navClick.aiff in Resources */,
 				4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */,
+				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

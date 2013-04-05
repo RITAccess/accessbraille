@@ -13,6 +13,8 @@
 @interface MainMenu : UIViewController <MenuImageTap>
 
 @property (strong, nonatomic) IBOutlet MainMenuNavigation *menuView;
+@property (weak, nonatomic) IBOutlet UILabel *OverlayTitle;
+@property (weak, nonatomic) IBOutlet UITextView *OverlayDiscription;
 
 - (void)switchToControllerWithID:(NSNumber *)vcID;
 
