@@ -41,6 +41,9 @@
     }];
 }
 
+/**
+ * Displays an array on a single line output using default description
+ */
 - (NSString *)oneLineNSStringOfArray {
     NSString *returnString = @"";
     for (id obj in self){
@@ -50,6 +53,9 @@
     return returnString;
 }
 
+/**
+ * Displays an array on a single line output using a discription block
+ */
 - (NSString *)oneLineNSStringOfArrayWithDescriptionBlock:(NSString * (^)(id obj))toString {
     NSString *returnString = @"";
     for (id obj in self){

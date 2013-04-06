@@ -8,21 +8,28 @@
 
 #import "ABKeyboard.h"
 #import "ABActivateKeyboardGestureRecognizer.h"
+#import "ABTouchLayer.h"
 #import "ABTypes.h"
+#import "ABTouchView.h"
 
 @implementation ABKeyboard {
-    
+    ABTouchLayer *interface;
 }
 
 - (id)initWithDelegate:(id)delegate {
     self = [super init];
     if (self) {
-        // Init code
+        // GR setup
         _delegate = delegate;
         ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
 
+        // Type interface setup
+        // Set up overlay view
+        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)]; // Hight/Width switched
+        [interface setBackgroundColor:[UIColor grayColor]];
+        [interface setAlpha:0.4];
     }
     return self;
 }
@@ -39,26 +46,37 @@
 /**
  * Creates a view overlay for recognizing braille type
  */
-- (UIView *)viewWithTouchesFromABVectorArray:(ABVector[])vectors {
+- (void)setUpViewWithTouchesFromABVectorArray:(ABVector[])vectors {
     
-    // Set up overlay view
-    UIView *interface = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [interface setBackgroundColor:[UIColor grayColor]];
-    [interface setAlpha:0.4];
+    // Call Drawing Methods
     
-    // Test view
-    
-    
-    
-    return interface;
+    for (int i = 0; i < 6; i++){
+        
+        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, vectors[i].end.y, 100, 400)];
+        [touch setBackgroundColor:[UIColor redColor]];
+        [touch setTag:i];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:touch action:@selector(tapped:)];
+        
+        [touch addGestureRecognizer:tap];
+        
+        [interface addSubview:touch];
+    }
 }
 
 /**
  * Gets touch colums from GR
  */
 - (void)touchColumns:(ABVector[])vectors withInfo:(NSDictionary *)info{
-    NSLog(@"%@", info);
-    NSLog(@"%@", ABVectorPrintable(vectors));
+    
+    _keyboardActive = YES;
+    
+    [self setUpViewWithTouchesFromABVectorArray:vectors];
+    
+    UIViewController *VCDelegate = (UIViewController *)_delegate;
+    [VCDelegate.view addSubview:interface];
+    [VCDelegate.view bringSubviewToFront:interface];
+    
 }
 
 /**
@@ -76,7 +94,9 @@
         case ABGestureDirectionDOWN:
             
             if (reg.translationFromStart > 200) {
-                
+                [interface removeFromSuperview];
+                [interface resetView];
+                _keyboardActive = NO;
             }
             
             break;

@@ -11,14 +11,23 @@
                     <view key="view" contentMode="scaleToFill" id="3R7-ZF-EMp">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IMG_1353.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D0e-bI-T22"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D0e-bI-T22" firstAttribute="top" secondItem="3R7-ZF-EMp" secondAttribute="top" type="default" id="AFD-pP-VeZ"/>
+                            <constraint firstItem="D0e-bI-T22" firstAttribute="bottom" secondItem="3R7-ZF-EMp" secondAttribute="bottom" type="default" id="Clr-Na-a9Z"/>
+                            <constraint firstItem="D0e-bI-T22" firstAttribute="leading" secondItem="3R7-ZF-EMp" secondAttribute="leading" type="default" id="kwY-P0-vGn"/>
+                            <constraint firstItem="D0e-bI-T22" firstAttribute="trailing" secondItem="3R7-ZF-EMp" secondAttribute="trailing" type="default" id="kx2-Ml-vFO"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXt-NK-UX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1502" y="-989"/>
+            <point key="canvasLocation" x="-1502" y="-899"/>
         </scene>
         <!--Navigation Container-->
         <scene sceneID="dpv-cN-fKb">
@@ -185,6 +194,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_1353.jpg" width="3264" height="2448"/>
         <image name="mainMenu@2x.png" width="2048" height="1536"/>
     </resources>
     <classes>

@@ -10,6 +10,7 @@
 #import "NSArray+ObjectSubsets.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 #import "ABTypes.h"
+#import "ABKeyboard.h"
 
 @interface ABActivateKeyboardGestureRecognizer ()
 
@@ -33,14 +34,14 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (allTouchesSize > 6) {
+        self.state = UIGestureRecognizerStateFailed;
+    }
     for (UITouch *t in touches){
         allTouchesStart[allTouchesSize] = [t locationInView:self.view];
         allTouchesSize++;
     }
     _start = [[touches anyObject] locationInView:self.view].y;
-    if (allTouchesSize > 6) {
-        self.state = UIGestureRecognizerStateFailed;
-    }
 }
 
 /**
@@ -82,8 +83,9 @@
  * Sets up touch regions
  */
 - (void)getTouchInfo {
-    // Don't run if gesture not propery recognized
-    if (allTouchesSize != 6) { return; }
+    // Don't run if gesture not propery recognized or if keyboard is active
+    ABKeyboard *keyboard = (ABKeyboard *)_touchDelegate;
+    if (keyboard.keyboardActive) { return; }
     
     // Info dictionary
     NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
@@ -118,7 +120,6 @@
     allTouchesSize = 0;
     _start = 0;
     _translationFromStart = 0;
-    NSLog(@"Reset");
 }
 
 @end

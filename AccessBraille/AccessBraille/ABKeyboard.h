@@ -36,6 +36,9 @@
 /* Access the Gesture */
 @property (strong, nonatomic) ABActivateKeyboardGestureRecognizer *keyboardGesture;
 
+/* Is the keyboard active */
+@property BOOL keyboardActive;
+
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 

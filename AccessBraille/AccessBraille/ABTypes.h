@@ -23,7 +23,11 @@ static NSString *const ABGestureInfoStatus = @"ABGestureInfoStatus";
 typedef struct {
     CGPoint start;
     CGPoint end;
+    float angle;
 } ABVector;
 
+/* Creates an ABVector from two CGPoints */
 ABVector ABVectorMake(CGPoint start, CGPoint end);
+
+/* Returns a printable vertion of an ABVector array */
 NSString* ABVectorPrintable(ABVector vectors[]);
