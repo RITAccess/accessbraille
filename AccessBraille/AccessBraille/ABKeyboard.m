@@ -29,6 +29,7 @@
 
         // Set Up Braille Interp
         brailleReader = [[ABBrailleReader alloc] init];
+        [brailleReader setDelegate:_delegate];
         
         // Type interface setup
         interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)]; // Hight/Width switched

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ABTouchLayer.h"
+#import "ABKeyboard.h"
 
 @interface ABBrailleReader : NSObject <ABTouchReciever>
 
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs;
+
+@property (nonatomic) id<ABKeyboard> delegate;
 
 @end

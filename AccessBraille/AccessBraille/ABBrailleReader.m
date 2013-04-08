@@ -24,6 +24,10 @@
     return self;
 }
 
+/**
+ * Takes an array of NSNumbers corresponding to finger placement on screen (left
+ * to right) and returns the look up string for the braille dictionary
+ */
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs {
     NSMutableString *str = [[NSMutableString alloc] initWithCapacity:6];
     [str setString:@"000000"];
@@ -42,7 +46,9 @@
 
 - (void)brailleString:(NSString *)brailleString {
     
-    NSLog(@"%@", grad1Lookup[brailleString]);
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:grad1Lookup[brailleString] withInfo:@{ABGestureInfoStatus : @(YES)}];
+    }
     
 }
 
