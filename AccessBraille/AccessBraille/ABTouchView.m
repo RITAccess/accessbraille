@@ -23,13 +23,7 @@
  * GR target
  */
 - (void)tapped:(UITapGestureRecognizer *)reg {
-    if ([_delegate respondsToSelector:@selector(touchWithId:tap:)]) {
-        if (reg.state == UIGestureRecognizerStateBegan) {
-            [_delegate touchWithId:self.tag tap:YES];
-        } else if (reg.state == UIGestureRecognizerStateEnded) {
-            [_delegate touchWithId:self.tag tap:NO];
-        }
-    }
+    [_delegate touchWithId:self.tag tap:YES];
 }
 
 @end

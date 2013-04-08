@@ -11,9 +11,11 @@
 #import "ABTouchLayer.h"
 #import "ABTypes.h"
 #import "ABTouchView.h"
+#import "ABBrailleReader.h"
 
 @implementation ABKeyboard {
     ABTouchLayer *interface;
+    ABBrailleReader *brailleReader;
 }
 
 - (id)initWithDelegate:(id)delegate {
@@ -25,11 +27,15 @@
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
 
+        // Set Up Braille Interp
+        brailleReader = [[ABBrailleReader alloc] init];
+        
         // Type interface setup
-        // Set up overlay view
         interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)]; // Hight/Width switched
         [interface setBackgroundColor:[UIColor grayColor]];
         [interface setAlpha:0.4];
+        [interface setDelegate:brailleReader];
+        
     }
     return self;
 }
@@ -59,6 +65,8 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:touch action:@selector(tapped:)];
         
         [touch addGestureRecognizer:tap];
+        
+        [touch setDelegate:interface];
         
         [interface addSubview:touch];
     }

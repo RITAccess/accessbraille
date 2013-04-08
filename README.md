@@ -11,7 +11,7 @@ Simply add the keyboard to your ```UIViewController``` and add the necessary pro
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 [keyboard setAutoType:NO]; // You'll add the text where you want.
-
+ter
 // Somewhere in your implementation
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     // Your code goes here

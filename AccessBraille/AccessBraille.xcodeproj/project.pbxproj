@@ -13,6 +13,7 @@
 		4C11AEA416F2144A00A9210A /* menuItem1x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA316F2144A00A9210A /* menuItem1x90.png */; };
 		4C11AEA616F214C900A9210A /* menuItem2x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA516F214C900A9210A /* menuItem2x90.png */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
+		4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B824F171316F60035797D /* ABBrailleReader.m */; };
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2B0B1A16F37A2D00CC64F2 /* menuItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1616F37A2D00CC64F2 /* menuItem3.png */; };
 		4C2B0B1C16F37C0100CC64F2 /* menuItem3x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1B16F37C0100CC64F2 /* menuItem3x90.png */; };
@@ -111,6 +112,8 @@
 		4C11AEA516F214C900A9210A /* menuItem2x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem2x90.png; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
 		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
+		4C1B824E171316F60035797D /* ABBrailleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleReader.h; sourceTree = "<group>"; };
+		4C1B824F171316F60035797D /* ABBrailleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleReader.m; sourceTree = "<group>"; };
 		4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
 		4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C2B0B1616F37A2D00CC64F2 /* menuItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem3.png; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				4CB222AD1706063E00BD3608 /* ABTypes.m */,
 				4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */,
 				4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */,
+				4C1B824E171316F60035797D /* ABBrailleReader.h */,
+				4C1B824F171316F60035797D /* ABBrailleReader.m */,
 				4CEE19A216FCA05400E36128 /* ABKeyboard.h */,
 				4CEE19A316FCA05400E36128 /* ABKeyboard.m */,
 				4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */,
@@ -658,6 +663,7 @@
 				4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */,
 				4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */,
 				4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */,
+				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

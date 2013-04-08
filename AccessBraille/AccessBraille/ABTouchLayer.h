@@ -10,8 +10,14 @@
 #import "ABTypes.h"
 #import "ABTouchView.h"
 
+@protocol ABTouchReciever <NSObject>
+@required
+- (void)brailleString:(NSString *)brailleString;
+@end
+
 @interface ABTouchLayer : UIView <ABTouchColumn>
 
 - (void)resetView;
+@property (nonatomic) id<ABTouchReciever> delegate;
 
 @end

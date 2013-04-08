@@ -9,6 +9,7 @@
 #import "AccessBrailleTests.h"
 #import <UIKit/UIKit.h>
 #import "ABTypes.h"
+#import "ABBrailleReader.h"
 
 @implementation AccessBrailleTests
 - (void)setUp
@@ -23,6 +24,13 @@
     // Tear-down code here.
     
     [super tearDown];
+}
+
+- (void)testStringBrailleBits {
+    
+    NSArray *test = @[@2,@3];
+    STAssertEqualObjects([ABBrailleReader brailleStringFromTouchIDs:test], @"100100",@"Not Equal: %@", [ABBrailleReader brailleStringFromTouchIDs:test]);
+    
 }
 
 - (void)testABVectors {
