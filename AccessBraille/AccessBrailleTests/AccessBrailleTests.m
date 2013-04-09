@@ -12,6 +12,7 @@
 #import "ABBrailleReader.h"
 
 @implementation AccessBrailleTests
+
 - (void)setUp
 {
     [super setUp];

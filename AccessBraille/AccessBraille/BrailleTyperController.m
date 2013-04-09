@@ -28,6 +28,8 @@
 
 @interface BrailleTyperController ()
 
+
+
 @end
 
 #pragma mark Implementation
@@ -74,12 +76,12 @@
 
 /**
  Runs after load
- */
+*/
 - (void)viewDidLoad {
 
     [super viewDidLoad];
     
-    // Braille Recognizer Gestures
+    /// Braille Recognizer Gestures
     BROneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BRTap:)];
         [BROneTap setNumberOfTouchesRequired:1];
         [BROneTap setNumberOfTapsRequired:1];
@@ -105,7 +107,7 @@
         [BRSixTap setNumberOfTapsRequired:1];
         [BRSixTap setEnabled:NO];
     
-    // State Switch **two finger for simulater testing**
+    /// State Switch **two finger for simulater testing**
     sixFingerHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sixFingerLong:)];
     [sixFingerHold setNumberOfTouchesRequired:6];
     sixFingerHold.minimumPressDuration = .75;
@@ -114,7 +116,7 @@
     [doubleTapExit setNumberOfTouchesRequired:1];
     [doubleTapExit setEnabled:NO];
 
-    // Add Recognizers to view
+    /// Add Recognizers to view
     [self.view addGestureRecognizer:BROneTap];
     [self.view addGestureRecognizer:BRTwoTap];
     [self.view addGestureRecognizer:BRThreeTap];
@@ -139,6 +141,7 @@
     disabledSound = [self createSoundID:@"disable.mp3"];
     backspaceSound = [self createSoundID:@"backspace.aiff"];
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     /**
@@ -226,6 +229,7 @@
     for(int t = 0; t < (int)reg.numberOfTouches; t++){
         CGPoint point = [reg locationOfTouch:t inView:reg.view];
         for (NSString *key in cpByFinger){
+            
             CalibrationPoint *tmp = [cpByFinger objectForKey:key];
             if ([tmp tapInRadius:point]) {
                 [touchPoints setObject:tmp forKey:[tmp getCurrentID]];
