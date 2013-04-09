@@ -11,10 +11,28 @@
 #import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@implementation Settings
+@implementation Settings{
+    UITextView *instructionsInfo;
+    NSTimer *speechTimer;
+}
 
 @synthesize fliteController;
 @synthesize slt;
+
+
+- (FliteController *)fliteController {
+    if (fliteController == nil) {
+        fliteController = [[FliteController alloc] init];
+    }
+    return fliteController;
+}
+
+- (Slt *)slt {
+    if (slt == nil) {
+        slt = [[Slt alloc] init];
+    }
+    return slt;
+}
 
 - (void)viewDidLoad {
     
@@ -31,19 +49,24 @@
     [[self view] addSubview:title];
     
     // TextField
-    UITextView *instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
+    instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
     [instructionsInfo setText:@"Some instructions that we will include are:\n\n*Speech Speed\n\n*Game Difficulty\n\n*Reset Data"];
     [instructionsInfo setBackgroundColor:[UIColor clearColor]];
     [instructionsInfo setFont:[UIFont fontWithName:@"Arial" size:24.0f]];
     [instructionsInfo setUserInteractionEnabled:NO];
     [[self view] addSubview:instructionsInfo];
-}
-
-
-- (IBAction)buttonPress:(id)sender {
-    [self.fliteController say:@"testing" withVoice:self.slt];
     
+    /** Timer will wait 500 miliseconds before speak is called. */
+    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
 }
+
+/** FliteController will speak what needs to be said. */
+- (void)speak
+{
+    // Speech
+    [self.fliteController say:instructionsInfo.text withVoice:self.slt];
+}
+
 - (void)viewDidUnload {
     [self setLabel:nil];
     [super viewDidUnload];

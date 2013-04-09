@@ -11,7 +11,10 @@
 #import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@implementation InstructionsMenu
+@implementation InstructionsMenu{
+    UITextView *instructionsInfo;
+    NSTimer *speechTimer;
+}
 
 @synthesize fliteController;
 @synthesize slt;
@@ -30,6 +33,7 @@
     return slt;
 }
 
+/** Method to be called as soon as view loads. */
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -45,21 +49,24 @@
     [[self view] addSubview:title];
     
     // TextField
-    UITextView *instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
+    instructionsInfo = [[UITextView alloc] initWithFrame:CGRectMake(deviceHeight / 8, 150, deviceHeight - 300, 500)];
     [instructionsInfo setText:@"Swipe from the left at any time to bring up the navigation menu.\n\nIn BT, swipe 6 fingers up to enter Typing Mode.\n\nWhen in Typing Mode, tap to the right of the screen to backspace, or the center to add a space.\n\nTap above the contacts to exit Typing Mode.\n\nThese instructions can be accessed at any time."];
     [instructionsInfo setBackgroundColor:[UIColor clearColor]];
     [instructionsInfo setFont:[UIFont fontWithName:@"Arial" size:24.0f]];
     [instructionsInfo setUserInteractionEnabled:NO];
     [[self view] addSubview:instructionsInfo];
 
-    // Speech
-    [self.fliteController say:instructionsInfo.text withVoice:self.slt];
+    
+    /** Timer will wait 500 miliseconds before speak is called. */
+    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
     
 }
 
-- (IBAction)buttonPress:(id)sender {
-    [self.fliteController say:@"testing" withVoice:self.slt];
-    
+/** FliteController will speak what needs to be said. */
+- (void)speak
+{
+    // Speech
+    [self.fliteController say:instructionsInfo.text withVoice:self.slt];
 }
 
 - (void)viewDidUnload {
