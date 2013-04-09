@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #import <OpenEars/FliteController.h>
 #import <Slt/Slt.h>
+#import "ABKeyboard.h"
 
 @interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate> {
     
