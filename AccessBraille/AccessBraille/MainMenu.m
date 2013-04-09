@@ -14,8 +14,10 @@
 #import "MainMenuItemImage.h"
 
 @interface MainMenu ()
-
+    
+/* Menu behavior properties */
 @property (nonatomic) float menuRootItemPosition;
+@property (readonly) float swipeSensitivity;
 
 @end
 
@@ -30,12 +32,18 @@
 
 -(void)viewDidLoad{
     
+    // Set menu properties
+    _swipeSensitivity = 2000;
+    
+    
+    // Pan gesture for scrolling and navigating
     scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
     scrollMenu.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:scrollMenu];
     [self.menuView makeClear];
     [self.view sendSubviewToBack:menuView];
     
+    // Load side menu
     [self loadMenuItemsAnimated:YES];
     
 }
@@ -169,7 +177,7 @@
             
             [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
             [self setMenuContentInformationAtLocation:[self checkInBounds]];
-            if ([reg velocityInView:self.view].x > 4000) {
+            if ([reg velocityInView:self.view].x > _swipeSensitivity) {
                 [self switchToControllerWithID:[self checkInBounds]];
             }
             break;
@@ -200,7 +208,7 @@
     
     if (cvID.intValue == -1){
         [UIView animateWithDuration:1.0 animations:^{
-            [menuView setHightlightWidth:250];
+//            [menuView setHightlightWidth:250]; Pass on resizing for now
             [_OverlayTitle setText:@""];
             [_OverlayDiscription setText:@""];
         }];

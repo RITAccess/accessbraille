@@ -12,14 +12,12 @@
 
 @interface InstructionsMenu : UIViewController {
     
-    // Voice Over
+    /** Voice over references from the FliteController framework. */
     FliteController *fliteController;
     Slt *slt;
 }
 
-- (IBAction)buttonPress:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *label;
-
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
 

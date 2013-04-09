@@ -10,5 +10,7 @@
 	<string>settings</string>
 	<key>3</key>
 	<string>InstructionsMenu</string>
+	<key>4</key>
+	<string>FlashCard</string>
 </dict>
 </plist>

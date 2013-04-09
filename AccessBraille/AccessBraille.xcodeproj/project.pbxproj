@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C11AEA416F2144A00A9210A /* menuItem1x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA316F2144A00A9210A /* menuItem1x90.png */; };
 		4C11AEA616F214C900A9210A /* menuItem2x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA516F214C900A9210A /* menuItem2x90.png */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
+		4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B824F171316F60035797D /* ABBrailleReader.m */; };
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2B0B1A16F37A2D00CC64F2 /* menuItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1616F37A2D00CC64F2 /* menuItem3.png */; };
 		4C2B0B1C16F37C0100CC64F2 /* menuItem3x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1B16F37C0100CC64F2 /* menuItem3x90.png */; };
@@ -40,8 +42,13 @@
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C4FEB3516C4492600434F60 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3416C4492600434F60 /* Kal.framework */; };
+		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
+		4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */; };
 		4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BC9F16C9481800F76B45 /* hop.mp3 */; };
 		4C52BCA216C9499C00F76B45 /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BCA116C9499C00F76B45 /* disable.mp3 */; };
+		4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
+		4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C569AA717147A9E0073D8F8 /* menuItem4.png */; };
+		4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C569AA817147A9E0073D8F8 /* menuItem4x90.png */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
@@ -51,10 +58,14 @@
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
 		4CA076E416D595F3006DDBD3 /* menuItem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076E316D595F3006DDBD3 /* menuItem2.png */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
+		4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB222AD1706063E00BD3608 /* ABTypes.m */; };
 		4CEC5E5816CD7F3B00858B66 /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5716CD7F3B00858B66 /* mainMenu.png */; };
 		4CEC5E5E16CD8CA500858B66 /* slideOutMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */; };
 		4CEC5E6416CD91E200858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6216CD91E200858B66 /* icon144.png */; };
 		4CEC5E6616CD91EC00858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6516CD91EC00858B66 /* icon144.png */; };
+		4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */; };
+		4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A316FCA05400E36128 /* ABKeyboard.m */; };
+		4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */; };
 		4CEFD38916EE1D4700961754 /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD38816EE1D4700961754 /* menuItem0x90.png */; };
 		4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
@@ -95,11 +106,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
+		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
 		4C11AEA316F2144A00A9210A /* menuItem1x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem1x90.png; sourceTree = "<group>"; };
 		4C11AEA516F214C900A9210A /* menuItem2x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem2x90.png; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
 		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
+		4C1B824E171316F60035797D /* ABBrailleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleReader.h; sourceTree = "<group>"; };
+		4C1B824F171316F60035797D /* ABBrailleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleReader.m; sourceTree = "<group>"; };
 		4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
 		4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C2B0B1616F37A2D00CC64F2 /* menuItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem3.png; sourceTree = "<group>"; };
@@ -113,6 +128,7 @@
 		4C3C91AF16CE962500954A54 /* mainMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainMenu@2x.png"; sourceTree = "<group>"; };
 		4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuNavigation.h; sourceTree = "<group>"; };
 		4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuNavigation.m; sourceTree = "<group>"; };
+		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
 		4C4FEB1216C4463700434F60 /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
 		4C4FEB1416C4463700434F60 /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
 		4C4FEB1516C4463700434F60 /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
@@ -130,8 +146,15 @@
 		4C4FEB2116C4463700434F60 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4C4FEB3416C4492600434F60 /* Kal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kal.framework; sourceTree = "<group>"; };
+		4C508A7A16FB60430029FEB3 /* HightBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HightBar.png; sourceTree = "<group>"; };
+		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
+		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C52BC9F16C9481800F76B45 /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hop.mp3; sourceTree = "<group>"; };
 		4C52BCA116C9499C00F76B45 /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = disable.mp3; sourceTree = "<group>"; };
+		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
+		4C569AA517147A7B0073D8F8 /* FlashCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCard.m; sourceTree = "<group>"; };
+		4C569AA717147A9E0073D8F8 /* menuItem4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem4.png; sourceTree = "<group>"; };
+		4C569AA817147A9E0073D8F8 /* menuItem4x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem4x90.png; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		4C65356216C443A900611B6F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
@@ -144,10 +167,17 @@
 		4CA076E316D595F3006DDBD3 /* menuItem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem2.png; sourceTree = "<group>"; };
 		4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuItemImage.h; sourceTree = "<group>"; };
 		4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuItemImage.m; sourceTree = "<group>"; };
+		4CB222AD1706063E00BD3608 /* ABTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTypes.m; sourceTree = "<group>"; };
 		4CEC5E5716CD7F3B00858B66 /* mainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenu.png; sourceTree = "<group>"; };
 		4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideOutMenu.png; sourceTree = "<group>"; };
 		4CEC5E6216CD91E200858B66 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
 		4CEC5E6516CD91EC00858B66 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABActivateKeyboardGestureRecognizer.h; sourceTree = "<group>"; };
+		4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABActivateKeyboardGestureRecognizer.m; sourceTree = "<group>"; };
+		4CEE19A216FCA05400E36128 /* ABKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKeyboard.h; sourceTree = "<group>"; };
+		4CEE19A316FCA05400E36128 /* ABKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKeyboard.m; sourceTree = "<group>"; };
+		4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardTestViewController.h; sourceTree = "<group>"; };
+		4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardTestViewController.m; sourceTree = "<group>"; };
 		4CEFD38816EE1D4700961754 /* menuItem0x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem0x90.png; path = ../menuItem0x90.png; sourceTree = "<group>"; };
 		4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectSubsets.h"; sourceTree = "<group>"; };
 		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
@@ -269,6 +299,22 @@
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4C433B8F1705DF4B003D2DE7 /* ABTypes.h */,
+				4CB222AD1706063E00BD3608 /* ABTypes.m */,
+				4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */,
+				4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */,
+				4C1B824E171316F60035797D /* ABBrailleReader.h */,
+				4C1B824F171316F60035797D /* ABBrailleReader.m */,
+				4CEE19A216FCA05400E36128 /* ABKeyboard.h */,
+				4CEE19A316FCA05400E36128 /* ABKeyboard.m */,
+				4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */,
+				4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */,
+				4C092A5E170F1AFA00650986 /* ABTouchView.h */,
+				4C092A5F170F1AFA00650986 /* ABTouchView.m */,
+				4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */,
+				4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */,
+				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
+				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = "AccessBraille Framework";
 			sourceTree = "<group>";
@@ -285,6 +331,7 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C508A7A16FB60430029FEB3 /* HightBar.png */,
 				4CA076DA16D58590006DDBD3 /* menuItem0.png */,
 				4CEFD38816EE1D4700961754 /* menuItem0x90.png */,
 				4CA076E316D595F3006DDBD3 /* menuItem2.png */,
@@ -298,6 +345,8 @@
 				4C3C91A116CE8F0A00954A54 /* menuItem.png */,
 				4CEC5E6216CD91E200858B66 /* icon144.png */,
 				4CEC5E5D16CD8CA500858B66 /* slideOutMenu.png */,
+				4C569AA717147A9E0073D8F8 /* menuItem4.png */,
+				4C569AA817147A9E0073D8F8 /* menuItem4x90.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -423,8 +472,6 @@
 				A97425721677BFA400289C8D /* CalibrationPoint.m */,
 				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
 				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
-				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
-				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -436,6 +483,8 @@
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
 				A9479C541670034E00CE9475 /* BrailleTyperController.m */,
+				4C569AA417147A7B0073D8F8 /* FlashCard.h */,
+				4C569AA517147A7B0073D8F8 /* FlashCard.m */,
 				4C65356116C443A900611B6F /* MainMenu.h */,
 				4C65356216C443A900611B6F /* MainMenu.m */,
 				4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */,
@@ -560,6 +609,9 @@
 				4C2F59E716F76CA5008F8185 /* navClick.aiff in Resources */,
 				4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */,
 				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
+				4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */,
+				4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */,
+				4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +666,14 @@
 				4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
+				4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */,
+				4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */,
+				4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */,
+				4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */,
+				4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */,
+				4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */,
+				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
+				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +790,7 @@
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -746,6 +807,7 @@
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

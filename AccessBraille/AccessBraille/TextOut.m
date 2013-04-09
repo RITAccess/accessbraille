@@ -29,73 +29,86 @@
     return self;
 }
 
-- (NSString *)getCurrentText {
-    return textOut.text;
-}
-
 -(void)drawRect:(CGRect)rect {
     
-    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, 10, self.frame.size.width, 50)];
-    UIFont *font = textOut.font;
-    [textOut setFont:[font fontWithSize:32]];
-    textOut.backgroundColor = [UIColor clearColor];
-    wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 100, 10, 100, 50)];
-    wpm.backgroundColor = [UIColor clearColor];
-    wpm.text = @"N/A WPM";
+    // Writing Area
+    CGRect displayBox = CGRectMake(20,0,self.frame.size.width - 40,240);
+    
+    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, (displayBox.size.height / 2.5), self.frame.size.width, 50)];
+    wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 140, 10, 100, 50)];
     wordList = [[NSMutableArray alloc] init];
+    
+    textOut.backgroundColor = [UIColor clearColor];
+    wpm.backgroundColor = [UIColor clearColor];
+    
+    textOut.font = [UIFont fontWithName:@"Helvetica" size:62];
+    wpm.text = @"N/A WPM";
+
+    // Adding Subviews
     [self addSubview:textOut];
     [self addSubview:wpm];
+    
     [self setWordsToOutput:_buf];
     
-    
-    // Clear Text
+    // Clear Text within Display Rectangle
     clearText = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(clearText)];
     [clearText setNumberOfTouchesRequired:3];
     [self addGestureRecognizer:clearText];
     
-    
-    // Style
+    // Style 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // Colors
     UIColor *fillBox = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
     UIColor *fillBoxShadow = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
     
-    // Writing Area
-    CGRect box = CGRectMake(20,0,850,240);
-    
     // Shadow
     CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 1.0, fillBoxShadow.CGColor);
-    CGContextAddRect(context, box);
+    CGContextAddRect(context, displayBox);
     CGContextFillPath(context);
     
     // Box
     CGContextSetFillColorWithColor(context, fillBox.CGColor);
-    CGContextAddRect(context, box);
+    CGContextAddRect(context, displayBox);
     CGContextFillPath(context);
-    
 }
 
-- (NSMutableArray *)stringToArray:(NSString *)str {
-    if ([str isEqualToString:@""]){
+/**
+ * Accepts a string and converts it to an array.
+ * 
+ * Cycles through an array to check for '32' as a space, then
+ * appends a string to the space as the next word.
+ *
+ * Returns the array of characters, or the next word.
+ */
+- (NSMutableArray *)stringToArray:(NSString *)newString {
+    
+    // Checks to see if the string is empty
+    if ([newString isEqualToString:@""]){
         return false;
     }
+    
     NSMutableArray *chars = [[NSMutableArray alloc] init];
-    NSString *buildWord = @"";
-    for(int index = 0; index<=[str length]-1; index++){
-        if ([str characterAtIndex:index] == 32){
-            [chars addObject:buildWord];
-            buildWord = @"";
+    NSString *nextWord = @"";
+    
+    // Cycles through newString to check each character for spaces
+    for(int index = 0; index <=[newString length] - 1; index++){
+        if ([newString characterAtIndex:index] == 32){
+            [chars addObject:nextWord];
+            nextWord = @"";
         } else {
-            buildWord = [buildWord stringByAppendingString:[NSString stringWithFormat:@"%c", [str characterAtIndex:index]]];
+            nextWord = [nextWord stringByAppendingString:[NSString stringWithFormat:@"%c", [newString characterAtIndex:index]]];
         }
     }
-    [chars addObject:buildWord];
-    buildWord = @"";
+    
+    [chars addObject:nextWord];
+    nextWord = @"";
     return chars;
 }
 
-
+/**
+ * Prepares words to be drawn in Typing Mode
+ */
 - (void)setWordsToOutput:(NSString *)buf {
     [wordList removeAllObjects];
     if ([self stringToArray:buf]) {
@@ -116,7 +129,7 @@
     }
 }
 
--(NSString *)parseLastWordfromString:(NSString *)string {    
+-(NSString *)parseLastWordfromString:(NSString *)string {
     const char *charArray = [string UTF8String];
     int charLength = (int)[string length];
     NSString *word = @"";
@@ -146,8 +159,10 @@
     [self rewrite];
 }
 
+/**
+ * Removes objects identical to an empty string.
+ */
 - (void)rewrite {
-    
     [wordList removeObjectIdenticalTo:@""];
     textOut.text = @" ";
     for(NSString *word in wordList){
@@ -156,14 +171,26 @@
     }
 }
 
+/**
+ * Method that divides the number of words in the mutable array.
+ */
 -(void) updateWordsPerMinute {
-    
     float wpmf = (([wordList count]/([_end timeIntervalSinceDate:start])) * 60.0);
-    
     wpm.text = [NSString stringWithFormat:@"%d WPM",(int)wpmf];
     
 }
 
+/**
+ * Returns textOut.text.
+ */
+- (NSString *)getCurrentText{
+    return textOut.text;
+}
+
+
+/**
+ * Clears text and removes all objects from the WordList array. 
+ */
 -(void)clearText{
     [textOut setText:@""];
     [wordList removeAllObjects];

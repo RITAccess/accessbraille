@@ -1,8 +1,8 @@
 //
-//  Settings.h
+//  FlashCard.h
 //  AccessBraille
 //
-//  Created by Michael Timbrook on 2/20/13.
+//  Created by Piper Chester on 3/26/13.
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
@@ -10,14 +10,13 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 
-@interface Settings : UIViewController {
+@interface FlashCard : UIViewController {
     // Voice Over
-    
     FliteController *fliteController;
     Slt *slt;
 }
-@property (weak, nonatomic) IBOutlet UILabel *label;
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
 
