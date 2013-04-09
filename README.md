@@ -1,6 +1,3 @@
-# DRAFT
-Not all feature are implemented
-
 # Access Braille
 * * *
 Access Braille is a braille accessibiliy framework for iPad that provides an interface to type in braille ontop of your application. The main focus on the project is to provide a new way of typing on your device that is much faster then typing with the default iOS keyboard with accessiblity features on. Making devices easier to use for the visualy impared and blind.
@@ -12,11 +9,10 @@ Using the keyboard in your own apps simply create an ABKeyboard in your ```UIVie
 ```objective-c
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-ter
 // Somewhere in your implementation
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     // Your code goes here
-    [keyboard addCharactorToActiveInput:character];
+    NSLog(@"You just typed %@", character);
 }
 ```
 
