@@ -14,7 +14,7 @@
 #import <Slt/Slt.h>
 #import "ABKeyboard.h"
 
-@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate> {
+@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard> {
     
     // Voice Over
     FliteController *fliteController;
