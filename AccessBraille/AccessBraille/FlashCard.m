@@ -10,13 +10,14 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "ABKeyboard.h"
 
 @interface FlashCard ()
 
 @end
 
 @implementation FlashCard {
- 
+    
     UILabel *title;
     NSTimer *speechTimer;
     NSMutableArray *cards;
@@ -25,7 +26,6 @@
 @synthesize fliteController;
 @synthesize slt;
 
-/** Initialize a new FliteController. */
 - (FliteController *)fliteController {
     if (fliteController == nil) {
         fliteController = [[FliteController alloc] init];
@@ -33,7 +33,6 @@
     return fliteController;
 }
 
-/** Initialize a new voice for the FliteController. */
 - (Slt *)slt {
     if (slt == nil) {
         slt = [[Slt alloc] init];
@@ -41,10 +40,11 @@
     return slt;
 }
 
-/** Called when view loads. */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 	
     // Title
     title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
@@ -54,20 +54,38 @@
     [title setFont: [UIFont fontWithName:@"Trebuchet MS" size:30.0f]];
     [[self view] addSubview:title];
     
-    
-    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
+//    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
 }
 
-/** Calls FliteController to speak. */
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.view setNeedsDisplay];
+}
+
+/**
+ * 
+ */
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
+    // Your code goes here
+    NSLog(@"You just typed %@", character);
+}
+
+/** 
+ * Calls FliteController to speak. 
+ */
 - (void)speak
 {
     [self.fliteController say:[self chooseCard] withVoice:self.slt];
     [self.fliteController say:title.text withVoice:self.slt];
 }
 
-/** Test method to pick a card from an array and call speak() to say the card. */
+/** 
+ * Test method to pick a card from an array and call speak() to say the card. 
+ */
 - (NSString*)chooseCard{
-    cards = [NSArray arrayWithObjects:@"cat",@"red",@"top",nil];
+//    cards = [NSArray arrayWithObjects:@"cat",@"red",@"top",nil];
     
     NSString *card = [cards objectAtIndex:1];
     

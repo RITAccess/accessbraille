@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
+#import "ABKeyboard.h"
 
-@interface FlashCard : UIViewController {
-    // Voice Over
+@interface FlashCard : UIViewController <ABKeyboard> {
     FliteController *fliteController;
     Slt *slt;
 }
