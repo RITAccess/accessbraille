@@ -19,8 +19,10 @@
 @implementation FlashCard {
     
     UILabel *title;
+    UILabel *typedCharacter;
     NSTimer *speechTimer;
     NSMutableArray *cards;
+    NSMutableArray *letters;
 }
 
 @synthesize fliteController;
@@ -48,11 +50,15 @@
 	
     // Title
     title = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 60)];
-    [title setBackgroundColor:[UIColor clearColor]];
     [title setText:@"Flash Card Mode"];
     title.center = CGPointMake(550, 50);
     [title setFont: [UIFont fontWithName:@"Trebuchet MS" size:30.0f]];
     [[self view] addSubview:title];
+    
+    // Typed Character
+    typedCharacter = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
+    [[self view] addSubview:typedCharacter];
+    [typedCharacter setFont: [UIFont fontWithName:@"Trebuchet MS" size:60.0f]];
     
 //    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
 }
@@ -65,31 +71,14 @@
 }
 
 /**
- * 
+ * Speaks current character that's being typed.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    // Your code goes here
     NSLog(@"You just typed %@", character);
-}
-
-/** 
- * Calls FliteController to speak. 
- */
-- (void)speak
-{
-    [self.fliteController say:[self chooseCard] withVoice:self.slt];
-    [self.fliteController say:title.text withVoice:self.slt];
-}
-
-/** 
- * Test method to pick a card from an array and call speak() to say the card. 
- */
-- (NSString*)chooseCard{
-//    cards = [NSArray arrayWithObjects:@"cat",@"red",@"top",nil];
-    
-    NSString *card = [cards objectAtIndex:1];
-    
-    return card;
+    [self.fliteController say:character withVoice:self.slt];
+    NSMutableString* word = [[NSMutableString alloc] init];
+    [word appendFormat:@"%@", character];
+    [typedCharacter setText:word];
 }
 
 @end
