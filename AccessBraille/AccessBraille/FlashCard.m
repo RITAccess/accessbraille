@@ -74,7 +74,6 @@
  * Speaks current character that's being typed.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    NSLog(@"You just typed %@", character);
     [self.fliteController say:character withVoice:self.slt];
     NSMutableString* word = [[NSMutableString alloc] init];
     [word appendFormat:@"%@", character];

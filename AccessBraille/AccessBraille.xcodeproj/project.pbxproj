@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C8F468D1718517800D29CA7 /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F468C1718517800D29CA7 /* cards.plist */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C11AEA416F2144A00A9210A /* menuItem1x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA316F2144A00A9210A /* menuItem1x90.png */; };
@@ -106,6 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C8F468C1718517800D29CA7 /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */,
 				4C751F1716FA052F003967D8 /* MenuTitles.plist */,
 				A9479C441670034E00CE9475 /* main.m */,
+				2C8F468C1718517800D29CA7 /* cards.plist */,
 				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
 				A9479C4A1670034E00CE9475 /* Default.png */,
 				A9479C4C1670034E00CE9475 /* Default@2x.png */,
@@ -612,6 +615,7 @@
 				4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */,
 				4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */,
 				4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */,
+				2C8F468D1718517800D29CA7 /* cards.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
