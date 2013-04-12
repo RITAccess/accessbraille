@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "ABTypes.h"
 #import "ABBrailleReader.h"
+#import "ABParser.h"
 
 @implementation AccessBrailleTests
 
@@ -62,5 +63,16 @@
     // Test -60
     ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
     STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
+}
+
+- (void)testABParser {
+    
+    NSString *test = @"This is a, test sentace.";
+    NSArray *testArray = @[@"This", @"is", @"a", @"test", @"sentace"];
+    
+    NSArray *parsedArray = [ABParser arrayOfWordsFromSentance:test];
+    
+    STAssertEqualObjects(parsedArray, testArray, @"Arrays are not equal");
+    
 }
 @end
