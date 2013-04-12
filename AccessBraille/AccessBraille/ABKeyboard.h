@@ -39,6 +39,9 @@
 /* Is the keyboard active */
 @property BOOL keyboardActive;
 
+/* Sets the keyboard active state */
+@property BOOL enabled;
+
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 

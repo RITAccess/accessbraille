@@ -16,4 +16,26 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 }
 ```
 
+### The API
+<table>
+
+  <tr><th colspan="2" style="text-align:center;">ABKeyboard</th></tr>
+  
+  <tr>
+    <td><tt>-initWithDelegate:</tt></td>
+    <td>Creates a keyboard interface to recieve imput.</td>
+  </tr>
+  <tr>
+    <td><tt>@property BOOL enabled</tt></td>
+    <td>Sets the state for the keyboard. <tt>YES</tt> for enabled.</td>
+  </tr>
+  
+  <tr><th colspan="2" style="text-align:center;">ABParser</th></tr>
+
+  <tr>
+    <td><tt>+arrayOfWordsFromSentance:</tt></td>
+    <td>Returns an <tt>NSArray</tt> of the words in order parsed from the sentence. Punctuation excluded.</td>
+  </tr>
+</table>
+
 [Visit The Webpage](http://7imbrook.github.io/accessbraille/)
