@@ -23,6 +23,8 @@
     NSTimer *speechTimer;
     NSMutableArray *cards;
     NSMutableArray *letters;
+    NSString *path;
+    NSString *finalPath;
 }
 
 @synthesize fliteController;
@@ -42,8 +44,7 @@
     return slt;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
@@ -59,6 +60,13 @@
     typedCharacter = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
     [[self view] addSubview:typedCharacter];
     [typedCharacter setFont: [UIFont fontWithName:@"Trebuchet MS" size:60.0f]];
+    
+    // Reading in the plist.
+    path = [[NSBundle mainBundle] bundlePath];
+    finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
+    cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+    
+    [self parseCards];
     
 //    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
 }
@@ -78,6 +86,21 @@
     NSMutableString* word = [[NSMutableString alloc] init];
     [word appendFormat:@"%@", character];
     [typedCharacter setText:word];
+}
+
+/**
+ * Loops through cards and parses them.
+ */
+- (void)parseCards
+{
+    NSMutableArray *chars = [[NSMutableArray alloc] init];
+    
+    for (NSString *card in cards){
+        for(int index = 0; index<card.length-1; index++){
+            NSString *testStr = [NSString stringWithFormat:@"%c", [card characterAtIndex:index]];
+            [chars addObject:testStr];
+        }
+    }
 }
 
 @end
