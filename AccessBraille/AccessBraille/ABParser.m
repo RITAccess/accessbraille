@@ -42,4 +42,21 @@
     return chars;
 }
 
+/**
+ * Parses a word to an array of its chars all upper case.
+ */
++ (NSArray *)arrayOfCharactersFromWord:(NSString *)word {
+    NSMutableArray *characters = [[NSMutableArray alloc] initWithCapacity:word.length];
+    for (int i = 0; i < word.length; i++){
+        char check = [word characterAtIndex:i];
+        if (check == ' ') {
+            return nil;
+        } else if (ispunct(check)) {
+            continue;
+        }
+        [characters addObject:[NSString stringWithFormat:@"%c", toupper(check)]];
+    }
+    return characters;
+}
+
 @end

@@ -34,7 +34,11 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 
   <tr>
     <td><tt>+arrayOfWordsFromSentance:</tt></td>
-    <td>Returns an <tt>NSArray</tt> of the words in order parsed from the sentence. Punctuation excluded.</td>
+    <td>Returns an <tt>NSArray</tt> of the words in order parsed from the sentence. Some punctuation excluded <tt>[.,:;]</tt></td>
+  </tr>
+  <tr>
+    <td><tt>+arrayOfCharactersFromWord:</tt></td>
+    <td>Returns an <tt>NSArray</tt> of the characters in order parsed from a word. Punctuation excluded, all uppercase</td>
   </tr>
 </table>
 
