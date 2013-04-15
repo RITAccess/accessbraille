@@ -23,7 +23,7 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
   
   <tr>
     <td><tt>-initWithDelegate:</tt></td>
-    <td>Creates a keyboard interface to receive imput.</td>
+    <td>Creates a keyboard interface to receive input.</td>
   </tr>
   <tr>
     <td><tt>@property BOOL enabled</tt></td>
