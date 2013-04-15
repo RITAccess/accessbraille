@@ -46,7 +46,7 @@
 /**
  * Receives character from touchLayer in form of braille string
  */
-- (void)characterReveived:(NSString *)brailleString {
+- (void)characterReceived:(NSString *)brailleString {
     if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
         NSString *character = grad1Lookup[brailleString];
         if (character.length == 0) {

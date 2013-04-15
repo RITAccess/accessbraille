@@ -12,7 +12,7 @@
 
 @protocol ABTouchReciever <NSObject>
 @required
-- (void)characterReveived:(NSString *)brailleString;
+- (void)characterReceived:(NSString *)brailleString;
 @end
 
 @interface ABTouchLayer : UIView <ABTouchColumn>
