@@ -27,6 +27,9 @@
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
 
+        // Enable the keyboard
+        _enabled = YES;
+        
         // Set Up Braille Interp
         brailleReader = [[ABBrailleReader alloc] init];
         [brailleReader setDelegate:_delegate];
@@ -92,6 +95,7 @@
  * recieving end to activation gestures
  */
 - (void)ABKeyboardRecognized:(ABActivateKeyboardGestureRecognizer *)reg {
+    if (!_enabled) { return; }
     switch (reg.activateDirection) {
         case ABGestureDirectionUP:
             

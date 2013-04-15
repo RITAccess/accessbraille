@@ -53,6 +53,7 @@
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
+		4C8E8F381718529C0014F330 /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E8F371718529C0014F330 /* ABParser.m */; };
 		4CA076DB16D58590006DDBD3 /* menuItem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076DA16D58590006DDBD3 /* menuItem0.png */; };
 		4CA076DF16D5889C006DDBD3 /* menuItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076DE16D5889C006DDBD3 /* menuItem1.png */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
@@ -65,7 +66,6 @@
 		4CEC5E6616CD91EC00858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6516CD91EC00858B66 /* icon144.png */; };
 		4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */; };
 		4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A316FCA05400E36128 /* ABKeyboard.m */; };
-		4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */; };
 		4CEFD38916EE1D4700961754 /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD38816EE1D4700961754 /* menuItem0x90.png */; };
 		4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
@@ -160,6 +160,8 @@
 		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
+		4C8E8F361718529C0014F330 /* ABParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABParser.h; sourceTree = "<group>"; };
+		4C8E8F371718529C0014F330 /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		4CA076DA16D58590006DDBD3 /* menuItem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem0.png; sourceTree = "<group>"; };
 		4CA076DE16D5889C006DDBD3 /* menuItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem1.png; sourceTree = "<group>"; };
 		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -176,8 +178,6 @@
 		4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABActivateKeyboardGestureRecognizer.m; sourceTree = "<group>"; };
 		4CEE19A216FCA05400E36128 /* ABKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKeyboard.h; sourceTree = "<group>"; };
 		4CEE19A316FCA05400E36128 /* ABKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKeyboard.m; sourceTree = "<group>"; };
-		4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardTestViewController.h; sourceTree = "<group>"; };
-		4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardTestViewController.m; sourceTree = "<group>"; };
 		4CEFD38816EE1D4700961754 /* menuItem0x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem0x90.png; path = ../menuItem0x90.png; sourceTree = "<group>"; };
 		4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectSubsets.h"; sourceTree = "<group>"; };
 		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
@@ -311,8 +311,8 @@
 				4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */,
 				4C092A5E170F1AFA00650986 /* ABTouchView.h */,
 				4C092A5F170F1AFA00650986 /* ABTouchView.m */,
-				4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */,
-				4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */,
+				4C8E8F361718529C0014F330 /* ABParser.h */,
+				4C8E8F371718529C0014F330 /* ABParser.m */,
 				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
 				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
@@ -668,12 +668,12 @@
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
 				4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */,
 				4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */,
-				4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */,
 				4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */,
 				4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */,
 				4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */,
 				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
+				4C8E8F381718529C0014F330 /* ABParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
