@@ -55,8 +55,8 @@
 
 - (void)readBits {
     reading = NO;
-    if ([_delegate respondsToSelector:@selector(brailleString:)]) {
-        [_delegate brailleString:[ABBrailleReader brailleStringFromTouchIDs:activeTouches]];
+    if ([_delegate respondsToSelector:@selector(characterReceived:)]) {
+        [_delegate characterReceived:[ABBrailleReader brailleStringFromTouchIDs:activeTouches]];
     }
     [activeTouches removeAllObjects];
 }
