@@ -11,11 +11,11 @@
 @implementation ABParser
 
 /**
- * Parses a sentance into an array
+ * Parses a sentence into an array
  */
-+ (NSArray *)arrayOfWordsFromSentance:(NSString *)sentance {
++ (NSArray *)arrayOfWordsFromSentence:(NSString *)sentence {
     // Checks to see if the string is empty
-    if ([sentance isEqualToString:@""]){
+    if ([sentence isEqualToString:@""]){
         return false;
     }
     // regex to check for punctuation
@@ -24,12 +24,12 @@
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
     // Cycles through sentance to check each character for spaces or punctuation
-    for(int index = 0; index <=[sentance length] - 1; index++){
-        if ([sentance characterAtIndex:index] == ' '){
+    for(int index = 0; index <=[sentence length] - 1; index++){
+        if ([sentence characterAtIndex:index] == ' '){
             [chars addObject:nextWord];
             nextWord = @"";
         } else {
-            NSString *nextChar = [NSString stringWithFormat:@"%c", [sentance characterAtIndex:index]];
+            NSString *nextChar = [NSString stringWithFormat:@"%c", [sentence characterAtIndex:index]];
             NSArray *match = [punct matchesInString:nextChar options:NSMatchingCompleted range:NSMakeRange(0, nextChar.length)];
             if (match.count > 0) {
                 continue;

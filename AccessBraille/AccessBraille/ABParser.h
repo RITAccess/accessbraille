@@ -11,7 +11,7 @@
 @interface ABParser : NSObject
 
 /* Parses a sentance into an array of words */
-+ (NSArray *)arrayOfWordsFromSentance:(NSString *)sentance;
++ (NSArray *)arrayOfWordsFromSentence:(NSString *)sentence;
 
 /* Parses word down to array of chararacters */
 + (NSArray *)arrayOfCharactersFromWord:(NSString *)word;

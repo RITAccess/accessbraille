@@ -23,7 +23,7 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
   
   <tr>
     <td><tt>-initWithDelegate:</tt></td>
-    <td>Creates a keyboard interface to recieve imput.</td>
+    <td>Creates a keyboard interface to receive imput.</td>
   </tr>
   <tr>
     <td><tt>@property BOOL enabled</tt></td>
@@ -33,12 +33,12 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
   <tr><th colspan="2" style="text-align:center;">ABParser</th></tr>
 
   <tr>
-    <td><tt>+arrayOfWordsFromSentance:</tt></td>
+    <td><tt>+arrayOfWordsFromSentence:</tt></td>
     <td>Returns an <tt>NSArray</tt> of the words in order parsed from the sentence. Some punctuation excluded <tt>[.,:;]</tt></td>
   </tr>
   <tr>
     <td><tt>+arrayOfCharactersFromWord:</tt></td>
-    <td>Returns an <tt>NSArray</tt> of the characters in order parsed from a word. Punctuation excluded, all uppercase</td>
+    <td>Returns an <tt>NSArray</tt> of the characters in order parsed from a word. Punctuation excluded, all uppercase.</td>
   </tr>
 </table>
 
