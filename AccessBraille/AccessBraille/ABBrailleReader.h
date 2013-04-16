@@ -15,5 +15,5 @@
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs;
 
 @property (nonatomic) id<ABKeyboard> delegate;
-
+@property (nonatomic) NSString *wordTyping;
 @end

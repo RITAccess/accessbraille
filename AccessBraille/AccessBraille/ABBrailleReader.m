@@ -20,6 +20,7 @@
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"grade1lookup.plist"];
         grad1Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+        _wordTyping = @"";
     }
     return self;
 }
@@ -47,12 +48,25 @@
  * Receives character from touchLayer in form of braille string
  */
 - (void)characterReceived:(NSString *)brailleString {
+    // If Space
+    if ([brailleString isEqualToString:ABSpaceCharacter]) {
+        if (![_wordTyping isEqualToString:@""]) {
+            [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
+                                                             ABSpaceTyped : @(YES)}];
+            [_delegate wordTyped:_wordTyping withInfo:@{ABGestureInfoStatus : @(YES),
+                                                               ABSpaceTyped : @(YES)}];
+            _wordTyping = @"";
+        }
+    }
+    
     if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
         NSString *character = grad1Lookup[brailleString];
         if (character.length == 0) {
             return;
         }
-        [_delegate characterTyped:character withInfo:@{ABGestureInfoStatus : @(YES)}];
+        _wordTyping = [_wordTyping stringByAppendingString:character];
+        [_delegate characterTyped:character withInfo:@{ABGestureInfoStatus : @(YES),
+                                                              ABSpaceTyped : @(NO)}];
     }
     
 }

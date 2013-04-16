@@ -114,6 +114,10 @@
     [_TextDrawing appendToText:character];
 }
 
+- (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info {
+    NSLog(@"Typed %@", word);
+}
+
 
 #pragma mark - Access Core Data Methods
 
