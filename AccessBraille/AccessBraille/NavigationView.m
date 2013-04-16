@@ -125,7 +125,7 @@
         case 5:
             if ([_delegate respondsToSelector:@selector(switchToController:animated:withMenu:)]) {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                UITableViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"FlashCardMenu"];
+                UIViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"FlashCardMenu"];
                 [_delegate switchToController:newController animated:YES withMenu:YES];
             }
             break;

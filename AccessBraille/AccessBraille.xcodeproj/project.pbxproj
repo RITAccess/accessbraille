@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C53CEF3171C4B5B002742AA /* FlashCardMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C53CEF2171C4B5B002742AA /* FlashCardMenu.m */; };
 		2C8F468D1718517800D29CA7 /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F468C1718517800D29CA7 /* cards.plist */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
@@ -108,8 +107,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C53CEF1171C4B5B002742AA /* FlashCardMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardMenu.h; sourceTree = "<group>"; };
-		2C53CEF2171C4B5B002742AA /* FlashCardMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardMenu.m; sourceTree = "<group>"; };
 		2C8F468C1718517800D29CA7 /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
@@ -492,8 +489,6 @@
 				4C569AA417147A7B0073D8F8 /* FlashCard.h */,
 				4C569AA517147A7B0073D8F8 /* FlashCard.m */,
 				4C65356116C443A900611B6F /* MainMenu.h */,
-				2C53CEF1171C4B5B002742AA /* FlashCardMenu.h */,
-				2C53CEF2171C4B5B002742AA /* FlashCardMenu.m */,
 				4C65356216C443A900611B6F /* MainMenu.m */,
 				4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */,
 				4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */,
@@ -683,7 +678,6 @@
 				4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */,
 				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
-				2C53CEF3171C4B5B002742AA /* FlashCardMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
