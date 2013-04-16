@@ -20,7 +20,7 @@
 
 @implementation ABActivateKeyboardGestureRecognizer {
     int allTouchesSize;
-    CGPoint allTouchesStart[6];
+    CGPoint allTouchesStart[20];
     NSArray *allTouchesCurrent;
 }
 
@@ -48,7 +48,7 @@
  * Sorts touch points in order from left to right
  */
 - (NSArray *)sortTouchPoints:(NSSet *)touches {
-    return [[touches allObjects] sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(id obj1, id obj2) {
+    return [[touches allObjects] sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(id obj1, id obj2) {
         if ([(UITouch *)obj1 locationInView:self.view].x < [(UITouch *)obj2 locationInView:self.view].x) {
             return NSOrderedAscending;
         } else {

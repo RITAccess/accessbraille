@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "ABTypes.h"
 #import "ABBrailleReader.h"
+#import "ABParser.h"
 
 @implementation AccessBrailleTests
 
@@ -63,4 +64,49 @@
     ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
     STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
 }
+
+- (void)testABParser {
+    
+    // Sentance parser
+    NSString *test = @"This is a, test sentace.";
+    NSArray *testArray = @[@"This", @"is", @"a", @"test", @"sentace"];
+    
+    NSArray *parsedArray = [ABParser arrayOfWordsFromSentance:test];
+    
+    STAssertEqualObjects(parsedArray, testArray, @"Arrays are not equal");
+    
+    // Word parser
+    NSString *t1 = @"basic"; // B A S I C
+    NSString *t2 = @"multi word"; // nil;
+    NSString *t3 = @"it's"; // I T S
+    
+    NSArray *p1 = @[@"B",@"A",@"S",@"I",@"C"];
+    NSArray *p2 = nil;
+    NSArray *p3 = @[@"I",@"T",@"S"];
+    
+    STAssertEqualObjects([ABParser arrayOfCharactersFromWord:t1], p1, @"One word failed");
+    STAssertEqualObjects([ABParser arrayOfCharactersFromWord:t2], p2, @"Multi word failed");
+    STAssertEqualObjects([ABParser arrayOfCharactersFromWord:t3], p3, @"Did not remove punc");
+    
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

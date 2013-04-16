@@ -43,11 +43,16 @@
     return str;
 }
 
-
-- (void)brailleString:(NSString *)brailleString {
-    
+/**
+ * Receives character from touchLayer in form of braille string
+ */
+- (void)characterReceived:(NSString *)brailleString {
     if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
-        [_delegate characterTyped:grad1Lookup[brailleString] withInfo:@{ABGestureInfoStatus : @(YES)}];
+        NSString *character = grad1Lookup[brailleString];
+        if (character.length == 0) {
+            return;
+        }
+        [_delegate characterTyped:character withInfo:@{ABGestureInfoStatus : @(YES)}];
     }
     
 }
