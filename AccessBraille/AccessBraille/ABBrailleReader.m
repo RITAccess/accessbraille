@@ -55,7 +55,7 @@
                                                              ABSpaceTyped : @(YES)}];
             [_delegate wordTyped:_wordTyping withInfo:@{ABGestureInfoStatus : @(YES),
                                                                ABSpaceTyped : @(YES),
-                                                           ABBackspaceTyped : @(NO)}];
+                                                           ABBackspaceReceived : @(NO)}];
             _wordTyping = @"";
         }
     }
@@ -65,7 +65,7 @@
     if ([brailleString isEqualToString:ABBackspace]) {
         [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
                                                         ABSpaceTyped : @(NO),
-                                                    ABBackspaceTyped : @(YES)}];
+                                                    ABBackspaceReceived : @(YES)}];
         if (_wordTyping.length > 0) {
             _wordTyping = [_wordTyping substringWithRange:NSMakeRange(0, _wordTyping.length - 1)];
         }
@@ -79,7 +79,7 @@
         _wordTyping = [_wordTyping stringByAppendingString:character];
         [_delegate characterTyped:character withInfo:@{ABGestureInfoStatus : @(YES),
                                                               ABSpaceTyped : @(NO),
-                                                          ABBackspaceTyped : @(NO)}];
+                                                          ABBackspaceReceived : @(NO)}];
     }
     
 }

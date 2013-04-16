@@ -111,7 +111,7 @@
 # pragma mark - Typing Methods
 
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if (![info[ABBackspaceTyped] boolValue]) {
+    if (![info[ABBackspaceReceived] boolValue]) {
         [_TextDrawing appendToText:character];
     } else {
         [_TextDrawing removeCharacter];

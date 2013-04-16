@@ -29,7 +29,16 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td><tt>@property BOOL enabled</tt></td>
     <td>Sets the state for the keyboard. <tt>YES</tt> for enabled.</td>
   </tr>
-  
+
+  <tr><th colspan="2" style="text-align:center;">@protocol ABKeyboard</th></tr>
+  <tr>
+    <td><tt>characterTyped:withInfo:</tt></td>
+    <td>Receives the last character inputted from the keyboard along with infomation about the state of the keyboard and that character.</td>
+  </tr>
+  <tr>
+    <td><tt>wordTyped:withInfo:</tt></td>
+    <td>Receives the last word from the keyboard along with infomation about the state of the keyboard and that word.</td>
+  </tr>
   <tr><th colspan="2" style="text-align:center;">ABParser</th></tr>
 
   <tr>
