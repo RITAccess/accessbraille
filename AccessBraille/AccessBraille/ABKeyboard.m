@@ -74,6 +74,7 @@
         
         [interface addSubview:touch];
     }
+    [interface subViewsAdded];
 }
 
 /**

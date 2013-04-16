@@ -29,6 +29,7 @@
     if (touchY > avgY + 75) {
         [_delegate space];
     } else {
+        [_delegate updateYAverage:touchY];
         [_delegate touchWithId:self.tag tap:YES];
     }
 }

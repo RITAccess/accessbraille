@@ -19,9 +19,11 @@ enum ABGestureDirection : NSUInteger {
 /* String Constansts for keys in info dictionary */
 static NSString *const ABGestureInfoStatus = @"ABGestureInfoStatus";
 static NSString *const ABSpaceTyped = @"ABSpaceTyped";
+static NSString *const ABBackspaceTyped = @"ABBackspaceTyped";
 
 /* String Space Constant */
 static NSString *const ABSpaceCharacter = @"(SPACE)";
+static NSString *const ABBackspace = @"(BACKSPACE)";
 
 /* ABVector */
 typedef struct {

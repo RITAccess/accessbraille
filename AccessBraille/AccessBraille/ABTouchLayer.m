@@ -22,6 +22,7 @@
     /* Avg tracking */
     float farX;
     float avgY;
+    int totalY;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -36,11 +37,22 @@
         reading = NO;
         
         // Init avgs
-        avgY = 450;
+        avgY = 550;
         farX = 760;
-        
+        totalY = 0;
     }
     return self;
+}
+
+/**
+ * Called when subViewsHaveBeenAdded
+ */
+- (void)subViewsAdded {
+    for (UIView *sv in self.subviews) {
+        if (sv.tag == 5) {
+            farX = sv.frame.origin.x + sv.frame.size.width;
+        }
+    }
 }
 
 /**
@@ -58,9 +70,21 @@
 }
 
 /**
+ * Updates the Y average for touch points
+ */
+- (void)updateYAverage:(float)newPoint {
+    if (totalY == 0) {
+        avgY = newPoint;
+    } else {
+        avgY = ((avgY * totalY) + newPoint) / ++totalY;
+    }
+}
+
+/**
  * Removes all subviews from view and resets tracking.
  */
 - (void)resetView {
+    totalY = 0;
     for (UIView *v in self.subviews) {
         [v removeFromSuperview];
     }
@@ -74,11 +98,18 @@
 }
 
 /**
+ * Backspace was called
+ */
+- (void)backspace {
+    [_delegate characterReceived:ABBackspace];
+}
+
+/**
  * receives taps from anywhere on the screen when keyboard is active.
  */
 - (void)receiveScreenTap:(UITapGestureRecognizer *)reg {
     if ([reg locationInView:self].x > farX) {
-        NSLog(@"Backspace");
+        [self backspace];
     } else if ([reg locationInView:self].y > (avgY + 75) && [reg locationInView:self].x < farX) {
         [self space];
     }

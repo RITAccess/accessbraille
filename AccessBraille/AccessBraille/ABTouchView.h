@@ -14,6 +14,7 @@
 - (void)touchWithId:(NSInteger)tapID tap:(BOOL)tapped;
 - (CGPoint)locationInDelegate:(UITapGestureRecognizer *)reg;
 - (float)averageY;
+- (void)updateYAverage:(float)newPoint;
 - (void)space;
 @end
 
