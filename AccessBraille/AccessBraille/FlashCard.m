@@ -11,6 +11,7 @@
 #import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "ABKeyboard.h"
+#import "ABParser.h"
 
 @interface FlashCard ()
 
@@ -22,12 +23,11 @@
     NSTimer *speechTimer;
     NSMutableArray *cards;
     NSMutableArray *letters;
-    NSString *path;
-    NSString *finalPath;
     UIButton *instructionsButton;
     UIButton *settingsButton;
     UIButton *startButton;
     UILabel *infoText;
+    ABKeyboard *keyboard;
 }
 
 @synthesize fliteController;
@@ -50,7 +50,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 	
     title = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 60)];
     title.center = CGPointMake(550, 50);
@@ -68,8 +68,8 @@
     [[self view] addSubview:typedCharacter];
     
     // Reading in the plist.
-    path = [[NSBundle mainBundle] bundlePath];
-    finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
     
     settingsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -102,6 +102,7 @@
         [settingsButton removeFromSuperview];
         [instructionsButton removeFromSuperview];
         [infoText removeFromSuperview];
+        [self enterCardMode];
     }else if (sender == instructionsButton){
         [infoText setText:(instructionsText)];
         [self.fliteController say:instructionsText withVoice:self.slt];
@@ -110,6 +111,11 @@
         [infoText setText:(settingsText)];
         [self.fliteController say:settingsText withVoice:self.slt];
     }
+}
+
+-(void)enterCardMode{
+    [typedCharacter setText:cards[0]];
+    [self.fliteController say:cards[0] withVoice:self.slt];
 }
 
 -(void)speak:(NSString *)textToSpeak{
@@ -138,7 +144,6 @@
 - (void)parseCards
 {
     NSMutableArray *chars = [[NSMutableArray alloc] init];
-    
     for (NSString *card in cards){
         for(int index = 0; index<card.length-1; index++){
             NSString *testStr = [NSString stringWithFormat:@"%c", [card characterAtIndex:index]];
