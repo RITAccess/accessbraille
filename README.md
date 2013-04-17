@@ -7,6 +7,8 @@ Access Braille is also a learning tool for young childing who have not yet learn
 ## How to Get Started
 Using the keyboard in your own apps simply create an ABKeyboard in your ```UIViewController``` and add the necessary protocol methods to start reciving typing events from the ABKeyboard. Here's an example of reciving the last character typed:
 ```objective-c
+// In your header
+@interface YourClass : NSObject <ABKeyboard> // Follow the ABKeyboard protocol
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 // Somewhere in your implementation
