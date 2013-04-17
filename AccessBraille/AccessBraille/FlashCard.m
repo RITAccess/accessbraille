@@ -28,6 +28,7 @@
     UIButton *startButton;
     UILabel *infoText;
     ABKeyboard *keyboard;
+    ABParser *parser;
 }
 
 @synthesize fliteController;
@@ -116,6 +117,7 @@
 -(void)enterCardMode{
     [typedCharacter setText:cards[0]];
     [self.fliteController say:cards[0] withVoice:self.slt];
+    [self parseSingleCard:cards[0]];
 }
 
 -(void)speak:(NSString *)textToSpeak{
@@ -136,6 +138,11 @@
     NSMutableString* word = [[NSMutableString alloc] init];
     [word appendFormat:@"%@", character];
     [typedCharacter setText:word];
+}
+
+- (void)parseSingleCard: (NSString *) card{
+    NSArray *letters = [ABParser arrayOfCharactersFromWord:card];
+    [self.fliteController say:letters[0] withVoice:self.slt];
 }
 
 /**
