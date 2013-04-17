@@ -10,10 +10,12 @@
 
 @protocol ABTouchColumn <NSObject>
 @required
-
 /* Sends touch interface to ABTouchLayer to be processed */
 - (void)touchWithId:(NSInteger)tapID tap:(BOOL)tapped;
-
+- (CGPoint)locationInDelegate:(UITapGestureRecognizer *)reg;
+- (float)averageY;
+- (void)updateYAverage:(float)newPoint;
+- (void)space;
 @end
 
 @interface ABTouchView : UIView
