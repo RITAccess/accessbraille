@@ -17,7 +17,6 @@
 @end
 
 @implementation FlashCard {
-    
     UILabel *title;
     UILabel *typedCharacter;
     NSTimer *speechTimer;
@@ -59,8 +58,8 @@
     [title setFont: [UIFont fontWithName:@"Trebuchet MS" size:30.0f]];
     [[self view] addSubview:title];
     
-    infoText = [[UILabel alloc]initWithFrame:CGRectMake(50, 150, 300, 100)];
-    [infoText setText:@"Welcome to Flash Card mode! From here you can change settings, read instructions, or begin playing!"];
+    infoText = [[UILabel alloc]initWithFrame:CGRectMake(50, 150, 1000, 100)];
+    [infoText setText:welcomeText];
     [infoText setFont: [UIFont fontWithName:@"Trebuchet MS" size:20.0f]];
     [[self view] addSubview:infoText];
     
@@ -74,33 +73,48 @@
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
     
     settingsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    settingsButton.frame = CGRectMake(80, 400, 250, 300);
+    settingsButton.frame = CGRectMake(10, 400, 330, 330);
     [settingsButton setTitle:@"Settings" forState:UIControlStateNormal];
-    [settingsButton addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventTouchDown];
+    [settingsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:settingsButton];
     
     instructionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    instructionsButton.frame = CGRectMake(370, 400, 250, 300);
+    instructionsButton.frame = CGRectMake(345, 400, 330, 330);
     [instructionsButton setTitle:@"Instructions" forState:UIControlStateNormal];
-    [instructionsButton addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventTouchDown];
+    [instructionsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:instructionsButton];
     
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    startButton.frame = CGRectMake(660, 400, 250, 300);
+    startButton.frame = CGRectMake(685, 400, 330, 330);
     [startButton setTitle:@"Start!" forState:UIControlStateNormal];
-    [startButton addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventTouchDown];
+    [startButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:startButton];
 
     
     [self parseCards];
+//    [self speak:welcomeText];
     
 }
 
-- (void)changeText:(id)sender{
-    [infoText setText:(@"Instructions Text!")];
+- (void)buttonPress:(id)sender{
+    if (sender == startButton){
+        [startButton removeFromSuperview];
+        [settingsButton removeFromSuperview];
+        [instructionsButton removeFromSuperview];
+        [infoText removeFromSuperview];
+    }else if (sender == instructionsButton){
+        [infoText setText:(instructionsText)];
+        [self.fliteController say:instructionsText withVoice:self.slt];
+    }
+    else{
+        [infoText setText:(settingsText)];
+        [self.fliteController say:settingsText withVoice:self.slt];
+    }
 }
 
-
+-(void)speak:(NSString *)textToSpeak{
+    [self.fliteController say:textToSpeak withVoice:self.slt];
+}
 
 - (void)viewDidAppear:(BOOL)animated {
 

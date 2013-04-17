@@ -11,6 +11,10 @@
 #import <OpenEars/FliteController.h>
 #import "ABKeyboard.h"
 
+NSString *const instructionsText = @"In Flash Card mode, users will type out words using the ABKeyboard to complete the word. The word will be spoken to the user letter by letter.";
+NSString *const settingsText = @"The user is able to adjust the settings later within the application.";
+NSString *const welcomeText = @"Welcome to Flash Card mode! Tap to the left of the screen to adjust settings, in the center to read the instructions, or to the right of the screen to start playing.";
+
 @interface FlashCard : UIViewController <ABKeyboard> {
     FliteController *fliteController;
     Slt *slt;
