@@ -12,11 +12,18 @@
 #import "ABTypes.h"
 #import "ABTouchView.h"
 #import "ABBrailleReader.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation ABKeyboard {
     ABTouchLayer *interface;
     ABBrailleReader *brailleReader;
+    // Audio
+    SystemSoundID enabledSound;
+    SystemSoundID disabledSound;
+    SystemSoundID backspaceSound;
 }
+
+#pragma mark Setup
 
 - (id)initWithDelegate:(id)delegate {
     self = [super init];
@@ -31,7 +38,7 @@
         _enabled = YES;
         
         // Set Up Braille Interp
-        brailleReader = [[ABBrailleReader alloc] init];
+        brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
         [brailleReader setDelegate:_delegate];
         
         // Type interface setup
@@ -39,6 +46,12 @@
         [interface setBackgroundColor:[UIColor grayColor]];
         [interface setAlpha:0.4];
         [interface setDelegate:brailleReader];
+        
+        // Audio
+        _sound = YES;
+        enabledSound = [self createSoundID:@"hop.mp3"];
+        disabledSound = [self createSoundID:@"disable.mp3"];
+        backspaceSound = [self createSoundID:@"backspace.aiff"];
         
     }
     return self;
@@ -53,6 +66,8 @@
     }
 }
 
+#pragma mark Keyboard Implementation
+
 /**
  * Creates a view overlay for recognizing braille type
  */
@@ -62,7 +77,7 @@
     
     for (int i = 0; i < 6; i++){
         
-        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, vectors[i].end.y, 100, 400)];
+        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, vectors[i].end.y - 100, 100, 800)];
         [touch setBackgroundColor:[UIColor redColor]];
         [touch setTag:i];
         
@@ -102,6 +117,7 @@
             
             if (reg.translationFromStart > 200) {
                 [reg getTouchInfo];
+                [self playSound:ABEnableSound];
             }
             
             break;
@@ -111,12 +127,38 @@
                 [interface removeFromSuperview];
                 [interface resetView];
                 _keyboardActive = NO;
+                [self playSound:ABDisableSound];
             }
             
             break;
         default:
             break;
     }
+}
+
+#pragma mark Audio
+
+- (void)playSound:(NSString *)type {
+    if (!_sound) { return; }
+    if ([type isEqualToString:ABBackspaceSound]){
+        AudioServicesPlaySystemSound(backspaceSound);
+    } else if ([type isEqualToString:ABEnableSound]) {
+        AudioServicesPlaySystemSound(enabledSound);
+    } else if ([type isEqualToString:ABDisableSound]) {
+        AudioServicesPlaySystemSound(disabledSound);
+    }
+}
+
+/**
+ * Creates system sound
+ */
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 
 @end
