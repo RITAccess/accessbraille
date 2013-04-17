@@ -48,6 +48,7 @@
         [interface setDelegate:brailleReader];
         
         // Audio
+        _sound = YES;
         enabledSound = [self createSoundID:@"hop.mp3"];
         disabledSound = [self createSoundID:@"disable.mp3"];
         backspaceSound = [self createSoundID:@"backspace.aiff"];
