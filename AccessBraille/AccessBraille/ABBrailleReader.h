@@ -13,6 +13,7 @@
 @interface ABBrailleReader : NSObject <ABTouchReciever>
 
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs;
+- (id)initWithAudioTarget:(id)target selector:(SEL)selector;
 
 @property (nonatomic) id<ABKeyboard> delegate;
 @property (nonatomic) NSString *wordTyping;

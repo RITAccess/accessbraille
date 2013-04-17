@@ -7,20 +7,28 @@
 //
 
 #import "ABBrailleReader.h"
+#import "ABKeyboard.h"
 
 @implementation ABBrailleReader {
     
     NSDictionary *grad1Lookup;
+    id target;
+    SEL selector;
     
 }
 
-- (id)init {
+- (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
     self = [super init];
     if (self) {
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"grade1lookup.plist"];
         grad1Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
         _wordTyping = @"";
+        
+        // Audio
+        target = tar;
+        selector = sel;
+    
     }
     return self;
 }
@@ -63,6 +71,7 @@
     // If Backspace
     
     if ([brailleString isEqualToString:ABBackspace]) {
+        [(ABKeyboard *)target performSelector:selector withObject:ABBackspaceSound];
         [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
                                                         ABSpaceTyped : @(NO),
                                                     ABBackspaceReceived : @(YES)}];

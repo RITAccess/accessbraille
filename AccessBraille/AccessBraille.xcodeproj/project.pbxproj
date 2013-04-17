@@ -85,9 +85,7 @@
 		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
 		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
-		A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */; };
 		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
-		A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A97425721677BFA400289C8D /* CalibrationPoint.m */; };
 		A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */ = {isa = PBXBuildFile; fileRef = A97FF44B16B1CE1300116AEC /* Enabled.m */; };
 		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
 		A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */; };
@@ -206,11 +204,7 @@
 		A9479C661670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9479C681670034F00CE9475 /* AccessBrailleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBrailleTests.h; sourceTree = "<group>"; };
 		A9479C691670034F00CE9475 /* AccessBrailleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBrailleTests.m; sourceTree = "<group>"; };
-		A95FFC1916792C2300BF966C /* BrailleInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleInterpreter.h; sourceTree = "<group>"; };
-		A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleInterpreter.m; sourceTree = "<group>"; };
 		A95FFC251679394600BF966C /* grade1lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade1lookup.plist; sourceTree = "<group>"; };
-		A97425711677BFA400289C8D /* CalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationPoint.h; sourceTree = "<group>"; };
-		A97425721677BFA400289C8D /* CalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalibrationPoint.m; sourceTree = "<group>"; };
 		A97FF44A16B1CE1300116AEC /* Enabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enabled.h; sourceTree = "<group>"; };
 		A97FF44B16B1CE1300116AEC /* Enabled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enabled.m; sourceTree = "<group>"; };
 		A99671BE16810EFA00AAA322 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -468,10 +462,6 @@
 				4C2F59E516F76CA5008F8185 /* navClick.aiff */,
 				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
 				4C52BC9F16C9481800F76B45 /* hop.mp3 */,
-				A97425711677BFA400289C8D /* CalibrationPoint.h */,
-				A97425721677BFA400289C8D /* CalibrationPoint.m */,
-				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
-				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -649,8 +639,6 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
-				A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */,
-				A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A94471E6169CAC1000B66193 /* NavigationView.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
