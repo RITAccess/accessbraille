@@ -31,6 +31,10 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td><tt>@property BOOL enabled</tt></td>
     <td>Sets the state for the keyboard. <tt>YES</tt> for enabled.</td>
   </tr>
+  <tr>
+    <td><tt>@property BOOL sound</tt></td>
+    <td>Set the state for keyboard sounds. <tt>YES</tt> for enabled.</td>
+  </tr>
 
   <tr><th colspan="2" style="text-align:center;">@protocol ABKeyboard</th></tr>
   <tr>

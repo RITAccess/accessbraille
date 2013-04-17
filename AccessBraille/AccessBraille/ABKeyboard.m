@@ -138,6 +138,7 @@
 #pragma mark Audio
 
 - (void)playSound:(NSString *)type {
+    if (!_sound) { return; }
     if ([type isEqualToString:ABBackspaceSound]){
         AudioServicesPlaySystemSound(backspaceSound);
     } else if ([type isEqualToString:ABEnableSound]) {
