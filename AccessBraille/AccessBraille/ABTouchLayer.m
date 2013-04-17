@@ -45,7 +45,7 @@
 }
 
 /**
- * Called when subViewsHaveBeenAdded
+ * Called when sub Views Have Been Added
  */
 - (void)subViewsAdded {
     for (UIView *sv in self.subviews) {
