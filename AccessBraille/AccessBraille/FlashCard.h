@@ -7,17 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Slt/Slt.h>
-#import <OpenEars/FliteController.h>
 
-@interface FlashCard : UIViewController {
-    // Voice Over
-    FliteController *fliteController;
-    Slt *slt;
-}
+@interface FlashCard : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) FliteController *fliteController;
-@property (strong, nonatomic) Slt *slt;
 
 @end
