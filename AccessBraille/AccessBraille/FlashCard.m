@@ -18,11 +18,14 @@
 @end
 
 @implementation FlashCard {
+    
+    NSTimer *letterTimer;
     UILabel *title;
-    UILabel *typedCharacter;
+    UILabel *labelFromInput;
     NSTimer *speechTimer;
     NSMutableArray *cards;
-    NSMutableArray *letters;
+    NSMutableString *stringFromInput;
+    NSArray *letters;
     UIButton *instructionsButton;
     UIButton *settingsButton;
     UIButton *startButton;
@@ -48,10 +51,10 @@
     return slt;
 }
 
+#pragma mark - View
+
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 	
     title = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 60)];
     title.center = CGPointMake(550, 50);
@@ -64,9 +67,9 @@
     [infoText setFont: [UIFont fontWithName:@"Trebuchet MS" size:20.0f]];
     [[self view] addSubview:infoText];
     
-    typedCharacter = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
-    [typedCharacter setFont: [UIFont fontWithName:@"Trebuchet MS" size:60.0f]];
-    [[self view] addSubview:typedCharacter];
+    labelFromInput = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
+    [labelFromInput setFont: [UIFont fontWithName:@"Trebuchet MS" size:60.0f]];
+    [[self view] addSubview:labelFromInput];
     
     // Reading in the plist.
     NSString *path = [[NSBundle mainBundle] bundlePath];
@@ -91,11 +94,19 @@
     [startButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:startButton];
 
-    
-    [self parseCards];
 //    [self speak:welcomeText];
     
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.view setNeedsDisplay];
+    stringFromInput = [[NSMutableString alloc] init];
+    
+}
+
+#pragma mark - Button
 
 - (void)buttonPress:(id)sender{
     if (sender == startButton){
@@ -104,6 +115,7 @@
         [instructionsButton removeFromSuperview];
         [infoText removeFromSuperview];
         [self enterCardMode];
+        
     }else if (sender == instructionsButton){
         [infoText setText:(instructionsText)];
         [self.fliteController say:instructionsText withVoice:self.slt];
@@ -114,49 +126,36 @@
     }
 }
 
+#pragma mark - Card Mode
+
 -(void)enterCardMode{
-    [typedCharacter setText:cards[0]];
-    [self.fliteController say:cards[0] withVoice:self.slt];
-    [self parseSingleCard:cards[0]];
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [labelFromInput setText:cards[0]]; // Display the word.
+    [self.fliteController say:cards[0] withVoice:self.slt]; // Speak the word.
+//    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(parseSingleCard:) userInfo:nil repeats:NO];
+//    [letterTimer fire];
+    [self speakSingleLetterFromArray:cards[0]];
 }
+
+/**
+ * Speak character being typed, as well as appending it to the label.
+ */
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
+   [self.fliteController say:character withVoice:self.slt];
+    [stringFromInput appendFormat:@"%@", character];
+    [labelFromInput setText:stringFromInput];
+}
+
+
+#pragma mark - Speech
 
 -(void)speak:(NSString *)textToSpeak{
     [self.fliteController say:textToSpeak withVoice:self.slt];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-
-    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.view setNeedsDisplay];
-}
-
-/**
- * Speaks current character that's being typed.
- */
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    [self.fliteController say:character withVoice:self.slt];
-    NSMutableString* word = [[NSMutableString alloc] init];
-    [word appendFormat:@"%@", character];
-    [typedCharacter setText:word];
-}
-
-- (void)parseSingleCard: (NSString *) card{
-    NSArray *letters = [ABParser arrayOfCharactersFromWord:card];
+- (void)speakSingleLetterFromArray: (NSString *) card{
+    letters = [ABParser arrayOfCharactersFromWord:card];
     [self.fliteController say:letters[0] withVoice:self.slt];
-}
-
-/**
- * Loops through cards and parses them.
- */
-- (void)parseCards
-{
-    NSMutableArray *chars = [[NSMutableArray alloc] init];
-    for (NSString *card in cards){
-        for(int index = 0; index<card.length-1; index++){
-            NSString *testStr = [NSString stringWithFormat:@"%c", [card characterAtIndex:index]];
-            [chars addObject:testStr];
-        }
-    }
 }
 
 @end
