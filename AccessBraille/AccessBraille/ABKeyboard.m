@@ -136,6 +136,12 @@
     }
 }
 
+#pragma mark Talk
+
+- (void)startSpeakingString:(NSString *)string {
+    NSLog(@"Will Speak: %@", string);
+}
+
 #pragma mark Audio
 
 - (void)playSound:(NSString *)type {
