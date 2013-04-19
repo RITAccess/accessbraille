@@ -10,21 +10,11 @@
 #import "Drawing.h"
 #import "TextOut.h"
 #import <CoreData/CoreData.h>
-#import <OpenEars/FliteController.h>
-#import <Slt/Slt.h>
 #import "ABKeyboard.h"
 
-@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard> {
-    
-    // Voice Over
-    FliteController *fliteController;
-    Slt *slt;
-}
+@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard>
 
 -(void)saveState;
-
-@property (strong, nonatomic) FliteController *fliteController;
-@property (strong, nonatomic) Slt *slt;
 
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;

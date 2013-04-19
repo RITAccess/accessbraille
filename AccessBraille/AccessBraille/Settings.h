@@ -7,18 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Slt/Slt.h>
-#import <OpenEars/FliteController.h>
 
-@interface Settings : UIViewController {
-    // Voice Over
-    
-    FliteController *fliteController;
-    Slt *slt;
-}
+@interface Settings : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-@property (strong, nonatomic) FliteController *fliteController;
-@property (strong, nonatomic) Slt *slt;
 
 @end

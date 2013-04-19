@@ -28,6 +28,10 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td>Creates a keyboard interface to receive input.</td>
   </tr>
   <tr>
+    <td><tt>-startSpeakingString:</tt></td>
+    <td>Speaks the string. NOTE not implemented fully, just prints to console.</td>
+  </tr>
+  <tr>
     <td><tt>@property BOOL enabled</tt></td>
     <td>Sets the state for the keyboard. <tt>YES</tt> for enabled.</td>
   </tr>

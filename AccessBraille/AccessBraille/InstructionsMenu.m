@@ -7,31 +7,12 @@
 //
 
 #import "InstructionsMenu.h"
-#import <Slt/Slt.h>
-#import <OpenEars/FliteController.h>
-#import <AudioToolbox/AudioToolbox.h>
 
 @implementation InstructionsMenu{
     UITextView *instructionsInfo;
     NSTimer *speechTimer;
 }
 
-@synthesize fliteController;
-@synthesize slt;
-
-- (FliteController *)fliteController {
-    if (fliteController == nil) {
-        fliteController = [[FliteController alloc] init];
-    }
-    return fliteController;
-}
-
-- (Slt *)slt {
-    if (slt == nil) {
-        slt = [[Slt alloc] init];
-    }
-    return slt;
-}
 
 /** Method to be called as soon as view loads. */
 - (void)viewDidLoad {
@@ -56,17 +37,6 @@
     [instructionsInfo setUserInteractionEnabled:NO];
     [[self view] addSubview:instructionsInfo];
 
-    
-    /** Timer will wait 500 miliseconds before speak is called. */
-    speechTimer = [NSTimer scheduledTimerWithTimeInterval:.1  target:self selector:@selector(speak) userInfo:nil repeats:NO];
-    
-}
-
-/** FliteController will speak what needs to be said. */
-- (void)speak
-{
-    // Speech
-    [self.fliteController say:instructionsInfo.text withVoice:self.slt];
 }
 
 - (void)viewDidUnload {

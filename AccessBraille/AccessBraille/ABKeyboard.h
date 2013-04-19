@@ -48,4 +48,7 @@
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 
+/* Speaking Methods */
+- (void)startSpeakingString:(NSString *)string;
+
 @end

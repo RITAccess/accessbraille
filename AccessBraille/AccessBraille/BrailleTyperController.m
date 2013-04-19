@@ -40,9 +40,6 @@
 @synthesize typingStateOutlet = _typingStateOutlet;
 @synthesize DrawingView = _DrawingView;
 
-@synthesize fliteController;
-@synthesize slt;
-
 # pragma mark - ViewController Methods
 
 - (void)viewDidLoad {
@@ -159,22 +156,6 @@
     
 //    NSLog(@"%@ pulled from table", latestEntity.typedString);
     return latestEntity.typedString;
-}
-
-# pragma mark - TTS Methods and Audio
-
-- (FliteController *)fliteController {
-	if (fliteController == nil) {
-		fliteController = [[FliteController alloc] init];
-	}
-	return fliteController;
-}
-
-- (Slt *)slt {
-	if (slt == nil) {
-		slt = [[Slt alloc] init];
-	}
-	return slt;
 }
 
 @end
