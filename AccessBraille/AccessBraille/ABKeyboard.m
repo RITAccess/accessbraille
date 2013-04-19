@@ -12,6 +12,7 @@
 #import "ABTypes.h"
 #import "ABTouchView.h"
 #import "ABBrailleReader.h"
+#import "ABSpeak.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @implementation ABKeyboard {
@@ -21,6 +22,7 @@
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
     SystemSoundID backspaceSound;
+    ABSpeak *speak;
 }
 
 #pragma mark Setup
@@ -52,6 +54,8 @@
         enabledSound = [self createSoundID:@"hop.mp3"];
         disabledSound = [self createSoundID:@"disable.mp3"];
         backspaceSound = [self createSoundID:@"backspace.aiff"];
+        
+        speak = [[ABSpeak alloc] init];
         
     }
     return self;
@@ -123,7 +127,7 @@
             break;
         case ABGestureDirectionDOWN:
             
-            if (reg.translationFromStart > 200) {
+            if (reg.translationFromStart > 150) {
                 [interface removeFromSuperview];
                 [interface resetView];
                 _keyboardActive = NO;
@@ -140,6 +144,7 @@
 
 - (void)startSpeakingString:(NSString *)string {
     NSLog(@"Will Speak: %@", string);
+    [speak speakString:string];
 }
 
 #pragma mark Audio
