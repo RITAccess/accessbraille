@@ -24,6 +24,7 @@
     UILabel *labelFromInput;
     NSTimer *speechTimer;
     NSMutableArray *cards;
+    NSArray *card;
     NSMutableString *stringFromInput;
     NSArray *letters;
     UIButton *instructionsButton;
@@ -132,9 +133,8 @@
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [labelFromInput setText:cards[0]]; // Display the word.
     [self.fliteController say:cards[0] withVoice:self.slt]; // Speak the word.
-//    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(parseSingleCard:) userInfo:nil repeats:NO];
-//    [letterTimer fire];
-    [self speakSingleLetterFromArray:cards[0]];
+    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
+   [letterTimer fire];
 }
 
 /**
@@ -153,9 +153,18 @@
     [self.fliteController say:textToSpeak withVoice:self.slt];
 }
 
-- (void)speakSingleLetterFromArray: (NSString *) card{
-    letters = [ABParser arrayOfCharactersFromWord:card];
-    [self.fliteController say:letters[0] withVoice:self.slt];
+- (void)speakSingleLetterFromArray{
+    letters = [ABParser arrayOfCharactersFromWord:card[0]];
+    
+    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
+    
+    for (int i = 0; i < letters.count; i++){
+        NSLog(@"%@", letters[0]);
+        [self.fliteController say:letters[i] withVoice:self.slt];
+        [letterTimer fire];
+    }
+    
+    
 }
 
 @end
