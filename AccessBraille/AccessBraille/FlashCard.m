@@ -7,8 +7,6 @@
 //
 
 #import "FlashCard.h"
-#import <Slt/Slt.h>
-#import <OpenEars/FliteController.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "ABKeyboard.h"
 #import "ABParser.h"
@@ -35,26 +33,11 @@
     ABParser *parser;
 }
 
-@synthesize fliteController;
-@synthesize slt;
-
-- (FliteController *)fliteController {
-    if (fliteController == nil) {
-        fliteController = [[FliteController alloc] init];
-    }
-    return fliteController;
-}
-
-- (Slt *)slt {
-    if (slt == nil) {
-        slt = [[Slt alloc] init];
-    }
-    return slt;
-}
-
 #pragma mark - View
 
-- (void)viewDidLoad{
+/** Called when view loads. */
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 	
     title = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 60)];
@@ -94,9 +77,6 @@
     [startButton setTitle:@"Start!" forState:UIControlStateNormal];
     [startButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:startButton];
-
-//    [self speak:welcomeText];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -104,8 +84,8 @@
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
     stringFromInput = [[NSMutableString alloc] init];
-    
 }
+
 
 #pragma mark - Button
 
@@ -119,11 +99,9 @@
         
     }else if (sender == instructionsButton){
         [infoText setText:(instructionsText)];
-        [self.fliteController say:instructionsText withVoice:self.slt];
     }
     else{
         [infoText setText:(settingsText)];
-        [self.fliteController say:settingsText withVoice:self.slt];
     }
 }
 
@@ -132,7 +110,6 @@
 -(void)enterCardMode{
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [labelFromInput setText:cards[0]]; // Display the word.
-    [self.fliteController say:cards[0] withVoice:self.slt]; // Speak the word.
     letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
    [letterTimer fire];
 }
@@ -141,17 +118,12 @@
  * Speak character being typed, as well as appending it to the label.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-   [self.fliteController say:character withVoice:self.slt];
     [stringFromInput appendFormat:@"%@", character];
     [labelFromInput setText:stringFromInput];
 }
 
 
 #pragma mark - Speech
-
--(void)speak:(NSString *)textToSpeak{
-    [self.fliteController say:textToSpeak withVoice:self.slt];
-}
 
 - (void)speakSingleLetterFromArray{
     letters = [ABParser arrayOfCharactersFromWord:card[0]];
@@ -160,11 +132,8 @@
     
     for (int i = 0; i < letters.count; i++){
         NSLog(@"%@", letters[0]);
-        [self.fliteController say:letters[i] withVoice:self.slt];
         [letterTimer fire];
     }
-    
-    
 }
 
 @end

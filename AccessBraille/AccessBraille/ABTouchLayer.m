@@ -13,9 +13,16 @@
 
 @implementation ABTouchLayer {
     
+    /* Reading Input */
     NSMutableArray *activeTouches;
     BOOL reading;
+    /* Backspace/Space */
+    UITapGestureRecognizer *screenTap;
     
+    /* Avg tracking */
+    float farX;
+    float avgY;
+    int totalY;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,18 +32,86 @@
         // Initialization code
         
         activeTouches = [[NSMutableArray alloc] initWithCapacity:6];
+        screenTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(receiveScreenTap:)];
+        [self addGestureRecognizer:screenTap];
         reading = NO;
         
+        // Init avgs
+        avgY = 550;
+        farX = 760;
+        totalY = 0;
     }
     return self;
 }
 
 /**
- * Removes all subviews from view
+ * Called when sub Views Have Been Added
+ */
+- (void)subViewsAdded {
+    for (UIView *sv in self.subviews) {
+        if (sv.tag == 5) {
+            farX = sv.frame.origin.x + sv.frame.size.width;
+        }
+    }
+}
+
+/**
+ * Returns the point of the tap in this view
+ */
+- (CGPoint)locationInDelegate:(UITapGestureRecognizer *)reg {
+    return [reg locationInView:self];
+}
+
+/**
+ * returns the average Y tap
+ */
+- (float)averageY {
+    return avgY;
+}
+
+/**
+ * Updates the Y average for touch points
+ */
+- (void)updateYAverage:(float)newPoint {
+    if (totalY == 0) {
+        avgY = newPoint;
+    } else {
+        avgY = ((avgY * totalY) + newPoint) / ++totalY;
+    }
+}
+
+/**
+ * Removes all subviews from view and resets tracking.
  */
 - (void)resetView {
+    totalY = 0;
     for (UIView *v in self.subviews) {
         [v removeFromSuperview];
+    }
+}
+
+/**
+ * Space was called
+ */
+- (void)space {
+    [_delegate characterReceived:ABSpaceCharacter];
+}
+
+/**
+ * Backspace was called
+ */
+- (void)backspace {
+    [_delegate characterReceived:ABBackspace];
+}
+
+/**
+ * receives taps from anywhere on the screen when keyboard is active.
+ */
+- (void)receiveScreenTap:(UITapGestureRecognizer *)reg {
+    if ([reg locationInView:self].x > farX) {
+        [self backspace];
+    } else if ([reg locationInView:self].y > (avgY + 75) && [reg locationInView:self].x < farX) {
+        [self space];
     }
 }
 

@@ -23,7 +23,15 @@
  * GR target
  */
 - (void)tapped:(UITapGestureRecognizer *)reg {
-    [_delegate touchWithId:self.tag tap:YES];
+    // Check if space
+    float touchY = [_delegate locationInDelegate:reg].y;
+    float avgY = [_delegate averageY];
+    if (touchY > avgY + 75) {
+        [_delegate space];
+    } else {
+        [_delegate updateYAverage:touchY];
+        [_delegate touchWithId:self.tag tap:YES];
+    }
 }
 
 @end

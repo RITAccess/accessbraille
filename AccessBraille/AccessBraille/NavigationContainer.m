@@ -12,6 +12,7 @@
 #import "UIBezelGestureRecognizer.h"
 #import "newViewControllerTemplate.h"
 #import <Twitter/Twitter.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation NavigationContainer {
     NavigationView *nav;

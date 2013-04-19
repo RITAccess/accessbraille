@@ -42,7 +42,13 @@
 /* Sets the keyboard active state */
 @property BOOL enabled;
 
+/* Set sounds enabled */
+@property BOOL sound;
+
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
+
+/* Speaking Methods */
+- (void)startSpeakingString:(NSString *)string;
 
 @end

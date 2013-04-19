@@ -18,6 +18,7 @@
 @interface ABTouchLayer : UIView <ABTouchColumn>
 
 - (void)resetView;
+- (void)subViewsAdded;
 @property (nonatomic) id<ABTouchReciever> delegate;
 
 @end
