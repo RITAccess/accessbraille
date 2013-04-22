@@ -49,7 +49,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
     stringFromInput = [[NSMutableString alloc] init];
@@ -67,7 +66,11 @@
 }
 
 - (IBAction)enterCardModeFromButtonClick:(id)sender {
-    
+    infoText.text = nil;
+    self.instructionsButton.hidden = true;
+    self.settingsButton.hidden = true;
+    self.playButton.hidden = true;
+    [self enterCardMode];
 }
 
 
@@ -103,4 +106,10 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setInstructionsButton:nil];
+    [self setSettingsButton:nil];
+    [self setPlayButton:nil];
+    [super viewDidUnload];
+}
 @end
