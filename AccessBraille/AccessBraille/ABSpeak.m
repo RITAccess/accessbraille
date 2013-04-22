@@ -11,11 +11,11 @@
 @implementation ABSpeak
 
 @synthesize fliteController;
-@synthesize slt;
+@synthesize emma;
 
 - (void)speakString:(NSString *)string {
     
-    [self.fliteController say:string withVoice:self.slt];
+    [self.fliteController sayWithNeatSpeech:string withVoice:self.emma];
 
 }
 
@@ -26,11 +26,11 @@
 	return fliteController;
 }
 
-- (Slt *)slt {
-	if (slt == nil) {
-		slt = [[Slt alloc] init];
+- (Emma *)emma {
+	if (emma == nil) {
+		emma = [[Emma alloc] initWithPitch:0.2f speed:0.0f transform:0.0f];
 	}
-	return slt;
+	return emma;
 }
 
 

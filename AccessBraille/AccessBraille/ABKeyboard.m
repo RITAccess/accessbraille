@@ -81,7 +81,7 @@
     
     for (int i = 0; i < 6; i++){
         
-        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, vectors[i].end.y - 100, 100, 800)];
+        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 100, vectors[i].end.y - 100, 100, 800)];
         [touch setBackgroundColor:[UIColor redColor]];
         [touch setTag:i];
         

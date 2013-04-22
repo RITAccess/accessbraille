@@ -40,6 +40,53 @@
 		4C47819D17219FC100C4F7C1 /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818E17219FC100C4F7C1 /* OpenEars2.gram */; };
 		4C47819E17219FC100C4F7C1 /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818F17219FC100C4F7C1 /* OpenEarsCorpus.txt */; };
 		4C47819F17219FC100C4F7C1 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C47819017219FC100C4F7C1 /* Slt.framework */; };
+		4C4781A11725860400C4F7C1 /* NeatSpeechDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4781A01725860400C4F7C1 /* NeatSpeechDemo.framework */; };
+		4C4781D51725861A00C4F7C1 /* Beatrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4781A41725861A00C4F7C1 /* Beatrice.framework */; };
+		4C4781D61725861A00C4F7C1 /* Elliott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4781A51725861A00C4F7C1 /* Elliott.framework */; };
+		4C4781D71725861A00C4F7C1 /* Emma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4781A61725861A00C4F7C1 /* Emma.framework */; };
+		4C4781D81725861A00C4F7C1 /* William.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4781A71725861A00C4F7C1 /* William.framework */; };
+		4C4781D91725861A00C4F7C1 /* neatspeech_uk1_COPYRIGHT in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AA1725861A00C4F7C1 /* neatspeech_uk1_COPYRIGHT */; };
+		4C4781DA1725861A00C4F7C1 /* neatspeech_uk1_dur.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AB1725861A00C4F7C1 /* neatspeech_uk1_dur.pdf */; };
+		4C4781DB1725861A00C4F7C1 /* neatspeech_uk1_gv-lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AC1725861A00C4F7C1 /* neatspeech_uk1_gv-lf0.pdf */; };
+		4C4781DC1725861A00C4F7C1 /* neatspeech_uk1_gv-mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AD1725861A00C4F7C1 /* neatspeech_uk1_gv-mgc.pdf */; };
+		4C4781DD1725861A00C4F7C1 /* neatspeech_uk1_gv-switch.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AE1725861A00C4F7C1 /* neatspeech_uk1_gv-switch.inf */; };
+		4C4781DE1725861A00C4F7C1 /* neatspeech_uk1_lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781AF1725861A00C4F7C1 /* neatspeech_uk1_lf0.pdf */; };
+		4C4781DF1725861A00C4F7C1 /* neatspeech_uk1_lf0.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B01725861A00C4F7C1 /* neatspeech_uk1_lf0.win1 */; };
+		4C4781E01725861A00C4F7C1 /* neatspeech_uk1_lf0.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B11725861A00C4F7C1 /* neatspeech_uk1_lf0.win2 */; };
+		4C4781E11725861A00C4F7C1 /* neatspeech_uk1_lf0.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B21725861A00C4F7C1 /* neatspeech_uk1_lf0.win3 */; };
+		4C4781E21725861A00C4F7C1 /* neatspeech_uk1_mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B31725861A00C4F7C1 /* neatspeech_uk1_mgc.pdf */; };
+		4C4781E31725861A00C4F7C1 /* neatspeech_uk1_mgc.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B41725861A00C4F7C1 /* neatspeech_uk1_mgc.win1 */; };
+		4C4781E41725861A00C4F7C1 /* neatspeech_uk1_mgc.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B51725861A00C4F7C1 /* neatspeech_uk1_mgc.win2 */; };
+		4C4781E51725861A00C4F7C1 /* neatspeech_uk1_mgc.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B61725861A00C4F7C1 /* neatspeech_uk1_mgc.win3 */; };
+		4C4781E61725861A00C4F7C1 /* neatspeech_uk1_README in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B71725861A00C4F7C1 /* neatspeech_uk1_README */; };
+		4C4781E71725861A00C4F7C1 /* neatspeech_uk1_tree-dur.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B81725861A00C4F7C1 /* neatspeech_uk1_tree-dur.inf */; };
+		4C4781E81725861A00C4F7C1 /* neatspeech_uk1_tree-gv-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781B91725861A00C4F7C1 /* neatspeech_uk1_tree-gv-lf0.inf */; };
+		4C4781E91725861A00C4F7C1 /* neatspeech_uk1_tree-gv-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781BA1725861A00C4F7C1 /* neatspeech_uk1_tree-gv-mgc.inf */; };
+		4C4781EA1725861A00C4F7C1 /* neatspeech_uk1_tree-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781BB1725861A00C4F7C1 /* neatspeech_uk1_tree-lf0.inf */; };
+		4C4781EB1725861A00C4F7C1 /* neatspeech_uk1_tree-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781BC1725861A00C4F7C1 /* neatspeech_uk1_tree-mgc.inf */; };
+		4C4781EC1725861A00C4F7C1 /* neatspeech_us1_COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781BE1725861A00C4F7C1 /* neatspeech_us1_COPYING */; };
+		4C4781ED1725861A00C4F7C1 /* neatspeech_us1_dur.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781BF1725861A00C4F7C1 /* neatspeech_us1_dur.pdf */; };
+		4C4781EE1725861A00C4F7C1 /* neatspeech_us1_gv-lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C01725861A00C4F7C1 /* neatspeech_us1_gv-lf0.pdf */; };
+		4C4781EF1725861A00C4F7C1 /* neatspeech_us1_gv-mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C11725861A00C4F7C1 /* neatspeech_us1_gv-mgc.pdf */; };
+		4C4781F01725861A00C4F7C1 /* neatspeech_us1_gv-switch.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C21725861A00C4F7C1 /* neatspeech_us1_gv-switch.inf */; };
+		4C4781F11725861A00C4F7C1 /* neatspeech_us1_INSTALL in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C31725861A00C4F7C1 /* neatspeech_us1_INSTALL */; };
+		4C4781F21725861A00C4F7C1 /* neatspeech_us1_lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C41725861A00C4F7C1 /* neatspeech_us1_lf0.pdf */; };
+		4C4781F31725861A00C4F7C1 /* neatspeech_us1_lf0.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C51725861A00C4F7C1 /* neatspeech_us1_lf0.win1 */; };
+		4C4781F41725861A00C4F7C1 /* neatspeech_us1_lf0.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C61725861A00C4F7C1 /* neatspeech_us1_lf0.win2 */; };
+		4C4781F51725861A00C4F7C1 /* neatspeech_us1_lf0.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C71725861A00C4F7C1 /* neatspeech_us1_lf0.win3 */; };
+		4C4781F61725861A00C4F7C1 /* neatspeech_us1_lpf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C81725861A00C4F7C1 /* neatspeech_us1_lpf.pdf */; };
+		4C4781F71725861A00C4F7C1 /* neatspeech_us1_lpf.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781C91725861A00C4F7C1 /* neatspeech_us1_lpf.win1 */; };
+		4C4781F81725861A00C4F7C1 /* neatspeech_us1_mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CA1725861A00C4F7C1 /* neatspeech_us1_mgc.pdf */; };
+		4C4781F91725861A00C4F7C1 /* neatspeech_us1_mgc.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CB1725861A00C4F7C1 /* neatspeech_us1_mgc.win1 */; };
+		4C4781FA1725861A00C4F7C1 /* neatspeech_us1_mgc.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CC1725861A00C4F7C1 /* neatspeech_us1_mgc.win2 */; };
+		4C4781FB1725861A00C4F7C1 /* neatspeech_us1_mgc.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CD1725861A00C4F7C1 /* neatspeech_us1_mgc.win3 */; };
+		4C4781FC1725861A00C4F7C1 /* neatspeech_us1_README in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CE1725861A00C4F7C1 /* neatspeech_us1_README */; };
+		4C4781FD1725861A00C4F7C1 /* neatspeech_us1_tree-dur.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781CF1725861A00C4F7C1 /* neatspeech_us1_tree-dur.inf */; };
+		4C4781FE1725861A00C4F7C1 /* neatspeech_us1_tree-gv-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781D01725861A00C4F7C1 /* neatspeech_us1_tree-gv-lf0.inf */; };
+		4C4781FF1725861A00C4F7C1 /* neatspeech_us1_tree-gv-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781D11725861A00C4F7C1 /* neatspeech_us1_tree-gv-mgc.inf */; };
+		4C4782001725861A00C4F7C1 /* neatspeech_us1_tree-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781D21725861A00C4F7C1 /* neatspeech_us1_tree-lf0.inf */; };
+		4C4782011725861A00C4F7C1 /* neatspeech_us1_tree-lpf.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781D31725861A00C4F7C1 /* neatspeech_us1_tree-lpf.inf */; };
+		4C4782021725861A00C4F7C1 /* neatspeech_us1_tree-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4781D41725861A00C4F7C1 /* neatspeech_us1_tree-mgc.inf */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
@@ -144,6 +191,53 @@
 		4C47818E17219FC100C4F7C1 /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
 		4C47818F17219FC100C4F7C1 /* OpenEarsCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEarsCorpus.txt; sourceTree = "<group>"; };
 		4C47819017219FC100C4F7C1 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		4C4781A01725860400C4F7C1 /* NeatSpeechDemo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NeatSpeechDemo.framework; sourceTree = "<group>"; };
+		4C4781A41725861A00C4F7C1 /* Beatrice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Beatrice.framework; sourceTree = "<group>"; };
+		4C4781A51725861A00C4F7C1 /* Elliott.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Elliott.framework; sourceTree = "<group>"; };
+		4C4781A61725861A00C4F7C1 /* Emma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Emma.framework; sourceTree = "<group>"; };
+		4C4781A71725861A00C4F7C1 /* William.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = William.framework; sourceTree = "<group>"; };
+		4C4781AA1725861A00C4F7C1 /* neatspeech_uk1_COPYRIGHT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_COPYRIGHT; sourceTree = "<group>"; };
+		4C4781AB1725861A00C4F7C1 /* neatspeech_uk1_dur.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_dur.pdf; sourceTree = "<group>"; };
+		4C4781AC1725861A00C4F7C1 /* neatspeech_uk1_gv-lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_uk1_gv-lf0.pdf"; sourceTree = "<group>"; };
+		4C4781AD1725861A00C4F7C1 /* neatspeech_uk1_gv-mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_uk1_gv-mgc.pdf"; sourceTree = "<group>"; };
+		4C4781AE1725861A00C4F7C1 /* neatspeech_uk1_gv-switch.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_gv-switch.inf"; sourceTree = "<group>"; };
+		4C4781AF1725861A00C4F7C1 /* neatspeech_uk1_lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_lf0.pdf; sourceTree = "<group>"; };
+		4C4781B01725861A00C4F7C1 /* neatspeech_uk1_lf0.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win1; sourceTree = "<group>"; };
+		4C4781B11725861A00C4F7C1 /* neatspeech_uk1_lf0.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win2; sourceTree = "<group>"; };
+		4C4781B21725861A00C4F7C1 /* neatspeech_uk1_lf0.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win3; sourceTree = "<group>"; };
+		4C4781B31725861A00C4F7C1 /* neatspeech_uk1_mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_mgc.pdf; sourceTree = "<group>"; };
+		4C4781B41725861A00C4F7C1 /* neatspeech_uk1_mgc.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win1; sourceTree = "<group>"; };
+		4C4781B51725861A00C4F7C1 /* neatspeech_uk1_mgc.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win2; sourceTree = "<group>"; };
+		4C4781B61725861A00C4F7C1 /* neatspeech_uk1_mgc.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win3; sourceTree = "<group>"; };
+		4C4781B71725861A00C4F7C1 /* neatspeech_uk1_README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_README; sourceTree = "<group>"; };
+		4C4781B81725861A00C4F7C1 /* neatspeech_uk1_tree-dur.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-dur.inf"; sourceTree = "<group>"; };
+		4C4781B91725861A00C4F7C1 /* neatspeech_uk1_tree-gv-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-gv-lf0.inf"; sourceTree = "<group>"; };
+		4C4781BA1725861A00C4F7C1 /* neatspeech_uk1_tree-gv-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-gv-mgc.inf"; sourceTree = "<group>"; };
+		4C4781BB1725861A00C4F7C1 /* neatspeech_uk1_tree-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-lf0.inf"; sourceTree = "<group>"; };
+		4C4781BC1725861A00C4F7C1 /* neatspeech_uk1_tree-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-mgc.inf"; sourceTree = "<group>"; };
+		4C4781BE1725861A00C4F7C1 /* neatspeech_us1_COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_COPYING; sourceTree = "<group>"; };
+		4C4781BF1725861A00C4F7C1 /* neatspeech_us1_dur.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_dur.pdf; sourceTree = "<group>"; };
+		4C4781C01725861A00C4F7C1 /* neatspeech_us1_gv-lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_us1_gv-lf0.pdf"; sourceTree = "<group>"; };
+		4C4781C11725861A00C4F7C1 /* neatspeech_us1_gv-mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_us1_gv-mgc.pdf"; sourceTree = "<group>"; };
+		4C4781C21725861A00C4F7C1 /* neatspeech_us1_gv-switch.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_gv-switch.inf"; sourceTree = "<group>"; };
+		4C4781C31725861A00C4F7C1 /* neatspeech_us1_INSTALL */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_INSTALL; sourceTree = "<group>"; };
+		4C4781C41725861A00C4F7C1 /* neatspeech_us1_lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_lf0.pdf; sourceTree = "<group>"; };
+		4C4781C51725861A00C4F7C1 /* neatspeech_us1_lf0.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win1; sourceTree = "<group>"; };
+		4C4781C61725861A00C4F7C1 /* neatspeech_us1_lf0.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win2; sourceTree = "<group>"; };
+		4C4781C71725861A00C4F7C1 /* neatspeech_us1_lf0.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win3; sourceTree = "<group>"; };
+		4C4781C81725861A00C4F7C1 /* neatspeech_us1_lpf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_lpf.pdf; sourceTree = "<group>"; };
+		4C4781C91725861A00C4F7C1 /* neatspeech_us1_lpf.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lpf.win1; sourceTree = "<group>"; };
+		4C4781CA1725861A00C4F7C1 /* neatspeech_us1_mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_mgc.pdf; sourceTree = "<group>"; };
+		4C4781CB1725861A00C4F7C1 /* neatspeech_us1_mgc.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win1; sourceTree = "<group>"; };
+		4C4781CC1725861A00C4F7C1 /* neatspeech_us1_mgc.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win2; sourceTree = "<group>"; };
+		4C4781CD1725861A00C4F7C1 /* neatspeech_us1_mgc.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win3; sourceTree = "<group>"; };
+		4C4781CE1725861A00C4F7C1 /* neatspeech_us1_README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_README; sourceTree = "<group>"; };
+		4C4781CF1725861A00C4F7C1 /* neatspeech_us1_tree-dur.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-dur.inf"; sourceTree = "<group>"; };
+		4C4781D01725861A00C4F7C1 /* neatspeech_us1_tree-gv-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-gv-lf0.inf"; sourceTree = "<group>"; };
+		4C4781D11725861A00C4F7C1 /* neatspeech_us1_tree-gv-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-gv-mgc.inf"; sourceTree = "<group>"; };
+		4C4781D21725861A00C4F7C1 /* neatspeech_us1_tree-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-lf0.inf"; sourceTree = "<group>"; };
+		4C4781D31725861A00C4F7C1 /* neatspeech_us1_tree-lpf.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-lpf.inf"; sourceTree = "<group>"; };
+		4C4781D41725861A00C4F7C1 /* neatspeech_us1_tree-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-mgc.inf"; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4C508A7A16FB60430029FEB3 /* HightBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HightBar.png; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
@@ -232,6 +326,11 @@
 				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
 				4C47819917219FC100C4F7C1 /* OpenEars.framework in Frameworks */,
 				4C47819F17219FC100C4F7C1 /* Slt.framework in Frameworks */,
+				4C4781A11725860400C4F7C1 /* NeatSpeechDemo.framework in Frameworks */,
+				4C4781D51725861A00C4F7C1 /* Beatrice.framework in Frameworks */,
+				4C4781D61725861A00C4F7C1 /* Elliott.framework in Frameworks */,
+				4C4781D71725861A00C4F7C1 /* Emma.framework in Frameworks */,
+				4C4781D81725861A00C4F7C1 /* William.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +375,91 @@
 				4C47818917219FC100C4F7C1 /* variances */,
 			);
 			path = hub4wsj_sc_8k;
+			sourceTree = "<group>";
+		};
+		4C4781A21725861A00C4F7C1 /* Voices */ = {
+			isa = PBXGroup;
+			children = (
+				4C4781A31725861A00C4F7C1 /* Demo */,
+				4C4781A81725861A00C4F7C1 /* VoiceData */,
+			);
+			path = Voices;
+			sourceTree = "<group>";
+		};
+		4C4781A31725861A00C4F7C1 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4C4781A41725861A00C4F7C1 /* Beatrice.framework */,
+				4C4781A51725861A00C4F7C1 /* Elliott.framework */,
+				4C4781A61725861A00C4F7C1 /* Emma.framework */,
+				4C4781A71725861A00C4F7C1 /* William.framework */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		4C4781A81725861A00C4F7C1 /* VoiceData */ = {
+			isa = PBXGroup;
+			children = (
+				4C4781A91725861A00C4F7C1 /* NeatSpeechUKDataset1 */,
+				4C4781BD1725861A00C4F7C1 /* NeatSpeechUSDataset1 */,
+			);
+			path = VoiceData;
+			sourceTree = "<group>";
+		};
+		4C4781A91725861A00C4F7C1 /* NeatSpeechUKDataset1 */ = {
+			isa = PBXGroup;
+			children = (
+				4C4781AA1725861A00C4F7C1 /* neatspeech_uk1_COPYRIGHT */,
+				4C4781AB1725861A00C4F7C1 /* neatspeech_uk1_dur.pdf */,
+				4C4781AC1725861A00C4F7C1 /* neatspeech_uk1_gv-lf0.pdf */,
+				4C4781AD1725861A00C4F7C1 /* neatspeech_uk1_gv-mgc.pdf */,
+				4C4781AE1725861A00C4F7C1 /* neatspeech_uk1_gv-switch.inf */,
+				4C4781AF1725861A00C4F7C1 /* neatspeech_uk1_lf0.pdf */,
+				4C4781B01725861A00C4F7C1 /* neatspeech_uk1_lf0.win1 */,
+				4C4781B11725861A00C4F7C1 /* neatspeech_uk1_lf0.win2 */,
+				4C4781B21725861A00C4F7C1 /* neatspeech_uk1_lf0.win3 */,
+				4C4781B31725861A00C4F7C1 /* neatspeech_uk1_mgc.pdf */,
+				4C4781B41725861A00C4F7C1 /* neatspeech_uk1_mgc.win1 */,
+				4C4781B51725861A00C4F7C1 /* neatspeech_uk1_mgc.win2 */,
+				4C4781B61725861A00C4F7C1 /* neatspeech_uk1_mgc.win3 */,
+				4C4781B71725861A00C4F7C1 /* neatspeech_uk1_README */,
+				4C4781B81725861A00C4F7C1 /* neatspeech_uk1_tree-dur.inf */,
+				4C4781B91725861A00C4F7C1 /* neatspeech_uk1_tree-gv-lf0.inf */,
+				4C4781BA1725861A00C4F7C1 /* neatspeech_uk1_tree-gv-mgc.inf */,
+				4C4781BB1725861A00C4F7C1 /* neatspeech_uk1_tree-lf0.inf */,
+				4C4781BC1725861A00C4F7C1 /* neatspeech_uk1_tree-mgc.inf */,
+			);
+			path = NeatSpeechUKDataset1;
+			sourceTree = "<group>";
+		};
+		4C4781BD1725861A00C4F7C1 /* NeatSpeechUSDataset1 */ = {
+			isa = PBXGroup;
+			children = (
+				4C4781BE1725861A00C4F7C1 /* neatspeech_us1_COPYING */,
+				4C4781BF1725861A00C4F7C1 /* neatspeech_us1_dur.pdf */,
+				4C4781C01725861A00C4F7C1 /* neatspeech_us1_gv-lf0.pdf */,
+				4C4781C11725861A00C4F7C1 /* neatspeech_us1_gv-mgc.pdf */,
+				4C4781C21725861A00C4F7C1 /* neatspeech_us1_gv-switch.inf */,
+				4C4781C31725861A00C4F7C1 /* neatspeech_us1_INSTALL */,
+				4C4781C41725861A00C4F7C1 /* neatspeech_us1_lf0.pdf */,
+				4C4781C51725861A00C4F7C1 /* neatspeech_us1_lf0.win1 */,
+				4C4781C61725861A00C4F7C1 /* neatspeech_us1_lf0.win2 */,
+				4C4781C71725861A00C4F7C1 /* neatspeech_us1_lf0.win3 */,
+				4C4781C81725861A00C4F7C1 /* neatspeech_us1_lpf.pdf */,
+				4C4781C91725861A00C4F7C1 /* neatspeech_us1_lpf.win1 */,
+				4C4781CA1725861A00C4F7C1 /* neatspeech_us1_mgc.pdf */,
+				4C4781CB1725861A00C4F7C1 /* neatspeech_us1_mgc.win1 */,
+				4C4781CC1725861A00C4F7C1 /* neatspeech_us1_mgc.win2 */,
+				4C4781CD1725861A00C4F7C1 /* neatspeech_us1_mgc.win3 */,
+				4C4781CE1725861A00C4F7C1 /* neatspeech_us1_README */,
+				4C4781CF1725861A00C4F7C1 /* neatspeech_us1_tree-dur.inf */,
+				4C4781D01725861A00C4F7C1 /* neatspeech_us1_tree-gv-lf0.inf */,
+				4C4781D11725861A00C4F7C1 /* neatspeech_us1_tree-gv-mgc.inf */,
+				4C4781D21725861A00C4F7C1 /* neatspeech_us1_tree-lf0.inf */,
+				4C4781D31725861A00C4F7C1 /* neatspeech_us1_tree-lpf.inf */,
+				4C4781D41725861A00C4F7C1 /* neatspeech_us1_tree-mgc.inf */,
+			);
+			path = NeatSpeechUSDataset1;
 			sourceTree = "<group>";
 		};
 		4C48079016C01CAF001E3EF1 /* Models */ = {
@@ -389,6 +573,8 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C4781A01725860400C4F7C1 /* NeatSpeechDemo.framework */,
+				4C4781A21725861A00C4F7C1 /* Voices */,
 				4C47818017219FC100C4F7C1 /* Framework */,
 				4C4FEB3216C446A500434F60 /* AVFoundation.framework */,
 				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
@@ -602,6 +788,48 @@
 				4C47819C17219FC100C4F7C1 /* OpenEars1.languagemodel in Resources */,
 				4C47819D17219FC100C4F7C1 /* OpenEars2.gram in Resources */,
 				4C47819E17219FC100C4F7C1 /* OpenEarsCorpus.txt in Resources */,
+				4C4781D91725861A00C4F7C1 /* neatspeech_uk1_COPYRIGHT in Resources */,
+				4C4781DA1725861A00C4F7C1 /* neatspeech_uk1_dur.pdf in Resources */,
+				4C4781DB1725861A00C4F7C1 /* neatspeech_uk1_gv-lf0.pdf in Resources */,
+				4C4781DC1725861A00C4F7C1 /* neatspeech_uk1_gv-mgc.pdf in Resources */,
+				4C4781DD1725861A00C4F7C1 /* neatspeech_uk1_gv-switch.inf in Resources */,
+				4C4781DE1725861A00C4F7C1 /* neatspeech_uk1_lf0.pdf in Resources */,
+				4C4781DF1725861A00C4F7C1 /* neatspeech_uk1_lf0.win1 in Resources */,
+				4C4781E01725861A00C4F7C1 /* neatspeech_uk1_lf0.win2 in Resources */,
+				4C4781E11725861A00C4F7C1 /* neatspeech_uk1_lf0.win3 in Resources */,
+				4C4781E21725861A00C4F7C1 /* neatspeech_uk1_mgc.pdf in Resources */,
+				4C4781E31725861A00C4F7C1 /* neatspeech_uk1_mgc.win1 in Resources */,
+				4C4781E41725861A00C4F7C1 /* neatspeech_uk1_mgc.win2 in Resources */,
+				4C4781E51725861A00C4F7C1 /* neatspeech_uk1_mgc.win3 in Resources */,
+				4C4781E61725861A00C4F7C1 /* neatspeech_uk1_README in Resources */,
+				4C4781E71725861A00C4F7C1 /* neatspeech_uk1_tree-dur.inf in Resources */,
+				4C4781E81725861A00C4F7C1 /* neatspeech_uk1_tree-gv-lf0.inf in Resources */,
+				4C4781E91725861A00C4F7C1 /* neatspeech_uk1_tree-gv-mgc.inf in Resources */,
+				4C4781EA1725861A00C4F7C1 /* neatspeech_uk1_tree-lf0.inf in Resources */,
+				4C4781EB1725861A00C4F7C1 /* neatspeech_uk1_tree-mgc.inf in Resources */,
+				4C4781EC1725861A00C4F7C1 /* neatspeech_us1_COPYING in Resources */,
+				4C4781ED1725861A00C4F7C1 /* neatspeech_us1_dur.pdf in Resources */,
+				4C4781EE1725861A00C4F7C1 /* neatspeech_us1_gv-lf0.pdf in Resources */,
+				4C4781EF1725861A00C4F7C1 /* neatspeech_us1_gv-mgc.pdf in Resources */,
+				4C4781F01725861A00C4F7C1 /* neatspeech_us1_gv-switch.inf in Resources */,
+				4C4781F11725861A00C4F7C1 /* neatspeech_us1_INSTALL in Resources */,
+				4C4781F21725861A00C4F7C1 /* neatspeech_us1_lf0.pdf in Resources */,
+				4C4781F31725861A00C4F7C1 /* neatspeech_us1_lf0.win1 in Resources */,
+				4C4781F41725861A00C4F7C1 /* neatspeech_us1_lf0.win2 in Resources */,
+				4C4781F51725861A00C4F7C1 /* neatspeech_us1_lf0.win3 in Resources */,
+				4C4781F61725861A00C4F7C1 /* neatspeech_us1_lpf.pdf in Resources */,
+				4C4781F71725861A00C4F7C1 /* neatspeech_us1_lpf.win1 in Resources */,
+				4C4781F81725861A00C4F7C1 /* neatspeech_us1_mgc.pdf in Resources */,
+				4C4781F91725861A00C4F7C1 /* neatspeech_us1_mgc.win1 in Resources */,
+				4C4781FA1725861A00C4F7C1 /* neatspeech_us1_mgc.win2 in Resources */,
+				4C4781FB1725861A00C4F7C1 /* neatspeech_us1_mgc.win3 in Resources */,
+				4C4781FC1725861A00C4F7C1 /* neatspeech_us1_README in Resources */,
+				4C4781FD1725861A00C4F7C1 /* neatspeech_us1_tree-dur.inf in Resources */,
+				4C4781FE1725861A00C4F7C1 /* neatspeech_us1_tree-gv-lf0.inf in Resources */,
+				4C4781FF1725861A00C4F7C1 /* neatspeech_us1_tree-gv-mgc.inf in Resources */,
+				4C4782001725861A00C4F7C1 /* neatspeech_us1_tree-lf0.inf in Resources */,
+				4C4782011725861A00C4F7C1 /* neatspeech_us1_tree-lpf.inf in Resources */,
+				4C4782021725861A00C4F7C1 /* neatspeech_us1_tree-mgc.inf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,11 +1003,13 @@
 					"\"$(SRCROOT)/Framework\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/OpenEarsFramework\"",
+					"\"$(SRCROOT)/Voices/Demo\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -794,11 +1024,13 @@
 					"\"$(SRCROOT)/Framework\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/OpenEarsFramework\"",
+					"\"$(SRCROOT)/Voices/Demo\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
