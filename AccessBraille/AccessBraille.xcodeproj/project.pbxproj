@@ -24,6 +24,22 @@
 		4C3C91AE16CE91DC00954A54 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91AD16CE91DC00954A54 /* Default-Landscape~ipad.png */; };
 		4C3C91B016CE962500954A54 /* mainMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C91AF16CE962500954A54 /* mainMenu@2x.png */; };
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
+		4C47815F17219E9400C4F7C1 /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C47815E17219E9400C4F7C1 /* ABSpeak.m */; };
+		4C47819117219FC100C4F7C1 /* cmu07a.dic in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818117219FC100C4F7C1 /* cmu07a.dic */; };
+		4C47819217219FC100C4F7C1 /* feat.params in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818317219FC100C4F7C1 /* feat.params */; };
+		4C47819317219FC100C4F7C1 /* mdef in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818417219FC100C4F7C1 /* mdef */; };
+		4C47819417219FC100C4F7C1 /* means in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818517219FC100C4F7C1 /* means */; };
+		4C47819517219FC100C4F7C1 /* noisedict in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818617219FC100C4F7C1 /* noisedict */; };
+		4C47819617219FC100C4F7C1 /* sendump in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818717219FC100C4F7C1 /* sendump */; };
+		4C47819717219FC100C4F7C1 /* transition_matrices in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818817219FC100C4F7C1 /* transition_matrices */; };
+		4C47819817219FC100C4F7C1 /* variances in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818917219FC100C4F7C1 /* variances */; };
+		4C47819917219FC100C4F7C1 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C47818A17219FC100C4F7C1 /* OpenEars.framework */; };
+		4C47819A17219FC100C4F7C1 /* OpenEars1.dic in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818B17219FC100C4F7C1 /* OpenEars1.dic */; };
+		4C47819B17219FC100C4F7C1 /* OpenEars1.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818C17219FC100C4F7C1 /* OpenEars1.gram */; };
+		4C47819C17219FC100C4F7C1 /* OpenEars1.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818D17219FC100C4F7C1 /* OpenEars1.languagemodel */; };
+		4C47819D17219FC100C4F7C1 /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818E17219FC100C4F7C1 /* OpenEars2.gram */; };
+		4C47819E17219FC100C4F7C1 /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C47818F17219FC100C4F7C1 /* OpenEarsCorpus.txt */; };
+		4C47819F17219FC100C4F7C1 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C47819017219FC100C4F7C1 /* Slt.framework */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
@@ -111,6 +127,23 @@
 		4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuNavigation.h; sourceTree = "<group>"; };
 		4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuNavigation.m; sourceTree = "<group>"; };
 		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
+		4C47815D17219E9400C4F7C1 /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
+		4C47815E17219E9400C4F7C1 /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
+		4C47818117219FC100C4F7C1 /* cmu07a.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmu07a.dic; sourceTree = "<group>"; };
+		4C47818317219FC100C4F7C1 /* feat.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feat.params; sourceTree = "<group>"; };
+		4C47818417219FC100C4F7C1 /* mdef */ = {isa = PBXFileReference; lastKnownFileType = file; path = mdef; sourceTree = "<group>"; };
+		4C47818517219FC100C4F7C1 /* means */ = {isa = PBXFileReference; lastKnownFileType = file; path = means; sourceTree = "<group>"; };
+		4C47818617219FC100C4F7C1 /* noisedict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = noisedict; sourceTree = "<group>"; };
+		4C47818717219FC100C4F7C1 /* sendump */ = {isa = PBXFileReference; lastKnownFileType = file; path = sendump; sourceTree = "<group>"; };
+		4C47818817219FC100C4F7C1 /* transition_matrices */ = {isa = PBXFileReference; lastKnownFileType = file; path = transition_matrices; sourceTree = "<group>"; };
+		4C47818917219FC100C4F7C1 /* variances */ = {isa = PBXFileReference; lastKnownFileType = file; path = variances; sourceTree = "<group>"; };
+		4C47818A17219FC100C4F7C1 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		4C47818B17219FC100C4F7C1 /* OpenEars1.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.dic; sourceTree = "<group>"; };
+		4C47818C17219FC100C4F7C1 /* OpenEars1.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.gram; sourceTree = "<group>"; };
+		4C47818D17219FC100C4F7C1 /* OpenEars1.languagemodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars1.languagemodel; sourceTree = "<group>"; };
+		4C47818E17219FC100C4F7C1 /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
+		4C47818F17219FC100C4F7C1 /* OpenEarsCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEarsCorpus.txt; sourceTree = "<group>"; };
+		4C47819017219FC100C4F7C1 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4C508A7A16FB60430029FEB3 /* HightBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HightBar.png; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
@@ -197,6 +230,8 @@
 				A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */,
 				A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */,
 				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
+				4C47819917219FC100C4F7C1 /* OpenEars.framework in Frameworks */,
+				4C47819F17219FC100C4F7C1 /* Slt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +248,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C47818017219FC100C4F7C1 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				4C47818117219FC100C4F7C1 /* cmu07a.dic */,
+				4C47818217219FC100C4F7C1 /* hub4wsj_sc_8k */,
+				4C47818A17219FC100C4F7C1 /* OpenEars.framework */,
+				4C47818B17219FC100C4F7C1 /* OpenEars1.dic */,
+				4C47818C17219FC100C4F7C1 /* OpenEars1.gram */,
+				4C47818D17219FC100C4F7C1 /* OpenEars1.languagemodel */,
+				4C47818E17219FC100C4F7C1 /* OpenEars2.gram */,
+				4C47818F17219FC100C4F7C1 /* OpenEarsCorpus.txt */,
+				4C47819017219FC100C4F7C1 /* Slt.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		4C47818217219FC100C4F7C1 /* hub4wsj_sc_8k */ = {
+			isa = PBXGroup;
+			children = (
+				4C47818317219FC100C4F7C1 /* feat.params */,
+				4C47818417219FC100C4F7C1 /* mdef */,
+				4C47818517219FC100C4F7C1 /* means */,
+				4C47818617219FC100C4F7C1 /* noisedict */,
+				4C47818717219FC100C4F7C1 /* sendump */,
+				4C47818817219FC100C4F7C1 /* transition_matrices */,
+				4C47818917219FC100C4F7C1 /* variances */,
+			);
+			path = hub4wsj_sc_8k;
+			sourceTree = "<group>";
+		};
 		4C48079016C01CAF001E3EF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +307,8 @@
 				4C8E8F371718529C0014F330 /* ABParser.m */,
 				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
 				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
+				4C47815D17219E9400C4F7C1 /* ABSpeak.h */,
+				4C47815E17219E9400C4F7C1 /* ABSpeak.m */,
 			);
 			name = "AccessBraille Framework";
 			sourceTree = "<group>";
@@ -322,6 +389,7 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C47818017219FC100C4F7C1 /* Framework */,
 				4C4FEB3216C446A500434F60 /* AVFoundation.framework */,
 				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
 				A99671BE16810EFA00AAA322 /* AudioToolbox.framework */,
@@ -521,6 +589,19 @@
 				4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */,
 				4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */,
 				4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */,
+				4C47819117219FC100C4F7C1 /* cmu07a.dic in Resources */,
+				4C47819217219FC100C4F7C1 /* feat.params in Resources */,
+				4C47819317219FC100C4F7C1 /* mdef in Resources */,
+				4C47819417219FC100C4F7C1 /* means in Resources */,
+				4C47819517219FC100C4F7C1 /* noisedict in Resources */,
+				4C47819617219FC100C4F7C1 /* sendump in Resources */,
+				4C47819717219FC100C4F7C1 /* transition_matrices in Resources */,
+				4C47819817219FC100C4F7C1 /* variances in Resources */,
+				4C47819A17219FC100C4F7C1 /* OpenEars1.dic in Resources */,
+				4C47819B17219FC100C4F7C1 /* OpenEars1.gram in Resources */,
+				4C47819C17219FC100C4F7C1 /* OpenEars1.languagemodel in Resources */,
+				4C47819D17219FC100C4F7C1 /* OpenEars2.gram in Resources */,
+				4C47819E17219FC100C4F7C1 /* OpenEarsCorpus.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +662,7 @@
 				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
 				4C8E8F381718529C0014F330 /* ABParser.m in Sources */,
+				4C47815F17219E9400C4F7C1 /* ABSpeak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +773,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/OpenEarsFramework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
@@ -708,6 +792,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/OpenEarsFramework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
