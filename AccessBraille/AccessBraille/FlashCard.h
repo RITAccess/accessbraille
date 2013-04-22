@@ -21,8 +21,11 @@ NSString *const welcomeText = @"Welcome to Flash Card mode! Tap to the left of t
 - (IBAction)displayInstructionsFromButtonClick:(id)sender;
 - (IBAction)displaySettingsFromButtonClick:(id)sender;
 - (IBAction)enterCardModeFromButtonClick:(id)sender;
+- (IBAction)displayNextCardFromButtonClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *instructionsButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextCardButton;
+
 
 @end

@@ -40,6 +40,11 @@
     [[self view] addSubview:infoText];
     
     labelFromInput = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
+    [labelFromInput setBackgroundColor:[UIColor clearColor]];
+    labelFromInput.numberOfLines = 0;
+    labelFromInput.lineBreakMode = NSLineBreakByWordWrapping;
+    [labelFromInput setFont:[UIFont fontWithName:@"System" size:40.0]];
+    
     [[self view] addSubview:labelFromInput];
     
     // Reading in the plist.
@@ -52,6 +57,8 @@
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
     stringFromInput = [[NSMutableString alloc] init];
+    
+//    self.nextCardButton.hidden = true;
 }
 
 
@@ -71,6 +78,12 @@
     self.settingsButton.hidden = true;
     self.playButton.hidden = true;
     [self enterCardMode];
+    self.nextCardButton.hidden = false;
+}
+
+- (IBAction)displayNextCardFromButtonClick:(id)sender {
+    NSLog(@"Pressing");
+    [self changeCard:arc4random() % 100];
 }
 
 
@@ -78,16 +91,25 @@
 #pragma mark - Card Mode
 
 -(void)enterCardMode{
+    
+    int randomCardIndex = arc4random() % 500;
+    
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [labelFromInput setText:cards[0]]; // Display the word.
-    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
-   [letterTimer fire];
+    [labelFromInput setText:cards[randomCardIndex]]; // Display the word.
+//    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
+//   [letterTimer fire];
+}
+
+-(void)changeCard: (int) newRandomCardIndex{
+    [labelFromInput setText:cards[newRandomCardIndex]];
+    NSLog(@"changing!");
 }
 
 /**
  * Speak character being typed, as well as appending it to the label.
  */
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
+- (void)characterTyped:(NSString *)character withInfo:(NSArray *)info {
+    NSLog(@"%@", character);
     [stringFromInput appendFormat:@"%@", character];
     [labelFromInput setText:stringFromInput];
 }
@@ -110,6 +132,8 @@
     [self setInstructionsButton:nil];
     [self setSettingsButton:nil];
     [self setPlayButton:nil];
+    [self setNextCardButton:nil];
     [super viewDidUnload];
 }
+
 @end
