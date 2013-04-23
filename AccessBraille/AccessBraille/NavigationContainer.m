@@ -8,14 +8,13 @@
 
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
-#import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
 #import "newViewControllerTemplate.h"
 #import <Twitter/Twitter.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "SidebarViewController.h"
 
 @implementation NavigationContainer {
-    NavigationView *nav;
     
     UITapGestureRecognizer *tapToCloseMenu;
     UIBezelGestureRecognizer *leftSideSwipe;
@@ -37,25 +36,11 @@
     /**
         Will load the navigation views into the controller's view
      */
+    SidebarViewController *nav = [[SidebarViewController alloc] init];
     
-    nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
-    [self.view addSubview:nav];
     
-    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenu:)];
-    [tapToCloseMenu setNumberOfTapsRequired:1];
-    [tapToCloseMenu setEnabled:NO];
-    menuTrav = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMenu:)];
-    [menuTrav setMinimumNumberOfTouches:1];
-    [menuTrav setMaximumNumberOfTouches:1];
-    [menuTrav setEnabled:NO];
-    
-    [self.view addGestureRecognizer:leftSideSwipe];
-    [self.view addGestureRecognizer:tapToCloseMenu];
-    [self.view addGestureRecognizer:menuTrav];
-    
-    [nav setDelegate:self];
-    
+    [self.view addSubview:nav.view];
+    [self.view bringSubviewToFront:nav.view];
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -114,7 +99,7 @@
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-            [nav updateWithCGPoint:touch];
+//            [nav updateWithCGPoint:touch];
             AudioServicesPlaySystemSound(openNavSound);
             break;
             
@@ -141,10 +126,10 @@
     
     switch (reg.state){
         case UIGestureRecognizerStateChanged:
-            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
+//            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
             break;
         case UIGestureRecognizerStateBegan:
-            [nav setStartNavigation];
+//            [nav setStartNavigation];
             break;
         default:
             break;
@@ -157,12 +142,12 @@
 -(void)closeMenu:(UIGestureRecognizer *)reg {
     
     if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
-        [nav close];
+//        [nav close];
         [tapToCloseMenu setEnabled:NO];
         [menuTrav setEnabled:NO];
     }
     if ([reg locationOfTouch:0 inView:self.view].x > 100) {
-        [nav close];
+//        [nav close];
         [tapToCloseMenu setEnabled:NO];
         [menuTrav setEnabled:NO];
     }
