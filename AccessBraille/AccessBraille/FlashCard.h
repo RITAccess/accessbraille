@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ABKeyboard.h"
 
-NSString *const instructionsText = @"In Flash Card mode, users will type out words using the ABKeyboard to complete the word.\nThe word will be spoken to the user letter by letter.";
+NSString *const instructionsText = @"In Flash Card mode, users will type out words using the ABKeyboard to complete the word.The word will be spoken to the user letter by letter.";
 NSString *const settingsText = @"The user is able to adjust the settings later within the application.";
 NSString *const welcomeText = @"Welcome to Flash Card mode! Tap to the left of the screen to adjust settings, in the center to read the instructions, or to the right of the screen to start playing.";
 
@@ -21,11 +21,9 @@ NSString *const welcomeText = @"Welcome to Flash Card mode! Tap to the left of t
 - (IBAction)displayInstructionsFromButtonClick:(id)sender;
 - (IBAction)displaySettingsFromButtonClick:(id)sender;
 - (IBAction)enterCardModeFromButtonClick:(id)sender;
-- (IBAction)displayNextCardFromButtonClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *instructionsButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
-@property (weak, nonatomic) IBOutlet UIButton *nextCardButton;
-
+@property (weak, nonatomic) IBOutlet UILabel *screenTitle;
 
 @end

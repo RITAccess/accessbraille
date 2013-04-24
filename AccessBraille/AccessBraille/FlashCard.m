@@ -17,7 +17,8 @@
 
 @implementation FlashCard {
     NSTimer *letterTimer;
-    UILabel *labelFromInput;
+    UITextView *typedText;
+    UITextView *cardText;
     NSTimer *speechTimer;
     NSMutableArray *cards;
     NSArray *card;
@@ -35,17 +36,20 @@
 {
     [super viewDidLoad];
     
-    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 1000, 100)];
+    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 100)];
     [infoText setText:welcomeText];
+    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:20]];
     [[self view] addSubview:infoText];
     
-    labelFromInput = [[UILabel alloc]initWithFrame:CGRectMake(500, 100, 300, 300)];
-    [labelFromInput setBackgroundColor:[UIColor clearColor]];
-    labelFromInput.numberOfLines = 0;
-    labelFromInput.lineBreakMode = NSLineBreakByWordWrapping;
-    [labelFromInput setFont:[UIFont fontWithName:@"System" size:40.0]];
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 220, 150, 100)];
+    [typedText setBackgroundColor:[UIColor clearColor]];
+    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    [[self view] addSubview:typedText];
     
-    [[self view] addSubview:labelFromInput];
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 220, 150, 100)];
+    [cardText setBackgroundColor:[UIColor clearColor]];
+    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    [[self view] addSubview:cardText];
     
     // Reading in the plist.
     NSString *path = [[NSBundle mainBundle] bundlePath];
@@ -57,8 +61,6 @@
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
     stringFromInput = [[NSMutableString alloc] init];
-    
-//    self.nextCardButton.hidden = true;
 }
 
 
@@ -77,14 +79,10 @@
     self.instructionsButton.hidden = true;
     self.settingsButton.hidden = true;
     self.playButton.hidden = true;
+    self.screenTitle.hidden = true;
     [self enterCardMode];
-    self.nextCardButton.hidden = true;
 }
 
-- (IBAction)displayNextCardFromButtonClick:(id)sender {
-    NSLog(@"Pressing");
-    [self changeCard:arc4random() % 100];
-}
 
 
 
@@ -92,16 +90,13 @@
 
 -(void)enterCardMode{
     
-    int randomCardIndex = arc4random() % 500;
-    
+    int randomCardIndex = arc4random() % 2000;
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [labelFromInput setText:cards[randomCardIndex]]; // Display the word.
-//    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
-//   [letterTimer fire];
+    [cardText setText:cards[randomCardIndex]]; // Display the word.
 }
 
 -(void)changeCard: (int) newRandomCardIndex{
-    [labelFromInput setText:cards[newRandomCardIndex]];
+    [typedText setText:cards[newRandomCardIndex]];
     NSLog(@"changing!");
 }
 
@@ -111,7 +106,7 @@
 - (void)characterTyped:(NSString *)character withInfo:(NSArray *)info {
     NSLog(@"%@", character);
     [stringFromInput appendFormat:@"%@", character];
-    [labelFromInput setText:stringFromInput];
+    [typedText setText:stringFromInput];
 }
 
 
@@ -132,7 +127,7 @@
     [self setInstructionsButton:nil];
     [self setSettingsButton:nil];
     [self setPlayButton:nil];
-    [self setNextCardButton:nil];
+    [self setScreenTitle:nil];
     [super viewDidUnload];
 }
 
