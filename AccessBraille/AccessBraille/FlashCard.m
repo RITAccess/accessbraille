@@ -23,7 +23,7 @@
     NSArray *card;
     NSMutableString *stringFromInput;
     NSArray *letters;
-    UILabel *infoText;
+    UITextView *infoText;
     ABKeyboard *keyboard;
     ABParser *parser;
 }
@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     
-    infoText = [[UILabel alloc]initWithFrame:CGRectMake(50, 150, 1000, 100)];
+    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 1000, 100)];
     [infoText setText:welcomeText];
     [[self view] addSubview:infoText];
     
@@ -78,7 +78,7 @@
     self.settingsButton.hidden = true;
     self.playButton.hidden = true;
     [self enterCardMode];
-    self.nextCardButton.hidden = false;
+    self.nextCardButton.hidden = true;
 }
 
 - (IBAction)displayNextCardFromButtonClick:(id)sender {
