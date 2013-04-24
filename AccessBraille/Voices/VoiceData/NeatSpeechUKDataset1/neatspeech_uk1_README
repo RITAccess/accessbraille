@@ -1,0 +1,33 @@
+----------------------------------------------------------------------
+           CSTR UK English Female HTS Voice for Festival
+                version 1.0 RELEASE June 2012 
+
+                   The University of Edinburgh
+
+                      Copyright (c) 2012
+
+                       Junichi Yamagishi
+                      jyamagis@inf.ed.ac.uk
+
+----------------------------------------------------------------------
+                                 
+This directory contains a female UK English statistical speech synthesis voice
+(called 'HTS' voices) built for the Festival Speech Synthesis System,
+developed at CSTR, University of Edinburgh.
+
+COPYING 
+
+This UK English HTS voice is released under the New BSD license 
+(see http://www.opensource.org/). Using and distributing this
+software is free (without restriction including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of this work, and to permit persons to whom this
+work is furnished to do so) subject to simple three conditions. 
+See COPYRIGHT for details.
+
+Speech databases 
+
+This UK English HTS voice was created from a speech database developed
+and owned by Centre for Speech Technology Research, University of Edinburgh  
+
+

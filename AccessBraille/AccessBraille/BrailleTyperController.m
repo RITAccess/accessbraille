@@ -34,6 +34,7 @@
 @implementation BrailleTyperController {
     // Layout
     Enabled *enabled;
+    ABKeyboard *keyboard;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -51,11 +52,10 @@
     [self.view addSubview:enabled];
     
     // Add Keyboard
-    ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
@@ -96,6 +96,7 @@
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     if (![info[ABBackspaceReceived] boolValue]) {
         [_TextDrawing appendToText:character];
+        [keyboard startSpeakingString:character];
     } else {
         [_TextDrawing removeCharacter];
     }
@@ -103,6 +104,7 @@
 
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info {
     NSLog(@"Typed %@", word);
+    [keyboard startSpeakingString:word];
 }
 
 

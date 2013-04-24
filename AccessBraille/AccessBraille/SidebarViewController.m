@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.view setBounds:CGRectMake(0, 0, 50, 700)];
+        [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setBackgroundColor:[UIColor blueColor]];
     }
     return self;

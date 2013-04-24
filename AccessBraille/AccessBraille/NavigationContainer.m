@@ -16,6 +16,7 @@
 
 @implementation NavigationContainer {
     
+    SidebarViewController *nav;
     UITapGestureRecognizer *tapToCloseMenu;
     UIBezelGestureRecognizer *leftSideSwipe;
     UIPanGestureRecognizer *menuTrav;
@@ -33,10 +34,10 @@
 }
 
 -(void)loadNavIntoView {
-    /**
-        Will load the navigation views into the controller's view
-     */
-    SidebarViewController *nav = [[SidebarViewController alloc] init];
+
+    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    
+    nav = [[SidebarViewController alloc] init];
     
     
     [self.view addSubview:nav.view];
@@ -92,10 +93,7 @@
 # pragma mark - Navigation Logic
 
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-    
-    /**
-        Called by gesture framework and opens the navigation menu
-     */
+    NSLog(@"Test");
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
@@ -153,6 +151,9 @@
     }
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
 
 - (void)viewDidUnload {
     [super viewDidUnload];
