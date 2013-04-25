@@ -16,15 +16,20 @@
 @end
 
 @implementation FlashCard {
+    UITapGestureRecognizer *tapToDisplayInstructions;
+    UITapGestureRecognizer *tapToDisplaySettings;
+    UISwipeGestureRecognizer *swipeToEnterCardMode;
     NSTimer *letterTimer;
     UITextView *typedText;
     UITextView *cardText;
+    UITextView *pointsText;
     NSTimer *speechTimer;
     NSMutableArray *cards;
     NSArray *card;
     NSMutableString *stringFromInput;
     NSArray *letters;
     UITextView *infoText;
+    UITapGestureRecognizer *tap;
     ABKeyboard *keyboard;
     ABParser *parser;
 }
@@ -36,63 +41,88 @@
 {
     [super viewDidLoad];
     
-    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 100)];
-    [infoText setText:welcomeText];
-    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:20]];
-    [[self view] addSubview:infoText];
-    
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 220, 150, 100)];
-    [typedText setBackgroundColor:[UIColor clearColor]];
-    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
-    [[self view] addSubview:typedText];
-    
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 220, 150, 100)];
-    [cardText setBackgroundColor:[UIColor clearColor]];
-    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
-    [[self view] addSubview:cardText];
-    
     // Reading in the plist.
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+    
+    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
+    [infoText setText:welcomeText];
+    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    infoText.editable = NO;
+    [[self view] addSubview:infoText];
+    
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 150, 150, 100)];
+    [typedText setBackgroundColor:[UIColor clearColor]];
+    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
+    typedText.editable = NO;
+    [[self view] addSubview:typedText];
+    
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 150, 150, 100)];
+    [cardText setBackgroundColor:[UIColor clearColor]];
+    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
+    cardText.editable = NO;
+    cardText.allowsEditingTextAttributes = NO;
+    [[self view] addSubview:cardText];
+    
+    pointsText = [[UITextView alloc] initWithFrame:CGRectMake(900, 50, 100, 100)];
+    [pointsText setBackgroundColor:[UIColor clearColor]];
+    [pointsText setFont:[UIFont fontWithName:@"ArialMT" size:20]];
+    pointsText.textColor = [UIColor redColor];
+    [[self view] addSubview:pointsText];
+    
+    tapToDisplayInstructions = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displayInstructions:)];
+    [tapToDisplayInstructions setNumberOfTapsRequired:1];
+    [tapToDisplayInstructions setEnabled:YES];
+    [self.view addGestureRecognizer:tapToDisplayInstructions];
+    
+    tapToDisplaySettings = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displaySettings:)];
+    [tapToDisplaySettings setNumberOfTapsRequired:2];
+    [tapToDisplaySettings setEnabled:YES];
+    [self.view addGestureRecognizer:tapToDisplaySettings];
+    
+    swipeToEnterCardMode = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterCardMode:)];
+    [swipeToEnterCardMode setEnabled:YES];
+    [self.view addGestureRecognizer:swipeToEnterCardMode];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
     stringFromInput = [[NSMutableString alloc] init];
+    pointsText.hidden = true;
+}
+
+- (void)viewDidUnload {
+    [self setScreenTitle:nil];
+    [super viewDidUnload];
 }
 
 
-#pragma mark - Buttons
+#pragma mark - Gestures
 
-- (IBAction)displayInstructionsFromButtonClick:(id)sender {
-    [infoText setText:(settingsText)];
-}
-
-- (IBAction)displaySettingsFromButtonClick:(id)sender {
+-(void)displayInstructions:(UIGestureRecognizer *)gestureRecognizer{
     [infoText setText:(instructionsText)];
 }
 
-- (IBAction)enterCardModeFromButtonClick:(id)sender {
-    infoText.text = nil;
-    self.instructionsButton.hidden = true;
-    self.settingsButton.hidden = true;
-    self.playButton.hidden = true;
-    self.screenTitle.hidden = true;
-    [self enterCardMode];
+- (void)displaySettings:(UIGestureRecognizer *)gestureRecognizer{
+    [infoText setText:(settingsText)];
 }
 
-
+- (void)enterCardMode:(UIGestureRecognizer *)gestureRecognizer{
+    infoText.text = nil;
+    self.screenTitle.hidden = true;
+    pointsText.hidden = false;
+    [self enterCardMode];
+}
 
 
 #pragma mark - Card Mode
 
 -(void)enterCardMode{
-    
-    int randomCardIndex = arc4random() % 2000;
+    pointsText.text = @"0";
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [cardText setText:cards[randomCardIndex]]; // Display the word.
+    [cardText setText:cards[arc4random() % maxCards]]; // Display the word.
 }
 
 -(void)changeCard: (int) newRandomCardIndex{
@@ -100,11 +130,17 @@
     NSLog(@"changing!");
 }
 
+-(void)checkCard{
+    if (cardText.text == typedText.text) {
+        NSLog(@"Correct!");
+        [self changeCard:(arc4random() % maxCards)];  // Random card index
+    }
+}
+
 /**
  * Speak character being typed, as well as appending it to the label.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSArray *)info {
-    NSLog(@"%@", character);
     [stringFromInput appendFormat:@"%@", character];
     [typedText setText:stringFromInput];
 }
@@ -121,14 +157,6 @@
         NSLog(@"%@", letters[0]);
         [letterTimer fire];
     }
-}
-
-- (void)viewDidUnload {
-    [self setInstructionsButton:nil];
-    [self setSettingsButton:nil];
-    [self setPlayButton:nil];
-    [self setScreenTitle:nil];
-    [super viewDidUnload];
 }
 
 @end
