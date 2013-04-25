@@ -44,7 +44,7 @@
         [brailleReader setDelegate:_delegate];
         
         // Type interface setup
-        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)]; // Hight/Width switched
+        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
         [interface setBackgroundColor:[UIColor grayColor]];
         [interface setAlpha:0.4];
         [interface setDelegate:brailleReader];
@@ -82,7 +82,6 @@
     for (int i = 0; i < 6; i++){
         
         ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, [UIScreen mainScreen].bounds.size.height, 100, 800)];
-        [touch setBackgroundColor:[UIColor redColor]];
         [touch setTag:i];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:touch action:@selector(tapped:)];
         [touch addGestureRecognizer:tap];
