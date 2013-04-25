@@ -44,7 +44,7 @@
         [brailleReader setDelegate:_delegate];
         
         // Type interface setup
-        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)]; // Hight/Width switched
+        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
         [interface setBackgroundColor:[UIColor grayColor]];
         [interface setAlpha:0.4];
         [interface setDelegate:brailleReader];
@@ -81,15 +81,16 @@
     
     for (int i = 0; i < 6; i++){
         
-        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 100, vectors[i].end.y - 100, 100, 800)];
-        [touch setBackgroundColor:[UIColor redColor]];
+        ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, [UIScreen mainScreen].bounds.size.height, 100, 800)];
         [touch setTag:i];
-        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:touch action:@selector(tapped:)];
-        
         [touch addGestureRecognizer:tap];
-        
         [touch setDelegate:interface];
+        
+        [UIView animateWithDuration:.5 animations:^{
+            [touch setFrame:CGRectMake(vectors[i].end.x - 50, 0, 100, [UIScreen mainScreen].bounds.size.height)];
+        }];
+        
         
         [interface addSubview:touch];
     }
@@ -128,10 +129,20 @@
         case ABGestureDirectionDOWN:
             
             if (reg.translationFromStart > 150) {
-                [interface removeFromSuperview];
-                [interface resetView];
+                // Not quite working yet
+                [UIView animateWithDuration:1.5 animations:^{
+                    CGRect orig = interface.frame;
+                    orig.origin.y += [UIScreen mainScreen].bounds.size.height;
+                    [interface setFrame:orig];
+                } completion:^(BOOL finished) {
+                    [interface removeFromSuperview];
+                    [self playSound:ABDisableSound];
+                    [interface resetView];
+                    CGRect orig = interface.frame;
+                    orig.origin.y -= [UIScreen mainScreen].bounds.size.height;
+                    [interface setFrame:orig];
+                }];
                 _keyboardActive = NO;
-                [self playSound:ABDisableSound];
             }
             
             break;
