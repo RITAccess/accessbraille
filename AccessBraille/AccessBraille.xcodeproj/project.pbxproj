@@ -542,8 +542,6 @@
 				4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */,
 				4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */,
 				4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */,
-				4CF10644172829F20047B393 /* SidebarViewController.h */,
-				4CF10645172829F20047B393 /* SidebarViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -657,6 +655,8 @@
 			children = (
 				A9ECC82916A7780B00998AD4 /* NavigationContainer.h */,
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
+				4CF10644172829F20047B393 /* SidebarViewController.h */,
+				4CF10645172829F20047B393 /* SidebarViewController.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
 				A9479C541670034E00CE9475 /* BrailleTyperController.m */,
 				4C569AA417147A7B0073D8F8 /* FlashCard.h */,

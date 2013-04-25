@@ -11,7 +11,6 @@
 #import "UIBezelGestureRecognizer.h"
 #import "newViewControllerTemplate.h"
 #import <Twitter/Twitter.h>
-#import <AudioToolbox/AudioToolbox.h>
 #import "SidebarViewController.h"
 
 @implementation NavigationContainer {
@@ -22,20 +21,16 @@
     UIPanGestureRecognizer *menuTrav;
     
     UIViewController *currentVC;
-    
-    // Audio
-    SystemSoundID openNavSound;
 }
 
 -(void)viewDidLoad {
-    
-    openNavSound = [self createSoundID:@"navClick.aiff"];
 
 }
 
 -(void)loadNavIntoView {
 
     leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    [self.view addGestureRecognizer:leftSideSwipe];
     
     nav = [[SidebarViewController alloc] init];
     
@@ -93,12 +88,10 @@
 # pragma mark - Navigation Logic
 
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-    NSLog(@"Test");
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-//            [nav updateWithCGPoint:touch];
-            AudioServicesPlaySystemSound(openNavSound);
+            [nav updateMenuPosition:touch.x];
             break;
             
         case UIGestureRecognizerStateBegan:
@@ -159,12 +152,4 @@
     [super viewDidUnload];
 }
 
-- (SystemSoundID) createSoundID: (NSString*)name
-{
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
-    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
-    return soundID;
-}
 @end

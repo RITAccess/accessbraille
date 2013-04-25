@@ -10,4 +10,10 @@
 
 @interface SidebarViewController : UIViewController
 
+/* Set menu position between 0 and 100, 100 being open */
+- (void)updateMenuPosition:(float)position;
+
+/* Menu State */
+@property (nonatomic) BOOL menuOpen;
+
 @end
