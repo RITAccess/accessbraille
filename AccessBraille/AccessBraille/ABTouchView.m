@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setBackgroundColor:[UIColor blueColor]];
     }
     return self;
 }
@@ -26,7 +27,7 @@
     // Check if space
     float touchY = [_delegate locationInDelegate:reg].y;
     float avgY = [_delegate averageY];
-    if (touchY > avgY + 75) {
+    if (touchY > avgY + 150) {
         [_delegate space];
     } else {
         [_delegate updateYAverage:touchY];
