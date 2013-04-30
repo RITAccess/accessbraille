@@ -7,6 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C10E17417302CC300A2864B /* Beatrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14317302CC300A2864B /* Beatrice.framework */; };
+		2C10E17517302CC300A2864B /* Elliott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14417302CC300A2864B /* Elliott.framework */; };
+		2C10E17617302CC300A2864B /* Emma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14517302CC300A2864B /* Emma.framework */; };
+		2C10E17717302CC300A2864B /* William.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14617302CC300A2864B /* William.framework */; };
+		2C10E17817302CC300A2864B /* neatspeech_uk1_COPYRIGHT in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14917302CC300A2864B /* neatspeech_uk1_COPYRIGHT */; };
+		2C10E17917302CC300A2864B /* neatspeech_uk1_dur.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14A17302CC300A2864B /* neatspeech_uk1_dur.pdf */; };
+		2C10E17A17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14B17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf */; };
+		2C10E17B17302CC300A2864B /* neatspeech_uk1_gv-mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14C17302CC300A2864B /* neatspeech_uk1_gv-mgc.pdf */; };
+		2C10E17C17302CC300A2864B /* neatspeech_uk1_gv-switch.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14D17302CC300A2864B /* neatspeech_uk1_gv-switch.inf */; };
+		2C10E17D17302CC300A2864B /* neatspeech_uk1_lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14E17302CC300A2864B /* neatspeech_uk1_lf0.pdf */; };
+		2C10E17E17302CC300A2864B /* neatspeech_uk1_lf0.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14F17302CC300A2864B /* neatspeech_uk1_lf0.win1 */; };
+		2C10E17F17302CC300A2864B /* neatspeech_uk1_lf0.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15017302CC300A2864B /* neatspeech_uk1_lf0.win2 */; };
+		2C10E18017302CC300A2864B /* neatspeech_uk1_lf0.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15117302CC300A2864B /* neatspeech_uk1_lf0.win3 */; };
+		2C10E18117302CC300A2864B /* neatspeech_uk1_mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15217302CC300A2864B /* neatspeech_uk1_mgc.pdf */; };
+		2C10E18217302CC300A2864B /* neatspeech_uk1_mgc.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15317302CC300A2864B /* neatspeech_uk1_mgc.win1 */; };
+		2C10E18317302CC300A2864B /* neatspeech_uk1_mgc.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15417302CC300A2864B /* neatspeech_uk1_mgc.win2 */; };
+		2C10E18417302CC300A2864B /* neatspeech_uk1_mgc.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15517302CC300A2864B /* neatspeech_uk1_mgc.win3 */; };
+		2C10E18517302CC300A2864B /* neatspeech_uk1_README in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15617302CC300A2864B /* neatspeech_uk1_README */; };
+		2C10E18617302CC300A2864B /* neatspeech_uk1_tree-dur.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15717302CC300A2864B /* neatspeech_uk1_tree-dur.inf */; };
+		2C10E18717302CC300A2864B /* neatspeech_uk1_tree-gv-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15817302CC300A2864B /* neatspeech_uk1_tree-gv-lf0.inf */; };
+		2C10E18817302CC300A2864B /* neatspeech_uk1_tree-gv-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15917302CC300A2864B /* neatspeech_uk1_tree-gv-mgc.inf */; };
+		2C10E18917302CC300A2864B /* neatspeech_uk1_tree-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15A17302CC300A2864B /* neatspeech_uk1_tree-lf0.inf */; };
+		2C10E18A17302CC300A2864B /* neatspeech_uk1_tree-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15B17302CC300A2864B /* neatspeech_uk1_tree-mgc.inf */; };
+		2C10E18B17302CC300A2864B /* neatspeech_us1_COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15D17302CC300A2864B /* neatspeech_us1_COPYING */; };
+		2C10E18C17302CC300A2864B /* neatspeech_us1_dur.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15E17302CC300A2864B /* neatspeech_us1_dur.pdf */; };
+		2C10E18D17302CC300A2864B /* neatspeech_us1_gv-lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E15F17302CC300A2864B /* neatspeech_us1_gv-lf0.pdf */; };
+		2C10E18E17302CC300A2864B /* neatspeech_us1_gv-mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16017302CC300A2864B /* neatspeech_us1_gv-mgc.pdf */; };
+		2C10E18F17302CC300A2864B /* neatspeech_us1_gv-switch.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16117302CC300A2864B /* neatspeech_us1_gv-switch.inf */; };
+		2C10E19017302CC300A2864B /* neatspeech_us1_INSTALL in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16217302CC300A2864B /* neatspeech_us1_INSTALL */; };
+		2C10E19117302CC300A2864B /* neatspeech_us1_lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16317302CC300A2864B /* neatspeech_us1_lf0.pdf */; };
+		2C10E19217302CC300A2864B /* neatspeech_us1_lf0.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16417302CC300A2864B /* neatspeech_us1_lf0.win1 */; };
+		2C10E19317302CC300A2864B /* neatspeech_us1_lf0.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16517302CC300A2864B /* neatspeech_us1_lf0.win2 */; };
+		2C10E19417302CC300A2864B /* neatspeech_us1_lf0.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16617302CC300A2864B /* neatspeech_us1_lf0.win3 */; };
+		2C10E19517302CC300A2864B /* neatspeech_us1_lpf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16717302CC300A2864B /* neatspeech_us1_lpf.pdf */; };
+		2C10E19617302CC300A2864B /* neatspeech_us1_lpf.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16817302CC300A2864B /* neatspeech_us1_lpf.win1 */; };
+		2C10E19717302CC300A2864B /* neatspeech_us1_mgc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16917302CC300A2864B /* neatspeech_us1_mgc.pdf */; };
+		2C10E19817302CC300A2864B /* neatspeech_us1_mgc.win1 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16A17302CC300A2864B /* neatspeech_us1_mgc.win1 */; };
+		2C10E19917302CC300A2864B /* neatspeech_us1_mgc.win2 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16B17302CC300A2864B /* neatspeech_us1_mgc.win2 */; };
+		2C10E19A17302CC300A2864B /* neatspeech_us1_mgc.win3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16C17302CC300A2864B /* neatspeech_us1_mgc.win3 */; };
+		2C10E19B17302CC300A2864B /* neatspeech_us1_README in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16D17302CC300A2864B /* neatspeech_us1_README */; };
+		2C10E19C17302CC300A2864B /* neatspeech_us1_tree-dur.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16E17302CC300A2864B /* neatspeech_us1_tree-dur.inf */; };
+		2C10E19D17302CC300A2864B /* neatspeech_us1_tree-gv-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E16F17302CC300A2864B /* neatspeech_us1_tree-gv-lf0.inf */; };
+		2C10E19E17302CC300A2864B /* neatspeech_us1_tree-gv-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17017302CC300A2864B /* neatspeech_us1_tree-gv-mgc.inf */; };
+		2C10E19F17302CC300A2864B /* neatspeech_us1_tree-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17117302CC300A2864B /* neatspeech_us1_tree-lf0.inf */; };
+		2C10E1A017302CC300A2864B /* neatspeech_us1_tree-lpf.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17217302CC300A2864B /* neatspeech_us1_tree-lpf.inf */; };
+		2C10E1A117302CC300A2864B /* neatspeech_us1_tree-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17317302CC300A2864B /* neatspeech_us1_tree-mgc.inf */; };
+		2C10E1A317302CD800A2864B /* NeatSpeechDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E1A217302CD800A2864B /* NeatSpeechDemo.framework */; };
+		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
+		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
+		2C10E23C17302DEC00A2864B /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E23B17302DEC00A2864B /* cards.plist */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C11AEA416F2144A00A9210A /* menuItem1x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA316F2144A00A9210A /* menuItem1x90.png */; };
@@ -41,7 +91,6 @@
 		4C4FEB3016C4463700434F60 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB2116C4463700434F60 /* Slt.framework */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
-		4C4FEB3516C4492600434F60 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3416C4492600434F60 /* Kal.framework */; };
 		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
 		4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */; };
 		4C52BCA016C9481800F76B45 /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C52BC9F16C9481800F76B45 /* hop.mp3 */; };
@@ -65,7 +114,6 @@
 		4CEC5E6616CD91EC00858B66 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC5E6516CD91EC00858B66 /* icon144.png */; };
 		4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */; };
 		4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A316FCA05400E36128 /* ABKeyboard.m */; };
-		4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */; };
 		4CEFD38916EE1D4700961754 /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFD38816EE1D4700961754 /* menuItem0x90.png */; };
 		4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
@@ -85,9 +133,7 @@
 		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
 		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
-		A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */; };
 		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
-		A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A97425721677BFA400289C8D /* CalibrationPoint.m */; };
 		A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */ = {isa = PBXBuildFile; fileRef = A97FF44B16B1CE1300116AEC /* Enabled.m */; };
 		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
 		A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */; };
@@ -106,6 +152,58 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C10E14317302CC300A2864B /* Beatrice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Beatrice.framework; sourceTree = "<group>"; };
+		2C10E14417302CC300A2864B /* Elliott.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Elliott.framework; sourceTree = "<group>"; };
+		2C10E14517302CC300A2864B /* Emma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Emma.framework; sourceTree = "<group>"; };
+		2C10E14617302CC300A2864B /* William.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = William.framework; sourceTree = "<group>"; };
+		2C10E14917302CC300A2864B /* neatspeech_uk1_COPYRIGHT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_COPYRIGHT; sourceTree = "<group>"; };
+		2C10E14A17302CC300A2864B /* neatspeech_uk1_dur.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_dur.pdf; sourceTree = "<group>"; };
+		2C10E14B17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_uk1_gv-lf0.pdf"; sourceTree = "<group>"; };
+		2C10E14C17302CC300A2864B /* neatspeech_uk1_gv-mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_uk1_gv-mgc.pdf"; sourceTree = "<group>"; };
+		2C10E14D17302CC300A2864B /* neatspeech_uk1_gv-switch.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_gv-switch.inf"; sourceTree = "<group>"; };
+		2C10E14E17302CC300A2864B /* neatspeech_uk1_lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_lf0.pdf; sourceTree = "<group>"; };
+		2C10E14F17302CC300A2864B /* neatspeech_uk1_lf0.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win1; sourceTree = "<group>"; };
+		2C10E15017302CC300A2864B /* neatspeech_uk1_lf0.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win2; sourceTree = "<group>"; };
+		2C10E15117302CC300A2864B /* neatspeech_uk1_lf0.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_lf0.win3; sourceTree = "<group>"; };
+		2C10E15217302CC300A2864B /* neatspeech_uk1_mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_uk1_mgc.pdf; sourceTree = "<group>"; };
+		2C10E15317302CC300A2864B /* neatspeech_uk1_mgc.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win1; sourceTree = "<group>"; };
+		2C10E15417302CC300A2864B /* neatspeech_uk1_mgc.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win2; sourceTree = "<group>"; };
+		2C10E15517302CC300A2864B /* neatspeech_uk1_mgc.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_mgc.win3; sourceTree = "<group>"; };
+		2C10E15617302CC300A2864B /* neatspeech_uk1_README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_uk1_README; sourceTree = "<group>"; };
+		2C10E15717302CC300A2864B /* neatspeech_uk1_tree-dur.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-dur.inf"; sourceTree = "<group>"; };
+		2C10E15817302CC300A2864B /* neatspeech_uk1_tree-gv-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-gv-lf0.inf"; sourceTree = "<group>"; };
+		2C10E15917302CC300A2864B /* neatspeech_uk1_tree-gv-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-gv-mgc.inf"; sourceTree = "<group>"; };
+		2C10E15A17302CC300A2864B /* neatspeech_uk1_tree-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-lf0.inf"; sourceTree = "<group>"; };
+		2C10E15B17302CC300A2864B /* neatspeech_uk1_tree-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_uk1_tree-mgc.inf"; sourceTree = "<group>"; };
+		2C10E15D17302CC300A2864B /* neatspeech_us1_COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_COPYING; sourceTree = "<group>"; };
+		2C10E15E17302CC300A2864B /* neatspeech_us1_dur.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_dur.pdf; sourceTree = "<group>"; };
+		2C10E15F17302CC300A2864B /* neatspeech_us1_gv-lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_us1_gv-lf0.pdf"; sourceTree = "<group>"; };
+		2C10E16017302CC300A2864B /* neatspeech_us1_gv-mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "neatspeech_us1_gv-mgc.pdf"; sourceTree = "<group>"; };
+		2C10E16117302CC300A2864B /* neatspeech_us1_gv-switch.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_gv-switch.inf"; sourceTree = "<group>"; };
+		2C10E16217302CC300A2864B /* neatspeech_us1_INSTALL */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_INSTALL; sourceTree = "<group>"; };
+		2C10E16317302CC300A2864B /* neatspeech_us1_lf0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_lf0.pdf; sourceTree = "<group>"; };
+		2C10E16417302CC300A2864B /* neatspeech_us1_lf0.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win1; sourceTree = "<group>"; };
+		2C10E16517302CC300A2864B /* neatspeech_us1_lf0.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win2; sourceTree = "<group>"; };
+		2C10E16617302CC300A2864B /* neatspeech_us1_lf0.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lf0.win3; sourceTree = "<group>"; };
+		2C10E16717302CC300A2864B /* neatspeech_us1_lpf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_lpf.pdf; sourceTree = "<group>"; };
+		2C10E16817302CC300A2864B /* neatspeech_us1_lpf.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_lpf.win1; sourceTree = "<group>"; };
+		2C10E16917302CC300A2864B /* neatspeech_us1_mgc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = neatspeech_us1_mgc.pdf; sourceTree = "<group>"; };
+		2C10E16A17302CC300A2864B /* neatspeech_us1_mgc.win1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win1; sourceTree = "<group>"; };
+		2C10E16B17302CC300A2864B /* neatspeech_us1_mgc.win2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win2; sourceTree = "<group>"; };
+		2C10E16C17302CC300A2864B /* neatspeech_us1_mgc.win3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_mgc.win3; sourceTree = "<group>"; };
+		2C10E16D17302CC300A2864B /* neatspeech_us1_README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = neatspeech_us1_README; sourceTree = "<group>"; };
+		2C10E16E17302CC300A2864B /* neatspeech_us1_tree-dur.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-dur.inf"; sourceTree = "<group>"; };
+		2C10E16F17302CC300A2864B /* neatspeech_us1_tree-gv-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-gv-lf0.inf"; sourceTree = "<group>"; };
+		2C10E17017302CC300A2864B /* neatspeech_us1_tree-gv-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-gv-mgc.inf"; sourceTree = "<group>"; };
+		2C10E17117302CC300A2864B /* neatspeech_us1_tree-lf0.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-lf0.inf"; sourceTree = "<group>"; };
+		2C10E17217302CC300A2864B /* neatspeech_us1_tree-lpf.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-lpf.inf"; sourceTree = "<group>"; };
+		2C10E17317302CC300A2864B /* neatspeech_us1_tree-mgc.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "neatspeech_us1_tree-mgc.inf"; sourceTree = "<group>"; };
+		2C10E1A217302CD800A2864B /* NeatSpeechDemo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NeatSpeechDemo.framework; sourceTree = "<group>"; };
+		2C10E23517302D8600A2864B /* ABParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABParser.h; sourceTree = "<group>"; };
+		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
+		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
+		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
+		2C10E23B17302DEC00A2864B /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cards.plist; path = AccessBraille/cards.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -176,8 +274,6 @@
 		4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABActivateKeyboardGestureRecognizer.m; sourceTree = "<group>"; };
 		4CEE19A216FCA05400E36128 /* ABKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKeyboard.h; sourceTree = "<group>"; };
 		4CEE19A316FCA05400E36128 /* ABKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKeyboard.m; sourceTree = "<group>"; };
-		4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardTestViewController.h; sourceTree = "<group>"; };
-		4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardTestViewController.m; sourceTree = "<group>"; };
 		4CEFD38816EE1D4700961754 /* menuItem0x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem0x90.png; path = ../menuItem0x90.png; sourceTree = "<group>"; };
 		4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectSubsets.h"; sourceTree = "<group>"; };
 		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
@@ -206,11 +302,7 @@
 		A9479C661670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9479C681670034F00CE9475 /* AccessBrailleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBrailleTests.h; sourceTree = "<group>"; };
 		A9479C691670034F00CE9475 /* AccessBrailleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBrailleTests.m; sourceTree = "<group>"; };
-		A95FFC1916792C2300BF966C /* BrailleInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleInterpreter.h; sourceTree = "<group>"; };
-		A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleInterpreter.m; sourceTree = "<group>"; };
 		A95FFC251679394600BF966C /* grade1lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade1lookup.plist; sourceTree = "<group>"; };
-		A97425711677BFA400289C8D /* CalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationPoint.h; sourceTree = "<group>"; };
-		A97425721677BFA400289C8D /* CalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalibrationPoint.m; sourceTree = "<group>"; };
 		A97FF44A16B1CE1300116AEC /* Enabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enabled.h; sourceTree = "<group>"; };
 		A97FF44B16B1CE1300116AEC /* Enabled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enabled.m; sourceTree = "<group>"; };
 		A99671BE16810EFA00AAA322 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -237,7 +329,11 @@
 				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
 				4C4FEB2A16C4463700434F60 /* OpenEars.framework in Frameworks */,
 				4C4FEB3016C4463700434F60 /* Slt.framework in Frameworks */,
-				4C4FEB3516C4492600434F60 /* Kal.framework in Frameworks */,
+				2C10E17417302CC300A2864B /* Beatrice.framework in Frameworks */,
+				2C10E17517302CC300A2864B /* Elliott.framework in Frameworks */,
+				2C10E17617302CC300A2864B /* Emma.framework in Frameworks */,
+				2C10E17717302CC300A2864B /* William.framework in Frameworks */,
+				2C10E1A317302CD800A2864B /* NeatSpeechDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +350,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C10E14117302CC300A2864B /* Voices */ = {
+			isa = PBXGroup;
+			children = (
+				2C10E14217302CC300A2864B /* Demo */,
+				2C10E14717302CC300A2864B /* VoiceData */,
+			);
+			path = Voices;
+			sourceTree = "<group>";
+		};
+		2C10E14217302CC300A2864B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				2C10E14317302CC300A2864B /* Beatrice.framework */,
+				2C10E14417302CC300A2864B /* Elliott.framework */,
+				2C10E14517302CC300A2864B /* Emma.framework */,
+				2C10E14617302CC300A2864B /* William.framework */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		2C10E14717302CC300A2864B /* VoiceData */ = {
+			isa = PBXGroup;
+			children = (
+				2C10E14817302CC300A2864B /* NeatSpeechUKDataset1 */,
+				2C10E15C17302CC300A2864B /* NeatSpeechUSDataset1 */,
+			);
+			path = VoiceData;
+			sourceTree = "<group>";
+		};
+		2C10E14817302CC300A2864B /* NeatSpeechUKDataset1 */ = {
+			isa = PBXGroup;
+			children = (
+				2C10E14917302CC300A2864B /* neatspeech_uk1_COPYRIGHT */,
+				2C10E14A17302CC300A2864B /* neatspeech_uk1_dur.pdf */,
+				2C10E14B17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf */,
+				2C10E14C17302CC300A2864B /* neatspeech_uk1_gv-mgc.pdf */,
+				2C10E14D17302CC300A2864B /* neatspeech_uk1_gv-switch.inf */,
+				2C10E14E17302CC300A2864B /* neatspeech_uk1_lf0.pdf */,
+				2C10E14F17302CC300A2864B /* neatspeech_uk1_lf0.win1 */,
+				2C10E15017302CC300A2864B /* neatspeech_uk1_lf0.win2 */,
+				2C10E15117302CC300A2864B /* neatspeech_uk1_lf0.win3 */,
+				2C10E15217302CC300A2864B /* neatspeech_uk1_mgc.pdf */,
+				2C10E15317302CC300A2864B /* neatspeech_uk1_mgc.win1 */,
+				2C10E15417302CC300A2864B /* neatspeech_uk1_mgc.win2 */,
+				2C10E15517302CC300A2864B /* neatspeech_uk1_mgc.win3 */,
+				2C10E15617302CC300A2864B /* neatspeech_uk1_README */,
+				2C10E15717302CC300A2864B /* neatspeech_uk1_tree-dur.inf */,
+				2C10E15817302CC300A2864B /* neatspeech_uk1_tree-gv-lf0.inf */,
+				2C10E15917302CC300A2864B /* neatspeech_uk1_tree-gv-mgc.inf */,
+				2C10E15A17302CC300A2864B /* neatspeech_uk1_tree-lf0.inf */,
+				2C10E15B17302CC300A2864B /* neatspeech_uk1_tree-mgc.inf */,
+			);
+			path = NeatSpeechUKDataset1;
+			sourceTree = "<group>";
+		};
+		2C10E15C17302CC300A2864B /* NeatSpeechUSDataset1 */ = {
+			isa = PBXGroup;
+			children = (
+				2C10E15D17302CC300A2864B /* neatspeech_us1_COPYING */,
+				2C10E15E17302CC300A2864B /* neatspeech_us1_dur.pdf */,
+				2C10E15F17302CC300A2864B /* neatspeech_us1_gv-lf0.pdf */,
+				2C10E16017302CC300A2864B /* neatspeech_us1_gv-mgc.pdf */,
+				2C10E16117302CC300A2864B /* neatspeech_us1_gv-switch.inf */,
+				2C10E16217302CC300A2864B /* neatspeech_us1_INSTALL */,
+				2C10E16317302CC300A2864B /* neatspeech_us1_lf0.pdf */,
+				2C10E16417302CC300A2864B /* neatspeech_us1_lf0.win1 */,
+				2C10E16517302CC300A2864B /* neatspeech_us1_lf0.win2 */,
+				2C10E16617302CC300A2864B /* neatspeech_us1_lf0.win3 */,
+				2C10E16717302CC300A2864B /* neatspeech_us1_lpf.pdf */,
+				2C10E16817302CC300A2864B /* neatspeech_us1_lpf.win1 */,
+				2C10E16917302CC300A2864B /* neatspeech_us1_mgc.pdf */,
+				2C10E16A17302CC300A2864B /* neatspeech_us1_mgc.win1 */,
+				2C10E16B17302CC300A2864B /* neatspeech_us1_mgc.win2 */,
+				2C10E16C17302CC300A2864B /* neatspeech_us1_mgc.win3 */,
+				2C10E16D17302CC300A2864B /* neatspeech_us1_README */,
+				2C10E16E17302CC300A2864B /* neatspeech_us1_tree-dur.inf */,
+				2C10E16F17302CC300A2864B /* neatspeech_us1_tree-gv-lf0.inf */,
+				2C10E17017302CC300A2864B /* neatspeech_us1_tree-gv-mgc.inf */,
+				2C10E17117302CC300A2864B /* neatspeech_us1_tree-lf0.inf */,
+				2C10E17217302CC300A2864B /* neatspeech_us1_tree-lpf.inf */,
+				2C10E17317302CC300A2864B /* neatspeech_us1_tree-mgc.inf */,
+			);
+			path = NeatSpeechUSDataset1;
+			sourceTree = "<group>";
+		};
 		4C48079016C01CAF001E3EF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +480,10 @@
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
 			isa = PBXGroup;
 			children = (
+				2C10E23517302D8600A2864B /* ABParser.h */,
+				2C10E23617302D8600A2864B /* ABParser.m */,
+				2C10E23717302D8600A2864B /* ABSpeak.h */,
+				2C10E23817302D8600A2864B /* ABSpeak.m */,
 				4C433B8F1705DF4B003D2DE7 /* ABTypes.h */,
 				4CB222AD1706063E00BD3608 /* ABTypes.m */,
 				4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */,
@@ -311,8 +496,6 @@
 				4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */,
 				4C092A5E170F1AFA00650986 /* ABTouchView.h */,
 				4C092A5F170F1AFA00650986 /* ABTouchView.m */,
-				4CEE19A916FCA0CD00E36128 /* KeyBoardTestViewController.h */,
-				4CEE19AA16FCA0CD00E36128 /* KeyBoardTestViewController.m */,
 				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
 				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
@@ -373,6 +556,7 @@
 		A9479C2C1670034D00CE9475 = {
 			isa = PBXGroup;
 			children = (
+				2C10E23B17302DEC00A2864B /* cards.plist */,
 				4C3C91AD16CE91DC00954A54 /* Default-Landscape~ipad.png */,
 				4C3C91AB16CE91CF00954A54 /* Default-Landscape@2x~ipad.png */,
 				4CEC5E6516CD91EC00858B66 /* icon144.png */,
@@ -395,6 +579,8 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C10E1A217302CD800A2864B /* NeatSpeechDemo.framework */,
+				2C10E14117302CC300A2864B /* Voices */,
 				4C4FEB1116C4463700434F60 /* OpenEars */,
 				4C4FEB3216C446A500434F60 /* AVFoundation.framework */,
 				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
@@ -468,10 +654,6 @@
 				4C2F59E516F76CA5008F8185 /* navClick.aiff */,
 				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
 				4C52BC9F16C9481800F76B45 /* hop.mp3 */,
-				A97425711677BFA400289C8D /* CalibrationPoint.h */,
-				A97425721677BFA400289C8D /* CalibrationPoint.m */,
-				A95FFC1916792C2300BF966C /* BrailleInterpreter.h */,
-				A95FFC1A16792C2300BF966C /* BrailleInterpreter.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -612,6 +794,49 @@
 				4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */,
 				4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */,
 				4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */,
+				2C10E17817302CC300A2864B /* neatspeech_uk1_COPYRIGHT in Resources */,
+				2C10E17917302CC300A2864B /* neatspeech_uk1_dur.pdf in Resources */,
+				2C10E17A17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf in Resources */,
+				2C10E17B17302CC300A2864B /* neatspeech_uk1_gv-mgc.pdf in Resources */,
+				2C10E17C17302CC300A2864B /* neatspeech_uk1_gv-switch.inf in Resources */,
+				2C10E17D17302CC300A2864B /* neatspeech_uk1_lf0.pdf in Resources */,
+				2C10E17E17302CC300A2864B /* neatspeech_uk1_lf0.win1 in Resources */,
+				2C10E17F17302CC300A2864B /* neatspeech_uk1_lf0.win2 in Resources */,
+				2C10E18017302CC300A2864B /* neatspeech_uk1_lf0.win3 in Resources */,
+				2C10E18117302CC300A2864B /* neatspeech_uk1_mgc.pdf in Resources */,
+				2C10E18217302CC300A2864B /* neatspeech_uk1_mgc.win1 in Resources */,
+				2C10E18317302CC300A2864B /* neatspeech_uk1_mgc.win2 in Resources */,
+				2C10E18417302CC300A2864B /* neatspeech_uk1_mgc.win3 in Resources */,
+				2C10E18517302CC300A2864B /* neatspeech_uk1_README in Resources */,
+				2C10E18617302CC300A2864B /* neatspeech_uk1_tree-dur.inf in Resources */,
+				2C10E18717302CC300A2864B /* neatspeech_uk1_tree-gv-lf0.inf in Resources */,
+				2C10E18817302CC300A2864B /* neatspeech_uk1_tree-gv-mgc.inf in Resources */,
+				2C10E18917302CC300A2864B /* neatspeech_uk1_tree-lf0.inf in Resources */,
+				2C10E18A17302CC300A2864B /* neatspeech_uk1_tree-mgc.inf in Resources */,
+				2C10E18B17302CC300A2864B /* neatspeech_us1_COPYING in Resources */,
+				2C10E18C17302CC300A2864B /* neatspeech_us1_dur.pdf in Resources */,
+				2C10E18D17302CC300A2864B /* neatspeech_us1_gv-lf0.pdf in Resources */,
+				2C10E18E17302CC300A2864B /* neatspeech_us1_gv-mgc.pdf in Resources */,
+				2C10E18F17302CC300A2864B /* neatspeech_us1_gv-switch.inf in Resources */,
+				2C10E19017302CC300A2864B /* neatspeech_us1_INSTALL in Resources */,
+				2C10E19117302CC300A2864B /* neatspeech_us1_lf0.pdf in Resources */,
+				2C10E19217302CC300A2864B /* neatspeech_us1_lf0.win1 in Resources */,
+				2C10E19317302CC300A2864B /* neatspeech_us1_lf0.win2 in Resources */,
+				2C10E19417302CC300A2864B /* neatspeech_us1_lf0.win3 in Resources */,
+				2C10E19517302CC300A2864B /* neatspeech_us1_lpf.pdf in Resources */,
+				2C10E19617302CC300A2864B /* neatspeech_us1_lpf.win1 in Resources */,
+				2C10E19717302CC300A2864B /* neatspeech_us1_mgc.pdf in Resources */,
+				2C10E19817302CC300A2864B /* neatspeech_us1_mgc.win1 in Resources */,
+				2C10E19917302CC300A2864B /* neatspeech_us1_mgc.win2 in Resources */,
+				2C10E19A17302CC300A2864B /* neatspeech_us1_mgc.win3 in Resources */,
+				2C10E19B17302CC300A2864B /* neatspeech_us1_README in Resources */,
+				2C10E19C17302CC300A2864B /* neatspeech_us1_tree-dur.inf in Resources */,
+				2C10E19D17302CC300A2864B /* neatspeech_us1_tree-gv-lf0.inf in Resources */,
+				2C10E19E17302CC300A2864B /* neatspeech_us1_tree-gv-mgc.inf in Resources */,
+				2C10E19F17302CC300A2864B /* neatspeech_us1_tree-lf0.inf in Resources */,
+				2C10E1A017302CC300A2864B /* neatspeech_us1_tree-lpf.inf in Resources */,
+				2C10E1A117302CC300A2864B /* neatspeech_us1_tree-mgc.inf in Resources */,
+				2C10E23C17302DEC00A2864B /* cards.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +874,6 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
-				A97425731677BFA400289C8D /* CalibrationPoint.m in Sources */,
-				A95FFC1B16792C2300BF966C /* BrailleInterpreter.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A94471E6169CAC1000B66193 /* NavigationView.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
@@ -668,12 +891,13 @@
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
 				4CEE19A616FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m in Sources */,
 				4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */,
-				4CEE19AB16FCA0CD00E36128 /* KeyBoardTestViewController.m in Sources */,
 				4CB222AE1706063E00BD3608 /* ABTypes.m in Sources */,
 				4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */,
 				4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */,
 				4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */,
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
+				2C10E23917302D8600A2864B /* ABParser.m in Sources */,
+				2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,11 +1008,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
+					"\"$(SRCROOT)/Voices/Demo\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -801,11 +1028,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
+					"\"$(SRCROOT)/Voices/Demo\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
