@@ -50,18 +50,22 @@
     [infoText setText:welcomeText];
     [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
     infoText.editable = NO;
+    infoText.scrollEnabled = NO;
+    infoText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:infoText];
     
     typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 150, 150, 100)];
     [typedText setBackgroundColor:[UIColor clearColor]];
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
     typedText.editable = NO;
+    typedText.scrollEnabled = NO;
     [[self view] addSubview:typedText];
     
     cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 150, 150, 100)];
     [cardText setBackgroundColor:[UIColor clearColor]];
     [cardText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
     cardText.editable = NO;
+    cardText.scrollEnabled = NO;
     cardText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:cardText];
     
