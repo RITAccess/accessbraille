@@ -146,7 +146,10 @@
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSArray *)info {
     [stringFromInput appendFormat:@"%@", character];
+    NSLog(@"%@", cardText.text);
+    NSLog(@"%@", typedText.text);
     [typedText setText:stringFromInput];
+    [self checkCard];
 }
 
 
