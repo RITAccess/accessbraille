@@ -54,14 +54,14 @@
     infoText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:infoText];
     
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 150, 150, 100)];
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 150, 250, 100)];
     [typedText setBackgroundColor:[UIColor clearColor]];
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
     typedText.editable = NO;
     typedText.scrollEnabled = NO;
     [[self view] addSubview:typedText];
     
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 150, 150, 100)];
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 150, 250, 100)];
     [cardText setBackgroundColor:[UIColor clearColor]];
     [cardText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
     cardText.editable = NO;
@@ -125,6 +125,7 @@
 
 -(void)enterCardMode{
     pointsText.text = @"0";
+    typedText.text = @"";
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxCards]]; // Display the word.
 }
@@ -144,12 +145,11 @@
 /**
  * Speak character being typed, as well as appending it to the label.
  */
-- (void)characterTyped:(NSString *)character withInfo:(NSArray *)info {
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     [stringFromInput appendFormat:@"%@", character];
-    NSLog(@"%@", cardText.text);
-    NSLog(@"%@", typedText.text);
     [typedText setText:stringFromInput];
-    [self checkCard];
+    NSLog(@"Card: %@", cardText.text);
+    NSLog(@"Typed: %@", typedText.text);    
 }
 
 
