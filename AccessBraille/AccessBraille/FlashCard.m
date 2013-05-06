@@ -32,6 +32,7 @@
     UITapGestureRecognizer *tap;
     ABKeyboard *keyboard;
     ABParser *parser;
+    int points;
 }
 
 #pragma mark - View
@@ -124,32 +125,45 @@
 #pragma mark - Card Mode
 
 -(void)enterCardMode{
-    pointsText.text = @"0";
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
     typedText.text = @"";
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxCards]]; // Display the word.
 }
 
 -(void)changeCard: (int) newRandomCardIndex{
-    [typedText setText:cards[newRandomCardIndex]];
-    NSLog(@"changing!");
+    [cardText setText:cards[newRandomCardIndex]];
+    
 }
 
 -(void)checkCard{
-    if (cardText.text == typedText.text) {
+    NSLog(@"Checking Card...");
+    if ([cardText.text isEqualToString:typedText.text]) {
         NSLog(@"Correct!");
+        pointsText.text = [NSString stringWithFormat:@"%d", ++points];
         [self changeCard:(arc4random() % maxCards)];  // Random card index
+        [self clearStrings];
     }
+}
+
+-(void)clearStrings{
+    typedText.text = @"";
+    [stringFromInput setString:@""];
 }
 
 /**
  * Speak character being typed, as well as appending it to the label.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    [stringFromInput appendFormat:@"%@", character];
-    [typedText setText:stringFromInput];
-    NSLog(@"Card: %@", cardText.text);
-    NSLog(@"Typed: %@", typedText.text);    
+    if ([character isEqual: @" "]){
+        NSLog(@"It's a space!");
+        [self checkCard];
+    }else{
+        [stringFromInput appendFormat:@"%@", character];
+        [typedText setText:stringFromInput];
+        NSLog(@"Card: %@", cardText.text);
+        NSLog(@"Typed: %@", typedText.text);
+    }
 }
 
 
