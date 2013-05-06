@@ -61,9 +61,11 @@
         if (![_wordTyping isEqualToString:@""]) {
             [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
                                                              ABSpaceTyped : @(YES)}];
-            [_delegate wordTyped:_wordTyping withInfo:@{ABGestureInfoStatus : @(YES),
-                                                               ABSpaceTyped : @(YES),
-                                                           ABBackspaceReceived : @(NO)}];
+            if ([_delegate respondsToSelector:@selector(wordTyped:withInfo:)]) {
+                [_delegate wordTyped:_wordTyping withInfo:@{ABGestureInfoStatus : @(YES),
+                                                                   ABSpaceTyped : @(YES),
+                                                            ABBackspaceReceived : @(NO)}];
+            }
             _wordTyping = @"";
         }
     }
