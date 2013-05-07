@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIBezelGestureRecognizer.h"
 
 @interface NavigationContainer : UIViewController
 
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu;
+
+
+@property (strong, nonatomic) UITapGestureRecognizer *tapToCloseMenu;
+@property (strong, nonatomic) UIBezelGestureRecognizer *leftSideSwipe;
+@property (strong, nonatomic) UIPanGestureRecognizer *menuTrav;
 
 @end

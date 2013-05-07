@@ -26,6 +26,14 @@
         // Custom initialization
         [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setBackgroundColor:[UIColor blueColor]];
+        // Set image as background
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [[UIImage imageNamed:@"slideOutMenu.png"] drawInRect:self.view.bounds];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+        
         [self setMenuOpen:NO];
         openNavSound = [self createSoundID:@"navClick.aiff"];
     }
@@ -53,6 +61,10 @@
         [self.view setNeedsDisplay];
     }
     _menuOpen = menuOpen;
+}
+
+- (void)tapToClose:(UITapGestureRecognizer *)reg {
+    NSLog(@"Tap");
 }
 
 - (void)viewDidLoad

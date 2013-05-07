@@ -10,16 +10,11 @@
 #import "BrailleTyperController.h"
 #import "UIBezelGestureRecognizer.h"
 #import "newViewControllerTemplate.h"
-#import <Twitter/Twitter.h>
 #import "SidebarViewController.h"
 
 @implementation NavigationContainer {
     
-    SidebarViewController *nav;
-    UITapGestureRecognizer *tapToCloseMenu;
-    UIBezelGestureRecognizer *leftSideSwipe;
-    UIPanGestureRecognizer *menuTrav;
-    
+    SidebarViewController *nav;    
     UIViewController *currentVC;
 }
 
@@ -29,14 +24,21 @@
 
 -(void)loadNavIntoView {
 
-    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    [self.view addGestureRecognizer:leftSideSwipe];
-    
     nav = [[SidebarViewController alloc] init];
     
+    _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    [self.view addGestureRecognizer:_leftSideSwipe];
+    
+    _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    [self.view addGestureRecognizer:_tapToCloseMenu];
     
     [self.view addSubview:nav.view];
     [self.view bringSubviewToFront:nav.view];
+    
+}
+
+- (void)tapToClose:(UITapGestureRecognizer *)reg {
+    NSLog(@"Tap");
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -44,9 +46,6 @@
 - (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
 
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
-    /**
-        Takes in a UIViewController and switches the view to that controller
-     */
     if (animated) {
         
         for (UIView *subview in self.view.subviews){
@@ -95,13 +94,13 @@
             break;
             
         case UIGestureRecognizerStateBegan:
-            [tapToCloseMenu setEnabled:TRUE];
-            [menuTrav setEnabled:TRUE];
+            [_tapToCloseMenu setEnabled:TRUE];
+            [_menuTrav setEnabled:TRUE];
             break;
             
         case UIGestureRecognizerStateEnded:
             if (touch.x < 100) {
-                [self closeMenu:reg];
+                
             }
             break;
             
@@ -124,23 +123,6 @@
             break;
         default:
             break;
-    }
-}
-
-/**
- * Closes the menu.
-*/
--(void)closeMenu:(UIGestureRecognizer *)reg {
-    
-    if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
-//        [nav close];
-        [tapToCloseMenu setEnabled:NO];
-        [menuTrav setEnabled:NO];
-    }
-    if ([reg locationOfTouch:0 inView:self.view].x > 100) {
-//        [nav close];
-        [tapToCloseMenu setEnabled:NO];
-        [menuTrav setEnabled:NO];
     }
 }
 
