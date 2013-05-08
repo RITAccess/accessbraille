@@ -131,19 +131,20 @@
 
 -(void)enterCardMode{
     pointsText.text = [NSString stringWithFormat:@"%d", points];
-    typedText.text = @"";
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxCards]]; // Display the word.
 }
 
 -(void)changeCard: (int) newRandomCardIndex{
     [cardText setText:cards[newRandomCardIndex]];
-    
+    typedText.text = @"";
 }
 
 -(void)checkCard{
+    SystemSoundID correctSound = [self createSoundID:@"correct.aiff"];
     NSLog(@"Checking Card...");
     if ([cardText.text isEqualToString:typedText.text]) {
+        AudioServicesPlaySystemSound(correctSound);
         NSLog(@"Correct!");
         pointsText.text = [NSString stringWithFormat:@"%d", ++points];
         [self changeCard:(arc4random() % maxCards)];  // Random card index
@@ -183,6 +184,15 @@
         NSLog(@"%@", letters[0]);
         [letterTimer fire];
     }
+}
+
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 
 @end

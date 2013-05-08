@@ -57,6 +57,8 @@
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
 		2C10E23C17302DEC00A2864B /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E23B17302DEC00A2864B /* cards.plist */; };
+		2CCB7543173AAC1C0059E580 /* correct.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7542173AAC1C0059E580 /* correct.aiff */; };
+		2CCB7545173AB0230059E580 /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7544173AB0220059E580 /* incorrect.aiff */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C11AEA416F2144A00A9210A /* menuItem1x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA316F2144A00A9210A /* menuItem1x90.png */; };
@@ -204,6 +206,8 @@
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
 		2C10E23B17302DEC00A2864B /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
+		2CCB7542173AAC1C0059E580 /* correct.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = correct.aiff; sourceTree = "<group>"; };
+		2CCB7544173AB0220059E580 /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = incorrect.aiff; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -650,6 +654,8 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CCB7544173AB0220059E580 /* incorrect.aiff */,
+				2CCB7542173AAC1C0059E580 /* correct.aiff */,
 				4C2F59E416F76CA5008F8185 /* backspace.aiff */,
 				4C2F59E516F76CA5008F8185 /* navClick.aiff */,
 				4C52BCA116C9499C00F76B45 /* disable.mp3 */,
@@ -837,6 +843,8 @@
 				2C10E1A017302CC300A2864B /* neatspeech_us1_tree-lpf.inf in Resources */,
 				2C10E1A117302CC300A2864B /* neatspeech_us1_tree-mgc.inf in Resources */,
 				2C10E23C17302DEC00A2864B /* cards.plist in Resources */,
+				2CCB7543173AAC1C0059E580 /* correct.aiff in Resources */,
+				2CCB7545173AB0230059E580 /* incorrect.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
