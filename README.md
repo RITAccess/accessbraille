@@ -28,6 +28,14 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td>Creates a keyboard interface to receive input.</td>
   </tr>
   <tr>
+    <td><tt>-setActiveStateWithTarget:withSelector:</tt></td>
+    <td>Set a location for a call to method for when ever the keyboard becomes active.</td>
+  </tr>
+  <tr>
+    <td><tt>-setDectiveStateWithTarget:withSelector:</tt></td>
+    <td>Set a location for a call to method for when ever the keyboard becomes inactive.</td>
+  </tr>
+  <tr>
     <td><tt>-startSpeakingString:</tt></td>
     <td>Speaks the string. NOTE not implemented fully, just prints to console.</td>
   </tr>

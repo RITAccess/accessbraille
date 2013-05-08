@@ -15,6 +15,7 @@
 #import "ABSpeak.h"
 #import <AudioToolbox/AudioToolbox.h>
 
+
 @implementation ABKeyboard {
     ABTouchLayer *interface;
     ABBrailleReader *brailleReader;
@@ -72,6 +73,18 @@
 
 #pragma mark Keyboard Implementation
 
+/*
+ * Ask the implementer to go into a typing state
+ */
+- (void)setActiveStateWithTarget:(id)target withSelector:(SEL)selector {
+    _activeKeyboard = selector;
+    _activeTarget = target;
+}
+- (void)setDectiveStateWithTarget:(id)target withSelector:(SEL)selector {
+    _deactiveKeyboard = selector;
+    _deactiveTarget = target;
+}
+
 /**
  * Creates a view overlay for recognizing braille type
  */
@@ -92,6 +105,7 @@
         }];
         
         
+        
         [interface addSubview:touch];
     }
     [interface subViewsAdded];
@@ -103,7 +117,9 @@
 - (void)touchColumns:(ABVector[])vectors withInfo:(NSDictionary *)info{
     
     _keyboardActive = YES;
-    
+    if ([_activeTarget respondsToSelector:_activeKeyboard]) {
+        [_activeTarget performSelector:_activeKeyboard];
+    }
     [self setUpViewWithTouchesFromABVectorArray:vectors];
     
     UIViewController *VCDelegate = (UIViewController *)_delegate;
@@ -142,6 +158,9 @@
                     orig.origin.y -= [UIScreen mainScreen].bounds.size.height;
                     [interface setFrame:orig];
                 }];
+                if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
+                    [_deactiveTarget performSelector:_deactiveKeyboard];
+                }
                 _keyboardActive = NO;
             }
             
