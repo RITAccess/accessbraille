@@ -45,10 +45,20 @@
 /* Set sounds enabled */
 @property BOOL sound;
 
+/* Keyboard state properites */
+@property SEL activeKeyboard;
+@property id activeTarget;
+@property SEL deactiveKeyboard;
+@property id deactiveTarget;
+
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 
 /* Basic Speaking Method */
 - (void)startSpeakingString:(NSString *)string;
+
+/* Keyboard state callbacks */
+- (void)setActiveStateWithTarget:(id)target withSelector:(SEL)selector;
+- (void)setDectiveStateWithTarget:(id)target withSelector:(SEL)selector;
 
 @end

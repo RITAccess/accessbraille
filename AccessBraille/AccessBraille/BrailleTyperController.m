@@ -54,6 +54,8 @@
     
     // Add Keyboard
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [keyboard setActiveStateWithTarget:self withSelector:@selector(active)];
+    [keyboard setDectiveStateWithTarget:self withSelector:@selector(deactive)];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -109,6 +111,8 @@
     [keyboard startSpeakingString:word];
 }
 
+- (void)active { NSLog(@"Active"); }
+- (void)deactive { NSLog(@"Deactive"); }
 
 #pragma mark - Access Core Data Methods
 
