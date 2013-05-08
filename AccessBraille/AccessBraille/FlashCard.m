@@ -46,6 +46,10 @@
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
     
     infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
     [infoText setText:welcomeText];
@@ -55,24 +59,25 @@
     infoText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:infoText];
     
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake(200, 150, 250, 100)];
-    [typedText setBackgroundColor:[UIColor clearColor]];
-    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
-    typedText.editable = NO;
-    typedText.scrollEnabled = NO;
-    [[self view] addSubview:typedText];
-    
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake(700, 150, 250, 100)];
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 400, 300)];
     [cardText setBackgroundColor:[UIColor clearColor]];
-    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:80]];
+    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     cardText.editable = NO;
     cardText.scrollEnabled = NO;
     cardText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:cardText];
     
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 400, 300)];
+    [typedText setBackgroundColor:[UIColor clearColor]];
+    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
+    typedText.editable = NO;
+    typedText.scrollEnabled = NO;
+    typedText.textColor = [UIColor greenColor];
+    [[self view] addSubview:typedText];
+    
     pointsText = [[UITextView alloc] initWithFrame:CGRectMake(900, 50, 100, 100)];
     [pointsText setBackgroundColor:[UIColor clearColor]];
-    [pointsText setFont:[UIFont fontWithName:@"ArialMT" size:20]];
+    [pointsText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
     pointsText.textColor = [UIColor redColor];
     [[self view] addSubview:pointsText];
     

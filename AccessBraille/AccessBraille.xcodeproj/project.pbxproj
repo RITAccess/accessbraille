@@ -203,7 +203,7 @@
 		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
-		2C10E23B17302DEC00A2864B /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cards.plist; path = AccessBraille/cards.plist; sourceTree = "<group>"; };
+		2C10E23B17302DEC00A2864B /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -556,7 +556,6 @@
 		A9479C2C1670034D00CE9475 = {
 			isa = PBXGroup;
 			children = (
-				2C10E23B17302DEC00A2864B /* cards.plist */,
 				4C3C91AD16CE91DC00954A54 /* Default-Landscape~ipad.png */,
 				4C3C91AB16CE91CF00954A54 /* Default-Landscape@2x~ipad.png */,
 				4CEC5E6516CD91EC00858B66 /* icon144.png */,
@@ -614,6 +613,7 @@
 		A9479C3F1670034E00CE9475 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C10E23B17302DEC00A2864B /* cards.plist */,
 				A95FFC251679394600BF966C /* grade1lookup.plist */,
 				A9479C401670034E00CE9475 /* AccessBraille-Info.plist */,
 				4C11AEA116F0D5A500A9210A /* menu.plist */,
