@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>ant</string>
+        <string>an</string>
+        <string>bed</string>
+        <string>be</string>
+        <string>box</string>
+        <string>boy</string>
+        <string>car</string>
+        <string>cat</string>
+        <string>cow</string>
+        <string>cot</string>
+        <string>day</string>
+        <string>dig</string>
+        <string>dog</string>
+        <string>egg</string>
+        <string>eye</string>
+        <string>lag</string>
+        <string>leg</string>
+        <string>lug</string>
+        <string>man</string>
+        <string>me</string>
+        <string>peg</string>
+        <string>pig</string>
+        <string>rot</string>
+        <string>son</string>
+        <string>sun</string>
+        <string>tip</string>
+        <string>to</string>
+        <string>toy</string>
+        <string>way</string>
+        <string>wig</string>
+    </array>
+</plist>

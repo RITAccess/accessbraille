@@ -13,7 +13,9 @@ NSString *const instructionsText = @"In Flash Card mode, users will type out wor
 NSString *const settingsText = @"The user is able to adjust the settings later within the application.";
 NSString *const welcomeText = @"Welcome to Flash Card mode! Tap once to hear the instructions, tap twice to hear settings, or swipe to the right of the screen to start playing.";
 
-NSInteger const maxCards = 2930;
+NSInteger const maxEasyCards = 30;
+NSInteger const maxMediumCards = 60;
+NSInteger const maxHardCards = 20;
 
 @interface FlashCard : UIViewController <ABKeyboard> {
 

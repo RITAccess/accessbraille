@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "ABKeyboard.h"
 #import "ABParser.h"
+#import "ABSpeak.h"
 
 @interface FlashCard ()
 
@@ -32,6 +33,7 @@
     UITapGestureRecognizer *tap;
     ABKeyboard *keyboard;
     ABParser *parser;
+    ABSpeak *speaker;
     int points;
 }
 
@@ -44,7 +46,7 @@
     
     // Reading in the plist.
     NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSString *finalPath = [path stringByAppendingPathComponent:@"cards.plist"];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"easy.plist"];
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
 
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -132,23 +134,23 @@
 -(void)enterCardMode{
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [cardText setText:cards[arc4random() % maxCards]]; // Display the word.
-}
-
--(void)changeCard: (int) newRandomCardIndex{
-    [cardText setText:cards[newRandomCardIndex]];
-    typedText.text = @"";
+    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
 }
 
 -(void)checkCard{
     SystemSoundID correctSound = [self createSoundID:@"correct.aiff"];
+    SystemSoundID incorrectSound = [self createSoundID:@"incorrect.aiff"];
     NSLog(@"Checking Card...");
     if ([cardText.text isEqualToString:typedText.text]) {
         AudioServicesPlaySystemSound(correctSound);
         NSLog(@"Correct!");
         pointsText.text = [NSString stringWithFormat:@"%d", ++points];
-        [self changeCard:(arc4random() % maxCards)];  // Random card index
+        [cardText setText:cards[arc4random() % maxEasyCards]];
         [self clearStrings];
+    }
+    else{
+        AudioServicesPlaySystemSound(incorrectSound);
+        NSLog(@"Incorrect!");
     }
 }
 
@@ -165,8 +167,8 @@
         NSLog(@"It's a space!");
         [self checkCard];
     }else{
-        [stringFromInput appendFormat:@"%@", character];
-        [typedText setText:stringFromInput];
+        [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+        [typedText setText:stringFromInput]; // Sets typed text to the label.
         NSLog(@"Card: %@", cardText.text);
         NSLog(@"Typed: %@", typedText.text);
     }
