@@ -24,7 +24,7 @@
     NSMutableArray *chars = [[NSMutableArray alloc] init];
     NSString *nextWord = @"";
     // Cycles through sentance to check each character for spaces or punctuation
-    for(int index = 0; index <=[sentence length] - 1; index++){
+    for(int index = 0; index < [sentence length]; index++){
         if ([sentence characterAtIndex:index] == ' '){
             [chars addObject:nextWord];
             nextWord = @"";
@@ -38,7 +38,6 @@
         }
     }
     [chars addObject:nextWord];
-    nextWord = @"";
     return chars;
 }
 

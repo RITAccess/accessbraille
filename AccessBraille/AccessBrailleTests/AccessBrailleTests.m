@@ -71,7 +71,7 @@
     NSString *test = @"This is a, test sentace.";
     NSArray *testArray = @[@"This", @"is", @"a", @"test", @"sentace"];
     
-    NSArray *parsedArray = [ABParser arrayOfWordsFromSentance:test];
+    NSArray *parsedArray = [ABParser arrayOfWordsFromSentence:test];
     
     STAssertEqualObjects(parsedArray, testArray, @"Arrays are not equal");
     
