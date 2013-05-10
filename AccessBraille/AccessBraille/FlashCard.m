@@ -19,7 +19,10 @@
 @implementation FlashCard {
     UITapGestureRecognizer *tapToDisplayInstructions;
     UITapGestureRecognizer *tapToDisplaySettings;
-    UISwipeGestureRecognizer *swipeToEnterCardMode;
+    UISwipeGestureRecognizer *swipeToSelectDifficulty;
+    UISwipeGestureRecognizer *swipeToSelectEasy;
+    UISwipeGestureRecognizer *swipeToSelectMedium;
+    UISwipeGestureRecognizer *swipeToSelectHard;
     NSTimer *letterTimer;
     UITextView *typedText;
     UITextView *cardText;
@@ -56,6 +59,7 @@
     infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
     [infoText setText:welcomeText];
     [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    [infoText setBackgroundColor:[UIColor clearColor]];
     infoText.editable = NO;
     infoText.scrollEnabled = NO;
     infoText.allowsEditingTextAttributes = NO;
@@ -74,7 +78,7 @@
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     typedText.editable = NO;
     typedText.scrollEnabled = NO;
-    typedText.textColor = [UIColor greenColor];
+    typedText.textColor = [UIColor colorWithRed:0.f green:.8 blue:0.f alpha:1.f];
     [[self view] addSubview:typedText];
     
     pointsText = [[UITextView alloc] initWithFrame:CGRectMake(900, 50, 100, 100)];
@@ -93,20 +97,26 @@
     [tapToDisplaySettings setEnabled:YES];
     [self.view addGestureRecognizer:tapToDisplaySettings];
     
-    swipeToEnterCardMode = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterCardMode:)];
-    [swipeToEnterCardMode setEnabled:YES];
-    [self.view addGestureRecognizer:swipeToEnterCardMode];
+    swipeToSelectDifficulty = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectDifficulty:)];
+    [swipeToSelectDifficulty setEnabled:YES];
+    [self.view addGestureRecognizer:swipeToSelectDifficulty];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
+    self.easyModeLabel.hidden = true;
+    self.mediumModeLabel.hidden = true;
+    self.hardModeLabel.hidden = true;
     stringFromInput = [[NSMutableString alloc] init];
     pointsText.hidden = true;
 }
 
 - (void)viewDidUnload {
     [self setScreenTitle:nil];
+    [self setMediumModeLabel:nil];
+    [self setHardModeLabel:nil];
+    [self setEasyModeLabel:nil];
     [super viewDidUnload];
 }
 
@@ -122,20 +132,45 @@
 }
 
 - (void)enterCardMode:(UIGestureRecognizer *)gestureRecognizer{
+    [swipeToSelectDifficulty setEnabled:false];
     infoText.text = nil;
     self.screenTitle.hidden = true;
     pointsText.hidden = false;
-    [self enterCardMode];
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
+    self.easyModeLabel.hidden = true;
+    self.mediumModeLabel.hidden = true;
+    self.hardModeLabel.hidden = true;
+    
+}
+
+- (void)selectDifficulty:(UIGestureRecognizer *)gestureRecognizer{
+    infoText.text = nil;
+    self.screenTitle.hidden = true;
+    pointsText.hidden = true;
+    self.easyModeLabel.hidden = false;
+    self.mediumModeLabel.hidden = false;
+    self.hardModeLabel.hidden = false;
+    
+    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterCardMode:)];
+    [swipeToSelectEasy setEnabled:YES];
+    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:swipeToSelectEasy];
+    
+    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterCardMode:)];
+    [swipeToSelectMedium setEnabled:YES];
+    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeToSelectMedium];
+    
+    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterCardMode:)];
+    [swipeToSelectHard setEnabled:YES];
+    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipeToSelectHard];
 }
 
 
 #pragma mark - Card Mode
-
--(void)enterCardMode{
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
-}
 
 -(void)checkCard{
     SystemSoundID correctSound = [self createSoundID:@"correct.aiff"];
