@@ -50,6 +50,7 @@
 @property id activeTarget;
 @property SEL deactiveKeyboard;
 @property id deactiveTarget;
+@property (nonatomic) int spaceOffset;
 
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;

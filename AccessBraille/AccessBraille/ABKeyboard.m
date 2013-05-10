@@ -170,6 +170,13 @@
     }
 }
 
+#pragma mark args
+
+- (void) setSpaceOffset:(int)spaceOffset {
+    _spaceOffset = spaceOffset;
+    [interface setAjt:spaceOffset];
+}
+
 #pragma mark Talk
 
 - (void)startSpeakingString:(NSString *)string {

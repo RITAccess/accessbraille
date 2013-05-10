@@ -47,6 +47,10 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td><tt>@property BOOL sound</tt></td>
     <td>Set the state for keyboard sounds. <tt>YES</tt> for enabled.</td>
   </tr>
+  <tr>
+    <td><tt>@property int spaceOffset</tt></td>
+    <td>An int value between 0 and 100 for adjusting the recognition of the space bar. (use setter method)</td>
+  </tr>
 
   <tr><th colspan="2" style="text-align:center;">@protocol ABKeyboard</th></tr>
   <tr>
