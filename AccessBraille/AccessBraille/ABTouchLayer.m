@@ -110,7 +110,7 @@
 - (void)receiveScreenTap:(UITapGestureRecognizer *)reg {
     if ([reg locationInView:self].x > farX) {
         [self backspace];
-    } else if ([reg locationInView:self].y > (avgY + 150) && [reg locationInView:self].x < farX) {
+    } else if ([reg locationInView:self].y > (avgY + 70 + _ajt) && [reg locationInView:self].x < farX) {
         [self space];
     }
 }

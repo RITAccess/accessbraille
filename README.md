@@ -28,6 +28,14 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     <td>Creates a keyboard interface to receive input.</td>
   </tr>
   <tr>
+    <td><tt>-setActiveStateWithTarget:withSelector:</tt></td>
+    <td>Set a location for a call to method for when ever the keyboard becomes active.</td>
+  </tr>
+  <tr>
+    <td><tt>-setDectiveStateWithTarget:withSelector:</tt></td>
+    <td>Set a location for a call to method for when ever the keyboard becomes inactive.</td>
+  </tr>
+  <tr>
     <td><tt>-startSpeakingString:</tt></td>
     <td>Speaks the string. NOTE not implemented fully, just prints to console.</td>
   </tr>
@@ -38,6 +46,10 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
   <tr>
     <td><tt>@property BOOL sound</tt></td>
     <td>Set the state for keyboard sounds. <tt>YES</tt> for enabled.</td>
+  </tr>
+  <tr>
+    <td><tt>@property int spaceOffset</tt></td>
+    <td>An int value between 0 and 100 for adjusting the recognition of the space bar. (use setter method)</td>
   </tr>
 
   <tr><th colspan="2" style="text-align:center;">@protocol ABKeyboard</th></tr>
