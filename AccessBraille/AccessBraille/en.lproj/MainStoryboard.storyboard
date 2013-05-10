@@ -190,59 +190,6 @@
     <resources>
         <image name="mainMenu@2x.png" width="2048" height="1536"/>
     </resources>
-    <classes>
-        <class className="BrailleTyperController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
-                <relationship kind="outlet" name="TextDrawing" candidateClass="TextOut"/>
-                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Drawing" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
-        </class>
-        <class className="FlashCard" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCard.h"/>
-            <relationships>
-                <relationship kind="outlet" name="easyModeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hardModeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mediumModeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="screenTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="InstructionsMenu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionsMenu.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainMenu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenu.h"/>
-            <relationships>
-                <relationship kind="outlet" name="OverlayDiscription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="OverlayTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuView" candidateClass="MainMenuNavigation"/>
-            </relationships>
-        </class>
-        <class className="MainMenuNavigation" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuNavigation.h"/>
-        </class>
-        <class className="NavigationContainer" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
-        </class>
-        <class className="Settings" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Settings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TextOut" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextOut.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
