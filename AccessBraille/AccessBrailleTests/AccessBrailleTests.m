@@ -11,6 +11,8 @@
 #import "ABTypes.h"
 #import "ABBrailleReader.h"
 #import "ABParser.h"
+#import "SidebarViewController.h"
+#import "MainMenuItemImage.h"
 
 @implementation AccessBrailleTests
 
@@ -71,7 +73,7 @@
     NSString *test = @"This is a, test sentace.";
     NSArray *testArray = @[@"This", @"is", @"a", @"test", @"sentace"];
     
-    NSArray *parsedArray = [ABParser arrayOfWordsFromSentance:test];
+    NSArray *parsedArray = [ABParser arrayOfWordsFromSentence:test];
     
     STAssertEqualObjects(parsedArray, testArray, @"Arrays are not equal");
     
@@ -89,6 +91,21 @@
     STAssertEqualObjects([ABParser arrayOfCharactersFromWord:t3], p3, @"Did not remove punc");
     
 }
+
+- (void)testLoadingMenu {
+    
+    // Test menu 4
+    SidebarViewController *sbc = [[SidebarViewController alloc] init];
+    
+    NSArray *loadedContent = [sbc loadMenuItems];
+    
+    // Tester
+    MainMenuItemImage *testItem = [[MainMenuItemImage alloc] initWithFrame:CGRectMake(5, 55 * 3, 50, 50)];
+    [testItem setTag:[@(31 + 3) intValue]];
+    
+    STAssertEqualObjects(loadedContent[3], testItem, @"Menu Items not loaded corrently");
+}
+
 @end
 
 

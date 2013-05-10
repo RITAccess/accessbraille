@@ -29,16 +29,12 @@
     _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
     [self.view addGestureRecognizer:_leftSideSwipe];
     
-    _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:nav action:@selector(tapToClose:)];
     [self.view addGestureRecognizer:_tapToCloseMenu];
     
     [self.view addSubview:nav.view];
     [self.view bringSubviewToFront:nav.view];
     
-}
-
-- (void)tapToClose:(UITapGestureRecognizer *)reg {
-    NSLog(@"Tap");
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }

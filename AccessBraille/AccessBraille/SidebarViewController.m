@@ -40,6 +40,13 @@
     return self;
 }
 
+- (NSArray *)loadMenuItems {
+    
+    
+    return nil;
+}
+
+
 - (void)updateMenuPosition:(float)position {
     if (position <= 100) {
         [self.view setFrame:CGRectMake(position-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
@@ -57,14 +64,18 @@
         [self.view setFrame:CGRectMake(0, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setNeedsDisplay];
     } else {
-        [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
-        [self.view setNeedsDisplay];
+        [UIView animateWithDuration:.3 animations:^{
+            [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
+            [self.view setNeedsDisplay];
+        }];
     }
     _menuOpen = menuOpen;
 }
 
 - (void)tapToClose:(UITapGestureRecognizer *)reg {
-    NSLog(@"Tap");
+    if ([reg locationInView:self.view].x > 100) {
+        [self setMenuOpen:NO];
+    }
 }
 
 - (void)viewDidLoad

@@ -16,4 +16,7 @@
 /* Menu State */
 @property (nonatomic) BOOL menuOpen;
 
+/* for testing */
+- (NSArray *)loadMenuItems;
+
 @end
