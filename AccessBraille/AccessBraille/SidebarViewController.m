@@ -8,6 +8,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import "SidebarViewController.h"
+#import "MainMenuItemImage.h"
 
 @interface SidebarViewController ()
 
@@ -15,6 +16,7 @@
 
 @implementation SidebarViewController {
     SystemSoundID openNavSound;
+    NSDictionary *menuItemsDict;
 }
 
 @synthesize menuOpen = _menuOpen;
@@ -40,10 +42,46 @@
     return self;
 }
 
-- (NSArray *)loadMenuItems {
+- (void)loadMenuItemsAnimated:(BOOL)animated {
     
+    NSLog(@"Test Load Menu Items");
     
-    return nil;
+    // Size
+    #define LEFTMARGIN 5
+    #define SIZE 85
+    
+    // Load menu info
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
+    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    
+    NSMutableArray *menuItems = [[NSMutableArray alloc] initWithCapacity:menuItemsDict.count];
+    int startTag = 0;
+    
+    for (NSString *link in menuItemsDict) {
+        
+        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", startTag]]];
+        [menuItem setUserInteractionEnabled:YES];
+        [menuItem setFrame:CGRectMake(animated ? -100 : LEFTMARGIN, 50 + (startTag * SIZE) + 5, SIZE, SIZE)];
+        [menuItem setTag:startTag];
+        
+        // Add to subview and array
+        [self.view addSubview:menuItem];
+        menuItems[startTag] = menuItem;
+        
+        startTag++;
+    }
+    
+    if (animated) {
+        for (UIView *item in menuItems) {
+            [UIView animateWithDuration:.2 animations:^{
+                CGRect newFrame = item.frame;
+                newFrame.origin.x = LEFTMARGIN;
+                [item setFrame:newFrame];
+            }];
+        }
+    }
+    
 }
 
 
@@ -63,6 +101,7 @@
     if (menuOpen) {
         [self.view setFrame:CGRectMake(0, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setNeedsDisplay];
+        [self loadMenuItemsAnimated:YES];
     } else {
         [UIView animateWithDuration:.3 animations:^{
             [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];

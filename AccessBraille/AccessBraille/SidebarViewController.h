@@ -17,6 +17,6 @@
 @property (nonatomic) BOOL menuOpen;
 
 /* for testing */
-- (NSArray *)loadMenuItems;
+- (void)loadMenuItemsAnimated:(BOOL)animated;
 
 @end
