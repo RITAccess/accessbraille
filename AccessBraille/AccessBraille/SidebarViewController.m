@@ -15,6 +15,7 @@
 // Size formating for menu
 #define LEFTMARGIN 5
 #define SIZE 85
+#define START 340
 
 @interface SidebarViewController ()
 
@@ -62,12 +63,18 @@
         
         MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", startTag]]];
         [menuItem setUserInteractionEnabled:YES];
-        [menuItem setFrame:CGRectMake(animated ? -100 : LEFTMARGIN, 50 + (startTag * SIZE) + 5, SIZE, SIZE)];
+        [menuItem setFrame:CGRectMake(animated ? -100 : LEFTMARGIN, START + (startTag * (SIZE + 5)), SIZE, SIZE)];
         [menuItem setTag:startTag];
         
         // Add to subview and array
         [self.view addSubview:menuItem];
         menuItems[startTag] = menuItem;
+        
+        // Attach gestures
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenuItem:)];
+        [tap setNumberOfTapsRequired:1];
+        [tap setNumberOfTouchesRequired:1];
+        [menuItem addGestureRecognizer:tap];
         
         startTag++;
     }
@@ -114,6 +121,19 @@
         }];
     }
     _menuOpen = menuOpen;
+}
+
+- (void)tappedMenuItem:(UITapGestureRecognizer *)reg {
+    NSString *value = menuItemsDict[[NSString stringWithFormat:@"%d", reg.view.tag]];    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    NSLog(@"Switching to %@", value);
+    @try {
+        [((NavigationContainer *)self.parentViewController) switchToController:[storyboard instantiateViewControllerWithIdentifier:value] animated:YES withMenu:[value isEqualToString:@"menu"] ? NO : YES];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", [exception description]);
+    }
+        
 }
 
 - (void)tapToClose:(UITapGestureRecognizer *)reg {
