@@ -52,7 +52,6 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
-    
     infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
     [infoText setText:welcomeText];
     [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
@@ -62,7 +61,7 @@
     infoText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:infoText];
     
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 400, 300)];
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 600, 300)];
     [cardText setBackgroundColor:[UIColor clearColor]];
     [cardText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     cardText.editable = NO;
@@ -70,7 +69,7 @@
     cardText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:cardText];
     
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 400, 300)];
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 600, 300)];
     [typedText setBackgroundColor:[UIColor clearColor]];
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     typedText.editable = NO;
@@ -236,13 +235,10 @@
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     if ([character isEqual: @" "]){
-        NSLog(@"It's a space!");
         [self checkCard];
     }else{
         [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
         [typedText setText:stringFromInput]; // Sets typed text to the label.
-        NSLog(@"Card: %@", cardText.text);
-        NSLog(@"Typed: %@", typedText.text);
     }
 }
 
