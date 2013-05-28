@@ -103,7 +103,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
-    [self hideSwipeLables:true];
+    [self hideSwipeLabels:true];
     stringFromInput = [[NSMutableString alloc] init];
     pointsText.hidden = true;
     
@@ -131,8 +131,8 @@
 }
 
 - (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableDifficultySwipeGestures:false];
-    [self hideSwipeLables:true];
+    [self enableAllGestures:false];
+    [self hideSwipeLabels:true];
     self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
@@ -143,8 +143,8 @@
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableDifficultySwipeGestures:false];
-    [self hideSwipeLables:true];
+    [self enableAllGestures:false];
+    [self hideSwipeLabels:true];
     self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
@@ -155,8 +155,8 @@
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableDifficultySwipeGestures:false];
-    [self hideSwipeLables:true];
+    [self enableAllGestures:false];
+    [self hideSwipeLabels:true];
     self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
@@ -166,14 +166,13 @@
     [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
 }
 
-- (void)enableDifficultySwipeGestures:(BOOL)enable{
+- (void)enableAllGestures:(BOOL)enable{
     [swipeToSelectDifficulty setEnabled:enable];
-    [swipeToSelectDifficulty setEnabled:enable];
-    [swipeToSelectDifficulty setEnabled:enable];
-    [swipeToSelectDifficulty setEnabled:enable];
+    [tapToDisplaySettings setEnabled:enable];
+    [tapToDisplayInstructions setEnabled:enable];
 }
 
--(void)hideSwipeLables:(BOOL)toDisplay{
+-(void)hideSwipeLabels:(BOOL)toDisplay{
     self.easyModeLabel.hidden = toDisplay;
     self.mediumModeLabel.hidden = toDisplay;
     self.hardModeLabel.hidden = toDisplay;
@@ -183,7 +182,7 @@
     infoText.text = nil;
     pointsText.hidden = true;
     
-    [self hideSwipeLables:false];
+    [self hideSwipeLabels:false];
     self.screenTitle.hidden = true;
     
     swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
@@ -214,17 +213,14 @@
 #pragma mark - Card Mode
 
 -(void)checkCard{
-    NSLog(@"Checking Card...");
-    if ([cardText.text isEqualToString:typedText.text]) {
+    if ([cardText.text isEqualToString:typedText.text]) { // If the typed string matches the card.
         AudioServicesPlaySystemSound(correctSound);
-        NSLog(@"Correct!");
         pointsText.text = [NSString stringWithFormat:@"%d", ++points];
         [cardText setText:cards[arc4random() % maxHardCards]];
         [self clearStrings];
     }
     else{
         AudioServicesPlaySystemSound(incorrectSound);
-        NSLog(@"Incorrect!");
     }
 }
 
@@ -244,13 +240,11 @@
             if (stringFromInput.length > 0) {
                 [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
                 [typedText setText:stringFromInput];
-                NSLog(@"%@", stringFromInput);
             }
         }
         else{
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
-            NSLog(@"%@", stringFromInput);
         }
     }
 }
