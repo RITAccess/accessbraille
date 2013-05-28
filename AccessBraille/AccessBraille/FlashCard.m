@@ -40,6 +40,8 @@
     int points;
     NSString *finalPath;
     NSString *path;
+    SystemSoundID correctSound;
+    SystemSoundID incorrectSound;
 }
 
 #pragma mark - View
@@ -104,6 +106,9 @@
     [self hideSwipeLables:true];
     stringFromInput = [[NSMutableString alloc] init];
     pointsText.hidden = true;
+    
+    correctSound = [self createSoundID:@"correct.aiff"];
+    incorrectSound = [self createSoundID:@"incorrect.aiff"];
 }
 
 - (void)viewDidUnload {
@@ -209,8 +214,6 @@
 #pragma mark - Card Mode
 
 -(void)checkCard{
-    SystemSoundID correctSound = [self createSoundID:@"correct.aiff"];
-    SystemSoundID incorrectSound = [self createSoundID:@"incorrect.aiff"];
     NSLog(@"Checking Card...");
     if ([cardText.text isEqualToString:typedText.text]) {
         AudioServicesPlaySystemSound(correctSound);
@@ -237,8 +240,18 @@
     if ([character isEqual: @" "]){
         [self checkCard];
     }else{
-        [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-        [typedText setText:stringFromInput]; // Sets typed text to the label.
+        if ([info[ABBackspaceReceived] boolValue]){ // Remove character from typed string if backspace detected.
+            if (stringFromInput.length > 0) {
+                [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
+                [typedText setText:stringFromInput];
+                NSLog(@"%@", stringFromInput);
+            }
+        }
+        else{
+            [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+            [typedText setText:stringFromInput]; // Sets typed text to the label.
+            NSLog(@"%@", stringFromInput);
+        }
     }
 }
 
