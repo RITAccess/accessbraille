@@ -62,10 +62,11 @@
 
 - (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
 
+/**
+ Takes in a UIViewController and switches the view to that controller
+ */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
-    /**
-        Takes in a UIViewController and switches the view to that controller
-     */
+    
     if (animated) {
         
         for (UIView *subview in self.view.subviews){
@@ -106,11 +107,11 @@
 
 # pragma mark - Navigation Logic
 
+/**
+ Called by gesture framework and opens the navigation menu
+ */
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-    
-    /**
-        Called by gesture framework and opens the navigation menu
-     */
+
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
