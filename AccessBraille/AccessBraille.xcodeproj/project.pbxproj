@@ -101,6 +101,8 @@
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4C8E8F381718529C0014F330 /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E8F371718529C0014F330 /* ABParser.m */; };
+		4C944BEA1754D9CB002C59FE /* UIView+quickRemove.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C944BE91754D9CB002C59FE /* UIView+quickRemove.m */; };
+		4C944BEE17550F5C002C59FE /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C944BED17550F5C002C59FE /* NSString+helpers.m */; };
 		4CA076DB16D58590006DDBD3 /* menuItem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076DA16D58590006DDBD3 /* menuItem0.png */; };
 		4CA076DF16D5889C006DDBD3 /* menuItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA076DE16D5889C006DDBD3 /* menuItem1.png */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
@@ -255,6 +257,10 @@
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4C8E8F361718529C0014F330 /* ABParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABParser.h; sourceTree = "<group>"; };
 		4C8E8F371718529C0014F330 /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
+		4C944BE81754D9CB002C59FE /* UIView+quickRemove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+quickRemove.h"; sourceTree = "<group>"; };
+		4C944BE91754D9CB002C59FE /* UIView+quickRemove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+quickRemove.m"; sourceTree = "<group>"; };
+		4C944BEC17550F5C002C59FE /* NSString+helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+helpers.h"; sourceTree = "<group>"; };
+		4C944BED17550F5C002C59FE /* NSString+helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+helpers.m"; sourceTree = "<group>"; };
 		4CA076DA16D58590006DDBD3 /* menuItem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem0.png; sourceTree = "<group>"; };
 		4CA076DE16D5889C006DDBD3 /* menuItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem1.png; sourceTree = "<group>"; };
 		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -472,11 +478,27 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4C944BEB17550F25002C59FE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
+				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
+				4C944BE81754D9CB002C59FE /* UIView+quickRemove.h */,
+				4C944BE91754D9CB002C59FE /* UIView+quickRemove.m */,
+				4C944BEC17550F5C002C59FE /* NSString+helpers.h */,
+				4C944BED17550F5C002C59FE /* NSString+helpers.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4C944BEB17550F25002C59FE /* Categories */,
 				4C433B8F1705DF4B003D2DE7 /* ABTypes.h */,
 				4CB222AD1706063E00BD3608 /* ABTypes.m */,
+				4C47815D17219E9400C4F7C1 /* ABSpeak.h */,
+				4C47815E17219E9400C4F7C1 /* ABSpeak.m */,
 				4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */,
 				4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */,
 				4C1B824E171316F60035797D /* ABBrailleReader.h */,
@@ -489,10 +511,6 @@
 				4C092A5F170F1AFA00650986 /* ABTouchView.m */,
 				4C8E8F361718529C0014F330 /* ABParser.h */,
 				4C8E8F371718529C0014F330 /* ABParser.m */,
-				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
-				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
-				4C47815D17219E9400C4F7C1 /* ABSpeak.h */,
-				4C47815E17219E9400C4F7C1 /* ABSpeak.m */,
 			);
 			name = "AccessBraille Framework";
 			sourceTree = "<group>";
@@ -891,6 +909,8 @@
 				4C8E8F381718529C0014F330 /* ABParser.m in Sources */,
 				4C47815F17219E9400C4F7C1 /* ABSpeak.m in Sources */,
 				4CF10646172829F20047B393 /* SidebarViewController.m in Sources */,
+				4C944BEA1754D9CB002C59FE /* UIView+quickRemove.m in Sources */,
+				4C944BEE17550F5C002C59FE /* NSString+helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

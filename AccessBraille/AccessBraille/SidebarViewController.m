@@ -9,6 +9,12 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "SidebarViewController.h"
 #import "MainMenuItemImage.h"
+#import "UIView+quickRemove.h"
+#import "NavigationContainer.h"
+
+// Size formating for menu
+#define LEFTMARGIN 5
+#define SIZE 85
 
 @interface SidebarViewController ()
 
@@ -44,12 +50,6 @@
 
 - (void)loadMenuItemsAnimated:(BOOL)animated {
     
-    NSLog(@"Test Load Menu Items");
-    
-    // Size
-    #define LEFTMARGIN 5
-    #define SIZE 85
-    
     // Load menu info
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
@@ -84,7 +84,9 @@
     
 }
 
-
+/**
+ * Controls how far the side menu is open
+ */
 - (void)updateMenuPosition:(float)position {
     if (position <= 100) {
         [self.view setFrame:CGRectMake(position-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
@@ -92,7 +94,6 @@
     } else {
         if (!_menuOpen) {
             [self setMenuOpen:YES];
-            AudioServicesPlaySystemSound(openNavSound);
         }
     }
 }
@@ -102,10 +103,14 @@
         [self.view setFrame:CGRectMake(0, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setNeedsDisplay];
         [self loadMenuItemsAnimated:YES];
+        [((NavigationContainer *)self.parentViewController).tapToCloseMenu setEnabled:YES];
+        AudioServicesPlaySystemSound(openNavSound);
     } else {
+        [((NavigationContainer *)self.parentViewController).tapToCloseMenu setEnabled:NO];
         [UIView animateWithDuration:.3 animations:^{
             [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
             [self.view setNeedsDisplay];
+            [self.view removeSubviews];
         }];
     }
     _menuOpen = menuOpen;

@@ -30,11 +30,14 @@
     [self.view addGestureRecognizer:_leftSideSwipe];
     
     _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:nav action:@selector(tapToClose:)];
-    [self.view addGestureRecognizer:_tapToCloseMenu];
+    [_tapToCloseMenu setEnabled:NO];
+    [self.view.superview addGestureRecognizer:_tapToCloseMenu];
     
     [self.view addSubview:nav.view];
     [self.view bringSubviewToFront:nav.view];
     
+    [self addChildViewController:nav];
+    [nav didMoveToParentViewController:self];
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
