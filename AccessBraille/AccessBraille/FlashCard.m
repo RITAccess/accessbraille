@@ -63,7 +63,7 @@
     infoText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:infoText];
     
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 600, 300)];
+    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
     [cardText setBackgroundColor:[UIColor clearColor]];
     [cardText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     cardText.editable = NO;
@@ -71,7 +71,7 @@
     cardText.allowsEditingTextAttributes = NO;
     [[self view] addSubview:cardText];
     
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 600, 300)];
+    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
     [typedText setBackgroundColor:[UIColor clearColor]];
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
     typedText.editable = NO;
