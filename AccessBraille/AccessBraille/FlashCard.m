@@ -92,7 +92,7 @@
     
     tapToDisplaySettings = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displaySettings:)];
     [tapToDisplaySettings setNumberOfTapsRequired:2];
-    [tapToDisplaySettings setEnabled:YES];
+    [tapToDisplaySettings setEnabled:YES];    
     [self.view addGestureRecognizer:tapToDisplaySettings];
     
     swipeToSelectDifficulty = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectDifficulty:)];
@@ -199,7 +199,6 @@
     [swipeToSelectHard setEnabled:YES];
     [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
-    
 }
 
 
@@ -246,20 +245,6 @@
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
         }
-    }
-}
-
-
-#pragma mark - Speech
-
-- (void)speakSingleLetterFromArray{
-    letters = [ABParser arrayOfCharactersFromWord:card[0]];
-    
-    letterTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(speakSingleLetterFromArray) userInfo:nil repeats:NO];
-    
-    for (int i = 0; i < letters.count; i++){
-        NSLog(@"%@", letters[0]);
-        [letterTimer fire];
     }
 }
 
