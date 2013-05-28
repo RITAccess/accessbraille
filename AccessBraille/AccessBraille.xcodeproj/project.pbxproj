@@ -56,7 +56,6 @@
 		2C10E1A317302CD800A2864B /* NeatSpeechDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E1A217302CD800A2864B /* NeatSpeechDemo.framework */; };
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
-		2C10E23C17302DEC00A2864B /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E23B17302DEC00A2864B /* cards.plist */; };
 		2CCB7543173AAC1C0059E580 /* correct.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7542173AAC1C0059E580 /* correct.aiff */; };
 		2CCB7545173AB0230059E580 /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7544173AB0220059E580 /* incorrect.aiff */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
@@ -208,7 +207,6 @@
 		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
-		2C10E23B17302DEC00A2864B /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
 		2CCB7542173AAC1C0059E580 /* correct.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = correct.aiff; sourceTree = "<group>"; };
 		2CCB7544173AB0220059E580 /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = incorrect.aiff; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
@@ -623,7 +621,6 @@
 		A9479C3F1670034E00CE9475 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2C10E23B17302DEC00A2864B /* cards.plist */,
 				2CCB7548173BF3220059E580 /* easy.plist */,
 				2CCB754A173BF3610059E580 /* medium.plist */,
 				2CCB754C173BF3B40059E580 /* hard.plist */,
@@ -851,7 +848,6 @@
 				2C10E19F17302CC300A2864B /* neatspeech_us1_tree-lf0.inf in Resources */,
 				2C10E1A017302CC300A2864B /* neatspeech_us1_tree-lpf.inf in Resources */,
 				2C10E1A117302CC300A2864B /* neatspeech_us1_tree-mgc.inf in Resources */,
-				2C10E23C17302DEC00A2864B /* cards.plist in Resources */,
 				2CCB7543173AAC1C0059E580 /* correct.aiff in Resources */,
 				2CCB7545173AB0230059E580 /* incorrect.aiff in Resources */,
 				2CCB7549173BF3220059E580 /* easy.plist in Resources */,
