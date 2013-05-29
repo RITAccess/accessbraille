@@ -145,7 +145,7 @@
 }
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation {
-    int xpos = touchLocation.x <= 100 ? touchLocation.x - 100 : 0;
+    double xpos = touchLocation.x <= 100.0 ? touchLocation.x - 100.0 : 0.0;
     [super setFrame:CGRectMake(xpos, 0, 100, 748)];
     if ([self isActive]) {
         [self activeMenuItems];

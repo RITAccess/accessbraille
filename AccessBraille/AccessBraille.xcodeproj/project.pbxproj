@@ -135,9 +135,8 @@
 		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
 		A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */ = {isa = PBXBuildFile; fileRef = A97FF44B16B1CE1300116AEC /* Enabled.m */; };
 		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
-		A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */; };
 		A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */; };
-		A9FE03A316B6CB780065E9EC /* TextOut.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FE03A216B6CB780065E9EC /* TextOut.m */; };
+		A9FE03A316B6CB780065E9EC /* BrailleTyperOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FE03A216B6CB780065E9EC /* BrailleTyperOutputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,12 +309,10 @@
 		A99671BE16810EFA00AAA322 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9C960D3167F7B4F00084764 /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawing.h; sourceTree = "<group>"; };
 		A9C960D4167F7B4F00084764 /* Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawing.m; sourceTree = "<group>"; };
-		A9ECC82316A7652500998AD4 /* newViewControllerTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newViewControllerTemplate.h; sourceTree = "<group>"; };
-		A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newViewControllerTemplate.m; sourceTree = "<group>"; };
 		A9ECC82916A7780B00998AD4 /* NavigationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationContainer.h; sourceTree = "<group>"; };
 		A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationContainer.m; sourceTree = "<group>"; };
-		A9FE03A116B6CB780065E9EC /* TextOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextOut.h; sourceTree = "<group>"; };
-		A9FE03A216B6CB780065E9EC /* TextOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextOut.m; sourceTree = "<group>"; };
+		A9FE03A116B6CB780065E9EC /* BrailleTyperOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyperOutputView.h; sourceTree = "<group>"; };
+		A9FE03A216B6CB780065E9EC /* BrailleTyperOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyperOutputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,8 +536,8 @@
 				A94471E5169CAC1000B66193 /* NavigationView.m */,
 				A97FF44A16B1CE1300116AEC /* Enabled.h */,
 				A97FF44B16B1CE1300116AEC /* Enabled.m */,
-				A9FE03A116B6CB780065E9EC /* TextOut.h */,
-				A9FE03A216B6CB780065E9EC /* TextOut.m */,
+				A9FE03A116B6CB780065E9EC /* BrailleTyperOutputView.h */,
+				A9FE03A216B6CB780065E9EC /* BrailleTyperOutputView.m */,
 				4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */,
 				4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */,
 				4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */,
@@ -671,8 +668,6 @@
 				4C65356216C443A900611B6F /* MainMenu.m */,
 				4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */,
 				4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */,
-				A9ECC82316A7652500998AD4 /* newViewControllerTemplate.h */,
-				A9ECC82416A7652500998AD4 /* newViewControllerTemplate.m */,
 				4CA076E016D58A3A006DDBD3 /* Settings.h */,
 				4CA076E116D58A3A006DDBD3 /* Settings.m */,
 			);
@@ -881,10 +876,9 @@
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A94471E6169CAC1000B66193 /* NavigationView.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
-				A9ECC82516A7652500998AD4 /* newViewControllerTemplate.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
-				A9FE03A316B6CB780065E9EC /* TextOut.m in Sources */,
+				A9FE03A316B6CB780065E9EC /* BrailleTyperOutputView.m in Sources */,
 				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
@@ -1010,20 +1004,41 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
 					"\"$(SRCROOT)/Voices/Demo\"",
 					"\"$(SRCROOT)\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -1034,22 +1049,43 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
 					"\"$(SRCROOT)/Voices/Demo\"",
 					"\"$(SRCROOT)\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
