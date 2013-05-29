@@ -20,6 +20,5 @@ NSInteger const maxHardCards = 20;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UILabel *screenTitle;
 
 @end

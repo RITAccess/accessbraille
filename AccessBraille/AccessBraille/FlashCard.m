@@ -17,9 +17,6 @@
 @end
 
 @implementation FlashCard {
-    UISwipeGestureRecognizer *swipeToSelectEasy;
-    UISwipeGestureRecognizer *swipeToSelectMedium;
-    UISwipeGestureRecognizer *swipeToSelectHard;
     UITextView *typedText;
     UITextView *cardText;
     UITextView *pointsText;
@@ -83,17 +80,17 @@
     [[self view] addSubview:pointsText];
     
     /* Gestures */
-    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
+    UISwipeGestureRecognizer* swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
     [swipeToSelectEasy setEnabled:YES];
     [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
     [self.view addGestureRecognizer:swipeToSelectEasy];
     
-    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
+    UISwipeGestureRecognizer* swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
     [swipeToSelectMedium setEnabled:YES];
     [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeToSelectMedium];
     
-    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
+    UISwipeGestureRecognizer* swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
     [swipeToSelectHard setEnabled:YES];
     [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
@@ -115,7 +112,6 @@
 #pragma mark - Gestures
 
 - (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
     [self initializeCards:@"easy.plist"];
@@ -125,7 +121,6 @@
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
     [self initializeCards:@"medium.plist"];
@@ -135,7 +130,6 @@
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
     [self initializeCards:@"hard.plist"];
