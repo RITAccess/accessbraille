@@ -102,7 +102,6 @@
     }
     
     [chars addObject:nextWord];
-    nextWord = @"";
     return chars;
 }
 
