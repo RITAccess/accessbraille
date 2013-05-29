@@ -8,7 +8,9 @@
 
 #import "ABTouchView.h"
 
-@implementation ABTouchView
+@implementation ABTouchView {
+    CGPoint currentTouch;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,11 +22,27 @@
     return self;
 }
 
+- (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, 2);
+    
+    CGContextSetRGBStrokeColor(context, 0.0, 1.0, 1.0, 1.0);
+    CGContextMoveToPoint(context, 0, currentTouch.y);
+    CGContextAddLineToPoint(context, self.bounds.size.width, currentTouch.y);
+    
+    CGContextMoveToPoint(context, currentTouch.x, 0);
+    CGContextAddLineToPoint(context, currentTouch.x, self.bounds.size.height);
+    
+    CGContextStrokePath(context);
+}
+
 /**
  * GR target
  */
 - (void)tapped:(UITapGestureRecognizer *)reg {
     // Check if space
+    currentTouch = [reg locationInView:self];
     float touchY = [_delegate locationInDelegate:reg].y;
     float avgY = [_delegate averageY];
     if (touchY > avgY + 150) {
@@ -33,6 +51,7 @@
         [_delegate updateYAverage:touchY];
         [_delegate touchWithId:self.tag tap:YES];
     }
+    [self setNeedsDisplay];
 }
 
 @end

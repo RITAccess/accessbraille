@@ -44,6 +44,22 @@
     return self;
 }
 
+- (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, 2);
+    
+    CGContextSetRGBStrokeColor(context, 0.0, 1.0, 1.0, 1.0);
+    CGContextMoveToPoint(context, 0, avgY);
+    CGContextAddLineToPoint(context, 1024, avgY);
+    
+    CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
+    CGContextMoveToPoint(context, 0, avgY + 100);
+    CGContextAddLineToPoint(context, 1024, avgY + 100);
+    
+    CGContextStrokePath(context);
+}
+
 /**
  * Called when sub Views Have Been Added
  */
@@ -78,6 +94,7 @@
     } else {
         avgY = ((avgY * totalY) + newPoint) / ++totalY;
     }
+    [self setNeedsDisplay];
 }
 
 /**
