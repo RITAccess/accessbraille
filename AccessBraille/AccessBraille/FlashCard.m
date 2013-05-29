@@ -95,6 +95,7 @@
     [self.view addGestureRecognizer:swipeToSelectDifficulty];
     
     stringFromInput = [[NSMutableString alloc] init];
+    speaker = [[ABSpeak alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -108,10 +109,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setScreenTitle:nil];
-    [self setMediumModeLabel:nil];
-    [self setHardModeLabel:nil];
-    [self setEasyModeLabel:nil];
+
     [super viewDidUnload];
 }
 
@@ -120,6 +118,7 @@
 
 -(void)displayInstructions:(UIGestureRecognizer *)gestureRecognizer{
     [infoText setText:(instructionsText)];
+    
 }
 
 - (void)displaySettings:(UIGestureRecognizer *)gestureRecognizer{
@@ -244,7 +243,6 @@
             }
         }
         else{
-            speaker = [[ABSpeak alloc] init];
             [speaker speakString:character];
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
