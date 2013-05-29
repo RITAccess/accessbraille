@@ -17,23 +17,17 @@
 @end
 
 @implementation FlashCard {
-    UITapGestureRecognizer *tapToDisplayInstructions;
-    UITapGestureRecognizer *tapToDisplaySettings;
-    UISwipeGestureRecognizer *swipeToSelectDifficulty;
     UISwipeGestureRecognizer *swipeToSelectEasy;
     UISwipeGestureRecognizer *swipeToSelectMedium;
     UISwipeGestureRecognizer *swipeToSelectHard;
-    NSTimer *letterTimer;
     UITextView *typedText;
     UITextView *cardText;
     UITextView *pointsText;
-    NSTimer *speechTimer;
     NSMutableArray *cards;
     NSArray *card;
     NSMutableString *stringFromInput;
     NSArray *letters;
     UITextView *infoText;
-    UITapGestureRecognizer *tap;
     ABKeyboard *keyboard;
     ABSpeak *speaker;
     int points;
@@ -79,112 +73,15 @@
     pointsText.textColor = [UIColor redColor];
     [[self view] addSubview:pointsText];
     
-    tapToDisplayInstructions = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displayInstructions:)];
-    [tapToDisplayInstructions setNumberOfTapsRequired:1];
-    [tapToDisplayInstructions setEnabled:YES];
-    [self.view addGestureRecognizer:tapToDisplayInstructions];
     
-    tapToDisplaySettings = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displaySettings:)];
-    [tapToDisplaySettings setNumberOfTapsRequired:2];
-    [tapToDisplaySettings setEnabled:YES];    
-    [self.view addGestureRecognizer:tapToDisplaySettings];
-    
-    swipeToSelectDifficulty = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectDifficulty:)];
-    [swipeToSelectDifficulty setEnabled:YES];
-    if (swipeToSelectDifficulty.enabled == true) NSLog(@"Swipe to Select Difficulty is True!");
-    [self.view addGestureRecognizer:swipeToSelectDifficulty];
     
     stringFromInput = [[NSMutableString alloc] init];
     speaker = [[ABSpeak alloc] init];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.view setNeedsDisplay];
-    [self hideSwipeLabels:true]; 
-    pointsText.hidden = true;
     
-    correctSound = [self createSoundID:@"correct.aiff"];
-    incorrectSound = [self createSoundID:@"incorrect.aiff"];
-}
-
-- (void)viewDidUnload {
-
-    [super viewDidUnload];
-}
-
-
-#pragma mark - Gestures
-
--(void)displayInstructions:(UIGestureRecognizer *)gestureRecognizer{
-    [infoText setText:(instructionsText)];
-    
-}
-
-- (void)displaySettings:(UIGestureRecognizer *)gestureRecognizer{
-    [infoText setText:(settingsText)];
-}
-
-- (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
-    infoText.text = nil;
-    pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
-    [self initializeCards:@"easy.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
-    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
-}
-
-- (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
-    infoText.text = nil;
-    pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
-    [self initializeCards:@"medium.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
-    [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
-}
-
-- (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
-    infoText.text = nil;
-    pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
-    [self initializeCards:@"hard.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
-    [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
-}
-
-- (void)enableAllGestures:(BOOL)enable{
-    [swipeToSelectDifficulty setEnabled:enable];
-    [tapToDisplaySettings setEnabled:enable];
-    [tapToDisplayInstructions setEnabled:enable];
-}
-
--(void)hideSwipeLabels:(BOOL)toDisplay{
-    self.easyModeLabel.hidden = toDisplay;
-    self.mediumModeLabel.hidden = toDisplay;
-    self.hardModeLabel.hidden = toDisplay;
-}
-
-- (void)selectDifficulty:(UIGestureRecognizer *)gestureRecognizer{
-    infoText.text = nil;
     pointsText.hidden = true;
     
     [self hideSwipeLabels:false];
-    self.screenTitle.hidden = true;
+//    self.screenTitle.hidden = true;
     
     swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
     [swipeToSelectEasy setEnabled:YES];
@@ -200,7 +97,76 @@
     [swipeToSelectHard setEnabled:YES];
     [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
+
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.view setNeedsDisplay];
+    [self hideSwipeLabels:true]; 
+    pointsText.hidden = true;
+    
+    correctSound = [self createSoundID:@"correct.aiff"];
+    incorrectSound = [self createSoundID:@"incorrect.aiff"];
+    
+//    [speaker speakString:welcomeText];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
+
+
+#pragma mark - Gestures
+
+- (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
+    [self hideSwipeLabels:true];
+    self.screenTitle.hidden = true;
+    infoText.text = nil;
+    pointsText.hidden = false;
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
+    [self initializeCards:@"easy.plist"];
+    
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
+    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
+}
+
+- (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
+    [self hideSwipeLabels:true];
+    self.screenTitle.hidden = true;
+    infoText.text = nil;
+    pointsText.hidden = false;
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
+    [self initializeCards:@"medium.plist"];
+    
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
+    [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
+}
+
+- (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
+    [self hideSwipeLabels:true];
+    self.screenTitle.hidden = true;
+    infoText.text = nil;
+    pointsText.hidden = false;
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
+    [self initializeCards:@"hard.plist"];
+    
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
+    [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
+}
+
+-(void)hideSwipeLabels:(BOOL)toDisplay{
+    self.easyModeLabel.hidden = toDisplay;
+    self.mediumModeLabel.hidden = toDisplay;
+    self.hardModeLabel.hidden = toDisplay;
+}
+//
+//- (void)selectDifficulty:(UIGestureRecognizer *)gestureRecognizer{
+//
+//}
 
 
 -(void)initializeCards:(NSString* )withDifficulty{
