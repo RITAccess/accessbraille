@@ -194,7 +194,7 @@
 
 - (SystemSoundID) createSoundID: (NSString*)name
 {
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
     NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
     SystemSoundID soundID;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
