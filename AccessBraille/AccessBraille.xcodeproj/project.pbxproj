@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C10E17417302CC300A2864B /* Beatrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14317302CC300A2864B /* Beatrice.framework */; };
-		2C10E17517302CC300A2864B /* Elliott.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14417302CC300A2864B /* Elliott.framework */; };
-		2C10E17617302CC300A2864B /* Emma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14517302CC300A2864B /* Emma.framework */; };
-		2C10E17717302CC300A2864B /* William.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E14617302CC300A2864B /* William.framework */; };
 		2C10E17817302CC300A2864B /* neatspeech_uk1_COPYRIGHT in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14917302CC300A2864B /* neatspeech_uk1_COPYRIGHT */; };
 		2C10E17917302CC300A2864B /* neatspeech_uk1_dur.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14A17302CC300A2864B /* neatspeech_uk1_dur.pdf */; };
 		2C10E17A17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E14B17302CC300A2864B /* neatspeech_uk1_gv-lf0.pdf */; };
@@ -53,7 +49,6 @@
 		2C10E19F17302CC300A2864B /* neatspeech_us1_tree-lf0.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17117302CC300A2864B /* neatspeech_us1_tree-lf0.inf */; };
 		2C10E1A017302CC300A2864B /* neatspeech_us1_tree-lpf.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17217302CC300A2864B /* neatspeech_us1_tree-lpf.inf */; };
 		2C10E1A117302CC300A2864B /* neatspeech_us1_tree-mgc.inf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E17317302CC300A2864B /* neatspeech_us1_tree-mgc.inf */; };
-		2C10E1A317302CD800A2864B /* NeatSpeechDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10E1A217302CD800A2864B /* NeatSpeechDemo.framework */; };
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
 		2CCB7543173AAC1C0059E580 /* correct.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7542173AAC1C0059E580 /* correct.aiff */; };
@@ -92,7 +87,6 @@
 		4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */ = {isa = PBXBuildFile; fileRef = 4C4FEB1E16C4463700434F60 /* OpenEars1.languagemodel */; };
 		4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4C4FEB1F16C4463700434F60 /* OpenEars2.gram */; };
 		4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C4FEB2016C4463700434F60 /* OpenEarsCorpus.txt */; };
-		4C4FEB3016C4463700434F60 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB2116C4463700434F60 /* Slt.framework */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C508A7B16FB60430029FEB3 /* HightBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C508A7A16FB60430029FEB3 /* HightBar.png */; };
@@ -102,6 +96,7 @@
 		4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
 		4C569AA917147A9E0073D8F8 /* menuItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C569AA717147A9E0073D8F8 /* menuItem4.png */; };
 		4C569AAA17147A9E0073D8F8 /* menuItem4x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C569AA817147A9E0073D8F8 /* menuItem4x90.png */; };
+		4C62BEB91756346700CAF4CF /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB2116C4463700434F60 /* Slt.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
@@ -251,7 +246,6 @@
 		4C4FEB2016C4463700434F60 /* OpenEarsCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEarsCorpus.txt; sourceTree = "<group>"; };
 		4C4FEB2116C4463700434F60 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4C4FEB3216C446A500434F60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4C4FEB3416C4492600434F60 /* Kal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kal.framework; sourceTree = "<group>"; };
 		4C508A7A16FB60430029FEB3 /* HightBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HightBar.png; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
@@ -329,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C62BEB91756346700CAF4CF /* Slt.framework in Frameworks */,
 				4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */,
 				4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */,
 				4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */,
@@ -336,12 +331,6 @@
 				A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */,
 				A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */,
 				4C4FEB2A16C4463700434F60 /* OpenEars.framework in Frameworks */,
-				4C4FEB3016C4463700434F60 /* Slt.framework in Frameworks */,
-				2C10E17417302CC300A2864B /* Beatrice.framework in Frameworks */,
-				2C10E17517302CC300A2864B /* Elliott.framework in Frameworks */,
-				2C10E17617302CC300A2864B /* Emma.framework in Frameworks */,
-				2C10E17717302CC300A2864B /* William.framework in Frameworks */,
-				2C10E1A317302CD800A2864B /* NeatSpeechDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +453,6 @@
 				4C4FEB1E16C4463700434F60 /* OpenEars1.languagemodel */,
 				4C4FEB1F16C4463700434F60 /* OpenEars2.gram */,
 				4C4FEB2016C4463700434F60 /* OpenEarsCorpus.txt */,
-				4C4FEB3416C4492600434F60 /* Kal.framework */,
 				4C4FEB2116C4463700434F60 /* Slt.framework */,
 			);
 			name = OpenEars;
@@ -1033,7 +1021,7 @@
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1057,7 +1045,7 @@
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBraille/AccessBraille-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;

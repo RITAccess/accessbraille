@@ -7,21 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Emma/emma.h>
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
-#import <NeatSpeechDemo/FliteController+NeatSpeech.h>
 
 @interface ABSpeak : NSObject {
     
     FliteController *fliteController;
-    Emma *emma;
+    Slt *slt;
 
 }
 
 
 @property (strong, nonatomic) FliteController *fliteController;
-@property (strong, nonatomic) Emma *emma;
+@property (strong, nonatomic) Slt *slt;
 
 - (void)speakString:(NSString *)string;
 
