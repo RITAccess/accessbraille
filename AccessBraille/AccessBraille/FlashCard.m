@@ -35,7 +35,6 @@
     UITextView *infoText;
     UITapGestureRecognizer *tap;
     ABKeyboard *keyboard;
-    ABParser *parser;
     ABSpeak *speaker;
     int points;
     NSString *finalPath;
@@ -58,25 +57,20 @@
     [infoText setText:welcomeText];
     [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
     [infoText setBackgroundColor:[UIColor clearColor]];
-    infoText.editable = NO;
-    infoText.scrollEnabled = NO;
-    infoText.allowsEditingTextAttributes = NO;
+    [infoText setUserInteractionEnabled:NO];
     [[self view] addSubview:infoText];
     
     cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
     [cardText setBackgroundColor:[UIColor clearColor]];
     [cardText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
-    cardText.editable = NO;
-    cardText.scrollEnabled = NO;
-    cardText.allowsEditingTextAttributes = NO;
+    [cardText setUserInteractionEnabled:NO];
     [[self view] addSubview:cardText];
     
     typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
     [typedText setBackgroundColor:[UIColor clearColor]];
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
-    typedText.editable = NO;
-    typedText.scrollEnabled = NO;
     typedText.textColor = [UIColor colorWithRed:0.f green:.8 blue:0.f alpha:1.f];
+    [typedText setUserInteractionEnabled:NO];
     [[self view] addSubview:typedText];
     
     pointsText = [[UITextView alloc] initWithFrame:CGRectMake(900, 50, 100, 100)];
@@ -97,14 +91,16 @@
     
     swipeToSelectDifficulty = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectDifficulty:)];
     [swipeToSelectDifficulty setEnabled:YES];
+    if (swipeToSelectDifficulty.enabled == true) NSLog(@"Swipe to Select Difficulty is True!");
     [self.view addGestureRecognizer:swipeToSelectDifficulty];
+    
+    stringFromInput = [[NSMutableString alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
-    [self hideSwipeLabels:true];
-    stringFromInput = [[NSMutableString alloc] init];
+    [self hideSwipeLabels:true]; 
     pointsText.hidden = true;
     
     correctSound = [self createSoundID:@"correct.aiff"];
@@ -138,7 +134,9 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"easy.plist"];
+    
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
     [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
 }
 
@@ -150,7 +148,9 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"medium.plist"];
+    
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
     [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
 }
 
@@ -162,7 +162,9 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"hard.plist"];
+    
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    
     [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
 }
 
@@ -192,12 +194,12 @@
     
     swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
     [swipeToSelectMedium setEnabled:YES];
-    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionRight];
+    [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeToSelectMedium];
     
     swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
     [swipeToSelectHard setEnabled:YES];
-    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionDown];
+    [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
 }
 
@@ -242,6 +244,7 @@
             }
         }
         else{
+//            [keyboard startSpeakingString:character];
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
         }
