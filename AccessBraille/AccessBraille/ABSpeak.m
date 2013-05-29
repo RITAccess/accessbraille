@@ -14,9 +14,7 @@
 @synthesize slt;
 
 - (void)speakString:(NSString *)string {
-    
     [self.fliteController say:string withVoice:self.slt];
-
 }
 
 - (FliteController *)fliteController {
