@@ -14,9 +14,7 @@
 @synthesize emma;
 
 - (void)speakString:(NSString *)string {
-    
     [self.fliteController sayWithNeatSpeech:string withVoice:self.emma];
-
 }
 
 - (FliteController *)fliteController {
