@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="yJQ-RL-3ax" customClass="TextOut">
+                            <view contentMode="scaleToFill" id="yJQ-RL-3ax" customClass="BrailleTyperOutputView">
                                 <rect key="frame" x="0.0" y="-1" width="1024" height="250"/>
                                 <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>

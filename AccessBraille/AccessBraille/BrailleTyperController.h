@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Drawing.h"
-#import "TextOut.h"
+#import "BrailleTyperOutputView.h"
 #import <CoreData/CoreData.h>
 #import "ABKeyboard.h"
 
@@ -23,5 +23,5 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) IBOutlet TextOut *TextDrawing;
+@property (strong, nonatomic) IBOutlet BrailleTyperOutputView *TextDrawing;
 @end

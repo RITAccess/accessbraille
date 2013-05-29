@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextOut : UIView
+@interface BrailleTyperOutputView : UIView
 
 -(void)appendToText:(NSString *)string;
 -(NSString *)getCurrentText;
