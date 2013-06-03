@@ -29,10 +29,6 @@
     _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
     [self.view addGestureRecognizer:_leftSideSwipe];
     
-    _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:nav action:@selector(tapToClose:)];
-    [_tapToCloseMenu setEnabled:NO];
-    [self.view.superview addGestureRecognizer:_tapToCloseMenu];
-    
     [self.view addSubview:nav.view];
     [self.view bringSubviewToFront:nav.view];
     
@@ -100,13 +96,12 @@
             break;
             
         case UIGestureRecognizerStateBegan:
-            [_tapToCloseMenu setEnabled:TRUE];
             [_menuTrav setEnabled:TRUE];
             break;
             
         case UIGestureRecognizerStateEnded:
             if (touch.x < 100) {
-                
+                [nav setMenuOpen:NO];
             }
             break;
             
@@ -115,7 +110,7 @@
     }
 }
 
-/** 
+/**
  * Called by gesture framework to navigate the menu. 
 */
 -(void)panMenu:(UIPanGestureRecognizer *)reg{

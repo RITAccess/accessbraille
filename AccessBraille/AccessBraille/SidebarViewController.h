@@ -16,7 +16,7 @@
 /* Menu State */
 @property (nonatomic) BOOL menuOpen;
 
-/* for testing */
+- (void)setMenuOpen:(BOOL)menuOpen;
 - (void)loadMenuItemsAnimated:(BOOL)animated;
 
 @end

@@ -24,6 +24,9 @@
 @implementation SidebarViewController {
     SystemSoundID openNavSound;
     NSDictionary *menuItemsDict;
+    
+    __strong UITapGestureRecognizer *tapToClose;
+    __strong UIView *tapAreaToClose;
 }
 
 @synthesize menuOpen = _menuOpen;
@@ -33,11 +36,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
+        CGRect frame = self.view.frame;
+        frame.origin.x = -100;
+        [self.view setFrame:frame];
         [self.view setBackgroundColor:[UIColor blueColor]];
         // Set image as background
         UIGraphicsBeginImageContext(self.view.frame.size);
-        [[UIImage imageNamed:@"slideOutMenu.png"] drawInRect:self.view.bounds];
+        [[UIImage imageNamed:@"slideOutMenu.png"] drawInRect:CGRectMake(0, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
@@ -45,8 +50,26 @@
         
         [self setMenuOpen:NO];
         openNavSound = [self createSoundID:@"navClick.aiff"];
+        
+        // Create TapToClose
+        
+        tapAreaToClose = [[UIView alloc] initWithFrame:CGRectMake(100, 0, [UIScreen mainScreen].bounds.size.height - 100, [UIScreen mainScreen].bounds.size.width)];
+        [tapAreaToClose setBackgroundColor:[UIColor grayColor]];
+        [tapAreaToClose setAlpha:0.3];
+        [tapAreaToClose setUserInteractionEnabled:YES]; 
+        
+        tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+        [tapToClose setNumberOfTapsRequired:1];
+        [tapToClose setNumberOfTouchesRequired:1];
+        [tapToClose setEnabled:YES];
+        [tapAreaToClose addGestureRecognizer:tapToClose];
+        
     }
     return self;
+}
+
+- (void)tapToClose:(UITapGestureRecognizer *)reg {
+    [self setMenuOpen:NO];
 }
 
 - (void)loadMenuItemsAnimated:(BOOL)animated {
@@ -71,7 +94,7 @@
         menuItems[startTag] = menuItem;
         
         // Attach gestures
-        __strong UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenuItem:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenuItem:)];
         tap.cancelsTouchesInView = NO;
         [tap setNumberOfTapsRequired:1];
         [tap setNumberOfTouchesRequired:1];
@@ -108,13 +131,12 @@
 
 - (void)setMenuOpen:(BOOL)menuOpen {
     if (menuOpen) {
-        [self.view setFrame:CGRectMake(0, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         [self.view setNeedsDisplay];
         [self loadMenuItemsAnimated:YES];
-        [((NavigationContainer *)self.parentViewController).tapToCloseMenu setEnabled:YES];
+        [self.view addSubview:tapAreaToClose];
+        [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.height)];
         AudioServicesPlaySystemSound(openNavSound);
     } else {
-        [((NavigationContainer *)self.parentViewController).tapToCloseMenu setEnabled:NO];
         [UIView animateWithDuration:.3 animations:^{
             [self.view setFrame:CGRectMake(-100, 0, 100, [UIScreen mainScreen].bounds.size.height)];
             [self.view setNeedsDisplay];
@@ -135,12 +157,6 @@
         NSLog(@"%@", [exception description]);
     }
         
-}
-
-- (void)tapToClose:(UITapGestureRecognizer *)reg {
-    if ([reg locationInView:self.view].x > 100) {
-        [self setMenuOpen:NO];
-    }
 }
 
 - (void)viewDidLoad
