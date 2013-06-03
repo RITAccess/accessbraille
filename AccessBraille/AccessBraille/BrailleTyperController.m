@@ -109,9 +109,6 @@
     [keyboard startSpeakingString:word];
 }
 
-- (void)active { NSLog(@"Active"); }
-- (void)deactive { NSLog(@"Deactive"); }
-
 #pragma mark - Access Core Data Methods
 
 /**

@@ -20,4 +20,7 @@
 - (NSString *)oneLineNSStringOfArray;
 - (NSString *)oneLineNSStringOfArrayWithDescriptionBlock:(NSString * (^)(id obj))toString;
 
+/* Copies */
+- (NSArray *)deepcopy;
+
 @end

@@ -11,6 +11,7 @@
 #import "UIBezelGestureRecognizer.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "SidebarViewController.h"
+#import "NSArray+ObjectSubsets.h"
 
 @implementation NavigationContainer {
     
@@ -19,7 +20,7 @@
     
     // For navigation
     NSArray *navigationGestures;
-    NSArray *storedGestures;
+    __strong NSArray *storedGestures;
     
 }
 
@@ -80,10 +81,6 @@
 
 # pragma mark - Navigation Logic
 
-- (void)tapToClose:(UIGestureRecognizer *)reg {
-    NSLog(@"tap to close");
-}
-
 /**
  Called by gesture framework and opens the navigation menu
  */
@@ -100,7 +97,7 @@
                 frame.origin.x = 100;
                 [currentVC.view setFrame:frame];
                 
-                storedGestures = currentVC.view.gestureRecognizers;
+                storedGestures = [currentVC.view.gestureRecognizers copy];
                 [currentVC.view setGestureRecognizers:navigationGestures];
                 
             }
@@ -124,7 +121,21 @@
 }
 
 /**
- * Called by gesture framework to navigate the menu. 
+ * Handles closing the menu
+ */
+- (void)tapToClose:(UIGestureRecognizer *)reg {
+    NSLog(@"Tap to close");
+    [currentVC.view setGestureRecognizers:storedGestures];
+    [UIView animateWithDuration:.2 animations:^{
+        CGRect frame = currentVC.view.frame;
+        frame.origin.x = 0;
+        [currentVC.view setFrame:frame];
+    }];
+}
+
+
+/**
+ * Called by gesture framework to navigate the menu.
 */
 -(void)panMenu:(UIPanGestureRecognizer *)reg{
     
