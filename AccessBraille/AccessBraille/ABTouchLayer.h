@@ -19,6 +19,7 @@
 
 - (void)resetView;
 - (void)subViewsAdded;
+
 @property (nonatomic) id<ABTouchReciever> delegate;
 @property int ajt;
 @end

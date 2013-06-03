@@ -92,6 +92,8 @@
     
     // Call Drawing Methods
     
+    //double angle = [self averageAngleFromVectors:vectors];
+    
     for (int i = 0; i < 6; i++){
         
         ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, [UIScreen mainScreen].bounds.size.height, 100, 800)];
@@ -104,11 +106,23 @@
             [touch setFrame:CGRectMake(vectors[i].end.x - 50, 0, 100, [UIScreen mainScreen].bounds.size.height)];
         }];
         
+        // touch.transform = CGAffineTransformMakeRotation(angle);
         
         
         [interface addSubview:touch];
     }
     [interface subViewsAdded];
+}
+
+/**
+ * Get average angle formed by columns
+ */
+- (double)averageAngleFromVectors:(ABVector[])vectors {
+    float count = 0;
+    for (int i = 0; i < 6; i++) {
+        count += vectors[i].angle;
+    }
+    return (count / 6);
 }
 
 /**

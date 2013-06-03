@@ -8,6 +8,8 @@
 
 #import "ABTouchView.h"
 
+#define SHOWLINES 0
+
 @implementation ABTouchView {
     CGPoint currentTouch;
 }
@@ -17,12 +19,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self setBackgroundColor:[UIColor blueColor]];
+        [self setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect {
+#if SHOWLINES
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetLineWidth(context, 2);
@@ -35,6 +38,7 @@
     CGContextAddLineToPoint(context, currentTouch.x, self.bounds.size.height);
     
     CGContextStrokePath(context);
+#endif
 }
 
 /**

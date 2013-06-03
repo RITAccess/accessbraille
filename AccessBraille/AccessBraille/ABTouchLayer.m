@@ -58,6 +58,16 @@
     CGContextAddLineToPoint(context, 1024, avgY + 100);
     
     CGContextStrokePath(context);
+    
+    for (ABTouchView *subview in self.subviews) {
+        if ([subview isKindOfClass:[ABTouchView class]]) {
+            CGRect frame = subview.frame;
+            frame.size.height = avgY + 100;
+            [subview setFrame:frame];
+        }
+    }
+    
+    
 }
 
 /**
@@ -94,6 +104,7 @@
     } else {
         avgY = ((avgY * totalY) + newPoint) / ++totalY;
     }
+    
     [self setNeedsDisplay];
 }
 
