@@ -7,9 +7,9 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import "TextOut.h"
+#import "BrailleTyperOutputView.h"
 
-@implementation TextOut {
+@implementation BrailleTyperOutputView {
     UILabel *textOut;
     UILabel *wpm;
     NSMutableArray *wordList;

@@ -17,8 +17,7 @@
 #import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
 #import "Enabled.h"
-#import "newViewControllerTemplate.h"
-#import "TextOut.h"
+#import "BrailleTyperOutputView.h"
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
@@ -131,12 +130,9 @@
         [cdEntry setTimeStamp:[NSDate date]];
         [app.managedObjectContext save:nil];
     } else {
-        AppDelegate *app = [UIApplication sharedApplication].delegate;
-        NSFetchRequest *req = [[NSFetchRequest alloc] init];
         [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
         [req setSortDescriptors:@[sortDescriptor]];
-        NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
         BrailleTyper *updateEntity = [results objectAtIndex:0];
         [updateEntity setTypedString:content];
         [updateEntity setTimeStamp:[NSDate date]];

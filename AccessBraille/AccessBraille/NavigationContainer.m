@@ -10,7 +10,6 @@
 #import "BrailleTyperController.h"
 #import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
-#import "newViewControllerTemplate.h"
 #import <Twitter/Twitter.h>
 #import <AudioToolbox/AudioToolbox.h>
 

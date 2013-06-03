@@ -34,7 +34,7 @@ static NSString *const ABDisableSound = @"DS";
 typedef struct {
     CGPoint start;
     CGPoint end;
-    float angle;
+    double angle;
 } ABVector;
 
 /* Creates an ABVector from two CGPoints */

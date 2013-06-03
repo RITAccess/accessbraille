@@ -7,7 +7,6 @@
 //
 
 #import "FlashCard.h"
-//#import <AudioToolbox/AudioToolbox.h>
 
 @interface FlashCard ()
 
@@ -15,10 +14,8 @@
 
 @implementation FlashCard
 
-
 #pragma mark - View
 
-/** Called when view loads. */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -147,7 +144,7 @@
 }
 
 /**
- * Speak character being typed, as well as appending it to the label.
+ * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     if ([character isEqual: @" "]){
