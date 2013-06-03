@@ -12,6 +12,7 @@
 
 @implementation ABTouchView {
     CGPoint currentTouch;
+    BOOL touched;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,6 +21,7 @@
     if (self) {
         // Initialization code
         [self setBackgroundColor:[UIColor whiteColor]];
+        touched = false;
     }
     return self;
 }
@@ -39,6 +41,23 @@
     
     CGContextStrokePath(context);
 #endif
+    
+    if (!touched) {
+        [self setBackgroundColor:[UIColor blueColor]];
+    } else {
+        [self setBackgroundColor:[UIColor whiteColor]];
+    }
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    touched = YES;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    touched = NO;
+    [self setNeedsDisplay];
 }
 
 /**
