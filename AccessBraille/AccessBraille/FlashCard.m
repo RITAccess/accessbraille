@@ -7,32 +7,14 @@
 //
 
 #import "FlashCard.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import "ABKeyboard.h"
-#import "ABParser.h"
-#import "ABSpeak.h"
+//#import <AudioToolbox/AudioToolbox.h>
 
 @interface FlashCard ()
 
 @end
 
-@implementation FlashCard {
-    UITextView *typedText;
-    UITextView *cardText;
-    UITextView *pointsText;
-    NSMutableArray *cards;
-    NSArray *card;
-    NSMutableString *stringFromInput;
-    NSArray *letters;
-    UITextView *infoText;
-    ABKeyboard *keyboard;
-    ABSpeak *speaker;
-    int points;
-    NSString *finalPath;
-    NSString *path;
-    SystemSoundID correctSound;
-    SystemSoundID incorrectSound;
-}
+@implementation FlashCard
+
 
 #pragma mark - View
 
@@ -100,8 +82,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
-    
-//    [speaker speakString:welcomeText];
+    [speaker speakString:welcomeText];
 }
 
 - (void)viewDidUnload {
