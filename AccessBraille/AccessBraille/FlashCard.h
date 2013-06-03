@@ -34,6 +34,4 @@ NSInteger const maxHardCards = 20;
     SystemSoundID incorrectSound;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
-
 @end
