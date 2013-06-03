@@ -55,11 +55,11 @@
 -(void)startGame:(UIGestureRecognizer* )tapToStart{
     [tapToStart setEnabled:NO];
 //    [speaker speakString:@"You wake up in your bed. Type LOOK to see what's around you."];
-    inventory = [[NSMutableArray alloc]initWithCapacity:3];
+    pack = [[NSMutableArray alloc]initWithCapacity:3];
 }
 
--(void)speakInventory {
-    
+-(void)stashObject:(NSString* )item {
+    [pack insertObject:item atIndex:0];
 }
 
 
@@ -92,10 +92,15 @@
     if ([command isEqualToString:@"look"]){
         NSLog(@"Looking...");
 //        [speaker speakString:@"You survey your surroundings. You're in a room filled with jelly beans."];
-    } else if ([command isEqualToString:@"pick"]){
-        NSLog(@"Picking...");
+    } else if ([command isEqualToString:@"book"]){
+        [speaker speakString:@"That book will come in handy. You put it in your pack."];
+        [self stashObject:@"book"];
     } else if ([command isEqualToString:@"help"]){
         [speaker speakString:helpText];
+    } else if ([command isEqualToString:@"pack"]){
+        NSString* packContents = [pack componentsJoinedByString:@" "];
+        NSLog(@"%@", packContents);
+        [speaker speakString:packContents];
     }
 }
 

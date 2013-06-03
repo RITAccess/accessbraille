@@ -20,7 +20,7 @@ NSString* const helpText = @"Type the name of the object to pick it up, or type 
     UITextView *typedText;
     NSMutableString *stringFromInput;
     
-    NSMutableArray* inventory;
+    NSMutableArray* pack;
     
 }
 @end
