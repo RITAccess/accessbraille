@@ -34,7 +34,7 @@
     // Writing Area
     CGRect displayBox = CGRectMake(20,0,self.frame.size.width - 40,240);
     
-    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, (displayBox.size.height / 2.5), self.frame.size.width, 50)];
+    textOut = [[UILabel alloc] initWithFrame:CGRectMake(25, (displayBox.size.height / 2.5), self.frame.size.width, 100)];
     wpm = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - 140, 10, 100, 50)];
     wordList = [[NSMutableArray alloc] init];
     
