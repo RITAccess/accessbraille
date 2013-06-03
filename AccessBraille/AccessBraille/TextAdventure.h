@@ -11,6 +11,8 @@
 #import "ABSpeak.h"
 
 NSString* const helpText = @"Type the name of the object to pick it up, or type LOOK to survey the area.";
+NSString* const roomDescription = @"You're in a dark room. A book lies in front of you. I wonder what it says...";
+NSString* const waterfrontDescription = @"You're at the waterfront. You see a boat in front of you and an island in the distance.";
 
 @interface TextAdventure : UIViewController <ABKeyboard> { // Follow the ABKeyboard protocol
 
@@ -21,6 +23,6 @@ NSString* const helpText = @"Type the name of the object to pick it up, or type 
     NSMutableString *stringFromInput;
     
     NSMutableArray* pack;
-    
+    NSString* currentLocation;
 }
 @end

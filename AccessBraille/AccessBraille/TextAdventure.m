@@ -23,7 +23,7 @@
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [[ABSpeak alloc]init];
-//    [speaker speakString:@"Would you care to start an exciting text-based adventure? Tap once to begin."];
+    [speaker speakString:@"Would you care to start an exciting text-based adventure? Tap once to begin."];
     
     UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
     [tapToStart setEnabled:YES];
@@ -36,7 +36,6 @@
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:30]];
     typedText.textColor = [UIColor blackColor];
     [typedText setUserInteractionEnabled:NO];
-    [[self view] addSubview:typedText];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,12 +53,20 @@
 
 -(void)startGame:(UIGestureRecognizer* )tapToStart{
     [tapToStart setEnabled:NO];
-//    [speaker speakString:@"You wake up in your bed. Type LOOK to see what's around you."];
+    [[self view] addSubview:typedText];
+    [speaker speakString:@"You wake up in your bed. Type LOOK to see what's around you."];
     pack = [[NSMutableArray alloc]initWithCapacity:3];
+    currentLocation = [[NSString alloc] initWithString:roomDescription];
 }
 
 -(void)stashObject:(NSString* )item {
     [pack insertObject:item atIndex:0];
+}
+
+-(void)changeToRoom:(NSString* )room {
+    if ([room isEqual: @"waterfront"]){
+        currentLocation = waterfrontDescription;
+    }
 }
 
 
@@ -90,8 +97,7 @@
 
 -(void)checkCommand:(NSString* )command{
     if ([command isEqualToString:@"look"]){
-        NSLog(@"Looking...");
-//        [speaker speakString:@"You survey your surroundings. You're in a room filled with jelly beans."];
+        [speaker speakString:currentLocation];
     } else if ([command isEqualToString:@"book"]){
         [speaker speakString:@"That book will come in handy. You put it in your pack."];
         [self stashObject:@"book"];
@@ -99,8 +105,16 @@
         [speaker speakString:helpText];
     } else if ([command isEqualToString:@"pack"]){
         NSString* packContents = [pack componentsJoinedByString:@" "];
-        NSLog(@"%@", packContents);
         [speaker speakString:packContents];
+    } else if ([command isEqualToString:@"move"]){
+        [speaker speakString:@"You head to the door and leave the room"];
+        [self changeToRoom:@"waterfront"];
+    } else if ([command isEqualToString:@"use"]){
+        if ([pack[0] isEqual: @"book"]){
+            [speaker speakString:@"The book is full of hints! The first hint says: use the boat to get to the island."];
+        }
+    } else {
+        [speaker speakString:@"Not sure about that. Try something else..."];
     }
 }
 
