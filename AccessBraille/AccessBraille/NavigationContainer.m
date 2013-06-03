@@ -16,6 +16,11 @@
     
     SidebarViewController *nav;    
     UIViewController *currentVC;
+    
+    // For navigation
+    NSArray *navigationGestures;
+    NSArray *storedGestures;
+    
 }
 
 -(void)viewDidLoad {
@@ -30,10 +35,14 @@
     [self.view addGestureRecognizer:_leftSideSwipe];
     
     [self.view addSubview:nav.view];
-    [self.view bringSubviewToFront:nav.view];
+    [self.view sendSubviewToBack:nav.view];
     
     [self addChildViewController:nav];
     [nav didMoveToParentViewController:self];
+    
+    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    navigationGestures = @[tapToClose];
+    
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -44,46 +53,36 @@
  Takes in a UIViewController and switches the view to that controller
  */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
-
-    if (animated) {
         
-        for (UIView *subview in self.view.subviews){
-            [subview removeFromSuperview];
-        }
-        for (UIViewController *childViewController in self.childViewControllers){
-            [childViewController removeFromParentViewController];
-        }
-        
-        [self addChildViewController:controller];
-        
-        [self.view addSubview:controller.view];
-        [controller viewDidAppear:animated];
-        if (menu) {
-            [self loadNavIntoView];
-        }
-        [controller didMoveToParentViewController:self];
-        
-        
-    } else {
-        for (UIView *subview in self.view.subviews){
-            [subview removeFromSuperview]; 
-        }
-        for (UIViewController *childViewController in self.childViewControllers){
-            [childViewController removeFromParentViewController];
-        }
-        
-        [self addChildViewController:controller];
-        
-        [self.view addSubview:controller.view];
-        [controller viewDidAppear:animated];
-        if (menu) {
-            [self loadNavIntoView];
-        }        
-        [controller didMoveToParentViewController:self];
+    for (UIView *subview in self.view.subviews){
+        [subview removeFromSuperview];
     }
+    for (UIViewController *childViewController in self.childViewControllers){
+        [childViewController removeFromParentViewController];
+    }
+    
+    [self addChildViewController:controller];
+    
+    [self.view addSubview:controller.view];
+    [controller viewDidAppear:animated];
+    if (menu) {
+        [self loadNavIntoView];
+    }
+    
+    CGRect frame = controller.view.frame;
+    frame.origin.x = 0;
+    [controller.view setFrame:frame];
+    
+    currentVC = controller;
+    
+    [controller didMoveToParentViewController:self];
 }
 
 # pragma mark - Navigation Logic
+
+- (void)tapToClose:(UIGestureRecognizer *)reg {
+    NSLog(@"tap to close");
+}
 
 /**
  Called by gesture framework and opens the navigation menu
@@ -91,17 +90,31 @@
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
-        case UIGestureRecognizerStateChanged:
-            [nav updateMenuPosition:touch.x];
+        case UIGestureRecognizerStateChanged: {
+            CGRect frame = currentVC.view.frame;
+            frame.origin.x = touch.x;
+            if (touch.x <= 100) {
+                [currentVC.view setFrame:frame];
+            } else {
+                // Menu is open
+                frame.origin.x = 100;
+                [currentVC.view setFrame:frame];
+                
+                storedGestures = currentVC.view.gestureRecognizers;
+                [currentVC.view setGestureRecognizers:navigationGestures];
+                
+            }
+                
             break;
-            
-        case UIGestureRecognizerStateBegan:
-            [_menuTrav setEnabled:TRUE];
-            break;
+        }
             
         case UIGestureRecognizerStateEnded:
             if (touch.x < 100) {
-                [nav setMenuOpen:NO];
+                [UIView animateWithDuration:.2 animations:^{
+                    CGRect frame = currentVC.view.frame;
+                    frame.origin.x = 0;
+                    [currentVC.view setFrame:frame];
+                }];
             }
             break;
             
