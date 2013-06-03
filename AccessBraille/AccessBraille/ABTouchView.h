@@ -16,6 +16,7 @@
 - (float)averageY;
 - (void)updateYAverage:(float)newPoint;
 - (void)space;
+
 @end
 
 @interface ABTouchView : UIView
