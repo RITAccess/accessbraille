@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
+		2C373DF5175CE90800CF0E0A /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C373DF4175CE90800CF0E0A /* TextAdventure.m */; };
+		2C373DF8175CEA9C00CF0E0A /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C373DF6175CEA9B00CF0E0A /* menuItem5.png */; };
+		2C373DFB175CEC5C00CF0E0A /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C373DFA175CEC5B00CF0E0A /* menuItem5x90.png */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
@@ -119,6 +122,10 @@
 		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
+		2C373DF3175CE90700CF0E0A /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
+		2C373DF4175CE90800CF0E0A /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
+		2C373DF6175CEA9B00CF0E0A /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5.png; sourceTree = "<group>"; };
+		2C373DFA175CEC5B00CF0E0A /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5x90.png; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
@@ -368,6 +375,8 @@
 				4C1B1DDD175CC85400A3DEDA /* menuItem3x90.png */,
 				4C1B1DDE175CC85400A3DEDA /* menuItem4.png */,
 				4C1B1DDF175CC85400A3DEDA /* menuItem4x90.png */,
+				2C373DF6175CEA9B00CF0E0A /* menuItem5.png */,
+				2C373DFA175CEC5B00CF0E0A /* menuItem5x90.png */,
 				4C1B1DE0175CC85400A3DEDA /* slideOutMenu.png */,
 				4C1B1DE1175CC85500A3DEDA /* HightBar.png */,
 				4C1B1DE2175CC85500A3DEDA /* icon144.png */,
@@ -523,6 +532,8 @@
 				4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */,
 				4CA076E016D58A3A006DDBD3 /* Settings.h */,
 				4CA076E116D58A3A006DDBD3 /* Settings.m */,
+				2C373DF3175CE90700CF0E0A /* TextAdventure.h */,
+				2C373DF4175CE90800CF0E0A /* TextAdventure.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -654,6 +665,8 @@
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
+				2C373DF8175CEA9C00CF0E0A /* menuItem5.png in Resources */,
+				2C373DFB175CEC5C00CF0E0A /* menuItem5x90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +727,7 @@
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
 				2C10E23917302D8600A2864B /* ABParser.m in Sources */,
 				2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */,
+				2C373DF5175CE90800CF0E0A /* TextAdventure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,8 +842,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -857,8 +871,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -875,8 +889,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -904,8 +918,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;

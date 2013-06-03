@@ -16,14 +16,16 @@
     UIImageView *item2;
     UIImageView *item3;
     UIImageView *item4;
-    UIImageView *item5; // FlashCard
+    UIImageView *item5;
+    UIImageView *item6;
     
     /** Menu points. These are where the user will touch to access other modes. */
     CGPoint sItem1;
     CGPoint sItem2;
     CGPoint sItem3;
     CGPoint sItem4;
-    CGPoint sItem5; // FlashCard
+    CGPoint sItem5;
+    CGPoint sItem6; // textAdventure
 }
 
 -(id)initWithFrame:(CGRect)frame{
@@ -63,6 +65,12 @@
         [item5 setImage:img5];
         [self addSubview:item5];
         
+        UIImage *img6 = [UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d", 5]];
+        item6 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 75, 75)];
+        item6.userInteractionEnabled = true;
+        [item6 setImage:img6];
+        [self addSubview:item6];
+        
         [self setGesturesWithSelector];
     }
     return self;
@@ -75,6 +83,7 @@
     UITapGestureRecognizer *menuSelect3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
     UITapGestureRecognizer *menuSelect4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
     UITapGestureRecognizer *menuSelect5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
+    UITapGestureRecognizer *menuSelect6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuItemTapped:)];
     [item1 addGestureRecognizer:menuSelect1];
     [item1 setTag:1];
     [item2 addGestureRecognizer:menuSelect2];
@@ -85,6 +94,8 @@
     [item4 setTag:4];
     [item5 addGestureRecognizer:menuSelect5];
     [item5 setTag:5];
+    [item6 addGestureRecognizer:menuSelect6];
+    [item6 setTag:6];
 }
 
 -(void)menuItemTapped:(UITapGestureRecognizer *)reg {
@@ -129,6 +140,13 @@
                 [_delegate switchToController:newController animated:YES withMenu:YES];
             }
             break;
+        case 6:
+            if ([_delegate respondsToSelector:@selector(switchToController:animated:withMenu:)]) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                UIViewController *newController = [storyboard instantiateViewControllerWithIdentifier:@"TextAdventure"];
+                [_delegate switchToController:newController animated:YES withMenu:YES];
+            }
+            break;
             
         default:
             break;
@@ -142,6 +160,7 @@
     sItem3 = CGPointMake(10, self.frame.size.height - item3.frame.origin.y);
     sItem4 = CGPointMake(10, self.frame.size.height - item4.frame.origin.y);
     sItem5 = CGPointMake(10, self.frame.size.height - item5.frame.origin.y);
+    sItem6 = CGPointMake(10, self.frame.size.height - item6.frame.origin.y);
 }
 
 -(void)updateWithCGPoint:(CGPoint)touchLocation {
@@ -158,6 +177,7 @@
     [item3 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem3.y), 75, 75)];
     [item4 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem4.y), 75, 75)];
     [item5 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem5.y), 75, 75)];
+    [item6 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem5.y), 75, 75)];
 }
 
 -(void)close {
@@ -169,6 +189,7 @@
         [item3 setFrame:CGRectMake(10, -100, 75, 75)];
         [item4 setFrame:CGRectMake(10, -100, 75, 75)];
         [item5 setFrame:CGRectMake(10, -100, 75, 75)];
+        [item6 setFrame:CGRectMake(10, -100, 75, 75)];
 
     }];
 }
@@ -181,6 +202,7 @@
         [item3 setFrame:CGRectMake(10, 460, 75, 75)];
         [item4 setFrame:CGRectMake(10, 540, 75, 75)];
         [item5 setFrame:CGRectMake(10, 620, 75, 75)];
+        [item6 setFrame:CGRectMake(10, 700, 75, 75)];
     }];
     
 }
@@ -192,6 +214,5 @@
         return true;
     return false;
 }
-
 
 @end
