@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import "NavigationView.h"
 #import "NavigationContainer.h"
+#import "NavigationView.h"
 
 @implementation NavigationView {
     

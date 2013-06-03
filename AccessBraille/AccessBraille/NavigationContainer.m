@@ -8,53 +8,36 @@
 
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
-#import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
-#import <Twitter/Twitter.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "SidebarViewController.h"
 
 @implementation NavigationContainer {
-    NavigationView *nav;
     
-    UITapGestureRecognizer *tapToCloseMenu;
-    UIBezelGestureRecognizer *leftSideSwipe;
-    UIPanGestureRecognizer *menuTrav;
-    
+    SidebarViewController *nav;    
     UIViewController *currentVC;
-    
-    // Audio
-    SystemSoundID openNavSound;
 }
 
 -(void)viewDidLoad {
-    
-    openNavSound = [self createSoundID:@"navClick.aiff"];
 
 }
 
 -(void)loadNavIntoView {
-    /**
-        Will load the navigation views into the controller's view
-     */
+
+    nav = [[SidebarViewController alloc] init];
     
-    nav = [[NavigationView alloc] initWithFrame:CGRectMake(-100, 0, 100, 748)];
-    [self.view addSubview:nav];
+    _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    [self.view addGestureRecognizer:_leftSideSwipe];
     
-    leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenu:)];
-    [tapToCloseMenu setNumberOfTapsRequired:1];
-    [tapToCloseMenu setEnabled:NO];
-    menuTrav = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMenu:)];
-    [menuTrav setMinimumNumberOfTouches:1];
-    [menuTrav setMaximumNumberOfTouches:1];
-    [menuTrav setEnabled:NO];
+    _tapToCloseMenu = [[UITapGestureRecognizer alloc] initWithTarget:nav action:@selector(tapToClose:)];
+    [_tapToCloseMenu setEnabled:NO];
+    [self.view.superview addGestureRecognizer:_tapToCloseMenu];
     
-    [self.view addGestureRecognizer:leftSideSwipe];
-    [self.view addGestureRecognizer:tapToCloseMenu];
-    [self.view addGestureRecognizer:menuTrav];
+    [self.view addSubview:nav.view];
+    [self.view bringSubviewToFront:nav.view];
     
-    [nav setDelegate:self];
-    
+    [self addChildViewController:nav];
+    [nav didMoveToParentViewController:self];
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -65,7 +48,7 @@
  Takes in a UIViewController and switches the view to that controller
  */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
-    
+
     if (animated) {
         
         for (UIView *subview in self.view.subviews){
@@ -110,22 +93,20 @@
  Called by gesture framework and opens the navigation menu
  */
 -(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-
     CGPoint touch = [reg locationInView:self.view];
     switch (reg.state) {
         case UIGestureRecognizerStateChanged:
-            [nav updateWithCGPoint:touch];
-            AudioServicesPlaySystemSound(openNavSound);
+            [nav updateMenuPosition:touch.x];
             break;
             
         case UIGestureRecognizerStateBegan:
-            [tapToCloseMenu setEnabled:TRUE];
-            [menuTrav setEnabled:TRUE];
+            [_tapToCloseMenu setEnabled:TRUE];
+            [_menuTrav setEnabled:TRUE];
             break;
             
         case UIGestureRecognizerStateEnded:
             if (touch.x < 100) {
-                [self closeMenu:reg];
+                
             }
             break;
             
@@ -141,44 +122,22 @@
     
     switch (reg.state){
         case UIGestureRecognizerStateChanged:
-            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
+//            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
             break;
         case UIGestureRecognizerStateBegan:
-            [nav setStartNavigation];
+//            [nav setStartNavigation];
             break;
         default:
             break;
     }
 }
 
-/**
- * Closes the menu.
-*/
--(void)closeMenu:(UIGestureRecognizer *)reg {
-    
-    if ([reg isKindOfClass:[UIBezelGestureRecognizer class]]) {
-        [nav close];
-        [tapToCloseMenu setEnabled:NO];
-        [menuTrav setEnabled:NO];
-    }
-    if ([reg locationOfTouch:0 inView:self.view].x > 100) {
-        [nav close];
-        [tapToCloseMenu setEnabled:NO];
-        [menuTrav setEnabled:NO];
-    }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
-
 
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
 
-- (SystemSoundID) createSoundID: (NSString*)name
-{
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
-    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
-    return soundID;
-}
 @end

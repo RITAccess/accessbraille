@@ -25,16 +25,16 @@
     
     // Only draw is visible property is true
     if (_visible) {
-        CGContextRef context = UIGraphicsGetCurrentContext();
+        // CGContextRef context = UIGraphicsGetCurrentContext();
         
         // Highlight image background
-        UIImage *hlbg = [UIImage imageNamed:@"HightBar.png"];
+        // UIImage *hlbg = [UIImage imageNamed:@"HightBar.png"];
         
         // Size of highted area
-        CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, self.hightlightWidth, 200);
+        // CGRect size = CGRectMake(0, (self.frame.size.height / 2) - 100, self.hightlightWidth, 200);
 
         // Draw on screen
-        CGContextDrawImage(context, size, hlbg.CGImage);
+        // CGContextDrawImage(context, size, hlbg.CGImage);
     }
 }
 
