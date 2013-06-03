@@ -16,7 +16,6 @@
 #import "NavigationContainer.h"
 #import "UIBezelGestureRecognizer.h"
 #import "Enabled.h"
-#import "newViewControllerTemplate.h"
 #import "TextOut.h"
 #import "AppDelegate.h"
 #import "BrailleTyper.h"

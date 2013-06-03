@@ -71,7 +71,8 @@
         menuItems[startTag] = menuItem;
         
         // Attach gestures
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenuItem:)];
+        __strong UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenuItem:)];
+        tap.cancelsTouchesInView = NO;
         [tap setNumberOfTapsRequired:1];
         [tap setNumberOfTouchesRequired:1];
         [menuItem addGestureRecognizer:tap];
