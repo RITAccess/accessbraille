@@ -8,44 +8,16 @@
 
 #import "FlashCard.h"
 #import <AudioToolbox/AudioToolbox.h>
-#import "ABKeyboard.h"
 #import "ABParser.h"
-#import "ABSpeak.h"
 
 @interface FlashCard ()
 
 @end
 
-@implementation FlashCard {
-    UITapGestureRecognizer *tapToDisplayInstructions;
-    UITapGestureRecognizer *tapToDisplaySettings;
-    UISwipeGestureRecognizer *swipeToSelectDifficulty;
-    UISwipeGestureRecognizer *swipeToSelectEasy;
-    UISwipeGestureRecognizer *swipeToSelectMedium;
-    UISwipeGestureRecognizer *swipeToSelectHard;
-    NSTimer *letterTimer;
-    UITextView *typedText;
-    UITextView *cardText;
-    UITextView *pointsText;
-    NSTimer *speechTimer;
-    NSMutableArray *cards;
-    NSArray *card;
-    NSMutableString *stringFromInput;
-    NSArray *letters;
-    UITextView *infoText;
-    UITapGestureRecognizer *tap;
-    ABKeyboard *keyboard;
-    ABSpeak *speaker;
-    int points;
-    NSString *finalPath;
-    NSString *path;
-    SystemSoundID correctSound;
-    SystemSoundID incorrectSound;
-}
+@implementation FlashCard
 
 #pragma mark - View
 
-/** Called when view loads. */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -102,7 +74,6 @@
     [self.view setNeedsDisplay];
     [self hideSwipeLabels:true]; 
     pointsText.hidden = true;
-    
     correctSound = [self createSoundID:@"correct.aiff"];
     incorrectSound = [self createSoundID:@"incorrect.aiff"];
 }
@@ -134,10 +105,8 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"easy.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
     [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
@@ -148,10 +117,8 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"medium.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
     [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
@@ -162,10 +129,8 @@
     pointsText.hidden = false;
     pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"hard.plist"];
-    
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    
     [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
+    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
 }
 
 - (void)enableAllGestures:(BOOL)enable{
@@ -231,7 +196,7 @@
 }
 
 /**
- * Speak character being typed, as well as appending it to the label.
+ * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     if ([character isEqual: @" "]){
