@@ -7,8 +7,6 @@
 //
 
 #import "FlashCard.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import "ABParser.h"
 
 @interface FlashCard ()
 
@@ -25,6 +23,13 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
+    correctSound = [self createSoundID:@"correct.aiff"];
+    incorrectSound = [self createSoundID:@"incorrect.aiff"];
+    
+    stringFromInput = [[NSMutableString alloc] init];
+    speaker = [[ABSpeak alloc] init];
+    
+    /* Text Views */
     infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
     [infoText setText:welcomeText];
     [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
@@ -49,125 +54,67 @@
     [pointsText setBackgroundColor:[UIColor clearColor]];
     [pointsText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
     pointsText.textColor = [UIColor redColor];
+    pointsText.hidden = true;
+    pointsText.text = [NSString stringWithFormat:@"%d", points];
     [[self view] addSubview:pointsText];
     
-    tapToDisplayInstructions = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displayInstructions:)];
-    [tapToDisplayInstructions setNumberOfTapsRequired:1];
-    [tapToDisplayInstructions setEnabled:YES];
-    [self.view addGestureRecognizer:tapToDisplayInstructions];
+    /* Gestures */
+    UISwipeGestureRecognizer* swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
+    [swipeToSelectEasy setEnabled:YES];
+    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:swipeToSelectEasy];
     
-    tapToDisplaySettings = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(displaySettings:)];
-    [tapToDisplaySettings setNumberOfTapsRequired:2];
-    [tapToDisplaySettings setEnabled:YES];    
-    [self.view addGestureRecognizer:tapToDisplaySettings];
+    UISwipeGestureRecognizer* swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
+    [swipeToSelectMedium setEnabled:YES];
+    [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeToSelectMedium];
     
-    swipeToSelectDifficulty = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectDifficulty:)];
-    [swipeToSelectDifficulty setEnabled:YES];
-    if (swipeToSelectDifficulty.enabled == true) NSLog(@"Swipe to Select Difficulty is True!");
-    [self.view addGestureRecognizer:swipeToSelectDifficulty];
-    
-    stringFromInput = [[NSMutableString alloc] init];
+    UISwipeGestureRecognizer* swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
+    [swipeToSelectHard setEnabled:YES];
+    [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipeToSelectHard];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
-    [self hideSwipeLabels:true]; 
-    pointsText.hidden = true;
-    correctSound = [self createSoundID:@"correct.aiff"];
-    incorrectSound = [self createSoundID:@"incorrect.aiff"];
+    [speaker speakString:welcomeText];
 }
 
 - (void)viewDidUnload {
-    [self setScreenTitle:nil];
-    [self setMediumModeLabel:nil];
-    [self setHardModeLabel:nil];
-    [self setEasyModeLabel:nil];
     [super viewDidUnload];
 }
 
 
 #pragma mark - Gestures
 
--(void)displayInstructions:(UIGestureRecognizer *)gestureRecognizer{
-    [infoText setText:(instructionsText)];
-}
-
-- (void)displaySettings:(UIGestureRecognizer *)gestureRecognizer{
-    [infoText setText:(settingsText)];
-}
-
 - (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"easy.plist"];
-    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
+    [speaker speakString:cardText.text];
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"medium.plist"];
-    [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
+    [speaker speakString:cardText.text];
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self enableAllGestures:false];
-    [self hideSwipeLabels:true];
-    self.screenTitle.hidden = true;
     infoText.text = nil;
     pointsText.hidden = false;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
     [self initializeCards:@"hard.plist"];
-    [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
+    [speaker speakString:cardText.text];
 }
-
-- (void)enableAllGestures:(BOOL)enable{
-    [swipeToSelectDifficulty setEnabled:enable];
-    [tapToDisplaySettings setEnabled:enable];
-    [tapToDisplayInstructions setEnabled:enable];
-}
-
--(void)hideSwipeLabels:(BOOL)toDisplay{
-    self.easyModeLabel.hidden = toDisplay;
-    self.mediumModeLabel.hidden = toDisplay;
-    self.hardModeLabel.hidden = toDisplay;
-}
-
-- (void)selectDifficulty:(UIGestureRecognizer *)gestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = true;
-    
-    [self hideSwipeLabels:false];
-    self.screenTitle.hidden = true;
-    
-    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
-    [swipeToSelectEasy setEnabled:YES];
-    [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
-    [self.view addGestureRecognizer:swipeToSelectEasy];
-    
-    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
-    [swipeToSelectMedium setEnabled:YES];
-    [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.view addGestureRecognizer:swipeToSelectMedium];
-    
-    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
-    [swipeToSelectHard setEnabled:YES];
-    [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
-    [self.view addGestureRecognizer:swipeToSelectHard];
-}
-
 
 -(void)initializeCards:(NSString* )withDifficulty{
     path = [[NSBundle mainBundle] bundlePath];
@@ -183,6 +130,7 @@
         AudioServicesPlaySystemSound(correctSound);
         pointsText.text = [NSString stringWithFormat:@"%d", ++points];
         [cardText setText:cards[arc4random() % maxHardCards]];
+        [speaker speakString:cardText.text]; // Speak the new card.
         [self clearStrings];
     }
     else{
@@ -209,7 +157,6 @@
             }
         }
         else{
-            speaker = [[ABSpeak alloc] init];
             [speaker speakString:character];
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
@@ -219,7 +166,7 @@
 
 - (SystemSoundID) createSoundID: (NSString*)name
 {
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
     NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
     SystemSoundID soundID;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
