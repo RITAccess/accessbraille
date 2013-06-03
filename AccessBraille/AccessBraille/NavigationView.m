@@ -177,7 +177,7 @@
     [item3 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem3.y), 75, 75)];
     [item4 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem4.y), 75, 75)];
     [item5 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem5.y), 75, 75)];
-    [item6 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem5.y), 75, 75)];
+    [item6 setFrame:CGRectMake(10, self.frame.size.height + (touchTran.y - sItem6.y), 75, 75)];
 }
 
 -(void)close {
