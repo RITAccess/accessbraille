@@ -21,6 +21,7 @@
     // For navigation
     NSArray *navigationGestures;
     __strong NSArray *storedGestures;
+    BOOL openActive;
     
 }
 
@@ -43,6 +44,7 @@
     
     UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
     navigationGestures = @[tapToClose];
+    openActive = NO;
     
 }
 
@@ -94,12 +96,14 @@
                 [currentVC.view setFrame:frame];
             } else {
                 // Menu is open
-                frame.origin.x = 100;
-                [currentVC.view setFrame:frame];
-                
-                storedGestures = [currentVC.view.gestureRecognizers copy];
-                [currentVC.view setGestureRecognizers:navigationGestures];
-                
+                if (!openActive) {
+                    openActive = YES;
+                    frame.origin.x = 100;
+                    [currentVC.view setFrame:frame];
+                    
+                    storedGestures = currentVC.view.gestureRecognizers;
+                    [currentVC.view setGestureRecognizers:navigationGestures];
+                }
             }
                 
             break;
@@ -124,8 +128,8 @@
  * Handles closing the menu
  */
 - (void)tapToClose:(UIGestureRecognizer *)reg {
-    NSLog(@"Tap to close");
     [currentVC.view setGestureRecognizers:storedGestures];
+    openActive = NO;
     [UIView animateWithDuration:.2 animations:^{
         CGRect frame = currentVC.view.frame;
         frame.origin.x = 0;
