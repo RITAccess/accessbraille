@@ -19,6 +19,7 @@
 @implementation ABKeyboard {
     ABTouchLayer *interface;
     ABBrailleReader *brailleReader;
+    __strong ABActivateKeyboardGestureRecognizer *activate;
     // Audio
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
@@ -33,7 +34,7 @@
     if (self) {
         // GR setup
         _delegate = delegate;
-        ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
+        activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
 

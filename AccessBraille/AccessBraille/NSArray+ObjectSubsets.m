@@ -65,5 +65,13 @@
     return returnString;
 }
 
+- (NSArray *)deepcopy {
+    NSMutableArray *newArr = [[NSMutableArray alloc] init];
+    for (id obj in self) {
+        [newArr addObject:[obj copy]];
+    }
+    return newArr;
+}
+
 
 @end

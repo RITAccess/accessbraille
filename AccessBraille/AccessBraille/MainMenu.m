@@ -207,7 +207,6 @@
     
     if (cvID.intValue == -1){
         [UIView animateWithDuration:1.0 animations:^{
-//            [menuView setHightlightWidth:250]; Pass on resizing for now
             [_OverlayTitle setText:@""];
             [_OverlayDiscription setText:@""];
         }];

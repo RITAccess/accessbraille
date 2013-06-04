@@ -50,6 +50,9 @@
 		4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E17175CC91800A3DEDA /* Default-Landscape~ipad.png */; };
 		4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E19175CC92000A3DEDA /* Default-Landscape@2x~ipad.png */; };
 		4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1B175CC92B00A3DEDA /* icon144.png */; };
+		4C1B1E23175CF76D00A3DEDA /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */; };
+		4C1B1E24175CF76D00A3DEDA /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E20175CF76D00A3DEDA /* SidebarViewController.m */; };
+		4C1B1E25175CF76D00A3DEDA /* UIView+quickRemove.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */; };
 		4C1B8250171316F60035797D /* ABBrailleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B824F171316F60035797D /* ABBrailleReader.m */; };
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */; };
@@ -84,7 +87,6 @@
 		4CEE19A716FCA05400E36128 /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE19A316FCA05400E36128 /* ABKeyboard.m */; };
 		4CEFD38C16EE1F9100961754 /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
-		A94471E6169CAC1000B66193 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A94471E5169CAC1000B66193 /* NavigationView.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3C1670034E00CE9475 /* CoreGraphics.framework */; };
@@ -163,6 +165,12 @@
 		4C1B1E17175CC91800A3DEDA /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		4C1B1E19175CC92000A3DEDA /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		4C1B1E1B175CC92B00A3DEDA /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+helpers.h"; sourceTree = "<group>"; };
+		4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+helpers.m"; sourceTree = "<group>"; };
+		4C1B1E1F175CF76D00A3DEDA /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		4C1B1E20175CF76D00A3DEDA /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+quickRemove.h"; sourceTree = "<group>"; };
+		4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+quickRemove.m"; sourceTree = "<group>"; };
 		4C1B824E171316F60035797D /* ABBrailleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleReader.h; sourceTree = "<group>"; };
 		4C1B824F171316F60035797D /* ABBrailleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleReader.m; sourceTree = "<group>"; };
 		4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
@@ -209,8 +217,6 @@
 		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
 		A9343269169F483D00C659C1 /* UIBezelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezelGestureRecognizer.h; sourceTree = "<group>"; };
 		A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezelGestureRecognizer.m; sourceTree = "<group>"; };
-		A94471E4169CAC1000B66193 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
-		A94471E5169CAC1000B66193 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		A9479C351670034E00CE9475 /* AccessBraille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessBraille.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9479C381670034E00CE9475 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9479C3A1670034E00CE9475 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +279,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1B1E27175CFAA300A3DEDA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */,
+				4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */,
+				4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */,
+				4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */,
+				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
+				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4C48079016C01CAF001E3EF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,8 +352,6 @@
 				4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */,
 				4C092A5E170F1AFA00650986 /* ABTouchView.h */,
 				4C092A5F170F1AFA00650986 /* ABTouchView.m */,
-				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
-				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
 			);
 			name = "AccessBraille Framework";
 			sourceTree = "<group>";
@@ -386,8 +403,6 @@
 			children = (
 				A9C960D3167F7B4F00084764 /* Drawing.h */,
 				A9C960D4167F7B4F00084764 /* Drawing.m */,
-				A94471E4169CAC1000B66193 /* NavigationView.h */,
-				A94471E5169CAC1000B66193 /* NavigationView.m */,
 				A97FF44A16B1CE1300116AEC /* Enabled.h */,
 				A97FF44B16B1CE1300116AEC /* Enabled.m */,
 				A9FE03A116B6CB780065E9EC /* BrailleTyperOutputView.h */,
@@ -440,6 +455,7 @@
 		A9479C3E1670034E00CE9475 /* AccessBraille */ = {
 			isa = PBXGroup;
 			children = (
+				4C1B1E27175CFAA300A3DEDA /* Categories */,
 				4CEFD38D16EE388E00961754 /* AccessBraille Framework */,
 				4C48079016C01CAF001E3EF1 /* Models */,
 				A934326F16A075A400C659C1 /* View */,
@@ -511,6 +527,8 @@
 		A9ECC82216A764E900998AD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C1B1E1F175CF76D00A3DEDA /* SidebarViewController.h */,
+				4C1B1E20175CF76D00A3DEDA /* SidebarViewController.m */,
 				A9ECC82916A7780B00998AD4 /* NavigationContainer.h */,
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
@@ -692,7 +710,6 @@
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
-				A94471E6169CAC1000B66193 /* NavigationView.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
@@ -714,6 +731,9 @@
 				4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */,
 				2C10E23917302D8600A2864B /* ABParser.m in Sources */,
 				2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */,
+				4C1B1E23175CF76D00A3DEDA /* NSString+helpers.m in Sources */,
+				4C1B1E24175CF76D00A3DEDA /* SidebarViewController.m in Sources */,
+				4C1B1E25175CF76D00A3DEDA /* UIView+quickRemove.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
