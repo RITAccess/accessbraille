@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bookPickup</key>
+	<string>That book will come in handy. You put it in your pack.</string>
+	<key>roomLeave</key>
+	<string>You head to the door and exit the room.</string>
+	<key>initialText</key>
+	<string>Would you care to start an exciting text-based adventure? Tap once to begin.</string>
+	<key>wakeupText</key>
+	<string>You wake up in your bed. Type LOOK to see what&apos;s around you.</string>
+	<key>helpText</key>
+	<string>Type the name of the object to put it in your pack or use it. Type LOOK to survey the area.</string>
+	<key>roomDescription</key>
+	<string>You&apos;re in a dark room. A book lies in front of you. I wonder what it says...</string>
+	<key>waterfrontDescription</key>
+	<string>You&apos;re at the waterfront. You see a boat in front of you and an island in the distance.</string>
+	<key>islandDescription</key>
+	<string>You made it to the island. A sparkling chest glimmers in front of you.</string>
+	<key>bookDescription</key>
+	<string>The book is full of hints! The first hint says: use the boat to get to the island.</string>
+	<key>boatDescription</key>
+	<string>You jump in the boat. It magically starts to move! It&apos;s taking you to the island.</string>
+</dict>
+</plist>
