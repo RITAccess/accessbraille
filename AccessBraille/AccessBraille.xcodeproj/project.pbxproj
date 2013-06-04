@@ -12,6 +12,7 @@
 		2C373DF5175CE90800CF0E0A /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C373DF4175CE90800CF0E0A /* TextAdventure.m */; };
 		2C373DF8175CEA9C00CF0E0A /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C373DF6175CEA9B00CF0E0A /* menuItem5.png */; };
 		2C373DFB175CEC5C00CF0E0A /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C373DFA175CEC5B00CF0E0A /* menuItem5x90.png */; };
+		2CAAC79A175E1A87004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC799175E1A87004680F9 /* adventureTexts.plist */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
@@ -126,6 +127,7 @@
 		2C373DF4175CE90800CF0E0A /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
 		2C373DF6175CEA9B00CF0E0A /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5.png; sourceTree = "<group>"; };
 		2C373DFA175CEC5B00CF0E0A /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5x90.png; sourceTree = "<group>"; };
+		2CAAC799175E1A87004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				A9479C4A1670034E00CE9475 /* Default.png */,
 				A9479C4C1670034E00CE9475 /* Default@2x.png */,
 				A9479C4E1670034E00CE9475 /* Default-568h@2x.png */,
+				2CAAC799175E1A87004680F9 /* adventureTexts.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				2C373DF8175CEA9C00CF0E0A /* menuItem5.png in Resources */,
 				2C373DFB175CEC5C00CF0E0A /* menuItem5x90.png in Resources */,
+				2CAAC79A175E1A87004680F9 /* adventureTexts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
