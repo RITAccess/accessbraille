@@ -10,7 +10,7 @@
 #import "ABKeyboard.h"
 #import "ABSpeak.h"
 
-@interface TextAdventure : UIViewController <ABKeyboard> { // Follow the ABKeyboard protocol
+@interface TextAdventure : UIViewController <ABKeyboard> {
 
     NSDictionary* texts;
     

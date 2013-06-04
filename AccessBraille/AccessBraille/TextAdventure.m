@@ -14,9 +14,6 @@
 
 @implementation TextAdventure
 
-#pragma mark -
-#pragma mark - View
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,7 +56,6 @@
 }
 
 
-#pragma mark - 
 #pragma mark - Gameplay Methods
 
 -(void)startGame:(UIGestureRecognizer* )tapToStart{
@@ -88,14 +84,13 @@
 }
 
 
-#pragma mark - 
 #pragma mark - Keyboard Methods
 
 /**
  * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if ([character isEqual: @" "]){
+    if ([info[ABSpaceTyped] boolValue]){
         [self checkCommand:typedText.text];
         [self clearStrings];
     }else{
@@ -148,7 +143,6 @@
     }
 }
 
-#pragma mark - 
 #pragma mark - Helper Methods
 
 /**
