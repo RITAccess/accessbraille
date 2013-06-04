@@ -19,6 +19,7 @@
 @implementation ABKeyboard {
     ABTouchLayer *interface;
     ABBrailleReader *brailleReader;
+    __strong ABActivateKeyboardGestureRecognizer *activate;
     // Audio
     SystemSoundID enabledSound;
     SystemSoundID disabledSound;
@@ -33,7 +34,7 @@
     if (self) {
         // GR setup
         _delegate = delegate;
-        ABActivateKeyboardGestureRecognizer *activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
+        activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
 
@@ -43,12 +44,6 @@
         // Set Up Braille Interp
         brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
         [brailleReader setDelegate:_delegate];
-        
-        // Type interface setup
-        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
-        [interface setBackgroundColor:[UIColor grayColor]];
-        [interface setAlpha:0.4];
-        [interface setDelegate:brailleReader];
         
         // Audio
         _sound = YES;
@@ -92,7 +87,12 @@
     
     // Call Drawing Methods
     
-    //double angle = [self averageAngleFromVectors:vectors];
+    // Type interface setup
+    interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
+    [interface setBackgroundColor:[UIColor grayColor]];
+    [interface setAlpha:0.4];
+    [interface setClearsContextBeforeDrawing:YES];
+    [interface setDelegate:brailleReader];
     
     for (int i = 0; i < 6; i++){
         

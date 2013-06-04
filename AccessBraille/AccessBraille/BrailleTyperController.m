@@ -14,7 +14,6 @@
 #import "BrailleTyperController.h"
 #import "Drawing.h"
 #import "NavigationContainer.h"
-#import "NavigationView.h"
 #import "UIBezelGestureRecognizer.h"
 #import "Enabled.h"
 #import "BrailleTyperOutputView.h"
@@ -109,9 +108,6 @@
     NSLog(@"Typed %@", word);
     [keyboard startSpeakingString:word];
 }
-
-- (void)active { NSLog(@"Active"); }
-- (void)deactive { NSLog(@"Deactive"); }
 
 #pragma mark - Access Core Data Methods
 

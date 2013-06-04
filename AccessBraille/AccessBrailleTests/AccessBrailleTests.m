@@ -11,6 +11,11 @@
 #import "ABTypes.h"
 #import "ABBrailleReader.h"
 #import "ABParser.h"
+#import "SidebarViewController.h"
+#import "MainMenuItemImage.h"
+#import "NSArray+ObjectSubsets.h"
+#import "MainMenu.h"
+#import "MainMenuItemImage.h"
 
 @implementation AccessBrailleTests
 
@@ -89,6 +94,35 @@
     STAssertEqualObjects([ABParser arrayOfCharactersFromWord:t3], p3, @"Did not remove punc");
     
 }
+
+- (void)testLoadingMenu {
+    
+#if 0
+    
+    // Test menu 4
+    MainMenu *menu = [[MainMenu alloc] init];
+    
+    NSArray *loadedContent = [NSArray arrayFromArray:menu.view.subviews passingTest:^BOOL(id obj1) {
+        UIImageView *img = (UIImageView *)obj1;
+        return (img.tag >= 31);
+    }];
+    
+    // Tester
+    MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", 0]]];
+    [menuItem setUserInteractionEnabled:YES];
+    [menuItem setFrame:CGRectMake(30, 293, 180, 180)];
+    [menuItem setTag:31];
+    // add gesture
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
+    [tap setNumberOfTapsRequired:1];
+    [menuItem addGestureRecognizer:tap];
+    
+    STAssertEqualObjects(loadedContent[0], menuItem, @"Menu Items not loaded correctly");
+    
+#endif
+    
+}
+
 @end
 
 
