@@ -45,12 +45,6 @@
         brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
         [brailleReader setDelegate:_delegate];
         
-        // Type interface setup
-        interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
-        [interface setBackgroundColor:[UIColor grayColor]];
-        [interface setAlpha:0.4];
-        [interface setDelegate:brailleReader];
-        
         // Audio
         _sound = YES;
         enabledSound = [self createSoundID:@"hop.mp3"];
@@ -93,7 +87,12 @@
     
     // Call Drawing Methods
     
-    //double angle = [self averageAngleFromVectors:vectors];
+    // Type interface setup
+    interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
+    [interface setBackgroundColor:[UIColor grayColor]];
+    [interface setAlpha:0.4];
+    [interface setClearsContextBeforeDrawing:YES];
+    [interface setDelegate:brailleReader];
     
     for (int i = 0; i < 6; i++){
         
