@@ -22,6 +22,8 @@
     NSArray *navigationGestures;
     __strong NSArray *storedGestures;
     BOOL openActive;
+    UIPanGestureRecognizer *scroll;
+    float menuPosRef;
     
 }
 
@@ -43,6 +45,7 @@
     [nav didMoveToParentViewController:self];
     
     UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
     navigationGestures = @[tapToClose];
     openActive = NO;
     
@@ -99,13 +102,12 @@
                 if (!openActive) {
                     openActive = YES;
                     frame.origin.x = 100;
-                    [currentVC.view setFrame:frame];
-                    
+                    [currentVC.view setFrame:frame];   
                     storedGestures = currentVC.view.gestureRecognizers;
                     [currentVC.view setGestureRecognizers:navigationGestures];
+                    [self.view addGestureRecognizer:scroll];
                 }
             }
-                
             break;
         }
             
@@ -129,6 +131,7 @@
  */
 - (void)tapToClose:(UIGestureRecognizer *)reg {
     [currentVC.view setGestureRecognizers:storedGestures];
+    [self.view removeGestureRecognizer:scroll];
     openActive = NO;
     [UIView animateWithDuration:.2 animations:^{
         CGRect frame = currentVC.view.frame;

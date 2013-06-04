@@ -10,13 +10,10 @@
 
 @interface SidebarViewController : UIViewController
 
-/* Set menu position between 0 and 100, 100 being open */
-- (void)updateMenuPosition:(float)position;
+/* Scrolls the menu items */
+- (void)moveMenuItems:(UIPanGestureRecognizer *)reg;
 
 /* Menu State */
 @property (nonatomic) BOOL menuOpen;
-
-- (void)setMenuOpen:(BOOL)menuOpen;
-- (void)loadMenuItemsAnimated:(BOOL)animated;
 
 @end

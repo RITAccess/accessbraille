@@ -24,7 +24,8 @@
 @implementation SidebarViewController {
     SystemSoundID openNavSound;
     NSDictionary *menuItemsDict;
-    
+    NSMutableArray *menuItems;
+    float menuPositionReferance;
 }
 
 @synthesize menuOpen = _menuOpen;
@@ -53,7 +54,7 @@
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
     menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
-    NSMutableArray *menuItems = [[NSMutableArray alloc] initWithCapacity:menuItemsDict.count];
+    menuItems = [[NSMutableArray alloc] initWithCapacity:menuItemsDict.count];
     int startTag = 0;
     
     for (NSString *link in menuItemsDict) {
@@ -86,6 +87,33 @@
             }];
         }
     }
+    
+}
+
+/**
+ * Scrolls the menu items
+ */
+- (void)moveMenuItems:(UIPanGestureRecognizer *)reg {
+    switch (reg.state) {
+        case UIGestureRecognizerStateBegan:
+            menuPositionReferance = ((UIView *)menuItems[0]).frame.origin.y;
+            break;
+        
+        case UIGestureRecognizerStateChanged:{
+            CGPoint tran = [reg translationInView:self.view];
+            
+            for (UIView *i in menuItems) {
+                CGRect frame = i.frame;
+                frame.origin.y = menuPositionReferance + tran.y + (i.tag * (SIZE + 5));
+                [i setFrame:frame];
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
+    
     
 }
 
