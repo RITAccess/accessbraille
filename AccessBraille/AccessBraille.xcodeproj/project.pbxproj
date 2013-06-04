@@ -10,9 +10,9 @@
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
-		2CAAC7A1175E2783004680F9 /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79C175E2783004680F9 /* menuItem5.png */; };
-		2CAAC7A2175E2783004680F9 /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79D175E2783004680F9 /* menuItem5x90.png */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
+		2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem5.png */; };
+		2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
@@ -126,10 +126,10 @@
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
-		2CAAC79C175E2783004680F9 /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5.png; sourceTree = "<group>"; };
-		2CAAC79D175E2783004680F9 /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuItem5x90.png; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
+		2CAAC7A4175E2A29004680F9 /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5.png; path = ../../accessbraille_resources/Images/menuItem5.png; sourceTree = "<group>"; };
+		2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5x90.png; path = ../../accessbraille_resources/Images/menuItem5x90.png; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2CAAC79C175E2783004680F9 /* menuItem5.png */,
-				2CAAC79D175E2783004680F9 /* menuItem5x90.png */,
+				2CAAC7A4175E2A29004680F9 /* menuItem5.png */,
+				2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */,
 				4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */,
 				4C1B1E0C175CC8FA00A3DEDA /* Default.png */,
 				4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */,
@@ -687,8 +687,8 @@
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
-				2CAAC7A1175E2783004680F9 /* menuItem5.png in Resources */,
-				2CAAC7A2175E2783004680F9 /* menuItem5x90.png in Resources */,
+				2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */,
+				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
