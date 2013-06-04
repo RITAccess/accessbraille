@@ -23,7 +23,7 @@
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [[ABSpeak alloc]init];
-    [speaker speakString:@"Would you care to start an exciting text-based adventure? Tap once to begin."];
+    [speaker speakString:initialText];
     
     UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
     [tapToStart setEnabled:YES];
@@ -36,6 +36,15 @@
     [typedText setFont:[UIFont fontWithName:@"ArialMT" size:30]];
     typedText.textColor = [UIColor blackColor];
     [typedText setUserInteractionEnabled:NO];
+    
+    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
+    [infoText setText:initialText];
+    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    [infoText setBackgroundColor:[UIColor clearColor]];
+    [infoText setUserInteractionEnabled:NO];
+    [[self view] addSubview:infoText];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,14 +63,20 @@
 -(void)startGame:(UIGestureRecognizer* )tapToStart{
     [tapToStart setEnabled:NO];
     [[self view] addSubview:typedText];
-    [speaker speakString:@"You wake up in your bed. Type LOOK to see what's around you."];
+    [speaker speakString:initialText];
+    
+    // Initialize Game Elements
     pack = [[NSMutableArray alloc]initWithCapacity:3];
     currentLocation = [[NSString alloc] initWithString:roomDescription];
 }
 
+/**
+ * Add a pickup to the pack array.
+ */
 -(void)stashObject:(NSString* )item {
-    [pack insertObject:item atIndex:0];
+    [pack addObject:item];
 }
+
 
 -(void)changeToRoom:(NSString* )room {
     if ([room isEqual: @"waterfront"]){
@@ -111,7 +126,7 @@
         [self changeToRoom:@"waterfront"];
     } else if ([command isEqualToString:@"use"]){
         if ([pack[0] isEqual: @"book"]){
-            [speaker speakString:@"The book is full of hints! The first hint says: use the boat to get to the island."];
+            [speaker speakString:bookDescription];
         }
     } else {
         [speaker speakString:@"Not sure about that. Try something else..."];
