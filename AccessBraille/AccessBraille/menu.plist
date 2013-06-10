@@ -14,5 +14,7 @@
 	<string>FlashCard</string>
 	<key>5</key>
 	<string>TextAdventure</string>
+	<key>6</key>
+	<string>about</string>
 </dict>
 </plist>
