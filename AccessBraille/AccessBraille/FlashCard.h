@@ -11,20 +11,15 @@
 #import "ABSpeak.h"
 
 NSString *const welcomeText = @"Welcome to Flash Card mode! Swipe UP to select easy mode, RIGHT for medium mode, and DOWN for hard mode. Once playing, swipe 6 fingers up to initialize the typing keyboard.";
-
 NSInteger const maxEasyCards = 30;
 NSInteger const maxMediumCards = 60;
 NSInteger const maxHardCards = 20;
 
 @interface FlashCard : UIViewController <ABKeyboard> {
-    UITextView *typedText;
-    UITextView *cardText;
-    UITextView *pointsText;
     NSMutableArray *cards;
     NSArray *card;
     NSMutableString *stringFromInput;
     NSArray *letters;
-    UITextView *infoText;
     ABKeyboard *keyboard;
     ABSpeak *speaker;
     int points;
@@ -37,5 +32,10 @@ NSInteger const maxHardCards = 20;
 @property UISwipeGestureRecognizer *swipeToSelectEasy;
 @property UISwipeGestureRecognizer *swipeToSelectMedium;
 @property UISwipeGestureRecognizer *swipeToSelectHard;
+
+@property UITextView *typedText;
+@property UITextView *cardText;
+@property UITextView *pointsText;
+@property UITextView *infoText;
 
 @end

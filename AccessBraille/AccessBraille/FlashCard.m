@@ -14,6 +14,10 @@
 
 @implementation FlashCard
 
+@synthesize cardText;
+@synthesize typedText;
+@synthesize infoText;
+@synthesize pointsText;
 @synthesize swipeToSelectEasy;
 @synthesize swipeToSelectMedium;
 @synthesize swipeToSelectHard;
@@ -93,31 +97,25 @@
 #pragma mark - Gestures
 
 - (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = NO;
+    [self disableGesturesAndManageLabels];
     [self initializeCards:@"easy.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [self disableGestures];
     [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
     [speaker speakString:cardText.text];
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = NO;
+    [self disableGesturesAndManageLabels];
     [self initializeCards:@"medium.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [self disableGestures];
     [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
     [speaker speakString:cardText.text];
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = NO;
     [self initializeCards:@"hard.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [self disableGestures];
+    [self disableGesturesAndManageLabels];
     [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
     [speaker speakString:cardText.text];
 }
@@ -148,7 +146,9 @@
 
 #pragma mark - Helper Methods
 
-- (void)disableGestures{
+- (void)disableGesturesAndManageLabels{
+    infoText.text = nil;
+    pointsText.hidden = NO;
     swipeToSelectEasy.enabled = NO;
     swipeToSelectMedium.enabled = NO;
     swipeToSelectHard.enabled = NO;
