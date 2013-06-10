@@ -235,9 +235,6 @@
 		A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccessBraille-Prefix.pch"; sourceTree = "<group>"; };
 		A9479C471670034E00CE9475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9479C481670034E00CE9475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A9479C4A1670034E00CE9475 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A9479C4C1670034E00CE9475 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		A9479C4E1670034E00CE9475 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A9479C511670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A9479C531670034E00CE9475 /* BrailleTyperController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrailleTyperController.h; sourceTree = "<group>"; };
 		A9479C541670034E00CE9475 /* BrailleTyperController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrailleTyperController.m; sourceTree = "<group>"; };
@@ -496,9 +493,6 @@
 				4C751F1716FA052F003967D8 /* MenuTitles.plist */,
 				A9479C441670034E00CE9475 /* main.m */,
 				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
-				A9479C4A1670034E00CE9475 /* Default.png */,
-				A9479C4C1670034E00CE9475 /* Default@2x.png */,
-				A9479C4E1670034E00CE9475 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -866,8 +860,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -895,8 +889,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -913,8 +907,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -942,8 +936,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;

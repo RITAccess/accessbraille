@@ -11,6 +11,7 @@
 #import "MainMenuNavigation.h"
 #import "NSArray+ObjectSubsets.h"
 #import "MainMenuItemImage.h"
+#import "ABSpeak.h"
 
 @interface MainMenu ()
     
@@ -23,6 +24,8 @@
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
     NSDictionary *menuItemsDict;
+    ABSpeak *speak;
+    NSNumber *active;
 }
 
 @synthesize menuView;
@@ -44,6 +47,9 @@
     
     // Load side menu
     [self loadMenuItemsAnimated:YES];
+    
+    // Speaking
+    speak = [[ABSpeak alloc] init];
     
 }
 
@@ -173,7 +179,10 @@
             break;
             
         case UIGestureRecognizerStateChanged:
-            
+            if ([reg numberOfTouches] > 1 && [self setActiveItem]){
+                // Speak menu item infomation
+                [speak speakString:[self getSpeakingStringAtLocation:active]];
+            }
             [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
             [self setMenuContentInformationAtLocation:[self checkInBounds]];
             if ([reg velocityInView:self.view].x > _swipeSensitivity) {
@@ -193,6 +202,15 @@
             break;
     }
     [self.menuView setNeedsDisplay];
+}
+
+- (BOOL)setActiveItem {
+    if ([self checkInBounds] != active) {
+        active = [self checkInBounds];
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -217,6 +235,25 @@
             [_OverlayDiscription setText:context[cvID.intValue]];
         }];
     }
+}
+
+/**
+ * Get menu speaking string at locaton
+ */
+- (NSString *)getSpeakingStringAtLocation:(NSNumber *)cvID {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
+    NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
+    NSArray *titles = [[NSArray alloc] initWithContentsOfFile:titlePath];
+    NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
+    
+    NSString *b = @"";
+    if (cvID.intValue != -1) {
+        b = [b stringByAppendingString:titles[cvID.intValue]];
+        b = [b stringByAppendingString:@". "];
+        b = [b stringByAppendingString:context[cvID.intValue]];
+    }
+    return b;
 }
 
 /**
