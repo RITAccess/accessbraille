@@ -4,6 +4,11 @@ Access Braille is a braille accessibility framework for iPad that creates an int
 
 Access Braille is also a learning tool for young children who have not learned the braille system. It's designed around simple word-based games that require users to type in grade 1 braille with the Access Braille keyboard framework. We plan on implementing grade 2 and 8 dot math in the future.
 
+## Current Contributors
+Led by [Stephanie Ludi](https://github.com/retrogamer80s), this project's current team consists of: 
+* [Michael Timbrook](https://github.com/7imbrook) SE Undergraduate 
+* [Piper Chester](https://github.com/piperchester) SE Undergraduate 
+
 ## How to Get Started
 Using the keyboard in your own apps simply create an ABKeyboard in your ```UIViewController``` and add the necessary protocol methods to start reciving typing events from the ABKeyboard. Here's an example of receiving the last character typed:
 ```objective-c
