@@ -17,4 +17,4 @@ ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     NSLog(@"You just typed %@", character);
 }
 ```
-[View the full api](https://github.com/RITAccess/accessbraille/wiki/AccessBraille-API-Documentation)
+[View the full API](https://github.com/RITAccess/accessbraille/wiki/AccessBraille-API-Documentation)
