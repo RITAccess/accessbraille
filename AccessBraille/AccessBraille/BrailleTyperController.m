@@ -87,6 +87,9 @@
 }
 
 - (void)viewDidUnload {
+    keyboard = nil;
+    enabled = nil;
+    self.view.gestureRecognizers = nil;
     [self setDrawingView:nil];
     [self setTextOutput:nil];
     [self setTextDrawing:nil];
