@@ -34,4 +34,8 @@ NSInteger const maxHardCards = 20;
     SystemSoundID incorrectSound;
 }
 
+@property UISwipeGestureRecognizer *swipeToSelectEasy;
+@property UISwipeGestureRecognizer *swipeToSelectMedium;
+@property UISwipeGestureRecognizer *swipeToSelectHard;
+
 @end
