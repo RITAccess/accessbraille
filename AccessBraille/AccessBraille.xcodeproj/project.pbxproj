@@ -13,6 +13,9 @@
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
 		2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem5.png */; };
 		2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */; };
+		2CC54E84176615C2001B595A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC54E83176615C1001B595A /* AboutViewController.m */; };
+		2CC54E8617661A3A001B595A /* menuItem6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC54E8517661A3A001B595A /* menuItem6.png */; };
+		2CC54E8817661A72001B595A /* menuItem6x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC54E8717661A72001B595A /* menuItem6x90.png */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
@@ -130,6 +133,10 @@
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
 		2CAAC7A4175E2A29004680F9 /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5.png; path = ../../accessbraille_resources/Images/menuItem5.png; sourceTree = "<group>"; };
 		2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5x90.png; path = ../../accessbraille_resources/Images/menuItem5x90.png; sourceTree = "<group>"; };
+		2CC54E82176615C1001B595A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		2CC54E83176615C1001B595A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		2CC54E8517661A3A001B595A /* menuItem6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem6.png; path = ../../accessbraille_resources/Images/menuItem6.png; sourceTree = "<group>"; };
+		2CC54E8717661A72001B595A /* menuItem6x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem6x90.png; path = ../../accessbraille_resources/Images/menuItem6x90.png; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
@@ -374,8 +381,6 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2CAAC7A4175E2A29004680F9 /* menuItem5.png */,
-				2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */,
 				4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */,
 				4C1B1E0C175CC8FA00A3DEDA /* Default.png */,
 				4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */,
@@ -393,6 +398,10 @@
 				4C1B1DDD175CC85400A3DEDA /* menuItem3x90.png */,
 				4C1B1DDE175CC85400A3DEDA /* menuItem4.png */,
 				4C1B1DDF175CC85400A3DEDA /* menuItem4x90.png */,
+				2CAAC7A4175E2A29004680F9 /* menuItem5.png */,
+				2CAAC7A5175E2A2A004680F9 /* menuItem5x90.png */,
+				2CC54E8517661A3A001B595A /* menuItem6.png */,
+				2CC54E8717661A72001B595A /* menuItem6x90.png */,
 				4C1B1DE0175CC85400A3DEDA /* slideOutMenu.png */,
 				4C1B1DE1175CC85500A3DEDA /* HightBar.png */,
 				4C1B1DE2175CC85500A3DEDA /* icon144.png */,
@@ -549,6 +558,8 @@
 				4CA076E116D58A3A006DDBD3 /* Settings.m */,
 				2CAAC79E175E2783004680F9 /* TextAdventure.h */,
 				2CAAC79F175E2783004680F9 /* TextAdventure.m */,
+				2CC54E82176615C1001B595A /* AboutViewController.h */,
+				2CC54E83176615C1001B595A /* AboutViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -683,6 +694,8 @@
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
 				2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
+				2CC54E8617661A3A001B595A /* menuItem6.png in Resources */,
+				2CC54E8817661A72001B595A /* menuItem6x90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +759,7 @@
 				4C1B1E24175CF76D00A3DEDA /* SidebarViewController.m in Sources */,
 				4C1B1E25175CF76D00A3DEDA /* UIView+quickRemove.m in Sources */,
 				2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */,
+				2CC54E84176615C2001B595A /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,8 +874,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -889,8 +903,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -907,8 +921,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Piper Chester (926JP4SG23)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Piper Chester (926JP4SG23)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -936,8 +950,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
+				PROVISIONING_PROFILE = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9919B222-5C03-43D2-8DA8-3591C18BBB2C";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
