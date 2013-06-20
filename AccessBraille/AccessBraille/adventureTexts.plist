@@ -13,7 +13,7 @@
 	<key>backgroundInfoLeave</key>
 	<string>You walk forward under the forest canopy towards the distant sparkling object. </string>
 	<key>forestFloor</key>
-	<string>You&apos;re surrounded by trees everywhere deep in some forest. The sun is beginning to set, adding to your worries. You see a cabin ahead of you and your broken time machine behind you.</string>
+	<string>You&apos;re surrounded by trees everywhere deep in some forest. You see a cabin ahead of you and your broken time machine behind you.</string>
 	<key>forestFloorPickup</key>
 	<string>It&apos;s a shiny key! I wonder what it unlocks...</string>
 	<key>secretCabin</key>

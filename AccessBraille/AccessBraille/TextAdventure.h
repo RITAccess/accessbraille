@@ -23,7 +23,7 @@
 @property UITextView *infoText;
 @property NSMutableString *stringFromInput;
 @property NSMutableArray *pack;
-@property NSString *currentLocation;
+@property NSMutableString *currentLocation;
 @property NSString *path;
 @property NSString *playerName;
 @property NSMutableArray *rooms;

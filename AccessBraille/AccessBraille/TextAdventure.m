@@ -66,12 +66,11 @@
 {
     [tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
-    [speaker speakString:[_texts valueForKey:@"nameRequest"]];
-    [_infoText setText:[_texts valueForKey:@"nameRequest"]];
+    [self prompt:@"backgroundInfo"];
     
     // Initialize Game Elements    
     _pack = [[NSMutableArray alloc]initWithCapacity:3];
-    _currentLocation = [[NSString alloc] initWithString:[_texts valueForKey:@"roomDescription"]];
+    _currentLocation = [[NSMutableString alloc] initWithString:[_texts valueForKey:@"backgroundInfo"]];
 }
 
 /**
@@ -82,50 +81,6 @@
     [_pack addObject:item];
 }
 
-
--(void)changeToRoom:(NSString* )room
-{
-    _currentLocation = [_texts valueForKey:room];
-    [_infoText setText:_currentLocation];
-    [speaker speakString:_currentLocation];
-}
-
-- (void)moveForward
-{
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"backgroundInfo"]]){
-        [self prompt:@"backgroundInfoLeave"];
-        [self changeToRoom:@"forestFloor"];
-    }
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"forestFloor"]]){
-        [self prompt:@"forestFloorLeave"];
-        [self changeToRoom:@"secretCabin"];
-    }
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"secretCabin"]]){
-        [self prompt:@"cabinLeave"];
-        [self changeToRoom:@"lake"];
-    }
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"lake"]]){
-        [self prompt:@"lakeLeave"];
-        [self changeToRoom:@"darkCave"];
-    }
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"darkCave"]]){
-        [self prompt:@"darkCaveLeave"];
-        [self changeToRoom:@"cavern"];
-    }
-    
-    if ([_currentLocation isEqualToString:[_texts valueForKey:@"cavern"]]){
-        [self prompt:@"cavernLeave"];
-        NSLog(@"You finished the game!");
-    }
-    
-}
-
-
 #pragma mark - Keyboard Methods
 
 /**
@@ -133,22 +88,22 @@
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
 {
-        if ([info[ABSpaceTyped] boolValue]){
-            [self checkCommand:_typedText.text];
-            [self clearStrings];
-        }else{
-            // Remove character from typed string if backspace detected.
-            if ([info[ABBackspaceReceived] boolValue]){
-                if (_stringFromInput.length > 0) {
-                    [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
-                    [_typedText setText:_stringFromInput];
-                }
-            } else {
-                [speaker speakString:character];
-                [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-                [_typedText setText:_stringFromInput]; // Sets typed text to the label.
+    if ([info[ABSpaceTyped] boolValue]){
+        [self checkCommand:_typedText.text];
+        [self clearStrings];
+    } else {
+        // Remove character from typed string if backspace detected.
+        if ([info[ABBackspaceReceived] boolValue]){
+            if (_stringFromInput.length > 0) {
+                [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
+                [_typedText setText:_stringFromInput];
             }
+        } else {
+            [speaker speakString:character];
+            [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+            [_typedText setText:_stringFromInput]; // Sets typed text to the label.
         }
+    }
 }
 
 /**
@@ -158,58 +113,41 @@
  */
 -(void)checkCommand:(NSString* )command
 {
-    // Get the player's name.
-    if (!isPlaying)
+    if ([command isEqualToString:@"look"])
     {
-        _playerName = [[NSString alloc] initWithString:_typedText.text];
-        [self changeToRoom:@"backgroundInfo"];
-        isPlaying = YES;
+        NSLog(@"%@", _currentLocation);
+        [speaker speakString:_currentLocation]; // Breaks on a prompt call for some reason.
+        [_infoText setText:_currentLocation];
+    }
+    else if ([command isEqualToString:@"move"])
+    {
+        if ([_currentLocation isEqualToString:[_texts valueForKey:@"backgroundInfo"]]){
+            _currentLocation = [_texts valueForKey:@"forestFloor"];
+            [self prompt:@"forestFloor"];
+        }
+    }
+    if ([command isEqualToString:@"pick"])
+    {
+        if ([_currentLocation isEqualToString:@"forestFloor"]){
+            [self prompt:@"forestFloorPickup"];
+        }
+    }
+    else if ([command isEqualToString:@"use"])
+    {
+        
+    }
+    else if ([command isEqualToString:@"pack"])
+    {
+        NSString* packContents = [_pack componentsJoinedByString:@" "];
+        [speaker speakString:packContents];
+    }
+    else if ([command isEqualToString:@"help"])
+    {
+        [self prompt:@"helpText"];
     }
     else
     {
-        if ([command isEqualToString:@"look"])
-        {
-            [speaker speakString:_currentLocation]; // Breaks on a prompt call for some reason.
-            [_infoText setText:_currentLocation];
-        }
-        if ([command isEqualToString:@"pick"])
-        {
-            if ([_currentLocation isEqualToString:@"forestFloor"]){
-                [self prompt:@"forestFloorPickup"];
-            }
-        }
-        else if ([command isEqualToString:@"book"])
-        {
-            if ([_pack containsObject:@"book"]){
-                [self prompt:@"bookDescription"];
-            } else {
-                [self prompt:@"bookPickup"];
-                [self stashObject:@"book"];
-            }
-        }
-        else if ([command isEqualToString:@"pack"])
-        {
-            NSString* packContents = [_pack componentsJoinedByString:@" "];
-            [speaker speakString:packContents];
-        }
-        else if ([command isEqualToString:@"move"])
-        {
-            [self moveForward];
-        }
-        else if ([command isEqualToString:@"use"])
-        {
-            if ([_pack[0] isEqual: @"book"]){
-                [self prompt:@"book"];
-            }
-        }
-        else if ([command isEqualToString:@"help"])
-        {
-            [self prompt:@"helpText"];
-        }
-        else
-        {
-            [speaker speakString:@"Not sure about that. Try something else..."];
-        }
+        [speaker speakString:@"Not sure about that. Try something else..."];
     }
 }
 
@@ -222,7 +160,7 @@
 -(void)prompt:(NSString *)description
 {
     [speaker speakString:[_texts valueForKey:description]];
-    [_infoText setText:[_texts valueForKey:description]];
+    _infoText.text= [_texts valueForKey:description]; // This breaks for some reason...
 }
 
 -(void)clearStrings
