@@ -10,21 +10,22 @@
 #import "ABKeyboard.h"
 #import "ABSpeak.h"
 
-@interface TextAdventure : UIViewController <ABKeyboard> {
-
-    NSDictionary* texts;
-    
+@interface TextAdventure : UIViewController <ABKeyboard>
+{
     ABKeyboard* keyboard;
     ABSpeak* speaker;
     
-    UITextView *typedText;
-    UITextView *infoText;
-    NSMutableString *stringFromInput;
-    
-    NSMutableArray* pack;
-    NSString* currentLocation;
-    
-    NSString *finalPath;
-    NSString *path;
+    BOOL isPlaying;
 }
+
+@property NSDictionary *texts;
+@property UITextView *typedText;
+@property UITextView *infoText;
+@property NSMutableString *stringFromInput;
+@property NSMutableArray *pack;
+@property NSString *currentLocation;
+@property NSString *path;
+@property NSString *playerName;
+@property NSMutableArray *rooms;
+
 @end
