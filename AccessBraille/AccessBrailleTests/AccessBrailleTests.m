@@ -33,43 +33,6 @@
     [super tearDown];
 }
 
-- (void)testStringBrailleBits {
-    
-    NSArray *test = @[@2,@3];
-    STAssertEqualObjects([ABBrailleReader brailleStringFromTouchIDs:test], @"100100",@"Not Equal: %@", [ABBrailleReader brailleStringFromTouchIDs:test]);
-    
-}
-
-//- (void)testABVectors {
-//    // Test 45
-//    ABVector testVector = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 10));
-//    STAssertEquals(testVector.angle, (float)M_PI_4, @"Not Equal : %f != %f", testVector.angle, M_PI_4);
-//    
-//    // Test Vertical
-//    ABVector testVector2 = ABVectorMake(CGPointMake(0, 0), CGPointMake(0, 10));
-//    STAssertEquals(testVector2.angle, (float)M_PI_2, @"Not Equal : %f != %f", testVector2.angle, M_PI_2);
-//    
-//    // Test Horizontal
-//    ABVector testVector3 = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 0));
-//    STAssertEquals(testVector3.angle, -0.0f, @"Not Equal : %f != %f", testVector3.angle, -0);
-//    
-//    // Test 30
-//    ABVector testVector4 = ABVectorMake(CGPointMake(0, 0), CGPointMake(3, sqrtf(3)));
-//    STAssertEquals(testVector4.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector4.angle, (M_PI/6));
-//    
-//    // Test 60
-//    ABVector testVector5 = ABVectorMake(CGPointMake(0, 0), CGPointMake(sqrtf(3),3));
-//    STAssertEquals(testVector5.angle, (float)(M_PI/3), @"Not Equal : %f != %f", testVector5.angle, (M_PI/3));
-//    
-//    // Test 30 with backward points
-//    ABVector testVector6 = ABVectorMake(CGPointMake(3, sqrtf(3)), CGPointMake(0,0));
-//    STAssertEquals(testVector6.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector6.angle, (M_PI/6));
-//
-//    // Test -60
-//    ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
-//    STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
-//}
-
 - (void)testABParser {
     
     // Sentance parser
@@ -140,6 +103,9 @@
     [reader proccessString:ABSpaceCharacter];
     STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
 
+    // Grade two shorthand tests
+    
+    
     
     reader = nil;
 }
