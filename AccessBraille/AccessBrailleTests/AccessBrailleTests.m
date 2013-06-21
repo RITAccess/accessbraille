@@ -111,7 +111,7 @@
     STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
     
     // Grade two prefix tests
-    // Test level one lookups
+    // Test level two lookups
     // Type phone
     [reader proccessString:@"111100"];
     [reader proccessString:@"110010"];
@@ -120,14 +120,25 @@
     STAssertEqualObjects(reader.wordTyping, @"phone", @"failed to type phone");
     [reader proccessString:ABSpaceCharacter];
     
-    //Test numbers
+    // Test numbers
     [reader proccessString:@"001111"];
     [reader proccessString:@"100000"];
     [reader proccessString:@"010110"];
     [reader proccessString:@"100000"];
     [reader proccessString:@"100010"];
     STAssertEqualObjects(reader.wordTyping, @"1015", @"failed to handle numbers");
+    [reader proccessString:ABSpaceCharacter];
     
+    // test level three lookup
+    // type manyhadspirit
+    [reader proccessString:@"000111"];
+    [reader proccessString:@"101100"];
+    [reader proccessString:@"000111"];
+    [reader proccessString:@"110010"];
+    [reader proccessString:@"000111"];
+    [reader proccessString:@"011100"];
+    STAssertEqualObjects(reader.wordTyping, @"manyhadspirit", @"failed to type manyhadspirt");
+    [reader proccessString:ABSpaceCharacter];
     
     reader = nil;
 }

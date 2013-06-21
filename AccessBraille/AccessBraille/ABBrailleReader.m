@@ -11,9 +11,12 @@
 
 @implementation ABBrailleReader {
     
+    // Look ups
     NSDictionary *grad2Lookup;
     NSDictionary *numberLookup;
     NSDictionary *prefixLevelTwo;
+    NSDictionary *prefixLevelThree;
+    
     BOOL numberMode;
     id target;
     SEL selector;
@@ -26,10 +29,14 @@
 - (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
     self = [super init];
     if (self) {
+        // init lookups
         NSString *path = [[NSBundle mainBundle] bundlePath];
         grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"grade2lookup.plist"]];
         numberLookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"numberLookup.plist"]];
         prefixLevelTwo = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelTwo.plist"]];
+        prefixLevelThree = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelThree.plist"]];
+        
+        // Typing store
         _wordTyping = @"";
         
         // Default grade
@@ -37,7 +44,6 @@
         
         // Setup parser
         prefix = @"";
-        
         
         // Audio
         target = tar;
@@ -91,7 +97,7 @@
 - (NSString *)proccessString:(NSString *)brailleString
 {
     // Intercept prefix operators
-    if ([ABBrailleReader isValidPrefix:prefix]) {
+    if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo) && ![brailleString isEqualToString:ABSpaceCharacter]) {
         // Handle prefix
         NSString *postfix = @"";
         if ([prefix isEqualToString:ABPrefixNumber]) {
@@ -99,7 +105,7 @@
         } else if ([prefix isEqualToString:ABPrefixLevelTwo]) {
             postfix = prefixLevelTwo[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelThree]) {
-            
+            postfix = prefixLevelThree[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelFour]) {
         
         } else if ([prefix isEqualToString:ABPrefixLevelFive]) {
@@ -118,7 +124,7 @@
         
     } else {
         prefix = brailleString;
-        if ([ABBrailleReader isValidPrefix:prefix]) {
+        if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo)) {
             // return if a valid prefix is set
             return @"";
         }
@@ -135,6 +141,7 @@
                     break;
             }
             [self sendWord:_wordTyping];
+            prefix = @"";
             _wordTyping = @"";
             return word;
         }

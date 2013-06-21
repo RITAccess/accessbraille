@@ -88,6 +88,7 @@
 		4C7285BC177483800045C2BD /* grade2lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7285BB177483800045C2BD /* grade2lookup.plist */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C7A1111177502AB00726199 /* numberLookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A1110177502AB00726199 /* numberLookup.plist */; };
+		4C7A1113177503FD00726199 /* prefixLevelThree.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A1112177503FD00726199 /* prefixLevelThree.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
@@ -223,6 +224,7 @@
 		4C7285BB177483800045C2BD /* grade2lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade2lookup.plist; sourceTree = "<group>"; };
 		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
 		4C7A1110177502AB00726199 /* numberLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = numberLookup.plist; sourceTree = "<group>"; };
+		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				4C7285BB177483800045C2BD /* grade2lookup.plist */,
 				4C7A1110177502AB00726199 /* numberLookup.plist */,
 				4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */,
+				4C7A1112177503FD00726199 /* prefixLevelThree.plist */,
 			);
 			name = Lookups;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				2CC54E8817661A72001B595A /* menuItem6x90.png in Resources */,
 				4C6442171774FD7C00A2771E /* prefixLevelTwo.plist in Resources */,
 				4C7A1111177502AB00726199 /* numberLookup.plist in Resources */,
+				4C7A1113177503FD00726199 /* prefixLevelThree.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
