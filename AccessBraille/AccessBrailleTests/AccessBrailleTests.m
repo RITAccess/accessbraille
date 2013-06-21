@@ -40,35 +40,35 @@
     
 }
 
-- (void)testABVectors {
-    // Test 45
-    ABVector testVector = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 10));
-    STAssertEquals(testVector.angle, (float)M_PI_4, @"Not Equal : %f != %f", testVector.angle, M_PI_4);
-    
-    // Test Vertical
-    ABVector testVector2 = ABVectorMake(CGPointMake(0, 0), CGPointMake(0, 10));
-    STAssertEquals(testVector2.angle, (float)M_PI_2, @"Not Equal : %f != %f", testVector2.angle, M_PI_2);
-    
-    // Test Horizontal
-    ABVector testVector3 = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 0));
-    STAssertEquals(testVector3.angle, -0.0f, @"Not Equal : %f != %f", testVector3.angle, -0);
-    
-    // Test 30
-    ABVector testVector4 = ABVectorMake(CGPointMake(0, 0), CGPointMake(3, sqrtf(3)));
-    STAssertEquals(testVector4.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector4.angle, (M_PI/6));
-    
-    // Test 60
-    ABVector testVector5 = ABVectorMake(CGPointMake(0, 0), CGPointMake(sqrtf(3),3));
-    STAssertEquals(testVector5.angle, (float)(M_PI/3), @"Not Equal : %f != %f", testVector5.angle, (M_PI/3));
-    
-    // Test 30 with backward points
-    ABVector testVector6 = ABVectorMake(CGPointMake(3, sqrtf(3)), CGPointMake(0,0));
-    STAssertEquals(testVector6.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector6.angle, (M_PI/6));
-
-    // Test -60
-    ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
-    STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
-}
+//- (void)testABVectors {
+//    // Test 45
+//    ABVector testVector = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 10));
+//    STAssertEquals(testVector.angle, (float)M_PI_4, @"Not Equal : %f != %f", testVector.angle, M_PI_4);
+//    
+//    // Test Vertical
+//    ABVector testVector2 = ABVectorMake(CGPointMake(0, 0), CGPointMake(0, 10));
+//    STAssertEquals(testVector2.angle, (float)M_PI_2, @"Not Equal : %f != %f", testVector2.angle, M_PI_2);
+//    
+//    // Test Horizontal
+//    ABVector testVector3 = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 0));
+//    STAssertEquals(testVector3.angle, -0.0f, @"Not Equal : %f != %f", testVector3.angle, -0);
+//    
+//    // Test 30
+//    ABVector testVector4 = ABVectorMake(CGPointMake(0, 0), CGPointMake(3, sqrtf(3)));
+//    STAssertEquals(testVector4.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector4.angle, (M_PI/6));
+//    
+//    // Test 60
+//    ABVector testVector5 = ABVectorMake(CGPointMake(0, 0), CGPointMake(sqrtf(3),3));
+//    STAssertEquals(testVector5.angle, (float)(M_PI/3), @"Not Equal : %f != %f", testVector5.angle, (M_PI/3));
+//    
+//    // Test 30 with backward points
+//    ABVector testVector6 = ABVectorMake(CGPointMake(3, sqrtf(3)), CGPointMake(0,0));
+//    STAssertEquals(testVector6.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector6.angle, (M_PI/6));
+//
+//    // Test -60
+//    ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
+//    STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
+//}
 
 - (void)testABParser {
     
@@ -95,52 +95,53 @@
     
 }
 
-- (void)testLoadingMenu {
+- (void)testABReader {
     
-#if 0
+    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
     
-    // Test menu 4
-    MainMenu *menu = [[MainMenu alloc] init];
+    // Test Grade 1
+    [reader setGrade:ABGradeOne];
     
-    NSArray *loadedContent = [NSArray arrayFromArray:menu.view.subviews passingTest:^BOOL(id obj1) {
-        UIImageView *img = (UIImageView *)obj1;
-        return (img.tag >= 31);
-    }];
+    STAssertEqualObjects(@"a", [reader proccessString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader proccessString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader proccessString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader proccessString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader proccessString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader proccessString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader proccessString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader proccessString:@"101100"], @"failed");
+    STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
+    STAssertEqualObjects(ABSpaceCharacter, [reader proccessString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
     
-    // Tester
-    MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", 0]]];
-    [menuItem setUserInteractionEnabled:YES];
-    [menuItem setFrame:CGRectMake(30, 293, 180, 180)];
-    [menuItem setTag:31];
-    // add gesture
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
-    [tap setNumberOfTapsRequired:1];
-    [menuItem addGestureRecognizer:tap];
+    // Attempt grade two lookup
+    STAssertFalseNoThrow([@"and" isEqualToString:[reader proccessString:@"111101"]], @"and returned");
     
-    STAssertEqualObjects(loadedContent[0], menuItem, @"Menu Items not loaded correctly");
+    // Test grade two
+    [reader setGrade:ABGradeTwo];
     
-#endif
+    // test none grade two lookups
+    STAssertEqualObjects(@"a", [reader proccessString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader proccessString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader proccessString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader proccessString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader proccessString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader proccessString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader proccessString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader proccessString:@"101100"], @"failed");
+    STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
+    STAssertEqualObjects(ABSpaceCharacter, [reader proccessString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
     
+    // Grade two lookups no options
+    STAssertEqualObjects(@"and", [reader proccessString:@"111101"], @"failed");
+    STAssertEqualObjects(@"for", [reader proccessString:@"111111"], @"failed");
+    STAssertEqualObjects(@"with", [reader proccessString:@"011111"], @"failed");
+    [reader proccessString:ABSpaceCharacter];
+    STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
+
+    
+    reader = nil;
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

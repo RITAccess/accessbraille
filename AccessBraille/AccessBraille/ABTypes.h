@@ -16,6 +16,12 @@ enum ABGestureDirection : NSUInteger {
     ABGestureDirectionDOWN
 };
 
+typedef enum ABGrade : NSUInteger ABGrade;
+enum ABGrade : NSUInteger {
+    ABGradeOne,
+    ABGradeTwo
+};
+
 /* String Constansts for keys in info dictionary */
 static NSString *const ABGestureInfoStatus = @"ABGestureInfoStatus";
 static NSString *const ABSpaceTyped = @"ABSpaceTyped";

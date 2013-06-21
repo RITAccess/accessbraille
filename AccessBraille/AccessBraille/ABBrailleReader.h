@@ -10,12 +10,19 @@
 #import "ABTouchLayer.h"
 #import "ABKeyboard.h"
 
+
+
 @interface ABBrailleReader : NSObject <ABTouchReciever>
 
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs;
+- (void)characterReceived:(NSString *)brailleString;
 - (id)initWithAudioTarget:(id)target selector:(SEL)selector;
+
+// Testing
+- (NSString *)proccessString:(NSString *)brailleString;
 
 @property (nonatomic) id<ABKeyboard> delegate;
 @property (nonatomic) ABKeyboard *keyboardInterface;
 @property (nonatomic) NSString *wordTyping;
+@property (nonatomic) NSUInteger grade;
 @end

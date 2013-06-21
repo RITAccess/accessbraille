@@ -11,7 +11,6 @@
 
 @implementation ABBrailleReader {
     
-    NSDictionary *grad1Lookup;
     NSDictionary *grad2Lookup;
     id target;
     SEL selector;
@@ -22,11 +21,12 @@
     self = [super init];
     if (self) {
         NSString *path = [[NSBundle mainBundle] bundlePath];
-        NSString *finalPath = [path stringByAppendingPathComponent:@"grade1lookup.plist"];
-        grad1Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
-        NSString *finalPath2 = [path stringByAppendingPathComponent:@"grade2lookup.plist"];
-        grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath2];
+        NSString *finalPath = [path stringByAppendingPathComponent:@"grade2lookup.plist"];
+        grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
         _wordTyping = @"";
+        
+        // Default grade
+        _grade = ABGradeTwo;
         
         // Audio
         target = tar;
@@ -58,78 +58,70 @@
 /**
  * Receives character from touchLayer in form of braille string
  */
-- (void)characterReceived:(NSString *)brailleString {
-    // If Space
-    if ([brailleString isEqualToString:ABSpaceCharacter] && [_delegate respondsToSelector:@selector(wordTyped:withInfo:)]) {
-        if (![_wordTyping isEqualToString:@""]) {
-            
-            // Handle grade 2
-            
-            if ([_wordTyping isEqualToString:@"th"]) {
-                _wordTyping = [_wordTyping stringByAppendingString:@"is"];
-                [_delegate characterTyped:@"is" withInfo:@{ABGestureInfoStatus : @(YES),
-                                                         ABSpaceTyped : @(NO),
-                                                         ABBackspaceReceived : @(NO)}];
-            }
-            
-            if ([_wordTyping isEqualToString:@"ou"]) {
-                _wordTyping = [_wordTyping stringByAppendingString:@"t"];
-                [_delegate characterTyped:@"t" withInfo:@{ABGestureInfoStatus : @(YES),
-                                                           ABSpaceTyped : @(NO),
-                                                           ABBackspaceReceived : @(NO)}];
-            }
-            
-            if ([_wordTyping isEqualToString:@"w"]) {
-                _wordTyping = [_wordTyping stringByAppendingString:@"ill"];
-                [_delegate characterTyped:@"ill" withInfo:@{ABGestureInfoStatus : @(YES),
-                                                           ABSpaceTyped : @(NO),
-                                                           ABBackspaceReceived : @(NO)}];
-            }
-            
-            // Space
-            
-            [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
-                                                             ABSpaceTyped : @(YES),
-                                                      ABBackspaceReceived : @(NO)}];
-            
+- (void)characterReceived:(NSString *)brailleString
+{
+    [self sendCharacter:[self proccessString:brailleString]];
+}
 
-            [_delegate wordTyped:_wordTyping withInfo:@{ABGestureInfoStatus : @(YES),
-                                                               ABSpaceTyped : @(YES),
-                                                        ABBackspaceReceived : @(NO)}];
-            
-            [_keyboardInterface.output setText:[_keyboardInterface.output.text stringByAppendingString:_wordTyping]];
-            
-            _wordTyping = @"";
+- (NSString *)proccessString:(NSString *)brailleString
+{
+    // if space proccess last typed word if grade two
+    if ([brailleString isEqualToString:ABSpaceCharacter]) {
+        NSString *word = @"";
+        switch (_grade) {
+            case ABGradeOne: {
+                word = ABSpaceCharacter;
+            }
+            case ABGradeTwo: {
+                
+                if ([brailleString isEqualToString:@""]) {
+                    
+                } else {
+                    // Not special case
+                    word = ABSpaceCharacter;
+                }
+                
+                
+            }
         }
+        _wordTyping = @"";
+        return word;
     }
-    
-    // If Backspace
-    
+    // Backspace
     if ([brailleString isEqualToString:ABBackspace]) {
-        [target performSelector:selector withObject:ABBackspaceSound];
+        return ABBackspace;
+    }
+    
+    // Is typed character
+    if (_grade == ABGradeOne && [grad2Lookup[brailleString] length] > 1) {
+        return nil;
+    } else {
+        _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
+        return grad2Lookup[brailleString];
+    }
+}
+
+- (void)sendCharacter:(NSString *)string
+{
+    if ([string isEqualToString:ABSpaceCharacter]) {
+        [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
+                                                         ABSpaceTyped : @(YES),
+                                                  ABBackspaceReceived : @(NO)}];
+    } else if ([string isEqualToString:ABBackspace]) {
         [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
-                                                 ABSpaceTyped : @(NO),
+                                                        ABSpaceTyped : @(NO),
                                                  ABBackspaceReceived : @(YES)}];
-        [_keyboardInterface.output setText:[_keyboardInterface.output.text substringWithRange:NSMakeRange(0, _keyboardInterface.output.text.length - 1)]];
-        if (_wordTyping.length > 0) {
-            _wordTyping = [_wordTyping substringWithRange:NSMakeRange(0, _wordTyping.length - 1)];
-        }
+        [target performSelector:selector withObject:ABBackspaceSound];
+    } else {
+        [_delegate characterTyped:string withInfo:@{ABGestureInfoStatus : @(YES),
+                                                           ABSpaceTyped : @(NO),
+                                                    ABBackspaceReceived : @(NO)}];
     }
-    
-    // Character otherwise
-    
-    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
-        NSString *character = grad2Lookup[brailleString];
-        if (character.length == 0) {
-            return;
-        }
-        _wordTyping = [_wordTyping stringByAppendingString:character];
-        [_delegate characterTyped:character withInfo:@{ABGestureInfoStatus : @(YES),
-                                                       ABSpaceTyped : @(NO),
-                                                       ABBackspaceReceived : @(NO)}];
-        [_keyboardInterface.output setText:[_keyboardInterface.output.text stringByAppendingString:character]];
-    }
-    
+}
+
+- (void)sendWord:(NSString *)string
+{
+    NSLog(@"Word: %@", string);
 }
 
 @end
