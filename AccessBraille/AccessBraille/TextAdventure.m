@@ -8,6 +8,7 @@
 
 #import "TextAdventure.h"
 
+
 @interface TextAdventure ()
 
 @end
@@ -66,11 +67,11 @@
 {
     [tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
-    [self prompt:@"backgroundInfo"];
+    [self prompt:@"crashSite"];
     
     // Initialize Game Elements    
     _pack = [[NSMutableArray alloc]initWithCapacity:3];
-    _currentLocation = [[NSMutableString alloc] initWithString:[_texts valueForKey:@"backgroundInfo"]];
+    _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
 }
 
 /**
@@ -113,28 +114,62 @@
  */
 -(void)checkCommand:(NSString* )command
 {
+    BOOL doorUnlocked = NO;
+    
     if ([command isEqualToString:@"look"])
     {
-        NSLog(@"%@", _currentLocation);
-        [speaker speakString:_currentLocation]; // Breaks on a prompt call for some reason.
-        [_infoText setText:_currentLocation];
+        [self prompt:_currentLocation];
     }
     else if ([command isEqualToString:@"move"])
     {
-        if ([_currentLocation isEqualToString:[_texts valueForKey:@"backgroundInfo"]]){
-            _currentLocation = [_texts valueForKey:@"forestFloor"];
-            [self prompt:@"forestFloor"];
+        if ([_currentLocation isEqualToString:@"crashSite"])
+        {
+            [self prompt:@"crashSiteLeave"];
+            _currentLocation = @"forestFloor";
         }
+        else if ([_currentLocation isEqualToString:@"forestFloor"])
+        {
+            [self prompt:@"forestFloorLeave"];
+            _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"secretCabin"])
+        {
+            if (doorUnlocked)
+            {
+                [self prompt:@"secretCabinLeave"];
+                _currentLocation = @"cabinFloor";
+            }
+            else
+            {
+                [self prompt:@"secretCabinBlock"];
+            }
+        }
+        
+        NSLog(@"Moved to: %@", _currentLocation);
     }
-    if ([command isEqualToString:@"pick"])
+    // Pick Command - Used for obtaining new items and inserting them into the pack.
+    else if ([command isEqualToString:@"pick"])
     {
-        if ([_currentLocation isEqualToString:@"forestFloor"]){
-            [self prompt:@"forestFloorPickup"];
+        NSLog(@"Picking up at %@", _currentLocation);
+        if ([_currentLocation isEqualToString:@"forestFloor"])
+        {
+            if (![_pack containsObject:@"key"])
+            {
+                [_pack addObject:@"key"];
+                [self prompt:@"forestFloorPickup"];
+            }
+            else
+            {
+                [self prompt:@"pickBlock"];
+            }
         }
     }
     else if ([command isEqualToString:@"use"])
     {
-        
+        if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"key"])
+        {
+            [self prompt:@"keyUse"];
+        }        
     }
     else if ([command isEqualToString:@"pack"])
     {
@@ -160,7 +195,7 @@
 -(void)prompt:(NSString *)description
 {
     [speaker speakString:[_texts valueForKey:description]];
-    _infoText.text= [_texts valueForKey:description]; // This breaks for some reason...
+    _infoText.text = [_texts valueForKey:description]; // This breaks for some reason...
 }
 
 -(void)clearStrings
