@@ -16,5 +16,6 @@
 - (id)initWithAudioTarget:(id)target selector:(SEL)selector;
 
 @property (nonatomic) id<ABKeyboard> delegate;
+@property (nonatomic) ABKeyboard *keyboardInterface;
 @property (nonatomic) NSString *wordTyping;
 @end

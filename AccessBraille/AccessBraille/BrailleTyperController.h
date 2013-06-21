@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
+@property (weak, nonatomic) IBOutlet UITextView *textField;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

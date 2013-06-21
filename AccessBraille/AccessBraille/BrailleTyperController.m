@@ -54,6 +54,8 @@
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [keyboard setActiveStateWithTarget:self withSelector:@selector(active)];
     [keyboard setDectiveStateWithTarget:self withSelector:@selector(deactive)];
+    
+    [keyboard setOutput:_textField];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -93,6 +95,7 @@
     [self setDrawingView:nil];
     [self setTextOutput:nil];
     [self setTextDrawing:nil];
+    [self setTextField:nil];
     [super viewDidUnload];
 }
 

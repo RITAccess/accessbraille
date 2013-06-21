@@ -44,6 +44,7 @@
         // Set Up Braille Interp
         brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
         [brailleReader setDelegate:_delegate];
+        [brailleReader setKeyboardInterface:self];
         
         // Audio
         _sound = YES;
@@ -107,7 +108,6 @@
         }];
         
         // touch.transform = CGAffineTransformMakeRotation(angle);
-        
         
         [interface addSubview:touch];
     }
