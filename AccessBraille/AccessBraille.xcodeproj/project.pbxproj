@@ -20,6 +20,10 @@
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
+		4C0EA04C17750DCA008FF161 /* prefixLevelFour.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */; };
+		4C0EA04E17750E64008FF161 /* prefixLevelFive.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */; };
+		4C0EA05017750EE1008FF161 /* prefixLevelSix.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */; };
+		4C0EA05217750F48008FF161 /* prefixLevelSeven.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1DD5175CC85400A3DEDA /* mainMenu.png */; };
@@ -145,6 +149,10 @@
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
+		4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelFour.plist; sourceTree = "<group>"; };
+		4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelFive.plist; sourceTree = "<group>"; };
+		4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSix.plist; sourceTree = "<group>"; };
+		4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSeven.plist; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
 		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
@@ -359,6 +367,10 @@
 				4C7A1110177502AB00726199 /* numberLookup.plist */,
 				4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */,
 				4C7A1112177503FD00726199 /* prefixLevelThree.plist */,
+				4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */,
+				4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */,
+				4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */,
+				4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */,
 			);
 			name = Lookups;
 			sourceTree = "<group>";
@@ -716,6 +728,10 @@
 				4C6442171774FD7C00A2771E /* prefixLevelTwo.plist in Resources */,
 				4C7A1111177502AB00726199 /* numberLookup.plist in Resources */,
 				4C7A1113177503FD00726199 /* prefixLevelThree.plist in Resources */,
+				4C0EA04C17750DCA008FF161 /* prefixLevelFour.plist in Resources */,
+				4C0EA04E17750E64008FF161 /* prefixLevelFive.plist in Resources */,
+				4C0EA05017750EE1008FF161 /* prefixLevelSix.plist in Resources */,
+				4C0EA05217750F48008FF161 /* prefixLevelSeven.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

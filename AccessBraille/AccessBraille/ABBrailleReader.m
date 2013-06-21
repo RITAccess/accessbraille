@@ -16,6 +16,10 @@
     NSDictionary *numberLookup;
     NSDictionary *prefixLevelTwo;
     NSDictionary *prefixLevelThree;
+    NSDictionary *prefixLevelFour;
+    NSDictionary *prefixLevelFive;
+    NSDictionary *prefixLevelSix;
+    NSDictionary *prefixLevelSeven;
     
     BOOL numberMode;
     id target;
@@ -35,6 +39,10 @@
         numberLookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"numberLookup.plist"]];
         prefixLevelTwo = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelTwo.plist"]];
         prefixLevelThree = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelThree.plist"]];
+        prefixLevelFour = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelFour.plist"]];
+        prefixLevelFive = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelFive.plist"]];
+        prefixLevelSix = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelSix.plist"]];
+        prefixLevelSeven = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelSeven.plist"]];
         
         // Typing store
         _wordTyping = @"";
@@ -107,15 +115,14 @@
         } else if ([prefix isEqualToString:ABPrefixLevelThree]) {
             postfix = prefixLevelThree[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelFour]) {
-        
+            postfix = prefixLevelFour[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelFive]) {
-            
+            postfix = prefixLevelFive[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelSix]) {
-            
+            postfix = prefixLevelSix[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelSeven]) {
-        
+            postfix = prefixLevelSeven[brailleString];
         }
-        
         _wordTyping = [_wordTyping stringByAppendingString:postfix];
         if (![prefix isEqualToString:ABPrefixNumber]) {
             prefix = @"";

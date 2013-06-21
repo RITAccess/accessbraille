@@ -140,6 +140,16 @@
     STAssertEqualObjects(reader.wordTyping, @"manyhadspirit", @"failed to type manyhadspirt");
     [reader proccessString:ABSpaceCharacter];
     
+    // level four
+    // count
+    [reader proccessString:@"100100"];
+    [reader proccessString:@"000101"];
+    [reader proccessString:@"011110"];
+    STAssertEqualObjects(reader.wordTyping, @"count", @"failed to type count");
+    [reader proccessString:ABSpaceCharacter];
+    
+    
+    
     reader = nil;
 }
 
