@@ -12,8 +12,14 @@
 @implementation ABBrailleReader {
     
     NSDictionary *grad2Lookup;
+    NSDictionary *numberLookup;
+    NSDictionary *prefixLevelTwo;
+    BOOL numberMode;
     id target;
     SEL selector;
+    
+    // Grade 2 parsing
+    __strong NSString *prefix;
     
 }
 
@@ -21,12 +27,17 @@
     self = [super init];
     if (self) {
         NSString *path = [[NSBundle mainBundle] bundlePath];
-        NSString *finalPath = [path stringByAppendingPathComponent:@"grade2lookup.plist"];
-        grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+        grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"grade2lookup.plist"]];
+        numberLookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"numberLookup.plist"]];
+        prefixLevelTwo = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelTwo.plist"]];
         _wordTyping = @"";
         
         // Default grade
         _grade = ABGradeTwo;
+        
+        // Setup parser
+        prefix = @"";
+        
         
         // Audio
         target = tar;
@@ -63,41 +74,82 @@
     [self sendCharacter:[self proccessString:brailleString]];
 }
 
++ (BOOL)isValidPrefix:(NSString *)braille
+{
+    return ([braille isEqualToString:ABPrefixLevelOne] ||
+            [braille isEqualToString:ABPrefixLevelTwo] ||
+            [braille isEqualToString:ABPrefixLevelThree] ||
+            [braille isEqualToString:ABPrefixLevelFour] ||
+            [braille isEqualToString:ABPrefixLevelFive] ||
+            [braille isEqualToString:ABPrefixLevelSix] ||
+            [braille isEqualToString:ABPrefixLevelSeven]);
+}
+
+/**
+ * Handles grade parsing
+ */
 - (NSString *)proccessString:(NSString *)brailleString
 {
-    // if space proccess last typed word if grade two
-    if ([brailleString isEqualToString:ABSpaceCharacter]) {
-        NSString *word = @"";
-        switch (_grade) {
-            case ABGradeOne: {
-                word = ABSpaceCharacter;
-            }
-            case ABGradeTwo: {
-                
-                if ([brailleString isEqualToString:@""]) {
-                    
-                } else {
-                    // Not special case
-                    word = ABSpaceCharacter;
-                }
-                
-                
-            }
+    // Intercept prefix operators
+    if ([ABBrailleReader isValidPrefix:prefix]) {
+        // Handle prefix
+        NSString *postfix = @"";
+        if ([prefix isEqualToString:ABPrefixNumber]) {
+            postfix = numberLookup[brailleString];
+        } else if ([prefix isEqualToString:ABPrefixLevelTwo]) {
+            postfix = prefixLevelTwo[brailleString];
+        } else if ([prefix isEqualToString:ABPrefixLevelThree]) {
+            
+        } else if ([prefix isEqualToString:ABPrefixLevelFour]) {
+        
+        } else if ([prefix isEqualToString:ABPrefixLevelFive]) {
+            
+        } else if ([prefix isEqualToString:ABPrefixLevelSix]) {
+            
+        } else if ([prefix isEqualToString:ABPrefixLevelSeven]) {
+        
         }
-        _wordTyping = @"";
-        return word;
-    }
-    // Backspace
-    if ([brailleString isEqualToString:ABBackspace]) {
-        return ABBackspace;
-    }
-    
-    // Is typed character
-    if (_grade == ABGradeOne && [grad2Lookup[brailleString] length] > 1) {
-        return nil;
+        
+        _wordTyping = [_wordTyping stringByAppendingString:postfix];
+        if (![prefix isEqualToString:ABPrefixNumber]) {
+            prefix = @"";
+        }
+        return postfix;
+        
     } else {
-        _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
-        return grad2Lookup[brailleString];
+        prefix = brailleString;
+        if ([ABBrailleReader isValidPrefix:prefix]) {
+            // return if a valid prefix is set
+            return @"";
+        }
+        // if space proccess last typed word if grade two
+        if ([brailleString isEqualToString:ABSpaceCharacter]) {
+            NSString *word = @"";
+            switch (_grade) {
+                case ABGradeOne:
+                    word = ABSpaceCharacter;
+                    break;
+                case ABGradeTwo:
+                    // Handle single letter cases
+                    word = ABSpaceCharacter;
+                    break;
+            }
+            [self sendWord:_wordTyping];
+            _wordTyping = @"";
+            return word;
+        }
+        // Backspace
+        if ([brailleString isEqualToString:ABBackspace]) {
+            return ABBackspace;
+        }
+        
+        // Is typed character
+        if (_grade == ABGradeOne && [grad2Lookup[brailleString] length] > 1) {
+            return @"";
+        } else {
+            _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
+            return grad2Lookup[brailleString];
+        }
     }
 }
 

@@ -58,10 +58,10 @@
     
 }
 
-- (void)testABReader {
+- (void)testABReaderGrade1 {
     
     ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
-    
+
     // Test Grade 1
     [reader setGrade:ABGradeOne];
     
@@ -79,6 +79,13 @@
     
     // Attempt grade two lookup
     STAssertFalseNoThrow([@"and" isEqualToString:[reader proccessString:@"111101"]], @"and returned");
+    
+    reader = nil;
+}
+
+- (void)testABBrailleReaderGrade2 {
+    
+    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
     
     // Test grade two
     [reader setGrade:ABGradeTwo];
@@ -102,9 +109,24 @@
     STAssertEqualObjects(@"with", [reader proccessString:@"011111"], @"failed");
     [reader proccessString:ABSpaceCharacter];
     STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
-
-    // Grade two shorthand tests
     
+    // Grade two prefix tests
+    // Test level one lookups
+    // Type phone
+    [reader proccessString:@"111100"];
+    [reader proccessString:@"110010"];
+    [reader proccessString:@"000010"];
+    [reader proccessString:@"101010"];
+    STAssertEqualObjects(reader.wordTyping, @"phone", @"failed to type phone");
+    [reader proccessString:ABSpaceCharacter];
+    
+    //Test numbers
+    [reader proccessString:@"001111"];
+    [reader proccessString:@"100000"];
+    [reader proccessString:@"010110"];
+    [reader proccessString:@"100000"];
+    [reader proccessString:@"100010"];
+    STAssertEqualObjects(reader.wordTyping, @"1015", @"failed to handle numbers");
     
     
     reader = nil;

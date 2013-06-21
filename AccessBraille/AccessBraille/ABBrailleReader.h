@@ -10,7 +10,15 @@
 #import "ABTouchLayer.h"
 #import "ABKeyboard.h"
 
-
+// Prefix constants
+static NSString *const ABPrefixLevelOne = @"001111";
+static NSString *const ABPrefixNumber = @"001111"; // Level one and number are interchangable
+static NSString *const ABPrefixLevelTwo = @"000010";
+static NSString *const ABPrefixLevelThree = @"000111";
+static NSString *const ABPrefixLevelFour = @"000101";
+static NSString *const ABPrefixLevelFive = @"000011";
+static NSString *const ABPrefixLevelSix = @"000001";
+static NSString *const ABPrefixLevelSeven = @"000110";
 
 @interface ABBrailleReader : NSObject <ABTouchReciever>
 
