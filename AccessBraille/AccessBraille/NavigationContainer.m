@@ -29,15 +29,17 @@
 }
 
 -(void)viewDidLoad {
-    _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
-    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
-    navigationGestures = @[tapToClose];
+    
 }
 
 -(void)loadNavIntoView {
 
     nav = [[SidebarViewController alloc] init];
+    
+    _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
+    navigationGestures = @[tapToClose];
     
     [self.view addGestureRecognizer:_leftSideSwipe];
     
