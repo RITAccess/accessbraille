@@ -8,6 +8,7 @@
 
 #import "ABBrailleReader.h"
 #import "ABKeyboard.h"
+#import "ABSpeak.h"
 #import "UITextView+simpleadd.h"
 
 @implementation ABBrailleReader {
@@ -26,6 +27,8 @@
     BOOL numberMode;
     id target;
     SEL selector;
+    
+    ABSpeak *speak;
     
     // Grade 2 parsing
     __strong NSString *prefix;
@@ -59,6 +62,7 @@
         // Audio
         target = tar;
         selector = sel;
+        speak = [[ABSpeak alloc] init];
     
     }
     return self;
@@ -196,6 +200,7 @@
                                                  ABBackspaceReceived : @(YES)}];
         [target performSelector:selector withObject:ABBackspaceSound];
     } else {
+        [speak speakString:string];
         [_fieldOutput insertText:string];
         [_delegate characterTyped:string withInfo:@{ABGestureInfoStatus : @(YES),
                                                            ABSpaceTyped : @(NO),
@@ -205,6 +210,7 @@
 
 - (void)sendWord:(NSString *)string
 {
+    [speak speakString:string];
     if (![string isEqualToString:ABSpaceCharacter]) {
         [_fieldOutput replaceLastWordWithString:string];
     }

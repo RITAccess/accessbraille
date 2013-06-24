@@ -10,7 +10,8 @@
 #import "Drawing.h"
 #import "BrailleTyperOutputView.h"
 #import <CoreData/CoreData.h>
-#import "ABKeyboard.h"
+
+#import <ABKeyboard/ABKeyboard.h>
 
 @interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard>
 
