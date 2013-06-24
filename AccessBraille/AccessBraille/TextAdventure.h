@@ -12,20 +12,16 @@
 
 @interface TextAdventure : UIViewController <ABKeyboard>
 {
-    ABKeyboard* keyboard;
-    ABSpeak* speaker;
+    ABKeyboard *keyboard;
+    ABSpeak *speaker;
     
-    BOOL isPlaying;
+    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, litRoom, collectedSilver;
 }
 
 @property NSDictionary *texts;
-@property UITextView *typedText;
-@property UITextView *infoText;
+@property UITextView *typedText, *infoText;
 @property NSMutableString *stringFromInput;
-@property NSMutableArray *pack;
-@property NSString *currentLocation;
-@property NSString *path;
-@property NSString *playerName;
-@property NSMutableArray *rooms;
+@property NSMutableArray *pack, *rooms;
+@property NSString *currentLocation, *path, *playerName;
 
 @end

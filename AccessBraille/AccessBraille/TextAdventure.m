@@ -19,8 +19,6 @@
 {
     [super viewDidLoad];
     
-    isPlaying = NO;
-    
     _path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [_path stringByAppendingPathComponent:@"adventureTexts.plist"];
     _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
@@ -114,7 +112,6 @@
  */
 -(void)checkCommand:(NSString* )command
 {
-    BOOL doorUnlocked = NO;
     
     if ([command isEqualToString:@"look"])
     {
@@ -144,6 +141,47 @@
                 [self prompt:@"secretCabinBlock"];
             }
         }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"])
+        {
+            [self prompt:@"cabinFloorLeave"];
+            _currentLocation = @"lake";
+        }
+        else if ([_currentLocation isEqualToString:@"lake"])
+        {
+            if (sailAttached)
+            {
+                [self prompt:@"lakeLeave"];
+                _currentLocation = @"darkCave";
+            }
+            else
+            {
+                [self prompt:@"lakeBlock"];
+            }
+        }
+        else if([_currentLocation isEqualToString:@"darkCave"])
+        {
+            if (litRoom)
+            {
+                [self prompt:@"darkCaveLeave"];
+                _currentLocation = @"finalCavern";
+            }
+            else
+            {
+                [self prompt:@"darkCaveBlock"];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        {
+            if (collectedSilver)
+            {
+                [self prompt:@"finalCavernLeave"];
+                _currentLocation = @"exit";
+            }
+            else
+            {
+                [self prompt:@"finalCavernBlock"];
+            }
+        }
         
         NSLog(@"Moved to: %@", _currentLocation);
     }
@@ -151,7 +189,7 @@
     else if ([command isEqualToString:@"pick"])
     {
         NSLog(@"Picking up at %@", _currentLocation);
-        if ([_currentLocation isEqualToString:@"forestFloor"])
+        if ([_currentLocation isEqualToString:@"forestFloor"]) // Picking up the key...
         {
             if (![_pack containsObject:@"key"])
             {
@@ -163,18 +201,67 @@
                 [self prompt:@"pickBlock"];
             }
         }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"]) // Picking up the sail...
+        {
+            if (![_pack containsObject:@"sail"])
+            {
+                [self prompt:@"cabinFloorPickup"];
+            }
+            else
+            {
+                [self prompt:@"pickBlock"];
+            }
+        }
+        else if([_currentLocation isEqualToString:@"darkCave"]) // Picking up the flashlight...
+        {
+            if (![_pack containsObject:@"flashlight"])
+            {
+                [self prompt:@"darkCavePickup"];
+            }
+            else
+            {
+                [self prompt:@"pickBlock"];
+            }
+        }
     }
     else if ([command isEqualToString:@"use"])
     {
         if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"key"])
         {
+            doorUnlocked = YES;
             [self prompt:@"keyUse"];
-        }        
+        }
+        else if ([_currentLocation isEqualToString:@"lake"] && [_pack containsObject:@"sail"])
+        {
+            sailAttached = YES;
+            [self prompt:@"sailUse"];
+        }
+        else if ([_currentLocation isEqualToString:@"darkCave"] && [_pack containsObject:@"flashlight"])
+        {
+            litRoom = YES;
+            [self prompt:@"lightUse"];
+        }
     }
     else if ([command isEqualToString:@"pack"])
     {
         NSString* packContents = [_pack componentsJoinedByString:@" "];
         [speaker speakString:packContents];
+        NSLog(@"Pack contents: %@", packContents);
+    }
+    else if ([command isEqualToString:@"wind"])
+    {
+        if ([_currentLocation isEqualToString:@"cabinFloor"])
+        {
+            if (![_pack containsObject:@"sail"])
+            {
+                [_pack addObject:@"sail"];
+                [self prompt:@"chestOpening"];
+            }
+            else
+            {
+                [self prompt:@"pickBlock"];
+            }
+        }
     }
     else if ([command isEqualToString:@"help"])
     {
@@ -182,7 +269,7 @@
     }
     else
     {
-        [speaker speakString:@"Not sure about that. Try something else..."];
+        [self prompt:@"wrongCommand"];
     }
 }
 
@@ -194,7 +281,7 @@
  */
 -(void)prompt:(NSString *)description
 {
-    [speaker speakString:[_texts valueForKey:description]];
+//    [speaker speakString:[_texts valueForKey:description]];
     _infoText.text = [_texts valueForKey:description]; // This breaks for some reason...
 }
 
