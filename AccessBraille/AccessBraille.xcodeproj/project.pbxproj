@@ -86,6 +86,8 @@
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */; };
 		4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
+		4C61BEA617787D2D00904C7D /* UITextView+simpleadd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */; };
+		4C61BEA817788B3D00904C7D /* shortHandLookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C61BEA717788B3D00904C7D /* shortHandLookup.plist */; };
 		4C62BEB91756346700CAF4CF /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB2116C4463700434F60 /* Slt.framework */; };
 		4C6442171774FD7C00A2771E /* prefixLevelTwo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
@@ -226,6 +228,9 @@
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
 		4C569AA517147A7B0073D8F8 /* FlashCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCard.m; sourceTree = "<group>"; };
+		4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+simpleadd.h"; sourceTree = "<group>"; };
+		4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+simpleadd.m"; sourceTree = "<group>"; };
+		4C61BEA717788B3D00904C7D /* shortHandLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shortHandLookup.plist; sourceTree = "<group>"; };
 		4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelTwo.plist; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		4C65356216C443A900611B6F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
@@ -315,6 +320,8 @@
 				4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */,
 				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
 				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
+				4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */,
+				4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -371,6 +378,7 @@
 				4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */,
 				4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */,
 				4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */,
+				4C61BEA717788B3D00904C7D /* shortHandLookup.plist */,
 			);
 			name = Lookups;
 			sourceTree = "<group>";
@@ -692,6 +700,7 @@
 				4C1B1DEE175CC85500A3DEDA /* menuItem2.png in Resources */,
 				4C1B1DEF175CC85500A3DEDA /* menuItem2x90.png in Resources */,
 				4C1B1DF0175CC85500A3DEDA /* menuItem3.png in Resources */,
+				4C61BEA817788B3D00904C7D /* shortHandLookup.plist in Resources */,
 				4C1B1DF1175CC85500A3DEDA /* menuItem3x90.png in Resources */,
 				4C1B1DF2175CC85500A3DEDA /* menuItem4.png in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem4x90.png in Resources */,
@@ -773,6 +782,7 @@
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
+				4C61BEA617787D2D00904C7D /* UITextView+simpleadd.m in Sources */,
 				A9FE03A316B6CB780065E9EC /* BrailleTyperOutputView.m in Sources */,
 				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
@@ -939,6 +949,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -984,6 +995,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;

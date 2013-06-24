@@ -32,5 +32,6 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 @property (nonatomic) id<ABKeyboard> delegate;
 @property (nonatomic) ABKeyboard *keyboardInterface;
 @property (nonatomic) NSString *wordTyping;
+@property (nonatomic) UITextView *fieldOutput;
 @property (nonatomic) NSUInteger grade;
 @end

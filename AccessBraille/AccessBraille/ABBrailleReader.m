@@ -8,6 +8,7 @@
 
 #import "ABBrailleReader.h"
 #import "ABKeyboard.h"
+#import "UITextView+simpleadd.h"
 
 @implementation ABBrailleReader {
     
@@ -20,6 +21,7 @@
     NSDictionary *prefixLevelFive;
     NSDictionary *prefixLevelSix;
     NSDictionary *prefixLevelSeven;
+    NSDictionary *shortHandlookup;
     
     BOOL numberMode;
     id target;
@@ -43,6 +45,7 @@
         prefixLevelFive = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelFive.plist"]];
         prefixLevelSix = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelSix.plist"]];
         prefixLevelSeven = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelSeven.plist"]];
+        shortHandlookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"shortHandLookup.plist"]];
         
         // Typing store
         _wordTyping = @"";
@@ -108,19 +111,19 @@
     if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo) && ![brailleString isEqualToString:ABSpaceCharacter]) {
         // Handle prefix
         NSString *postfix = @"";
-        if ([prefix isEqualToString:ABPrefixNumber]) {
+        if ([prefix isEqualToString:ABPrefixNumber] && [[numberLookup allKeys] containsObject:brailleString]) {
             postfix = numberLookup[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelTwo]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelTwo] && [[prefixLevelTwo allKeys] containsObject:brailleString]) {
             postfix = prefixLevelTwo[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelThree]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelThree] && [[prefixLevelThree allKeys] containsObject:brailleString]) {
             postfix = prefixLevelThree[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelFour]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelFour] && [[prefixLevelFour allKeys] containsObject:brailleString]) {
             postfix = prefixLevelFour[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelFive]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelFive] && [[prefixLevelFive allKeys] containsObject:brailleString]) {
             postfix = prefixLevelFive[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelSix]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelSix] && [[prefixLevelSix allKeys] containsObject:brailleString]) {
             postfix = prefixLevelSix[brailleString];
-        } else if ([prefix isEqualToString:ABPrefixLevelSeven]) {
+        } else if ([prefix isEqualToString:ABPrefixLevelSeven] && [[prefixLevelSeven allKeys] containsObject:brailleString]) {
             postfix = prefixLevelSeven[brailleString];
         }
         _wordTyping = [_wordTyping stringByAppendingString:postfix];
@@ -143,14 +146,17 @@
                     word = ABSpaceCharacter;
                     break;
                 case ABGradeTwo:
-                    // Handle single letter cases
-                    word = ABSpaceCharacter;
+                    if ([[shortHandlookup allKeys] containsObject:_wordTyping]) {
+                        word = shortHandlookup[_wordTyping];
+                    } else {
+                        word = ABSpaceCharacter;
+                    }
                     break;
             }
-            [self sendWord:_wordTyping];
+            [self sendWord:word];
             prefix = @"";
             _wordTyping = @"";
-            return word;
+            return @"";
         }
         // Backspace
         if ([brailleString isEqualToString:ABBackspace]) {
@@ -161,24 +167,36 @@
         if (_grade == ABGradeOne && [grad2Lookup[brailleString] length] > 1) {
             return @"";
         } else {
-            _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
-            return grad2Lookup[brailleString];
+            if ([[grad2Lookup allKeys] containsObject:brailleString]) {
+                _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
+                return grad2Lookup[brailleString];
+            } else {
+                return @"";
+            }
         }
     }
 }
 
 - (void)sendCharacter:(NSString *)string
 {
+    
+    if ([string isEqualToString:@""]) {
+        return;
+    }
+    
     if ([string isEqualToString:ABSpaceCharacter]) {
+        [_fieldOutput insertText:@" "];
         [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
                                                          ABSpaceTyped : @(YES),
                                                   ABBackspaceReceived : @(NO)}];
     } else if ([string isEqualToString:ABBackspace]) {
+        [_fieldOutput deleteBackward];
         [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
                                                         ABSpaceTyped : @(NO),
                                                  ABBackspaceReceived : @(YES)}];
         [target performSelector:selector withObject:ABBackspaceSound];
     } else {
+        [_fieldOutput insertText:string];
         [_delegate characterTyped:string withInfo:@{ABGestureInfoStatus : @(YES),
                                                            ABSpaceTyped : @(NO),
                                                     ABBackspaceReceived : @(NO)}];
@@ -187,7 +205,10 @@
 
 - (void)sendWord:(NSString *)string
 {
-    NSLog(@"Word: %@", string);
+    if (![string isEqualToString:ABSpaceCharacter]) {
+        [_fieldOutput replaceLastWordWithString:string];
+    }
+    [_fieldOutput insertText:@" "];
 }
 
 @end

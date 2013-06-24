@@ -75,11 +75,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.view setFrame:self.parentViewController.view.frame];
-    _TextDrawing.buf = [self getLastItemInTable];
+    [_textField setText:[self getLastItemInTable]];
 }
 
 -(void)saveState {
-    [self updateLastValue:[_TextDrawing getCurrentText]];
+    [self updateLastValue:_textField.text];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,7 +94,6 @@
     self.view.gestureRecognizers = nil;
     [self setDrawingView:nil];
     [self setTextOutput:nil];
-    [self setTextDrawing:nil];
     [self setTextField:nil];
     [super viewDidUnload];
 }
@@ -102,17 +101,11 @@
 # pragma mark - Typing Methods
 
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if (![info[ABBackspaceReceived] boolValue]) {
-        [_TextDrawing appendToText:character];
-        [keyboard startSpeakingString:character];
-    } else {
-        [_TextDrawing removeCharacter];
-    }
+    NSLog(@"Typed: %@", character);
 }
 
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info {
-    NSLog(@"Typed %@", word);
-    [keyboard startSpeakingString:word];
+    NSLog(@"Typed word: %@", word);
 }
 
 #pragma mark - Access Core Data Methods
