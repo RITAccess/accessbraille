@@ -8,13 +8,32 @@
 
 #import "ABSpeak.h"
 
+#if __IPHONE_7_0
+
+#import <AVFoundation/AVSpeechSynthesis.h>
+
+#endif
+
+
 @implementation ABSpeak
 
 @synthesize fliteController;
 @synthesize slt;
 
 - (void)speakString:(NSString *)string {
+    
+#if __IPHONE_7_0
+    
+    AVSpeechSynthesizer *speak = [[AVSpeechSynthesizer alloc] init];
+    AVSpeechUtterance *talk = [AVSpeechUtterance speechUtteranceWithString:string];
+    [speak speakUtterance:talk];
+    
+#else
+    
     [self.fliteController say:string withVoice:self.slt];
+    
+#endif
+    
 }
 
 - (FliteController *)fliteController {
