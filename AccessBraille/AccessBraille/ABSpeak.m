@@ -8,13 +8,26 @@
 
 #import "ABSpeak.h"
 
-@implementation ABSpeak
+@implementation ABSpeak {
+    NSOperationQueue *speakQueue;
+}
 
 @synthesize fliteController;
 @synthesize slt;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        speakQueue = [[NSOperationQueue alloc] init];
+    }
+    return self;
+}
+
 - (void)speakString:(NSString *)string {
-    [self.fliteController say:string withVoice:self.slt];
+    [speakQueue addOperationWithBlock:^{
+        [self.fliteController say:string withVoice:self.slt];
+    }];
 }
 
 - (FliteController *)fliteController {
