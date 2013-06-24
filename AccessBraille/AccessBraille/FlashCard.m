@@ -174,7 +174,6 @@
             }
         }
         else{
-            [speaker speakString:character];
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
         }
