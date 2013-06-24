@@ -33,43 +33,6 @@
     [super tearDown];
 }
 
-- (void)testStringBrailleBits {
-    
-    NSArray *test = @[@2,@3];
-    STAssertEqualObjects([ABBrailleReader brailleStringFromTouchIDs:test], @"100100",@"Not Equal: %@", [ABBrailleReader brailleStringFromTouchIDs:test]);
-    
-}
-
-- (void)testABVectors {
-    // Test 45
-    ABVector testVector = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 10));
-    STAssertEquals(testVector.angle, (float)M_PI_4, @"Not Equal : %f != %f", testVector.angle, M_PI_4);
-    
-    // Test Vertical
-    ABVector testVector2 = ABVectorMake(CGPointMake(0, 0), CGPointMake(0, 10));
-    STAssertEquals(testVector2.angle, (float)M_PI_2, @"Not Equal : %f != %f", testVector2.angle, M_PI_2);
-    
-    // Test Horizontal
-    ABVector testVector3 = ABVectorMake(CGPointMake(0, 0), CGPointMake(10, 0));
-    STAssertEquals(testVector3.angle, -0.0f, @"Not Equal : %f != %f", testVector3.angle, -0);
-    
-    // Test 30
-    ABVector testVector4 = ABVectorMake(CGPointMake(0, 0), CGPointMake(3, sqrtf(3)));
-    STAssertEquals(testVector4.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector4.angle, (M_PI/6));
-    
-    // Test 60
-    ABVector testVector5 = ABVectorMake(CGPointMake(0, 0), CGPointMake(sqrtf(3),3));
-    STAssertEquals(testVector5.angle, (float)(M_PI/3), @"Not Equal : %f != %f", testVector5.angle, (M_PI/3));
-    
-    // Test 30 with backward points
-    ABVector testVector6 = ABVectorMake(CGPointMake(3, sqrtf(3)), CGPointMake(0,0));
-    STAssertEquals(testVector6.angle, (float)(M_PI/6), @"Not Equal : %f != %f", testVector6.angle, (M_PI/6));
-
-    // Test -60
-    ABVector testVector7 = ABVectorMake(CGPointMake(0, 0), CGPointMake(-sqrtf(3),3));
-    STAssertEquals(testVector7.angle, -(float)(M_PI/3), @"Not Equal : %f != %f", testVector7.angle, -(M_PI/3));
-}
-
 - (void)testABParser {
     
     // Sentance parser
@@ -95,52 +58,99 @@
     
 }
 
-- (void)testLoadingMenu {
+- (void)testABReaderGrade1 {
     
-#if 0
+    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
+
+    // Test Grade 1
+    [reader setGrade:ABGradeOne];
     
-    // Test menu 4
-    MainMenu *menu = [[MainMenu alloc] init];
+    STAssertEqualObjects(@"a", [reader processString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader processString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader processString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader processString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader processString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader processString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader processString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader processString:@"101100"], @"failed");
+    STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
+    STAssertEqualObjects(@"", [reader processString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
     
-    NSArray *loadedContent = [NSArray arrayFromArray:menu.view.subviews passingTest:^BOOL(id obj1) {
-        UIImageView *img = (UIImageView *)obj1;
-        return (img.tag >= 31);
-    }];
+    // Attempt grade two lookup
+    STAssertFalseNoThrow([@"and" isEqualToString:[reader processString:@"111101"]], @"and returned");
     
-    // Tester
-    MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", 0]]];
-    [menuItem setUserInteractionEnabled:YES];
-    [menuItem setFrame:CGRectMake(30, 293, 180, 180)];
-    [menuItem setTag:31];
-    // add gesture
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:menuItem action:@selector(tapMenuItem:)];
-    [tap setNumberOfTapsRequired:1];
-    [menuItem addGestureRecognizer:tap];
+    reader = nil;
+}
+
+- (void)testABBrailleReaderGrade2 {
     
-    STAssertEqualObjects(loadedContent[0], menuItem, @"Menu Items not loaded correctly");
+    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
     
-#endif
+    // Test grade two
+    [reader setGrade:ABGradeTwo];
     
+    // test none grade two lookups
+    STAssertEqualObjects(@"a", [reader processString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader processString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader processString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader processString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader processString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader processString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader processString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader processString:@"101100"], @"failed");
+    STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
+    STAssertEqualObjects(@"", [reader processString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
+    
+    // Grade two lookups no options
+    STAssertEqualObjects(@"and", [reader processString:@"111101"], @"failed");
+    STAssertEqualObjects(@"for", [reader processString:@"111111"], @"failed");
+    STAssertEqualObjects(@"with", [reader processString:@"011111"], @"failed");
+    [reader processString:ABSpaceCharacter];
+    STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
+    
+    // Grade two prefix tests
+    // Test level two lookups
+    // Type phone
+    [reader processString:@"111100"];
+    [reader processString:@"110010"];
+    [reader processString:@"000010"];
+    [reader processString:@"101010"];
+    STAssertEqualObjects(reader.wordTyping, @"phone", @"failed to type phone");
+    [reader processString:ABSpaceCharacter];
+    
+    // Test numbers
+    [reader processString:@"001111"];
+    [reader processString:@"100000"];
+    [reader processString:@"010110"];
+    [reader processString:@"100000"];
+    [reader processString:@"100010"];
+    STAssertEqualObjects(reader.wordTyping, @"1015", @"failed to handle numbers");
+    [reader processString:ABSpaceCharacter];
+    
+    // test level three lookup
+    // type manyhadspirit
+    [reader processString:@"000111"];
+    [reader processString:@"101100"];
+    [reader processString:@"000111"];
+    [reader processString:@"110010"];
+    [reader processString:@"000111"];
+    [reader processString:@"011100"];
+    STAssertEqualObjects(reader.wordTyping, @"manyhadspirit", @"failed to type manyhadspirt");
+    [reader processString:ABSpaceCharacter];
+    
+    // level four
+    // count
+    [reader processString:@"100100"];
+    [reader processString:@"000101"];
+    [reader processString:@"011110"];
+    STAssertEqualObjects(reader.wordTyping, @"count", @"failed to type count");
+    [reader processString:ABSpaceCharacter];
+    
+    
+    
+    reader = nil;
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

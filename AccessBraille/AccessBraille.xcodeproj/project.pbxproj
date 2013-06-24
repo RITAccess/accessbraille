@@ -20,6 +20,10 @@
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
+		4C0EA04C17750DCA008FF161 /* prefixLevelFour.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */; };
+		4C0EA04E17750E64008FF161 /* prefixLevelFive.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */; };
+		4C0EA05017750EE1008FF161 /* prefixLevelSix.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */; };
+		4C0EA05217750F48008FF161 /* prefixLevelSeven.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1DD5175CC85400A3DEDA /* mainMenu.png */; };
@@ -82,9 +86,15 @@
 		4C4FEB3316C446A500434F60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB3216C446A500434F60 /* AVFoundation.framework */; };
 		4C50A418170DCA8F00D03D44 /* ABTouchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */; };
 		4C569AA617147A7B0073D8F8 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
+		4C61BEA617787D2D00904C7D /* UITextView+simpleadd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */; };
+		4C61BEA817788B3D00904C7D /* shortHandLookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C61BEA717788B3D00904C7D /* shortHandLookup.plist */; };
 		4C62BEB91756346700CAF4CF /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4FEB2116C4463700434F60 /* Slt.framework */; };
+		4C6442171774FD7C00A2771E /* prefixLevelTwo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
+		4C7285BC177483800045C2BD /* grade2lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7285BB177483800045C2BD /* grade2lookup.plist */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
+		4C7A1111177502AB00726199 /* numberLookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A1110177502AB00726199 /* numberLookup.plist */; };
+		4C7A1113177503FD00726199 /* prefixLevelThree.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A1112177503FD00726199 /* prefixLevelThree.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
@@ -106,7 +116,6 @@
 		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
 		A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C691670034F00CE9475 /* AccessBrailleTests.m */; };
-		A95FFC261679394600BF966C /* grade1lookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = A95FFC251679394600BF966C /* grade1lookup.plist */; };
 		A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */ = {isa = PBXBuildFile; fileRef = A97FF44B16B1CE1300116AEC /* Enabled.m */; };
 		A9C960D5167F7B4F00084764 /* Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C960D4167F7B4F00084764 /* Drawing.m */; };
 		A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */; };
@@ -142,6 +151,10 @@
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
+		4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelFour.plist; sourceTree = "<group>"; };
+		4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelFive.plist; sourceTree = "<group>"; };
+		4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSix.plist; sourceTree = "<group>"; };
+		4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSeven.plist; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
 		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
 		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
@@ -215,9 +228,16 @@
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
 		4C569AA517147A7B0073D8F8 /* FlashCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCard.m; sourceTree = "<group>"; };
+		4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+simpleadd.h"; sourceTree = "<group>"; };
+		4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+simpleadd.m"; sourceTree = "<group>"; };
+		4C61BEA717788B3D00904C7D /* shortHandLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shortHandLookup.plist; sourceTree = "<group>"; };
+		4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelTwo.plist; sourceTree = "<group>"; };
 		4C65356116C443A900611B6F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		4C65356216C443A900611B6F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		4C7285BB177483800045C2BD /* grade2lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade2lookup.plist; sourceTree = "<group>"; };
 		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
+		4C7A1110177502AB00726199 /* numberLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = numberLookup.plist; sourceTree = "<group>"; };
+		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -251,7 +271,6 @@
 		A9479C661670034E00CE9475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9479C681670034F00CE9475 /* AccessBrailleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessBrailleTests.h; sourceTree = "<group>"; };
 		A9479C691670034F00CE9475 /* AccessBrailleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessBrailleTests.m; sourceTree = "<group>"; };
-		A95FFC251679394600BF966C /* grade1lookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = grade1lookup.plist; sourceTree = "<group>"; };
 		A97FF44A16B1CE1300116AEC /* Enabled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enabled.h; sourceTree = "<group>"; };
 		A97FF44B16B1CE1300116AEC /* Enabled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enabled.m; sourceTree = "<group>"; };
 		A99671BE16810EFA00AAA322 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -301,6 +320,8 @@
 				4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */,
 				4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */,
 				4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */,
+				4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */,
+				4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -344,6 +365,22 @@
 				4C4FEB1A16C4463700434F60 /* variances */,
 			);
 			path = hub4wsj_sc_8k;
+			sourceTree = "<group>";
+		};
+		4C6442111774F95300A2771E /* Lookups */ = {
+			isa = PBXGroup;
+			children = (
+				4C7285BB177483800045C2BD /* grade2lookup.plist */,
+				4C7A1110177502AB00726199 /* numberLookup.plist */,
+				4C6442161774FD7C00A2771E /* prefixLevelTwo.plist */,
+				4C7A1112177503FD00726199 /* prefixLevelThree.plist */,
+				4C0EA04B17750DCA008FF161 /* prefixLevelFour.plist */,
+				4C0EA04D17750E64008FF161 /* prefixLevelFive.plist */,
+				4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */,
+				4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */,
+				4C61BEA717788B3D00904C7D /* shortHandLookup.plist */,
+			);
+			name = Lookups;
 			sourceTree = "<group>";
 		};
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
@@ -491,11 +528,11 @@
 		A9479C3F1670034E00CE9475 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C6442111774F95300A2771E /* Lookups */,
 				2CAAC79B175E2783004680F9 /* adventureTexts.plist */,
 				2CCB7548173BF3220059E580 /* easy.plist */,
 				2CCB754A173BF3610059E580 /* medium.plist */,
 				2CCB754C173BF3B40059E580 /* hard.plist */,
-				A95FFC251679394600BF966C /* grade1lookup.plist */,
 				A9479C401670034E00CE9475 /* AccessBraille-Info.plist */,
 				4C11AEA116F0D5A500A9210A /* menu.plist */,
 				4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */,
@@ -636,7 +673,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9479C521670034E00CE9475 /* MainStoryboard.storyboard in Resources */,
-				A95FFC261679394600BF966C /* grade1lookup.plist in Resources */,
 				4C4FEB2216C4463700434F60 /* cmu07a.dic in Resources */,
 				4C4FEB2316C4463700434F60 /* feat.params in Resources */,
 				4C4FEB2416C4463700434F60 /* mdef in Resources */,
@@ -664,6 +700,7 @@
 				4C1B1DEE175CC85500A3DEDA /* menuItem2.png in Resources */,
 				4C1B1DEF175CC85500A3DEDA /* menuItem2x90.png in Resources */,
 				4C1B1DF0175CC85500A3DEDA /* menuItem3.png in Resources */,
+				4C61BEA817788B3D00904C7D /* shortHandLookup.plist in Resources */,
 				4C1B1DF1175CC85500A3DEDA /* menuItem3x90.png in Resources */,
 				4C1B1DF2175CC85500A3DEDA /* menuItem4.png in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem4x90.png in Resources */,
@@ -686,6 +723,7 @@
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
+				4C7285BC177483800045C2BD /* grade2lookup.plist in Resources */,
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E16175CC8FA00A3DEDA /* Default-Landscape~ipad.png in Resources */,
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
@@ -696,6 +734,13 @@
 				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
 				2CC54E8617661A3A001B595A /* menuItem6.png in Resources */,
 				2CC54E8817661A72001B595A /* menuItem6x90.png in Resources */,
+				4C6442171774FD7C00A2771E /* prefixLevelTwo.plist in Resources */,
+				4C7A1111177502AB00726199 /* numberLookup.plist in Resources */,
+				4C7A1113177503FD00726199 /* prefixLevelThree.plist in Resources */,
+				4C0EA04C17750DCA008FF161 /* prefixLevelFour.plist in Resources */,
+				4C0EA04E17750E64008FF161 /* prefixLevelFive.plist in Resources */,
+				4C0EA05017750EE1008FF161 /* prefixLevelSix.plist in Resources */,
+				4C0EA05217750F48008FF161 /* prefixLevelSeven.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +782,7 @@
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				A97FF44C16B1CE1300116AEC /* Enabled.m in Sources */,
+				4C61BEA617787D2D00904C7D /* UITextView+simpleadd.m in Sources */,
 				A9FE03A316B6CB780065E9EC /* BrailleTyperOutputView.m in Sources */,
 				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
@@ -874,8 +920,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -904,7 +950,6 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
@@ -921,8 +966,8 @@
 				CLANG_WARN_ENUM_CONVERSION = NO;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Timbrook (2383UG2Y7R)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Framework\"",
@@ -951,7 +996,6 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9C1AB94C-6096-4644-9AB1-803790955DB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C1AB94C-6096-4644-9AB1-803790955DB6";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;

@@ -46,13 +46,61 @@
 	<string>u</string>
 	<key>111001</key>
 	<string>v</string>
-	<key>010111</key>
-	<string>w</string>
 	<key>101101</key>
 	<string>x</string>
 	<key>101111</key>
 	<string>y</string>
 	<key>101011</key>
 	<string>z</string>
+	<key>111101</key>
+	<string>and</string>
+	<key>111111</key>
+	<string>for</string>
+	<key>111011</key>
+	<string>of</string>
+	<key>011101</key>
+	<string>the</string>
+	<key>011111</key>
+	<string>with</string>
+	<key>100001</key>
+	<string>ch</string>
+	<key>110001</key>
+	<string>gh</string>
+	<key>100101</key>
+	<string>sh</string>
+	<key>100111</key>
+	<string>th</string>
+	<key>100011</key>
+	<string>wh</string>
+	<key>110101</key>
+	<string>ed</string>
+	<key>110111</key>
+	<string>er</string>
+	<key>110011</key>
+	<string>ou</string>
+	<key>010101</key>
+	<string>ow</string>
+	<key>010111</key>
+	<string>w</string>
+	<key>010000</key>
+	<string>ea</string>
+	<key>011000</key>
+	<string>be</string>
+	<key>010010</key>
+	<string>con</string>
+	<key>010011</key>
+	<string>dis</string>
+	<key>010001</key>
+	<string>en</string>
+	<key>011010</key>
+	<string>to</string>
+	<key>011011</key>
+	<string>were</string>
+	<key>011001</key>
+	<string>his</string>
+	<key>001010</key>
+	<string>in</string>
+	<key>001011</key>
+	<string>was</string>
 </dict>
 </plist>

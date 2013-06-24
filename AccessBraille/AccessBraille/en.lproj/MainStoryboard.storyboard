@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="b0H-dm-3Pk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="b0H-dm-3Pk">
     <dependencies>
-        <deployment version="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment version="1552" defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
         <!--Navigation Container-->
@@ -10,11 +10,12 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="b0H-dm-3Pk" customClass="NavigationContainer" sceneMemberID="viewController">
                     <containerView key="view" contentMode="scaleToFill" id="fDj-3U-cQ0">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </containerView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
@@ -27,20 +28,24 @@
             <objects>
                 <viewController storyboardIdentifier="brailleTyper" id="anX-Mq-XdO" customClass="BrailleTyperController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E3Q-qa-Umh">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="yJQ-RL-3ax" customClass="BrailleTyperOutputView">
-                                <rect key="frame" x="0.0" y="-1" width="1024" height="250"/>
-                                <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="JFs-UL-fYz">
+                                <rect key="frame" x="20" y="71" width="984" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92549026012420654" green="0.92549026012420654" blue="0.92549026012420654" alpha="1" colorSpace="deviceRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="TextDrawing" destination="yJQ-RL-3ax" id="F0s-Lc-tBy"/>
+                        <outlet property="textField" destination="JFs-UL-fYz" id="3f2-fh-54W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiD-R1-rip" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,10 +57,10 @@
             <objects>
                 <viewController storyboardIdentifier="menu" id="4MA-eS-osw" customClass="MainMenu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6EK-PO-34z">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="mainMenu@2x.png" id="uJu-Oc-4ph">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="mainMenu.png" id="uJu-Oc-4ph">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="HwL-Jh-eN4" customClass="MainMenuNavigation">
@@ -84,6 +89,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="OverlayDiscription" destination="adJ-7x-yrg" id="MO3-sS-B5y"/>
@@ -100,7 +106,7 @@
             <objects>
                 <viewController storyboardIdentifier="settings" id="Rzf-i4-cCU" customClass="Settings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QW3-PE-pRt">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lPr-2J-NRJ">
@@ -113,6 +119,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWV-rh-Usu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,11 +131,12 @@
             <objects>
                 <viewController storyboardIdentifier="InstructionsMenu" id="qBg-4F-pxI" customClass="InstructionsMenu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dy9-R4-Cgu">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-DB-Fes" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,7 +148,7 @@
             <objects>
                 <viewController storyboardIdentifier="about" id="yUB-5E-RIE" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RtG-5r-Ouq">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About Access Braille" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Wb-UK-0QI">
@@ -175,9 +183,9 @@
                                 <rect key="frame" x="20" y="101" width="984" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Access Braille is a braille accessibility framework for iPad that creates an interface to type in braille on top of an application. The project focuses on providing a more efficient and accessible method of typing on an iOS device than the current defaults provided by Apple. We hope to inevitably facilitate device use for the visualy impaired and blind.
+                                <string key="text">Access Braille is a braille accessibility framework for iPad that creates an interface to type in braille on top of an application. The project focuses on providing a more efficient and accessible method of typing on an iOS device than the current defaults provided by Apple. We hope to inevitably facilitate device use for the visualy impaired and blind.
 
-Access Braille is also a learning tool for young children who have not learned the braille system. It's designed around simple word-based games that require users to type in grade 1 braille with the Access Braille keyboard framework. We plan on implementing grade 2 and 8 dot math in the future.</mutableString>
+Access Braille is also a learning tool for young children who have not learned the braille system. It's designed around simple word-based games that require users to type in grade 1 braille with the Access Braille keyboard framework. We plan on implementing grade 2 and 8 dot math in the future.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -208,6 +216,7 @@ Access Braille is also a learning tool for young children who have not learned t
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,11 +228,12 @@ Access Braille is also a learning tool for young children who have not learned t
             <objects>
                 <viewController storyboardIdentifier="TextAdventure" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TextAdventure" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7I8-fz-Wgg">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAT-Ut-NMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,12 +245,13 @@ Access Braille is also a learning tool for young children who have not learned t
             <objects>
                 <viewController storyboardIdentifier="FlashCard" id="Obv-Rl-bIK" customClass="FlashCard" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CVm-CJ-4aS">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="bA7-5Y-hvH"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
@@ -251,10 +262,10 @@ Access Braille is also a learning tool for young children who have not learned t
     </scenes>
     <resources>
         <image name="HightBar.png" width="251" height="200"/>
-        <image name="mainMenu@2x.png" width="2048" height="1536"/>
+        <image name="mainMenu.png" width="1024.1141357421875" height="768"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

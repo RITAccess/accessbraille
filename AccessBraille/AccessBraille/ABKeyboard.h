@@ -30,6 +30,8 @@
 
 @interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
 
+@property (strong, nonatomic) UITextView *output;
+
 /* Delegate */
 @property (strong, nonatomic) id<ABKeyboard> delegate;
 
