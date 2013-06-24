@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
-		2C14A3F71778AA060033A194 /* chest.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C14A3F21778A5680033A194 /* chest.wav */; };
 		2C14A3F91778AC0C0033A194 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C14A3F41778A5680033A194 /* crash.mp3 */; };
-		2C14A3FA1778AC130033A194 /* key.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2C14A3F61778A5680033A194 /* key.wav */; };
 		2C14A3FC1778AC1F0033A194 /* lake.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C14A3F017789D160033A194 /* lake.aiff */; };
 		2C2FF4ED1778D1B30052E98E /* forest.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4EC1778CDAB0052E98E /* forest.aiff */; };
+		2C2FF4EF1778D4880052E98E /* keyPickup.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4EE1778D47C0052E98E /* keyPickup.aiff */; };
+		2C2FF4F11778D5E00052E98E /* chest.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4F01778D5E00052E98E /* chest.aiff */; };
+		2C2FF4F31778D6DA0052E98E /* doorOpen.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
 		2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem5.png */; };
@@ -50,7 +51,6 @@
 		4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E00175CC87B00A3DEDA /* disable.mp3 */; };
 		4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E01175CC87B00A3DEDA /* hop.mp3 */; };
 		4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */; };
-		4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E03175CC87B00A3DEDA /* a.mp3 */; };
 		4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */; };
 		4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */; };
 		4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0E175CC8FA00A3DEDA /* menuItem0x90.png */; };
@@ -131,10 +131,11 @@
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
 		2C14A3F017789D160033A194 /* lake.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lake.aiff; path = ../../accessbraille_resources/sounds/lake.aiff; sourceTree = "<group>"; };
-		2C14A3F21778A5680033A194 /* chest.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = chest.wav; path = ../../accessbraille_resources/sounds/chest.wav; sourceTree = "<group>"; };
 		2C14A3F41778A5680033A194 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = crash.mp3; path = ../../accessbraille_resources/sounds/crash.mp3; sourceTree = "<group>"; };
-		2C14A3F61778A5680033A194 /* key.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = key.wav; path = ../../accessbraille_resources/sounds/key.wav; sourceTree = "<group>"; };
 		2C2FF4EC1778CDAB0052E98E /* forest.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = forest.aiff; path = ../../accessbraille_resources/sounds/forest.aiff; sourceTree = "<group>"; };
+		2C2FF4EE1778D47C0052E98E /* keyPickup.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = keyPickup.aiff; path = ../../accessbraille_resources/sounds/keyPickup.aiff; sourceTree = "<group>"; };
+		2C2FF4F01778D5E00052E98E /* chest.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = chest.aiff; path = ../chest.aiff; sourceTree = "<group>"; };
+		2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = doorOpen.aiff; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
@@ -174,7 +175,6 @@
 		4C1B1E00175CC87B00A3DEDA /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disable.mp3; path = ../../accessbraille_resources/sounds/disable.mp3; sourceTree = "<group>"; };
 		4C1B1E01175CC87B00A3DEDA /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hop.mp3; path = ../../accessbraille_resources/sounds/hop.mp3; sourceTree = "<group>"; };
 		4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = incorrect.aiff; path = ../../accessbraille_resources/sounds/incorrect.aiff; sourceTree = "<group>"; };
-		4C1B1E03175CC87B00A3DEDA /* a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = a.mp3; path = ../../accessbraille_resources/sounds/a.mp3; sourceTree = "<group>"; };
 		4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../accessbraille_resources/Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		4C1B1E0C175CC8FA00A3DEDA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../accessbraille_resources/Images/Default.png; sourceTree = "<group>"; };
 		4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../accessbraille_resources/Images/Default@2x.png"; sourceTree = "<group>"; };
@@ -535,10 +535,11 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */,
+				2C2FF4F01778D5E00052E98E /* chest.aiff */,
+				2C2FF4EE1778D47C0052E98E /* keyPickup.aiff */,
 				2C2FF4EC1778CDAB0052E98E /* forest.aiff */,
-				2C14A3F21778A5680033A194 /* chest.wav */,
 				2C14A3F41778A5680033A194 /* crash.mp3 */,
-				2C14A3F61778A5680033A194 /* key.wav */,
 				2C14A3F017789D160033A194 /* lake.aiff */,
 				4C1B1DFD175CC87B00A3DEDA /* navClick.aiff */,
 				4C1B1DFE175CC87B00A3DEDA /* backspace.aiff */,
@@ -546,7 +547,6 @@
 				4C1B1E00175CC87B00A3DEDA /* disable.mp3 */,
 				4C1B1E01175CC87B00A3DEDA /* hop.mp3 */,
 				4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */,
-				4C1B1E03175CC87B00A3DEDA /* a.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -652,6 +652,7 @@
 				4C4FEB2416C4463700434F60 /* mdef in Resources */,
 				4C4FEB2516C4463700434F60 /* means in Resources */,
 				4C4FEB2616C4463700434F60 /* noisedict in Resources */,
+				2C2FF4EF1778D4880052E98E /* keyPickup.aiff in Resources */,
 				4C4FEB2716C4463700434F60 /* sendump in Resources */,
 				4C4FEB2816C4463700434F60 /* transition_matrices in Resources */,
 				2C14A3FC1778AC1F0033A194 /* lake.aiff in Resources */,
@@ -661,18 +662,17 @@
 				4C4FEB2C16C4463700434F60 /* OpenEars1.gram in Resources */,
 				4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */,
 				4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */,
-				2C14A3FA1778AC130033A194 /* key.wav in Resources */,
 				4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */,
 				4C11AEA216F0D5A500A9210A /* menu.plist in Resources */,
 				4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */,
 				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
 				2CCB7549173BF3220059E580 /* easy.plist in Resources */,
 				2CCB754B173BF3610059E580 /* medium.plist in Resources */,
+				2C2FF4F31778D6DA0052E98E /* doorOpen.aiff in Resources */,
 				2CCB754D173BF3B40059E580 /* hard.plist in Resources */,
 				4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */,
 				4C1B1DEA175CC85500A3DEDA /* mainMenu@2x.png in Resources */,
 				4C1B1DEB175CC85500A3DEDA /* menuItem0.png in Resources */,
-				2C14A3F71778AA060033A194 /* chest.wav in Resources */,
 				4C1B1DEC175CC85500A3DEDA /* menuItem1.png in Resources */,
 				4C1B1DED175CC85500A3DEDA /* menuItem1x90.png in Resources */,
 				4C1B1DEE175CC85500A3DEDA /* menuItem2.png in Resources */,
@@ -697,7 +697,6 @@
 				4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */,
 				4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
-				4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
@@ -709,6 +708,7 @@
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
 				2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
+				2C2FF4F11778D5E00052E98E /* chest.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

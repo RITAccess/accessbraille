@@ -23,7 +23,8 @@
     _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
     _crashURL = [[NSBundle mainBundle] URLForResource:@"crash" withExtension:@"mp3"];
     _forestURL = [[NSBundle mainBundle] URLForResource:@"forest" withExtension:@"aiff"];
-    _keyURL = [[NSBundle mainBundle] URLForResource:@"key" withExtension:@"wav"];
+    _keyURL = [[NSBundle mainBundle] URLForResource:@"keyPickup" withExtension:@"aiff"];
+    _doorOpenURL = [[NSBundle mainBundle] URLForResource:@"doorOpen" withExtension:@"aiff"];
     _lakeURL = [[NSBundle mainBundle] URLForResource:@"lake" withExtension:@"aiff"];
     avPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:_crashURL error:nil];
     
@@ -86,7 +87,14 @@
     }
     else if ([_currentLocation isEqualToString:@"forestFloor"])
     {
-        [self prompt:@"forestFloor"];
+        if (![_pack containsObject:@"key"])
+        {
+            [self prompt:@"crashSiteLeave"];
+        }
+        else
+        {
+            [self prompt:@"forestFloorPickup"];
+        }
     }
 }
 
@@ -144,7 +152,6 @@
             avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_forestURL error:nil];
             [avPlayer play];
             [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
-//            [self prompt:@"crashSiteLeave"];
         }
         else if ([_currentLocation isEqualToString:@"forestFloor"])
         {
@@ -216,7 +223,9 @@
             if (![_pack containsObject:@"key"])
             {
                 [_pack addObject:@"key"];
-                [self prompt:@"forestFloorPickup"];
+                avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_keyURL error:nil];
+                [avPlayer play];
+                [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
             }
             else
             {
