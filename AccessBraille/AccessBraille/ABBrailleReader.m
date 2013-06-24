@@ -147,17 +147,14 @@
             NSString *word = @"";
             switch (_grade) {
                 case ABGradeOne:
-                    word = ABSpaceCharacter;
                     break;
                 case ABGradeTwo:
                     if ([[shortHandlookup allKeys] containsObject:_wordTyping]) {
-                        word = shortHandlookup[_wordTyping];
-                    } else {
-                        word = ABSpaceCharacter;
+                        _wordTyping = shortHandlookup[_wordTyping];
                     }
                     break;
             }
-            [self sendWord:word];
+            [self sendWord:_wordTyping];
             prefix = @"";
             _wordTyping = @"";
             return @"";
@@ -210,6 +207,7 @@
 
 - (void)sendWord:(NSString *)string
 {
+    NSLog(@"Word Typed: %@", string);
     [speak speakString:string];
     if (![string isEqualToString:ABSpaceCharacter]) {
         [_fieldOutput replaceLastWordWithString:string];
