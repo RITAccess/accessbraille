@@ -17,21 +17,15 @@ NSInteger const maxMediumCards = 60;
 NSInteger const maxHardCards = 20;
 
 @interface FlashCard : UIViewController <ABKeyboard> {
-    UITextView *typedText;
-    UITextView *cardText;
-    UITextView *pointsText;
+    UITextView *typedText, *cardText, *pointsText, *infoText;
     NSMutableArray *cards;
-    NSArray *card;
+    NSArray *card, *letters;
     NSMutableString *stringFromInput;
-    NSArray *letters;
-    UITextView *infoText;
     ABKeyboard *keyboard;
     ABSpeak *speaker;
     int points;
-    NSString *finalPath;
-    NSString *path;
-    SystemSoundID correctSound;
-    SystemSoundID incorrectSound;
+    NSString *finalPath, *path;
+    SystemSoundID correctSound, incorrectSound;
 }
 
 @end

@@ -8,7 +8,6 @@
 
 #import "TextAdventure.h"
 
-
 @interface TextAdventure ()
 
 @end
@@ -19,13 +18,21 @@
 {
     [super viewDidLoad];
     
+    // Initialize Game Elements
+    _pack = [[NSMutableArray alloc]initWithCapacity:3];
+    _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
+    _crashURL = [[NSBundle mainBundle] URLForResource:@"crash" withExtension:@"mp3"];
+    _forestURL = [[NSBundle mainBundle] URLForResource:@"forest" withExtension:@"aiff"];
+    _keyURL = [[NSBundle mainBundle] URLForResource:@"key" withExtension:@"wav"];
+    _lakeURL = [[NSBundle mainBundle] URLForResource:@"lake" withExtension:@"aiff"];
+    avPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:_crashURL error:nil];
+    
     _path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [_path stringByAppendingPathComponent:@"adventureTexts.plist"];
     _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [[ABSpeak alloc]init];
-    [speaker speakString:[_texts valueForKey:@"initialText"]];
     
     UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
     [tapToStart setEnabled:YES];
@@ -40,11 +47,12 @@
     [_typedText setUserInteractionEnabled:NO];
     
     _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [_infoText setText:[_texts valueForKey:@"initialText"]];
     [_infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
     [_infoText setBackgroundColor:[UIColor clearColor]];
     [_infoText setUserInteractionEnabled:NO];
     [[self view] addSubview:_infoText];
+    
+    [self prompt:@"initialText"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -65,11 +73,21 @@
 {
     [tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
-    [self prompt:@"crashSite"];
     
-    // Initialize Game Elements    
-    _pack = [[NSMutableArray alloc]initWithCapacity:3];
-    _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
+    [avPlayer play];
+    [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if ([_currentLocation isEqualToString:@"crashSite"])
+    {
+        [self prompt:@"crashSite"];
+    }
+    else if ([_currentLocation isEqualToString:@"forestFloor"])
+    {
+        [self prompt:@"forestFloor"];
+    }
 }
 
 /**
@@ -115,14 +133,18 @@
     
     if ([command isEqualToString:@"look"])
     {
+        [avPlayer play];
         [self prompt:_currentLocation];
     }
     else if ([command isEqualToString:@"move"])
     {
         if ([_currentLocation isEqualToString:@"crashSite"])
         {
-            [self prompt:@"crashSiteLeave"];
             _currentLocation = @"forestFloor";
+            avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_forestURL error:nil];
+            [avPlayer play];
+            [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+//            [self prompt:@"crashSiteLeave"];
         }
         else if ([_currentLocation isEqualToString:@"forestFloor"])
         {
@@ -223,6 +245,17 @@
                 [self prompt:@"pickBlock"];
             }
         }
+        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        {
+            if (![_pack containsObject:@"silver"])
+            {
+                [self prompt:@"finalCavernPickup"];
+            }
+            else
+            {
+                [self prompt:@"pickBlock"];
+            }
+        }
     }
     else if ([command isEqualToString:@"use"])
     {
@@ -279,16 +312,25 @@
  * Speaks the message associated with the command as well as changing
  * the info text to represent what's being spoken.
  */
--(void)prompt:(NSString *)description
+- (void)prompt:(NSString *)description
 {
-//    [speaker speakString:[_texts valueForKey:description]];
+    [speaker speakString:[_texts valueForKey:description]];
     _infoText.text = [_texts valueForKey:description]; // This breaks for some reason...
 }
 
--(void)clearStrings
+- (void)clearStrings
 {
     _typedText.text = @"";
     [_stringFromInput setString:@""];
+}
+
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    _path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: _path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 
 @end

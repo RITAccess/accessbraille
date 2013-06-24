@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ABKeyboard.h"
 #import "ABSpeak.h"
+#import "AVFoundation/AVFoundation.h"
 
-@interface TextAdventure : UIViewController <ABKeyboard>
+@interface TextAdventure : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
 {
     ABKeyboard *keyboard;
     ABSpeak *speaker;
+    
+    AVAudioPlayer *avPlayer;
     
     BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, litRoom, collectedSilver;
 }
@@ -23,5 +26,6 @@
 @property NSMutableString *stringFromInput;
 @property NSMutableArray *pack, *rooms;
 @property NSString *currentLocation, *path, *playerName;
+@property NSURL *crashURL, *forestURL, *keyURL, *lakeURL;
 
 @end
