@@ -32,7 +32,7 @@
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
-		4C05CE131778AFD200F80C70 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C05CE121778AFD200F80C70 /* CoreFoundation.framework */; };
+		3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */; };
 		4C05CE191778AFD300F80C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C05CE171778AFD300F80C70 /* InfoPlist.strings */; };
 		4C05CE1F1778B10000F80C70 /* ABParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C10E23517302D8600A2864B /* ABParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C05CE201778B11300F80C70 /* ABKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEE19A216FCA05400E36128 /* ABKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -140,8 +140,6 @@
 		4CB58A521778BDAD00D38D3C /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4CB58A431778BDAD00D38D3C /* OpenEars2.gram */; };
 		4CB58A531778BDAD00D38D3C /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CB58A441778BDAD00D38D3C /* OpenEarsCorpus.txt */; };
 		4CB58A541778BDAD00D38D3C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB58A451778BDAD00D38D3C /* Slt.framework */; };
-		4CB58A551778BE4F00D38D3C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB58A451778BDAD00D38D3C /* Slt.framework */; };
-		4CB58A561778BE5200D38D3C /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB58A3F1778BDAD00D38D3C /* OpenEars.framework */; };
 		A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A934326A169F483D00C659C1 /* UIBezelGestureRecognizer.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
@@ -195,8 +193,8 @@
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
+		3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C05CE111778AFD200F80C70 /* ABKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C05CE121778AFD200F80C70 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C05CE161778AFD300F80C70 /* ABKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABKeyboard-Info.plist"; sourceTree = "<group>"; };
 		4C05CE181778AFD300F80C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C05CE1A1778AFD300F80C70 /* ABKeyboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ABKeyboard-Prefix.pch"; sourceTree = "<group>"; };
@@ -339,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CB58A541778BDAD00D38D3C /* Slt.framework in Frameworks */,
-				4C05CE131778AFD200F80C70 /* CoreFoundation.framework in Frameworks */,
 				4CB58A4E1778BDAD00D38D3C /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,10 +345,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */,
 				4C05CE421778B42300F80C70 /* ABKeyboard.framework in Frameworks */,
-				4CB58A551778BE4F00D38D3C /* Slt.framework in Frameworks */,
 				4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */,
-				4CB58A561778BE5200D38D3C /* OpenEars.framework in Frameworks */,
 				4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */,
 				A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */,
 				A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */,
@@ -579,6 +575,7 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */,
 				4C05CE411778B42300F80C70 /* ABKeyboard.framework */,
 				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
 				A99671BE16810EFA00AAA322 /* AudioToolbox.framework */,
@@ -586,7 +583,6 @@
 				A9479C3A1670034E00CE9475 /* Foundation.framework */,
 				A9479C3C1670034E00CE9475 /* CoreGraphics.framework */,
 				A9479C5C1670034E00CE9475 /* SenTestingKit.framework */,
-				4C05CE121778AFD200F80C70 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -768,7 +764,7 @@
 		A9479C2D1670034D00CE9475 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = RIT;
 				TargetAttributes = {
 					4C05CE381778B23300F80C70 = {
@@ -1053,10 +1049,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "ABKeyboard/ABKeyboard-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1087,10 +1086,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "ABKeyboard/ABKeyboard-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1100,7 +1102,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
-				CLANG_STATIC_ANALYZER_MODE = shallow;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CODE_SIGN_IDENTITY = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -1110,7 +1114,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
-				CLANG_STATIC_ANALYZER_MODE = shallow;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CODE_SIGN_IDENTITY = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ABTypes.h"
 
 @protocol ABGestureRecognizerDelegate <NSObject>

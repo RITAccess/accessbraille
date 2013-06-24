@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ABParser : NSObject
 
 /* Parses a sentance into an array of words */

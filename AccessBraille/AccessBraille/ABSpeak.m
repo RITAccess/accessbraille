@@ -6,29 +6,36 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
+#import <Availability.h>
 #import "ABSpeak.h"
 
-@implementation ABSpeak {
-    NSOperationQueue *speakQueue;
-}
+#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
+    #import <AVFoundation/AVSpeechSynthesis.h>
+#endif
 
+@implementation ABSpeak
+#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
 @synthesize fliteController;
 @synthesize slt;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        speakQueue = [[NSOperationQueue alloc] init];
-    }
-    return self;
-}
+#endif
 
 - (void)speakString:(NSString *)string {
-    [speakQueue addOperationWithBlock:^{
+    
+    if(NSClassFromString(@"AVSpeechSynthesizer")) {
+        
+        AVSpeechSynthesizer *speak = [[AVSpeechSynthesizer alloc] init];
+        AVSpeechUtterance *talk = [AVSpeechUtterance speechUtteranceWithString:string];
+        [speak speakUtterance:talk];
+        
+    } else {
+
         [self.fliteController say:string withVoice:self.slt];
-    }];
+    
+    }
+    
 }
+
+#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
 
 - (FliteController *)fliteController {
 	if (fliteController == nil) {
@@ -43,5 +50,7 @@
 	}
 	return slt;
 }
+
+#endif
 
 @end

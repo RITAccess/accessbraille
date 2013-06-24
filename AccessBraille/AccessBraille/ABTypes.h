@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 /* Defines the gestures direction to work for both activation and deactivation */
 typedef enum ABGestureDirection : NSUInteger ABGestureDirection;
 enum ABGestureDirection : NSUInteger {
