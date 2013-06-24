@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "ABActivateKeyboardGestureRecognizer.h"
 
 @protocol ABKeyboard <NSObject>

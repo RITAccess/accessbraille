@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @protocol ABTouchColumn <NSObject>
 @required
 /* Sends touch interface to ABTouchLayer to be processed */
