@@ -163,7 +163,8 @@
  * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if ([character isEqual: @" "]){
+    NSLog(@"%@, %@", character, info);
+    if ([info[ABSpaceTyped] boolValue]){
         [self checkCard];
     }else{
         if ([info[ABBackspaceReceived] boolValue]){ // Remove character from typed string if backspace detected.
