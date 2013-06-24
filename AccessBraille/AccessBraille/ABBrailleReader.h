@@ -27,7 +27,7 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 - (id)initWithAudioTarget:(id)target selector:(SEL)selector;
 
 // Testing
-- (NSString *)proccessString:(NSString *)brailleString;
+- (NSString *)processString:(NSString *)brailleString;
 
 @property (nonatomic) id<ABKeyboard> delegate;
 @property (nonatomic) ABKeyboard *keyboardInterface;

@@ -13,7 +13,7 @@
 @implementation ABBrailleReader {
     
     // Look ups
-    NSDictionary *grad2Lookup;
+    NSDictionary *grade2Lookup;
     NSDictionary *numberLookup;
     NSDictionary *prefixLevelTwo;
     NSDictionary *prefixLevelThree;
@@ -37,7 +37,7 @@
     if (self) {
         // init lookups
         NSString *path = [[NSBundle mainBundle] bundlePath];
-        grad2Lookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"grade2lookup.plist"]];
+        grade2Lookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"grade2lookup.plist"]];
         numberLookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"numberLookup.plist"]];
         prefixLevelTwo = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelTwo.plist"]];
         prefixLevelThree = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"prefixLevelThree.plist"]];
@@ -88,7 +88,7 @@
  */
 - (void)characterReceived:(NSString *)brailleString
 {
-    [self sendCharacter:[self proccessString:brailleString]];
+    [self sendCharacter:[self processString:brailleString]];
 }
 
 + (BOOL)isValidPrefix:(NSString *)braille
@@ -105,7 +105,7 @@
 /**
  * Handles grade parsing
  */
-- (NSString *)proccessString:(NSString *)brailleString
+- (NSString *)processString:(NSString *)brailleString
 {
     // Intercept prefix operators
     if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo) && ![brailleString isEqualToString:ABSpaceCharacter]) {
@@ -164,12 +164,12 @@
         }
         
         // Is typed character
-        if (_grade == ABGradeOne && [grad2Lookup[brailleString] length] > 1) {
+        if (_grade == ABGradeOne && [grade2Lookup[brailleString] length] > 1) {
             return @"";
         } else {
-            if ([[grad2Lookup allKeys] containsObject:brailleString]) {
-                _wordTyping = [_wordTyping stringByAppendingString:grad2Lookup[brailleString]];
-                return grad2Lookup[brailleString];
+            if ([[grade2Lookup allKeys] containsObject:brailleString]) {
+                _wordTyping = [_wordTyping stringByAppendingString:grade2Lookup[brailleString]];
+                return grade2Lookup[brailleString];
             } else {
                 return @"";
             }

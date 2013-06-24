@@ -65,20 +65,20 @@
     // Test Grade 1
     [reader setGrade:ABGradeOne];
     
-    STAssertEqualObjects(@"a", [reader proccessString:@"100000"], @"failed");
-    STAssertEqualObjects(@"b", [reader proccessString:@"110000"], @"failed");
-    STAssertEqualObjects(@"c", [reader proccessString:@"100100"], @"failed");
-    STAssertEqualObjects(@"l", [reader proccessString:@"111000"], @"failed");
-    STAssertEqualObjects(@"k", [reader proccessString:@"101000"], @"failed");
-    STAssertEqualObjects(@"o", [reader proccessString:@"101010"], @"failed");
-    STAssertEqualObjects(@"w", [reader proccessString:@"010111"], @"failed");
-    STAssertEqualObjects(@"m", [reader proccessString:@"101100"], @"failed");
+    STAssertEqualObjects(@"a", [reader processString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader processString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader processString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader processString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader processString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader processString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader processString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader processString:@"101100"], @"failed");
     STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
-    STAssertEqualObjects(ABSpaceCharacter, [reader proccessString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", [reader processString:ABSpaceCharacter], @"Did not return space");
     STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
     
     // Attempt grade two lookup
-    STAssertFalseNoThrow([@"and" isEqualToString:[reader proccessString:@"111101"]], @"and returned");
+    STAssertFalseNoThrow([@"and" isEqualToString:[reader processString:@"111101"]], @"and returned");
     
     reader = nil;
 }
@@ -91,62 +91,62 @@
     [reader setGrade:ABGradeTwo];
     
     // test none grade two lookups
-    STAssertEqualObjects(@"a", [reader proccessString:@"100000"], @"failed");
-    STAssertEqualObjects(@"b", [reader proccessString:@"110000"], @"failed");
-    STAssertEqualObjects(@"c", [reader proccessString:@"100100"], @"failed");
-    STAssertEqualObjects(@"l", [reader proccessString:@"111000"], @"failed");
-    STAssertEqualObjects(@"k", [reader proccessString:@"101000"], @"failed");
-    STAssertEqualObjects(@"o", [reader proccessString:@"101010"], @"failed");
-    STAssertEqualObjects(@"w", [reader proccessString:@"010111"], @"failed");
-    STAssertEqualObjects(@"m", [reader proccessString:@"101100"], @"failed");
+    STAssertEqualObjects(@"a", [reader processString:@"100000"], @"failed");
+    STAssertEqualObjects(@"b", [reader processString:@"110000"], @"failed");
+    STAssertEqualObjects(@"c", [reader processString:@"100100"], @"failed");
+    STAssertEqualObjects(@"l", [reader processString:@"111000"], @"failed");
+    STAssertEqualObjects(@"k", [reader processString:@"101000"], @"failed");
+    STAssertEqualObjects(@"o", [reader processString:@"101010"], @"failed");
+    STAssertEqualObjects(@"w", [reader processString:@"010111"], @"failed");
+    STAssertEqualObjects(@"m", [reader processString:@"101100"], @"failed");
     STAssertEqualObjects(@"abclkowm", reader.wordTyping, @"did not store word correctly");
-    STAssertEqualObjects(ABSpaceCharacter, [reader proccessString:ABSpaceCharacter], @"Did not return space");
+    STAssertEqualObjects(@"", [reader processString:ABSpaceCharacter], @"Did not return space");
     STAssertEqualObjects(@"", reader.wordTyping, @"did not store word correctly");
     
     // Grade two lookups no options
-    STAssertEqualObjects(@"and", [reader proccessString:@"111101"], @"failed");
-    STAssertEqualObjects(@"for", [reader proccessString:@"111111"], @"failed");
-    STAssertEqualObjects(@"with", [reader proccessString:@"011111"], @"failed");
-    [reader proccessString:ABSpaceCharacter];
+    STAssertEqualObjects(@"and", [reader processString:@"111101"], @"failed");
+    STAssertEqualObjects(@"for", [reader processString:@"111111"], @"failed");
+    STAssertEqualObjects(@"with", [reader processString:@"011111"], @"failed");
+    [reader processString:ABSpaceCharacter];
     STAssertEqualObjects(@"", reader.wordTyping, @"work not cleared");
     
     // Grade two prefix tests
     // Test level two lookups
     // Type phone
-    [reader proccessString:@"111100"];
-    [reader proccessString:@"110010"];
-    [reader proccessString:@"000010"];
-    [reader proccessString:@"101010"];
+    [reader processString:@"111100"];
+    [reader processString:@"110010"];
+    [reader processString:@"000010"];
+    [reader processString:@"101010"];
     STAssertEqualObjects(reader.wordTyping, @"phone", @"failed to type phone");
-    [reader proccessString:ABSpaceCharacter];
+    [reader processString:ABSpaceCharacter];
     
     // Test numbers
-    [reader proccessString:@"001111"];
-    [reader proccessString:@"100000"];
-    [reader proccessString:@"010110"];
-    [reader proccessString:@"100000"];
-    [reader proccessString:@"100010"];
+    [reader processString:@"001111"];
+    [reader processString:@"100000"];
+    [reader processString:@"010110"];
+    [reader processString:@"100000"];
+    [reader processString:@"100010"];
     STAssertEqualObjects(reader.wordTyping, @"1015", @"failed to handle numbers");
-    [reader proccessString:ABSpaceCharacter];
+    [reader processString:ABSpaceCharacter];
     
     // test level three lookup
     // type manyhadspirit
-    [reader proccessString:@"000111"];
-    [reader proccessString:@"101100"];
-    [reader proccessString:@"000111"];
-    [reader proccessString:@"110010"];
-    [reader proccessString:@"000111"];
-    [reader proccessString:@"011100"];
+    [reader processString:@"000111"];
+    [reader processString:@"101100"];
+    [reader processString:@"000111"];
+    [reader processString:@"110010"];
+    [reader processString:@"000111"];
+    [reader processString:@"011100"];
     STAssertEqualObjects(reader.wordTyping, @"manyhadspirit", @"failed to type manyhadspirt");
-    [reader proccessString:ABSpaceCharacter];
+    [reader processString:ABSpaceCharacter];
     
     // level four
     // count
-    [reader proccessString:@"100100"];
-    [reader proccessString:@"000101"];
-    [reader proccessString:@"011110"];
+    [reader processString:@"100100"];
+    [reader processString:@"000101"];
+    [reader processString:@"011110"];
     STAssertEqualObjects(reader.wordTyping, @"count", @"failed to type count");
-    [reader proccessString:ABSpaceCharacter];
+    [reader processString:ABSpaceCharacter];
     
     
     
