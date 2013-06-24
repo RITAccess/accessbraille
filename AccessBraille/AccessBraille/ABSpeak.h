@@ -6,7 +6,16 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-@interface ABSpeak : NSObject
+#import <Slt/Slt.h>
+#import <OpenEars/FliteController.h>
+
+@interface ABSpeak : NSObject {
+    FliteController *fliteController;
+    Slt *slt;
+}
+
+@property (strong, nonatomic) FliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
 
 - (void)speakString:(NSString *)string;
 
