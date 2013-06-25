@@ -111,6 +111,11 @@
  */
 - (NSString *)processString:(NSString *)brailleString
 {
+    // Backspace
+    if ([brailleString isEqualToString:ABBackspace]) {
+        return ABBackspace;
+    }
+    
     // Intercept prefix operators
     if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo) && ![brailleString isEqualToString:ABSpaceCharacter]) {
         // Handle prefix
@@ -159,10 +164,6 @@
             _wordTyping = @"";
             return @"";
         }
-        // Backspace
-        if ([brailleString isEqualToString:ABBackspace]) {
-            return ABBackspace;
-        }
         
         // Is typed character
         if (_grade == ABGradeOne && [grade2Lookup[brailleString] length] > 1) {
@@ -180,11 +181,6 @@
 
 - (void)sendCharacter:(NSString *)string
 {
-    
-    if ([string isEqualToString:@""]) {
-        return;
-    }
-    
     if ([string isEqualToString:ABSpaceCharacter]) {
         [_fieldOutput insertText:@" "];
         [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
@@ -196,6 +192,8 @@
                                                         ABSpaceTyped : @(NO),
                                                  ABBackspaceReceived : @(YES)}];
         [target performSelector:selector withObject:ABBackspaceSound];
+    } else if ([string isEqualToString:@""]) {
+        return;
     } else {
         [speak speakString:string];
         [_fieldOutput insertText:string];
