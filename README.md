@@ -13,6 +13,7 @@ Led by [Stephanie Ludi](https://github.com/retrogamer80s), this project's curren
 Using the keyboard in your own apps simply create an ABKeyboard in your ```UIViewController``` and add the necessary protocol methods to start reciving typing events from the ABKeyboard. Here's an example of receiving the last character typed:
 ```objective-c
 // In your header
+#import <ABKeyboard/ABKeyboard.h>
 @interface YourClass : NSObject <ABKeyboard> // Follow the ABKeyboard protocol
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
