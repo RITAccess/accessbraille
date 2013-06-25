@@ -163,7 +163,6 @@
  * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    NSLog(@"%@, %@", character, info);
     if ([info[ABSpaceTyped] boolValue]){
         [self checkCard];
     }else{
