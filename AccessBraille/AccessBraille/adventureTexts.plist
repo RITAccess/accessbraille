@@ -56,6 +56,8 @@
 	<string>You make it back to the time machine right before the sun completely sets. You stuff the silver into the engine and hop inside. With dials set to 2020, you slam the go button and warp back into the future.</string>
 	<key>chestOpening</key>
 	<string>The chest slowly creaks open. The password worked! Inside lies a single object: a sail. You pick up the sail and stuff it in your pack.</string>
+	<key>chestBlock</key>
+	<string>The password was uneffective. Maybe a different word will work...</string>
 	<key>wrongCommand</key>
 	<string>Not sure about that... try something else.</string>
 	<key>pickBlock</key>

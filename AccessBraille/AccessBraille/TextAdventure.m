@@ -14,6 +14,7 @@
 
 @implementation TextAdventure
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -21,8 +22,6 @@
     // Initialize Game Elements
     _pack = [[NSMutableArray alloc]initWithCapacity:3];
     _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
-    _crashURL = [[NSBundle mainBundle] URLForResource:@"crash" withExtension:@"mp3"];
-    avPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:_crashURL error:nil];
     
     _path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [_path stringByAppendingPathComponent:@"adventureTexts.plist"];
@@ -71,77 +70,8 @@
     [tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
     
-    [avPlayer play];
-    [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
-}
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    if ([_currentLocation isEqualToString:@"crashSite"])
-    {
-        [self prompt:@"crashSite"];
-    }
-    else if ([_currentLocation isEqualToString:@"forestFloor"])
-    {
-        if (![_pack containsObject:@"key"])
-        {
-            [self prompt:@"crashSiteLeave"];
-        }
-        else
-        {
-            [self prompt:@"forestFloorPickup"];
-        }
-    }
-    else if ([_currentLocation isEqualToString:@"secretCabin"])
-    {
-        if (doorUnlocked)
-        {
-            [self prompt:@"secretCabinLeave"];
-        }
-        else
-        {
-            [self prompt:@"secretCabinBlock"];
-        }
-    }
-    else if ([_currentLocation isEqualToString:@"cabinFloor"])
-    {
-        if (chestOpened)
-        {
-            [self prompt:@"chestOpening"];
-        }
-    }
-    else if ([_currentLocation isEqualToString:@"lake"])
-    {
-        if (sailAttached)
-        {
-            [self prompt:@"lakeLeave"];
-        }
-    }
-}
-
-#pragma mark - Keyboard Methods
-
-/**
- * Speak character being typed, as well as appending it to the UITextView.
- */
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
-{
-    if ([info[ABSpaceTyped] boolValue]){
-        [self checkCommand:_typedText.text];
-        [self clearStrings];
-    } else {
-        // Remove character from typed string if backspace detected.
-        if ([info[ABBackspaceReceived] boolValue]){
-            if (_stringFromInput.length > 0) {
-                [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
-                [_typedText setText:_stringFromInput];
-            }
-        } else {
-            [speaker speakString:character];
-            [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-            [_typedText setText:_stringFromInput]; // Sets typed text to the label.
-        }
-    }
+    [self initSoundWithFileName:@"crashSite" andPlay:YES];
+    [self initSoundWithFileName:@"birdChirp" andPlay:NO];
 }
 
 /**
@@ -151,65 +81,55 @@
  */
 -(void)checkCommand:(NSString* )command
 {
-    
     if ([command isEqualToString:@"look"])
     {
-        // [avPlayer play]; Might add this later...
-        [self prompt:_currentLocation];
+        [avPlayer play]; // Need to check this...
+        [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
     }
     else if ([command isEqualToString:@"move"])
     {
-        if ([_currentLocation isEqualToString:@"crashSite"])
-        {
+        if ([_currentLocation isEqualToString:@"crashSite"]){
+            [self prompt:@"crashSiteLeave"];
             _currentLocation = @"forestFloor";
-            [self playSoundWithFileName:@"forestCrunch"];
         }
-        else if ([_currentLocation isEqualToString:@"forestFloor"])
-        {
+        
+        else if ([_currentLocation isEqualToString:@"forestFloor"]){
             [self prompt:@"forestFloorLeave"];
             _currentLocation = @"secretCabin";
         }
-        else if ([_currentLocation isEqualToString:@"secretCabin"])
-        {
-            if (doorUnlocked)
-            {
-                [self playSoundWithFileName:@"doorOpen"];
+        
+        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+            if (doorUnlocked){
+                [self prompt:@"secretCabinLeave"];
                 _currentLocation = @"cabinFloor";
-            }
-            else
-            {
-                [self playSoundWithFileName:@"lockedDoor"];
+            } else {
+                [self initSoundWithFileName:@"lockedDoor" andPlay:YES];
             }
         }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"])
-        {
+        
+        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
             [self prompt:@"cabinFloorLeave"];
             _currentLocation = @"lake";
         }
-        else if ([_currentLocation isEqualToString:@"lake"])
-        {
-            if (sailAttached)
-            {
-                [self playSoundWithFileName:@"windGust"];
+        
+        else if ([_currentLocation isEqualToString:@"lake"]){
+            if (sailAttached){
+                [self initSoundWithFileName:@"windGust" andPlay:YES];
                 _currentLocation = @"darkCave";
-            }
-            else
-            {
+            } else {
                 [self prompt:@"lakeBlock"];
             }
         }
-        else if([_currentLocation isEqualToString:@"darkCave"])
-        {
-            if (litRoom)
-            {
+        
+        else if([_currentLocation isEqualToString:@"darkCave"]){
+            if (litRoom){
                 [self prompt:@"darkCaveLeave"];
                 _currentLocation = @"finalCavern";
-            }
-            else
-            {
+            } else {
                 [self prompt:@"darkCaveBlock"];
             }
         }
+        
         else if ([_currentLocation isEqualToString:@"finalCavern"])
         {
             if (collectedSilver)
@@ -222,57 +142,30 @@
                 [self prompt:@"finalCavernBlock"];
             }
         }
-        
-        NSLog(@"Moved to: %@", _currentLocation);
     }
-    // Pick Command - Used for obtaining new items and inserting them into the pack.
     else if ([command isEqualToString:@"pick"])
     {
-        NSLog(@"Picking up at %@", _currentLocation);
-        if ([_currentLocation isEqualToString:@"forestFloor"]) // Picking up the key...
+        if ([_currentLocation isEqualToString:@"forestFloor"] && ![_pack containsObject:@"key"]) // Picking key...
         {
-            if (![_pack containsObject:@"key"])
-            {
-                [_pack addObject:@"key"];
-                [self playSoundWithFileName:@"keyDrop"];
-            }
-            else
-            {
-                [self prompt:@"pickBlock"];
-            }
+            [_pack addObject:@"key"];
+            [self initSoundWithFileName:@"keyDrop" andPlay:YES];
         }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"]) // Picking up the sail...
+        else if ([_currentLocation isEqualToString:@"cabinFloor"] && ![_pack containsObject:@"sail"]) // Picking sail...
         {
-            if (![_pack containsObject:@"sail"])
-            {
-                [self prompt:@"cabinFloorPickup"];
-            }
-            else
-            {
-                [self prompt:@"pickBlock"];
-            }
+            [self prompt:@"cabinFloorPickup"];
         }
-        else if([_currentLocation isEqualToString:@"darkCave"]) // Picking up the flashlight...
+        else if([_currentLocation isEqualToString:@"darkCave"] && ![_pack containsObject:@"flashlight"]) // Picking flashlight...
         {
-            if (![_pack containsObject:@"flashlight"])
-            {
-                [self prompt:@"darkCavePickup"];
-            }
-            else
-            {
-                [self prompt:@"pickBlock"];
-            }
+            [_pack addObject:@"flashlight"];
+            [self initSoundWithFileName:@"matchScrape" andPlay:YES];
         }
-        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        else if ([_currentLocation isEqualToString:@"finalCavern"] && ![_pack containsObject:@"silver"]) // Picking silver...
         {
-            if (![_pack containsObject:@"silver"])
-            {
-                [self prompt:@"finalCavernPickup"];
-            }
-            else
-            {
-                [self prompt:@"pickBlock"];
-            }
+
+        }
+        else
+        {
+            [self prompt:@"pickBlock"];
         }
     }
     else if ([command isEqualToString:@"use"])
@@ -304,7 +197,7 @@
         {
             chestOpened = YES;
             [_pack addObject:@"sail"];
-            [self playSoundWithFileName:@"clothRustle"];
+            [self initSoundWithFileName:@"clothRustle" andPlay:YES];
         }
         else
         {
@@ -318,6 +211,70 @@
     else
     {
         [self prompt:@"wrongCommand"];
+    }
+}
+
+- (void)initSoundWithFileName:(NSString *)soundName andPlay:(BOOL)toPlay
+{
+    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aiff"];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    if (toPlay){
+        [avPlayer play];
+        [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+    } else {
+        [self audioPlayerDidFinishPlaying:avPlayer successfully:NO];
+    }
+}
+
+/**
+ * Callback to prompt the user after the sound has been played.
+ */
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if ([_currentLocation isEqualToString:@"crashSite"]){
+        [self prompt:@"crashSite"];
+    }
+    
+    else if ([_currentLocation isEqualToString:@"forestFloor"]){
+        if (![_pack containsObject:@"key"]){
+            [self prompt:@"forestFloor"];
+        } else {
+            [self prompt:@"forestFloorPickup"];
+        }
+    }
+    
+    else if ([_currentLocation isEqualToString:@"secretCabin"]){
+        if (!doorUnlocked){
+            [self prompt:@"secretCabinBlock"];
+        }
+    }
+    
+    else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+        if (chestOpened){
+            [self prompt:@"chestOpening"];
+        } else {
+            [self prompt:@"chestBlock"];
+        }
+    }
+    
+    else if ([_currentLocation isEqualToString:@"lake"]){
+        if (sailAttached){
+            [self prompt:@"lakeLeave"];
+        } else {
+            [self prompt:@"lake"];
+        }
+    }
+    
+    else if ([_currentLocation isEqualToString:@"darkCave"]){
+        if (![_pack containsObject:@"flashlight"]){
+            [self prompt:@"darkCavePickup"];
+        }
+    }
+    
+    else if ([_currentLocation isEqualToString:@"finalCavern"]){
+        if (![_pack containsObject:@"silver"]){
+            [self prompt:@"finalCavernPickup"];
+        }
     }
 }
 
@@ -339,12 +296,29 @@
     [_stringFromInput setString:@""];
 }
 
-- (void)playSoundWithFileName:(NSString *)soundName
+#pragma mark - Keyboard Methods
+
+/**
+ * Speak character being typed, as well as appending it to the UITextView.
+ */
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
 {
-    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aiff"];
-    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
-    [avPlayer play];
-    [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+    if ([info[ABSpaceTyped] boolValue]){
+        [self checkCommand:_typedText.text];
+        [self clearStrings];
+    } else {
+        // Remove character from typed string if backspace detected.
+        if ([info[ABBackspaceReceived] boolValue]){
+            if (_stringFromInput.length > 0) {
+                [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
+                [_typedText setText:_stringFromInput];
+            }
+        } else {
+            [speaker speakString:character];
+            [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+            [_typedText setText:_stringFromInput]; // Sets typed text to the label.
+        }
+    }
 }
 
 @end
