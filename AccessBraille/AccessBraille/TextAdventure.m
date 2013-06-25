@@ -22,10 +22,6 @@
     _pack = [[NSMutableArray alloc]initWithCapacity:3];
     _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
     _crashURL = [[NSBundle mainBundle] URLForResource:@"crash" withExtension:@"mp3"];
-    _forestURL = [[NSBundle mainBundle] URLForResource:@"forest" withExtension:@"aiff"];
-    _keyURL = [[NSBundle mainBundle] URLForResource:@"keyPickup" withExtension:@"aiff"];
-    _doorOpenURL = [[NSBundle mainBundle] URLForResource:@"doorOpen" withExtension:@"aiff"];
-    _lakeURL = [[NSBundle mainBundle] URLForResource:@"lake" withExtension:@"aiff"];
     avPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:_crashURL error:nil];
     
     _path = [[NSBundle mainBundle] bundlePath];
@@ -96,14 +92,31 @@
             [self prompt:@"forestFloorPickup"];
         }
     }
-}
-
-/**
- * Add a pickup to the pack array.
- */
--(void)stashObject:(NSString* )item
-{
-    [_pack addObject:item];
+    else if ([_currentLocation isEqualToString:@"secretCabin"])
+    {
+        if (doorUnlocked)
+        {
+            [self prompt:@"secretCabinLeave"];
+        }
+        else
+        {
+            [self prompt:@"secretCabinBlock"];
+        }
+    }
+    else if ([_currentLocation isEqualToString:@"cabinFloor"])
+    {
+        if (chestOpened)
+        {
+            [self prompt:@"chestOpening"];
+        }
+    }
+    else if ([_currentLocation isEqualToString:@"lake"])
+    {
+        if (sailAttached)
+        {
+            [self prompt:@"lakeLeave"];
+        }
+    }
 }
 
 #pragma mark - Keyboard Methods
@@ -141,7 +154,7 @@
     
     if ([command isEqualToString:@"look"])
     {
-        [avPlayer play];
+        // [avPlayer play]; Might add this later...
         [self prompt:_currentLocation];
     }
     else if ([command isEqualToString:@"move"])
@@ -149,9 +162,7 @@
         if ([_currentLocation isEqualToString:@"crashSite"])
         {
             _currentLocation = @"forestFloor";
-            avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_forestURL error:nil];
-            [avPlayer play];
-            [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+            [self playSoundWithFileName:@"forestCrunch"];
         }
         else if ([_currentLocation isEqualToString:@"forestFloor"])
         {
@@ -162,12 +173,12 @@
         {
             if (doorUnlocked)
             {
-                [self prompt:@"secretCabinLeave"];
+                [self playSoundWithFileName:@"doorOpen"];
                 _currentLocation = @"cabinFloor";
             }
             else
             {
-                [self prompt:@"secretCabinBlock"];
+                [self playSoundWithFileName:@"lockedDoor"];
             }
         }
         else if ([_currentLocation isEqualToString:@"cabinFloor"])
@@ -179,7 +190,7 @@
         {
             if (sailAttached)
             {
-                [self prompt:@"lakeLeave"];
+                [self playSoundWithFileName:@"windGust"];
                 _currentLocation = @"darkCave";
             }
             else
@@ -223,9 +234,7 @@
             if (![_pack containsObject:@"key"])
             {
                 [_pack addObject:@"key"];
-                avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_keyURL error:nil];
-                [avPlayer play];
-                [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+                [self playSoundWithFileName:@"keyDrop"];
             }
             else
             {
@@ -288,21 +297,18 @@
     {
         NSString* packContents = [_pack componentsJoinedByString:@" "];
         [speaker speakString:packContents];
-        NSLog(@"Pack contents: %@", packContents);
     }
     else if ([command isEqualToString:@"wind"])
     {
-        if ([_currentLocation isEqualToString:@"cabinFloor"])
+        if ([_currentLocation isEqualToString:@"cabinFloor"] && ![_pack containsObject:@"sail"])
         {
-            if (![_pack containsObject:@"sail"])
-            {
-                [_pack addObject:@"sail"];
-                [self prompt:@"chestOpening"];
-            }
-            else
-            {
-                [self prompt:@"pickBlock"];
-            }
+            chestOpened = YES;
+            [_pack addObject:@"sail"];
+            [self playSoundWithFileName:@"clothRustle"];
+        }
+        else
+        {
+            [self prompt:@"pickBlock"];
         }
     }
     else if ([command isEqualToString:@"help"])
@@ -333,13 +339,12 @@
     [_stringFromInput setString:@""];
 }
 
-- (SystemSoundID) createSoundID: (NSString*)name
+- (void)playSoundWithFileName:(NSString *)soundName
 {
-    _path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
-    NSURL* filePath = [NSURL fileURLWithPath: _path isDirectory: NO];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
-    return soundID;
+    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aiff"];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    [avPlayer play];
+    [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
 }
 
 @end

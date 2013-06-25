@@ -26,6 +26,6 @@
 @property NSMutableString *stringFromInput;
 @property NSMutableArray *pack, *rooms;
 @property NSString *currentLocation, *path, *playerName;
-@property NSURL *crashURL, *forestURL, *keyURL, *lakeURL, *doorOpenURL;
+@property NSURL *crashURL, *forestCrunchURL, *keyDropURL, *lakeURL, *doorOpenURL;
 
 @end

@@ -11,7 +11,7 @@
 	<key>crashSiteLeave</key>
 	<string>You walk forward under the forest canopy towards the distant sparkling object. </string>
 	<key>forestFloor</key>
-	<string>You&apos;re surrounded by trees everywhere deep in some forest. You see a cabin ahead of you and your broken time machine behind you.</string>
+	<string>You&apos;re surrounded by trees everywhere deep in some forest. You see a cabin ahead of you. What&apos;s that glistening on the ground at your feet...</string>
 	<key>forestFloorPickup</key>
 	<string>It&apos;s a shiny key! I wonder what it unlocks...</string>
 	<key>forestFloorLeave</key>
@@ -23,7 +23,7 @@
 	<key>secretCabinBlock</key>
 	<string>You slam your weight against the door but it doesn&apos;t budge. Unlocking the door looks like the only way to proceed...</string>
 	<key>keyUse</key>
-	<string>You carefully insert the key into the keyhole. It fits! The door drifts open.</string>
+	<string>You carefully insert the key into the keyhole. It fits!</string>
 	<key>cabinFloor</key>
 	<string>A crackling fireplace warms the small cabin. You notice a small chest in the corner of the room. Through the window you see the edge of a lake...</string>
 	<key>cabinFloorPickup</key>
