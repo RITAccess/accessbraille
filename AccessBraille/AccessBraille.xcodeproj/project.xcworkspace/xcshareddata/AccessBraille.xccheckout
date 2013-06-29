@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DED09732-1D5C-4890-9E2B-1F111260868D</string>
+	<string>ED8F272C-9A0E-4B09-948B-E97FF8EECEE0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AccessBraille</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CF78A20C-80EF-4CBA-887E-98E14B8C242E</key>
-		<string>ssh://github.com/7imbrook/accessbraille.git</string>
+		<key>2D4FBE58-558E-42F8-B83D-928C38A7E93B</key>
+		<string>ssh://github.com/RITAccess/accessbraille.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AccessBraille/AccessBraille.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CF78A20C-80EF-4CBA-887E-98E14B8C242E</key>
+		<key>2D4FBE58-558E-42F8-B83D-928C38A7E93B</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/7imbrook/accessbraille.git</string>
+	<string>ssh://github.com/RITAccess/accessbraille.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CF78A20C-80EF-4CBA-887E-98E14B8C242E</string>
+	<string>2D4FBE58-558E-42F8-B83D-928C38A7E93B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CF78A20C-80EF-4CBA-887E-98E14B8C242E</string>
+			<string>2D4FBE58-558E-42F8-B83D-928C38A7E93B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>accessbraille</string>
 		</dict>
