@@ -1,1 +1,2 @@
 language: objective-c
+script: cd accessbraille; ~/travis-utils/osx-cibuild.sh;
