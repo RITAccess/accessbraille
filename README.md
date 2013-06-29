@@ -1,4 +1,7 @@
 # Access Braille
+### Master
+ [![Build Status](https://travis-ci.org/RITAccess/accessbraille.png?branch=master)](https://travis-ci.org/RITAccess/accessbraille)
+
 * * *
 Access Braille is a braille accessibility framework for iPad that creates an interface to type in braille on top of an application. The project focuses on providing a more efficient and accessible method of typing on an iOS device than the current defaults provided by Apple. We hope to inevitably facilitate device use for the visualy impaired and blind.
 
