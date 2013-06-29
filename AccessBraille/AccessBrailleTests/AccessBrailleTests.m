@@ -79,6 +79,7 @@
     
     // Attempt grade two lookup
     STAssertFalseNoThrow([@"and" isEqualToString:[reader processString:@"111101"]], @"and returned");
+    STAssertFalseNoThrow([@"ch" isEqualToString:[reader processString:@"100001"]], @"and returned");
     
     reader = nil;
 }
