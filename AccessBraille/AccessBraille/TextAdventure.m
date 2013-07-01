@@ -70,8 +70,8 @@
     [tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
     
-    [self initSoundWithFileName:@"crashSite" andPlay:YES];
-    [self initSoundWithFileName:@"birdChirp" andPlay:NO];
+    [self initSoundWithFileName:@"crashSite"];
+    [self prompt:@"crashSite"];
 }
 
 /**
@@ -79,129 +79,151 @@
  * speak and print the message, or call necessary gameplay methoods
  * like room changing or item stashing.
  */
--(void)checkCommand:(NSString* )command
+- (void)checkCommand:(NSString* )command
 {
     if ([command isEqualToString:@"look"])
     {
-        [avPlayer play]; // Need to check this...
-        [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
+        NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
+        [self initSoundWithFileName:lookString];
+        [self prompt:_currentLocation];
     }
     else if ([command isEqualToString:@"move"])
     {
+        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation];
+        NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
+        
         if ([_currentLocation isEqualToString:@"crashSite"]){
-            [self prompt:@"crashSiteLeave"];
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
             _currentLocation = @"forestFloor";
         }
-        
         else if ([_currentLocation isEqualToString:@"forestFloor"]){
-            [self prompt:@"forestFloorLeave"];
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
             _currentLocation = @"secretCabin";
         }
-        
         else if ([_currentLocation isEqualToString:@"secretCabin"]){
-            if (doorUnlocked){
-                [self prompt:@"secretCabinLeave"];
+            if (doorUnlocked) {
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
                 _currentLocation = @"cabinFloor";
             } else {
-                [self initSoundWithFileName:@"lockedDoor" andPlay:YES];
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
             }
         }
-        
         else if ([_currentLocation isEqualToString:@"cabinFloor"]){
-            [self prompt:@"cabinFloorLeave"];
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
             _currentLocation = @"lake";
         }
-        
         else if ([_currentLocation isEqualToString:@"lake"]){
-            if (sailAttached){
-                [self initSoundWithFileName:@"windGust" andPlay:YES];
+            if (sailAttached) {
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
                 _currentLocation = @"darkCave";
             } else {
-                [self prompt:@"lakeBlock"];
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
             }
         }
-        
-        else if([_currentLocation isEqualToString:@"darkCave"]){
-            if (litRoom){
-                [self prompt:@"darkCaveLeave"];
+        else if ([_currentLocation isEqualToString:@"darkCave"]){
+            if (caveLit){
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
                 _currentLocation = @"finalCavern";
             } else {
-                [self prompt:@"darkCaveBlock"];
-            }
-        }
-        
-        else if ([_currentLocation isEqualToString:@"finalCavern"])
-        {
-            if (collectedSilver)
-            {
-                [self prompt:@"finalCavernLeave"];
-                _currentLocation = @"exit";
-            }
-            else
-            {
-                [self prompt:@"finalCavernBlock"];
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
             }
         }
     }
+    else if ([command isEqualToString:@"back"])
+    {
+        // Fill in return commands.
+        
+    }
     else if ([command isEqualToString:@"pick"])
     {
-        if ([_currentLocation isEqualToString:@"forestFloor"] && ![_pack containsObject:@"key"]) // Picking key...
+        NSString *pickString = [NSString stringWithFormat:@"%@Pick", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"crashSite"]
+            || [_currentLocation isEqualToString:@"secretCabin"]
+            || [_currentLocation isEqualToString:@"lake"])
         {
-            [_pack addObject:@"key"];
-            [self initSoundWithFileName:@"keyDrop" andPlay:YES];
-        }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"] && ![_pack containsObject:@"sail"]) // Picking sail...
-        {
-            [self prompt:@"cabinFloorPickup"];
-        }
-        else if([_currentLocation isEqualToString:@"darkCave"] && ![_pack containsObject:@"flashlight"]) // Picking flashlight...
-        {
-            [_pack addObject:@"flashlight"];
-            [self initSoundWithFileName:@"matchScrape" andPlay:YES];
-        }
-        else if ([_currentLocation isEqualToString:@"finalCavern"] && ![_pack containsObject:@"silver"]) // Picking silver...
-        {
-
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"pickBlock"];
         }
         else
         {
-            [self prompt:@"pickBlock"];
+            if ([_currentLocation isEqualToString:@"cabinFloor"])
+            {
+                if (chestOpened && ![_pack containsObject:pickString]){
+                    [self initSoundWithFileName:pickString];
+                    [self prompt:pickString];
+                    [_pack addObject:pickString];
+                } else {
+                    [self initSoundWithFileName:@"secretCabinBlock"];
+                    [self prompt:@"wrongCommand"];
+                }
+            } else {
+                if ([_pack containsObject:pickString]){
+                    [self initSoundWithFileName:@"femaleHmm"];
+                    [self prompt:@"pickBlock"];
+                }
+                else {
+                    [self initSoundWithFileName:pickString];
+                    [self prompt:pickString];
+                    [_pack addObject:pickString];
+                }
+            }
         }
     }
     else if ([command isEqualToString:@"use"])
     {
-        if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"key"])
+        NSString *useString = [NSString stringWithFormat:@"%@Use", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"forestFloorPick"])
         {
             doorUnlocked = YES;
-            [self prompt:@"keyUse"];
+            [self initSoundWithFileName:useString];
+            [self prompt:useString];
+            [_pack removeObject:@"key"];
         }
-        else if ([_currentLocation isEqualToString:@"lake"] && [_pack containsObject:@"sail"])
+        else if ([_currentLocation isEqualToString:@"lake"] && [_pack containsObject:@"cabinFloorPick"])
         {
             sailAttached = YES;
-            [self prompt:@"sailUse"];
+            [self initSoundWithFileName:useString  ]; // Still need sail attach sound...
+            [self prompt:useString];
+            [_pack removeObject:@"sail"];
         }
-        else if ([_currentLocation isEqualToString:@"darkCave"] && [_pack containsObject:@"flashlight"])
+        else if ([_currentLocation isEqualToString:@"darkCave"] && [_pack containsObject:@"darkCavePick"])
         {
-            litRoom = YES;
-            [self prompt:@"lightUse"];
+            caveLit = YES;
+            [self initSoundWithFileName:useString]; // Still need sail attach sound...
+            [self prompt:useString];
+        }
+        else {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"useBlock"];
         }
     }
-    else if ([command isEqualToString:@"pack"])
+    else if ([command isEqualToString:@"pack"]) // Speaks the content of the pack.
     {
         NSString* packContents = [_pack componentsJoinedByString:@" "];
         [speaker speakString:packContents];
     }
     else if ([command isEqualToString:@"wind"])
     {
-        if ([_currentLocation isEqualToString:@"cabinFloor"] && ![_pack containsObject:@"sail"])
+        if ([_currentLocation isEqualToString:@"cabinFloor"] && !chestOpened)
         {
             chestOpened = YES;
-            [_pack addObject:@"sail"];
-            [self initSoundWithFileName:@"clothRustle" andPlay:YES];
+            [self prompt:@"cabinFloorPuzzle"];
+            [self initSoundWithFileName:@"cabinFloorPuzzle"];
         }
         else
         {
-            [self prompt:@"pickBlock"];
+            [self prompt:@"wrongCommand"];
         }
     }
     else if ([command isEqualToString:@"help"])
@@ -214,68 +236,11 @@
     }
 }
 
-- (void)initSoundWithFileName:(NSString *)soundName andPlay:(BOOL)toPlay
+- (void)initSoundWithFileName:(NSString *)soundName
 {
     NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aiff"];
     avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
-    if (toPlay){
-        [avPlayer play];
-        [self audioPlayerDidFinishPlaying:avPlayer successfully:YES];
-    } else {
-        [self audioPlayerDidFinishPlaying:avPlayer successfully:NO];
-    }
-}
-
-/**
- * Callback to prompt the user after the sound has been played.
- */
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    if ([_currentLocation isEqualToString:@"crashSite"]){
-        [self prompt:@"crashSite"];
-    }
-    
-    else if ([_currentLocation isEqualToString:@"forestFloor"]){
-        if (![_pack containsObject:@"key"]){
-            [self prompt:@"forestFloor"];
-        } else {
-            [self prompt:@"forestFloorPickup"];
-        }
-    }
-    
-    else if ([_currentLocation isEqualToString:@"secretCabin"]){
-        if (!doorUnlocked){
-            [self prompt:@"secretCabinBlock"];
-        }
-    }
-    
-    else if ([_currentLocation isEqualToString:@"cabinFloor"]){
-        if (chestOpened){
-            [self prompt:@"chestOpening"];
-        } else {
-            [self prompt:@"chestBlock"];
-        }
-    }
-    
-    else if ([_currentLocation isEqualToString:@"lake"]){
-        if (sailAttached){
-            [self prompt:@"lakeLeave"];
-        } else {
-            [self prompt:@"lake"];
-        }
-    }
-    
-    else if ([_currentLocation isEqualToString:@"darkCave"]){
-        if (![_pack containsObject:@"flashlight"]){
-            [self prompt:@"darkCavePickup"];
-        }
-    }
-    
-    else if ([_currentLocation isEqualToString:@"finalCavern"]){
-        if (![_pack containsObject:@"silver"]){
-            [self prompt:@"finalCavernPickup"];
-        }
-    }
+    [avPlayer play];
 }
 
 #pragma mark - Helper Methods

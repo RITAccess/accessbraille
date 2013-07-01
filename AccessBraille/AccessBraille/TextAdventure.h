@@ -18,7 +18,7 @@
     
     AVAudioPlayer *avPlayer;
     
-    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, litRoom, collectedSilver;
+    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
 }
 
 @property NSDictionary *texts;
