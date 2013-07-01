@@ -9,18 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C10E23917302D8600A2864B /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		2C10E23A17302D8600A2864B /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
-		2C14A3FC1778AC1F0033A194 /* lake.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C14A3F017789D160033A194 /* lake.aiff */; };
-		2C2FF4ED1778D1B30052E98E /* forestCrunch.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4EC1778CDAB0052E98E /* forestCrunch.aiff */; };
-		2C2FF4EF1778D4880052E98E /* keyDrop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4EE1778D47C0052E98E /* keyDrop.aiff */; };
-		2C2FF4F11778D5E00052E98E /* chest.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4F01778D5E00052E98E /* chest.aiff */; };
-		2C2FF4F31778D6DA0052E98E /* doorOpen.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */; };
-		2C395F081779CE5B008B6F3C /* windGust.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F071779CE5B008B6F3C /* windGust.aiff */; };
-		2C395F0A1779CF35008B6F3C /* femaleHmm.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F091779CF35008B6F3C /* femaleHmm.aiff */; };
-		2C395F0C1779D05A008B6F3C /* lockedDoor.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F0B1779D05A008B6F3C /* lockedDoor.aiff */; };
-		2C395F0E1779D1D5008B6F3C /* silverTing.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F0D1779D1D5008B6F3C /* silverTing.aiff */; };
-		2C395F101779D2F7008B6F3C /* clothRustle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F0F1779D2F7008B6F3C /* clothRustle.aiff */; };
-		2C395F121779E356008B6F3C /* crashSite.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F111779E345008B6F3C /* crashSite.aiff */; };
-		2C395F151779F565008B6F3C /* birdChirp.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C395F141779F565008B6F3C /* birdChirp.aiff */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
 		2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem5.png */; };
@@ -136,19 +124,6 @@
 		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
-		2C14A3F017789D160033A194 /* lake.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lake.aiff; path = ../../accessbraille_resources/sounds/lake.aiff; sourceTree = "<group>"; };
-		2C2FF4EC1778CDAB0052E98E /* forestCrunch.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = forestCrunch.aiff; path = ../../accessbraille_resources/sounds/forestCrunch.aiff; sourceTree = "<group>"; };
-		2C2FF4EE1778D47C0052E98E /* keyDrop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = keyDrop.aiff; path = ../../accessbraille_resources/sounds/keyDrop.aiff; sourceTree = "<group>"; };
-		2C2FF4F01778D5E00052E98E /* chest.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = chest.aiff; path = ../chest.aiff; sourceTree = "<group>"; };
-		2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = doorOpen.aiff; sourceTree = "<group>"; };
-		2C395F071779CE5B008B6F3C /* windGust.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = windGust.aiff; sourceTree = "<group>"; };
-		2C395F091779CF35008B6F3C /* femaleHmm.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = femaleHmm.aiff; path = ../femaleHmm.aiff; sourceTree = "<group>"; };
-		2C395F0B1779D05A008B6F3C /* lockedDoor.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lockedDoor.aiff; path = ../lockedDoor.aiff; sourceTree = "<group>"; };
-		2C395F0D1779D1D5008B6F3C /* silverTing.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = silverTing.aiff; path = ../silverTing.aiff; sourceTree = "<group>"; };
-		2C395F0F1779D2F7008B6F3C /* clothRustle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = clothRustle.aiff; sourceTree = "<group>"; };
-		2C395F111779E345008B6F3C /* crashSite.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = crashSite.aiff; sourceTree = "<group>"; };
-		2C395F131779E988008B6F3C /* matchScrape.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = matchScrape.aiff; sourceTree = "<group>"; };
-		2C395F141779F565008B6F3C /* birdChirp.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = birdChirp.aiff; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
@@ -311,6 +286,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CA879791781EFA50091701B /* Crash Site */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Crash Site";
+			sourceTree = "<group>";
+		};
+		2CA8797A1781EFB00091701B /* Forest Floor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Forest Floor";
+			sourceTree = "<group>";
+		};
+		2CA8797B1781EFB70091701B /* Secret Cabin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Secret Cabin";
+			sourceTree = "<group>";
+		};
+		2CA8797C1781EFBF0091701B /* Cabin Floor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Cabin Floor";
+			sourceTree = "<group>";
+		};
+		2CA8797D1781EFD10091701B /* Lake */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Lake;
+			sourceTree = "<group>";
+		};
+		2CA8797E1781EFD70091701B /* Dark Cave */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Dark Cave";
+			sourceTree = "<group>";
+		};
+		2CA8797F1781EFDD0091701B /* Final Cavern */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Final Cavern";
+			sourceTree = "<group>";
+		};
+		2CA879801781EFE90091701B /* Text Adventure */ = {
+			isa = PBXGroup;
+			children = (
+				2CA879811781F1450091701B /* Global */,
+				2CA8797F1781EFDD0091701B /* Final Cavern */,
+				2CA8797E1781EFD70091701B /* Dark Cave */,
+				2CA8797D1781EFD10091701B /* Lake */,
+				2CA8797C1781EFBF0091701B /* Cabin Floor */,
+				2CA8797B1781EFB70091701B /* Secret Cabin */,
+				2CA8797A1781EFB00091701B /* Forest Floor */,
+				2CA879791781EFA50091701B /* Crash Site */,
+			);
+			name = "Text Adventure";
+			sourceTree = "<group>";
+		};
+		2CA879811781F1450091701B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		2CA879821781F1720091701B /* Braille Typer */ = {
+			isa = PBXGroup;
+			children = (
+				4C1B1DFD175CC87B00A3DEDA /* navClick.aiff */,
+				4C1B1DFE175CC87B00A3DEDA /* backspace.aiff */,
+				4C1B1DFF175CC87B00A3DEDA /* correct.aiff */,
+				4C1B1E00175CC87B00A3DEDA /* disable.mp3 */,
+				4C1B1E01175CC87B00A3DEDA /* hop.mp3 */,
+				4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */,
+			);
+			name = "Braille Typer";
+			sourceTree = "<group>";
+		};
 		4C1B1E27175CFAA300A3DEDA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,25 +607,8 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C395F141779F565008B6F3C /* birdChirp.aiff */,
-				2C395F131779E988008B6F3C /* matchScrape.aiff */,
-				2C395F111779E345008B6F3C /* crashSite.aiff */,
-				2C395F0B1779D05A008B6F3C /* lockedDoor.aiff */,
-				2C395F0D1779D1D5008B6F3C /* silverTing.aiff */,
-				2C395F091779CF35008B6F3C /* femaleHmm.aiff */,
-				2C2FF4F21778D6DA0052E98E /* doorOpen.aiff */,
-				2C2FF4F01778D5E00052E98E /* chest.aiff */,
-				2C2FF4EE1778D47C0052E98E /* keyDrop.aiff */,
-				2C2FF4EC1778CDAB0052E98E /* forestCrunch.aiff */,
-				2C14A3F017789D160033A194 /* lake.aiff */,
-				4C1B1DFD175CC87B00A3DEDA /* navClick.aiff */,
-				4C1B1DFE175CC87B00A3DEDA /* backspace.aiff */,
-				4C1B1DFF175CC87B00A3DEDA /* correct.aiff */,
-				4C1B1E00175CC87B00A3DEDA /* disable.mp3 */,
-				4C1B1E01175CC87B00A3DEDA /* hop.mp3 */,
-				4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */,
-				2C395F071779CE5B008B6F3C /* windGust.aiff */,
-				2C395F0F1779D2F7008B6F3C /* clothRustle.aiff */,
+				2CA879821781F1720091701B /* Braille Typer */,
+				2CA879801781EFE90091701B /* Text Adventure */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -672,17 +714,12 @@
 				4C4FEB2416C4463700434F60 /* mdef in Resources */,
 				4C4FEB2516C4463700434F60 /* means in Resources */,
 				4C4FEB2616C4463700434F60 /* noisedict in Resources */,
-				2C2FF4EF1778D4880052E98E /* keyDrop.aiff in Resources */,
 				4C4FEB2716C4463700434F60 /* sendump in Resources */,
 				4C4FEB2816C4463700434F60 /* transition_matrices in Resources */,
-				2C395F0E1779D1D5008B6F3C /* silverTing.aiff in Resources */,
-				2C14A3FC1778AC1F0033A194 /* lake.aiff in Resources */,
-				2C395F0C1779D05A008B6F3C /* lockedDoor.aiff in Resources */,
 				4C4FEB2916C4463700434F60 /* variances in Resources */,
 				4C4FEB2B16C4463700434F60 /* OpenEars1.dic in Resources */,
 				4C4FEB2C16C4463700434F60 /* OpenEars1.gram in Resources */,
 				4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */,
-				2C395F0A1779CF35008B6F3C /* femaleHmm.aiff in Resources */,
 				4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */,
 				4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */,
 				4C11AEA216F0D5A500A9210A /* menu.plist in Resources */,
@@ -690,8 +727,6 @@
 				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
 				2CCB7549173BF3220059E580 /* easy.plist in Resources */,
 				2CCB754B173BF3610059E580 /* medium.plist in Resources */,
-				2C395F151779F565008B6F3C /* birdChirp.aiff in Resources */,
-				2C2FF4F31778D6DA0052E98E /* doorOpen.aiff in Resources */,
 				2CCB754D173BF3B40059E580 /* hard.plist in Resources */,
 				4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */,
 				4C1B1DEA175CC85500A3DEDA /* mainMenu@2x.png in Resources */,
@@ -702,21 +737,18 @@
 				4C1B1DEF175CC85500A3DEDA /* menuItem2x90.png in Resources */,
 				4C1B1DF0175CC85500A3DEDA /* menuItem3.png in Resources */,
 				4C1B1DF1175CC85500A3DEDA /* menuItem3x90.png in Resources */,
-				2C2FF4ED1778D1B30052E98E /* forestCrunch.aiff in Resources */,
 				4C1B1DF2175CC85500A3DEDA /* menuItem4.png in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem4x90.png in Resources */,
 				4C1B1DF4175CC85500A3DEDA /* slideOutMenu.png in Resources */,
 				4C1B1DF5175CC85500A3DEDA /* HightBar.png in Resources */,
 				4C1B1DF6175CC85500A3DEDA /* icon144.png in Resources */,
 				4C1B1DF7175CC85500A3DEDA /* splash-01.png in Resources */,
-				2C395F101779D2F7008B6F3C /* clothRustle.aiff in Resources */,
 				4C1B1DF8175CC85500A3DEDA /* splash.png in Resources */,
 				4C1B1DF9175CC85500A3DEDA /* splash@2x.png in Resources */,
 				4C1B1DFA175CC85500A3DEDA /* typerIcon.png in Resources */,
 				4C1B1DFB175CC85500A3DEDA /* icon.png in Resources */,
 				4C1B1DFC175CC85500A3DEDA /* menuItem.png in Resources */,
 				4C1B1E04175CC87B00A3DEDA /* navClick.aiff in Resources */,
-				2C395F081779CE5B008B6F3C /* windGust.aiff in Resources */,
 				4C1B1E05175CC87B00A3DEDA /* backspace.aiff in Resources */,
 				4C1B1E06175CC87B00A3DEDA /* correct.aiff in Resources */,
 				4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */,
@@ -724,7 +756,6 @@
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
-				2C395F121779E356008B6F3C /* crashSite.aiff in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E16175CC8FA00A3DEDA /* Default-Landscape~ipad.png in Resources */,
@@ -734,7 +765,6 @@
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
 				2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
-				2C2FF4F11778D5E00052E98E /* chest.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
