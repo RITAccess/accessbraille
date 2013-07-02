@@ -14,6 +14,8 @@
 #import "NSArray+ObjectSubsets.h"
 #import "UIView+quickRemove.h"
 
+#import "ABBrailleOutput.h"
+
 @implementation NavigationContainer {
     
     SidebarViewController *nav;    

@@ -16,6 +16,7 @@
 #import "NSArray+ObjectSubsets.h"
 #import "MainMenu.h"
 #import "MainMenuItemImage.h"
+#import "ABBrailleOutput.h"
 
 @implementation AccessBrailleTests
 
@@ -153,5 +154,6 @@
     
     reader = nil;
 }
+
 
 @end
