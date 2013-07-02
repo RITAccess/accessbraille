@@ -84,7 +84,7 @@
     [currentVC.view setUserInteractionEnabled:NO];
     [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;
-        [currentVC.view setCenter:CGPointMake(600, 384)];
+        [currentVC.view setCenter:CGPointMake(650, 384)];
         [self.view setBackgroundColor:[UIColor blueColor]];
         CGPoint up = menu.center;
         up.y -= 100;

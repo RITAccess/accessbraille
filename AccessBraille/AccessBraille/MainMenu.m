@@ -51,6 +51,14 @@
     // Load side menu
     [self loadMenuItemsAnimated:YES];
     
+    UIGraphicsBeginImageContext(CGSizeMake(1024, 768));
+    [[UIImage imageNamed:@"mainMenu.png"] drawInRect:CGRectMake(0, 0, 1024, 768)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    
     // Speaking
     speak = [[ABSpeak alloc] init];
     
@@ -148,12 +156,13 @@
         [tap setNumberOfTapsRequired:1];
         [menuItem addGestureRecognizer:tap];
         [menuItem setDelegate:self];
-        
         // increment
         startTag++;
         startPos = startPos + 180;
     }
 
+    [self.view bringSubviewToFront:menuView];
+    
     if (animated) {
         NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
             UIImageView *img = (UIImageView *)obj1;

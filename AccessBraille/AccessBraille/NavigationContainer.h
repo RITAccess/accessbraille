@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) UIBezelGestureRecognizer *leftSideSwipe;
 @property (strong, nonatomic) UIPanGestureRecognizer *menuTrav;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 @end
