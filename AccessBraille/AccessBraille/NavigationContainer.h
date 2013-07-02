@@ -12,7 +12,6 @@
 @interface NavigationContainer : UIViewController
 
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu;
-- (IBAction)testAction:(id)sender;
 
 @property (strong, nonatomic) UIBezelGestureRecognizer *leftSideSwipe;
 @property (strong, nonatomic) UIPanGestureRecognizer *menuTrav;
