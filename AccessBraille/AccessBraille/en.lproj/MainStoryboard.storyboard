@@ -168,6 +168,12 @@ Access Braille is also a learning tool for young children who have not learned t
                     <view key="view" contentMode="scaleToFill" id="tV5-xe-HaE">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainMenu.png" id="PPW-oi-qji">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -184,7 +190,7 @@ Access Braille is also a learning tool for young children who have not learned t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71e-qY-rLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1019" y="809"/>
+            <point key="canvasLocation" x="-871" y="933"/>
         </scene>
         <!--Text Adventure-->
         <scene sceneID="b0j-4J-lno">
@@ -224,47 +230,9 @@ Access Braille is also a learning tool for young children who have not learned t
             <point key="canvasLocation" x="864" y="2310"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-        </class>
-        <class className="BrailleTyperController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrailleTyperController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DrawingView" candidateClass="Drawing"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textOutput" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typingStateOutlet" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Drawing" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Drawing.h"/>
-        </class>
-        <class className="FlashCard" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCard.h"/>
-        </class>
-        <class className="InstructionsMenu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionsMenu.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NavigationContainer" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationContainer.h"/>
-            <relationships>
-                <relationship kind="action" name="testAction:"/>
-            </relationships>
-        </class>
-        <class className="Settings" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Settings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TextAdventure" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextAdventure.h"/>
-        </class>
-    </classes>
+    <resources>
+        <image name="mainMenu.png" width="1024.0799560546875" height="768"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
         <simulatedOrientationMetrics key="orientation"/>

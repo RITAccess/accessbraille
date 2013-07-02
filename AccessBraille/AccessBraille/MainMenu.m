@@ -23,7 +23,7 @@
 
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
-    NSDictionary *menuItemsDict;
+    NSArray *menuItemsDict;
     ABSpeak *speak;
     NSNumber *active;
 }
@@ -36,6 +36,9 @@
     
     // Set menu properties
     _swipeSensitivity = 2000;
+    
+
+    [self.view setBackgroundColor:[UIColor blueColor]];
     
     
     // Pan gesture for scrolling and navigating
@@ -123,7 +126,7 @@
     // Get menu information
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
-    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    menuItemsDict = [[NSArray alloc] initWithContentsOfFile:finalPath];
     
     int startTag = 31;
     int startPos = 293;
@@ -273,9 +276,7 @@
         }
     } completion:^(BOOL finished) {
 
-        // Gets storyboard name from menuItemsDict
-        NSString *key = [NSString stringWithFormat:@"%@", vcID];
-        NSString *controller = menuItemsDict[key];
+        NSString *controller = menuItemsDict[[vcID intValue]];
         
         // Switches to that controller
         NavigationContainer *nc = (NavigationContainer *) self.parentViewController;

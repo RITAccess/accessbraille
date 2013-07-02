@@ -23,7 +23,7 @@
     float menuPosRef;
     
     MainMenu *_mainMenu;
-    
+    UIButton *menu;
 }
 
 -(void)viewDidLoad {
@@ -60,7 +60,7 @@
     
     currentVC = controller;
     
-    UIButton *menu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    menu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [menu setFrame:CGRectMake(2, 2, 100, 30)];
     [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
     [menu setTitle:@"Menu" forState:UIControlStateNormal];
@@ -82,10 +82,13 @@
     
     CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
     [currentVC.view setUserInteractionEnabled:NO];
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;
         [currentVC.view setCenter:CGPointMake(600, 384)];
         [self.view setBackgroundColor:[UIColor blueColor]];
+        CGPoint up = menu.center;
+        up.y -= 100;
+        [menu setCenter:up];
     }];
 }
 
