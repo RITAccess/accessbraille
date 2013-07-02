@@ -30,6 +30,10 @@
 		2CE9E67517822ED30067E33E /* finalCavernPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66817822ED30067E33E /* finalCavernPick.aiff */; };
 		2CE9E67617822ED30067E33E /* lakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66917822ED30067E33E /* lakeLeave.aiff */; };
 		2CE9E67817822FED0067E33E /* forestFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67717822FED0067E33E /* forestFloorLeave.aiff */; };
+		2CE9E67C1782FC7B0067E33E /* cabinFloorLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */; };
+		2CE9E67E1782FD1D0067E33E /* cabinFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */; };
+		2CE9E67F1782FD920067E33E /* crashSiteLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */; };
+		2CE9E681178302940067E33E /* secretCabinLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E680178302940067E33E /* secretCabinLook.aiff */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
@@ -160,6 +164,10 @@
 		2CE9E66817822ED30067E33E /* finalCavernPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = finalCavernPick.aiff; path = ../../accessbraille_resources/Sounds/finalCavernPick.aiff; sourceTree = "<group>"; };
 		2CE9E66917822ED30067E33E /* lakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lakeLeave.aiff; path = ../../accessbraille_resources/Sounds/lakeLeave.aiff; sourceTree = "<group>"; };
 		2CE9E67717822FED0067E33E /* forestFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = forestFloorLeave.aiff; path = ../../accessbraille_resources/Sounds/forestFloorLeave.aiff; sourceTree = "<group>"; };
+		2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crashSiteLook.aiff; path = ../../accessbraille_resources/Sounds/crashSiteLook.aiff; sourceTree = "<group>"; };
+		2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLook.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLook.aiff; sourceTree = "<group>"; };
+		2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLeave.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLeave.aiff; sourceTree = "<group>"; };
+		2CE9E680178302940067E33E /* secretCabinLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = secretCabinLook.aiff; path = ../../accessbraille_resources/Sounds/secretCabinLook.aiff; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 		2CA879791781EFA50091701B /* Crash Site */ = {
 			isa = PBXGroup;
 			children = (
+				2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */,
 				2CE9E66017822ED30067E33E /* crashSite.aiff */,
 				2CE9E66317822ED30067E33E /* crashSiteLeave.aiff */,
 			);
@@ -335,6 +344,7 @@
 			children = (
 				2CE9E66117822ED30067E33E /* secretCabinLeave.aiff */,
 				2CE9E66617822ED30067E33E /* secretCabinBlock.aiff */,
+				2CE9E680178302940067E33E /* secretCabinLook.aiff */,
 			);
 			name = "Secret Cabin";
 			sourceTree = "<group>";
@@ -342,6 +352,8 @@
 		2CA8797C1781EFBF0091701B /* Cabin Floor */ = {
 			isa = PBXGroup;
 			children = (
+				2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */,
+				2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */,
 				2CE9E65E17822ED30067E33E /* cabinFloorPuzzle.aiff */,
 				2CE9E65F17822ED30067E33E /* cabinFloorPick.aiff */,
 			);
@@ -754,10 +766,12 @@
 				2CE9E67417822ED30067E33E /* darkCaveUse.aiff in Resources */,
 				4C4FEB2716C4463700434F60 /* sendump in Resources */,
 				4C4FEB2816C4463700434F60 /* transition_matrices in Resources */,
+				2CE9E67F1782FD920067E33E /* crashSiteLook.aiff in Resources */,
 				4C4FEB2916C4463700434F60 /* variances in Resources */,
 				2CE9E66A17822ED30067E33E /* forestFloorLook.aiff in Resources */,
 				4C4FEB2B16C4463700434F60 /* OpenEars1.dic in Resources */,
 				4C4FEB2C16C4463700434F60 /* OpenEars1.gram in Resources */,
+				2CE9E67C1782FC7B0067E33E /* cabinFloorLook.aiff in Resources */,
 				4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */,
 				2CE9E67617822ED30067E33E /* lakeLeave.aiff in Resources */,
 				4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */,
@@ -792,6 +806,7 @@
 				4C1B1DF8175CC85500A3DEDA /* splash.png in Resources */,
 				4C1B1DF9175CC85500A3DEDA /* splash@2x.png in Resources */,
 				4C1B1DFA175CC85500A3DEDA /* typerIcon.png in Resources */,
+				2CE9E67E1782FD1D0067E33E /* cabinFloorLeave.aiff in Resources */,
 				4C1B1DFB175CC85500A3DEDA /* icon.png in Resources */,
 				2CE9E66E17822ED30067E33E /* secretCabinLeave.aiff in Resources */,
 				4C1B1DFC175CC85500A3DEDA /* menuItem.png in Resources */,
@@ -804,6 +819,7 @@
 				4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
+				2CE9E681178302940067E33E /* secretCabinLook.aiff in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,

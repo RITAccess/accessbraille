@@ -84,6 +84,7 @@
     if ([command isEqualToString:@"look"])
     {
         NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
+        NSLog(@"%@", _currentLocation);
         [self initSoundWithFileName:lookString];
         [self prompt:_currentLocation];
     }
@@ -154,30 +155,29 @@
             [self initSoundWithFileName:@"femaleHmm"];
             [self prompt:@"pickBlock"];
         }
-        else
+        else if ([_currentLocation isEqualToString:@"cabinFloor"])
         {
-            if ([_currentLocation isEqualToString:@"cabinFloor"])
-            {
-                if (chestOpened && ![_pack containsObject:pickString]){
-                    [self initSoundWithFileName:pickString];
-                    [self prompt:pickString];
-                    [_pack addObject:pickString];
-                } else {
-                    [self initSoundWithFileName:@"secretCabinBlock"];
-                    [self prompt:@"wrongCommand"];
-                }
+            if (chestOpened && ![_pack containsObject:pickString]){
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
             } else {
-                if ([_pack containsObject:pickString]){
-                    [self initSoundWithFileName:@"femaleHmm"];
-                    [self prompt:@"pickBlock"];
-                }
-                else {
-                    [self initSoundWithFileName:pickString];
-                    [self prompt:pickString];
-                    [_pack addObject:pickString];
-                }
+                [self initSoundWithFileName:@"secretCabinBlock"];
+                [self prompt:@"wrongCommand"];
             }
         }
+        else
+        {
+            if ([_pack containsObject:pickString]){
+                [self initSoundWithFileName:@"femaleHmm"];
+                [self prompt:@"pickBlock"];
+            } else {
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
+            }
+        }
+
     }
     else if ([command isEqualToString:@"use"])
     {
