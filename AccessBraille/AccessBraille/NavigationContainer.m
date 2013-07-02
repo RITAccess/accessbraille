@@ -22,6 +22,8 @@
     UIPanGestureRecognizer *scroll;
     float menuPosRef;
     
+    NSArray *gestures;
+    
     MainMenu *_mainMenu;
     UIButton *menu;
 }
@@ -80,8 +82,11 @@
     [self.view sendSubviewToBack:_mainMenu.view];
     [_mainMenu loadMenuItemsAnimated:YES];
     
+    gestures = currentVC.view.gestureRecognizers;
+    UITapGestureRecognizer *tapToReturn = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taptoreturn:)];
+    [currentVC.view setGestureRecognizers:@[tapToReturn]];
+    
     CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
-    [currentVC.view setUserInteractionEnabled:NO];
     [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;
         [currentVC.view setCenter:CGPointMake(650, 384)];
@@ -89,6 +94,17 @@
         CGPoint up = menu.center;
         up.y -= 100;
         [menu setCenter:up];
+    }];
+}
+
+- (void)taptoreturn:(UITapGestureRecognizer *)reg
+{
+    [currentVC.view setGestureRecognizers:gestures];
+    CGAffineTransform scale = CGAffineTransformMakeScale(1.0, 1.0);
+    [UIView animateWithDuration:0.3 animations:^{
+        currentVC.view.transform = scale;
+        [currentVC.view setCenter:CGPointMake(512, 384)];
+        [menu setFrame:CGRectMake(2, 2, 100, 30)];
     }];
 }
 
