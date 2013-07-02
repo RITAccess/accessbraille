@@ -10,13 +10,13 @@
 	<string>Your time machine has stopped functioning and you&apos;re stranded sometime in the past. It looks like you&apos;ve landed in the wilderness somewhere. There&apos;s something shiny in the distance.</string>
 	<key>crashSiteLeave</key>
 	<string>You walk forward under the forest canopy towards the distant sparkling object. </string>
-	<key>forestFloor</key>
+	<key>forestFloorLook</key>
 	<string>You&apos;re surrounded by trees everywhere deep in some forest. You see a cabin ahead of you. What&apos;s that glistening on the ground at your feet...</string>
 	<key>forestFloorPick</key>
 	<string>It&apos;s a shiny key! I wonder what it unlocks...</string>
 	<key>forestFloorLeave</key>
 	<string>You push onwards to the cabin&apos;s faint glow...</string>
-	<key>secretCabin</key>
+	<key>secretCabinLook</key>
 	<string>You&apos;ve made it to the cabin, but the door is locked!</string>
 	<key>secretCabinBlock</key>
 	<string>You slam your weight against the door but it doesn&apos;t budge. Unlocking the door looks like the only way to proceed...</string>
@@ -24,7 +24,7 @@
 	<string>The key fits! You unlock the secret cabin&apos;s door.</string>
 	<key>secretCabinLeave</key>
 	<string>You creep through the unlocked door into the small cabin.</string>
-	<key>cabinFloor</key>
+	<key>cabinFloorLook</key>
 	<string>A crackling fireplace warms the small cabin. Through the window you see the edge of a lake. You notice a small chest in the corner of the room, on the side of it is a message: &apos;wind&apos;...  </string>
 	<key>cabinFloorLeave</key>
 	<string>You walk out the cabin door and start heading to the lake.</string>
@@ -42,22 +42,24 @@
 	<string>You jump into the boat, but the wind is too strong to move anywhere! Defeated, you climb back out to the shore...</string>
 	<key>windyLakeLeave</key>
 	<string>Almost immediately, the sail catches the mighty wind and starts magically taking you towards the rocky outcrop.</string>
-	<key>darkCave</key>
+	<key>darkCaveLook</key>
 	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. Something&apos;s protruding out of the ground...</string>
 	<key>darkCaveBlock</key>
 	<string>The cave is pitch black! There&apos;s no way for you to move forward. If only you could see better...</string>
 	<key>darkCavePick</key>
-	<string>The object protruding out of the ground is a flashlight! You grab it and quickly flip it on to light up the cave.</string>
+	<string>The object protruding out of the ground is a box of matches and stick! You grab them.</string>
 	<key>darkCaveUse</key>
-	<string>You flip on your light, and the area is lit up by its power.</string>
+	<string>You fashion a torch out of the matches and wood. Once you light the torch, a brilliant glow illuminates the room.</string>
 	<key>darkCaveLeave</key>
-	<string>Illuminated by the flash light, you venture into the depths of the cave.</string>
-	<key>finalCavern</key>
+	<string>No longer afraid of the dark expanses, you venture into the depths of the cave.</string>
+	<key>finalCavernLook</key>
 	<string>After what seems like miles of trudging through the cave, the path opens up into a giant cavern and you can&apos;t believe your eyes... the room is covered in gold, rubies, and silver!</string>
 	<key>finalCavernPick</key>
-	<string>You grab enough silver and cram it into your pack. You&apos;ll be able to return home! You rush out of the cavern, hop into the boat, and sail back to the cabin.</string>
+	<string>You grab enough silver and cram it into your pack. You&apos;ll be able to return home!</string>
 	<key>finalCavernLeave</key>
-	<string>You make it back to the time machine right before the sun completely sets. You stuff the silver into the engine and hop inside. With dials set to 2020, you slam the go button and warp back into the future.</string>
+	<string>You rush out of the cavern, hop into the boat, and sail back to the cabin. You make it back to the time machine right before the sun completely sets. You stuff the silver into the engine and hop inside. With dials set to 2020, you slam the go button and warp back into the future. The End!</string>
+	<key>finalCavernBlock</key>
+	<string>Mounds of silver you need to return home is right in front of you! There&apos;s no way you&apos;re leaving the cavern without taking some...</string>
 	<key>wrongCommand</key>
 	<string>Not sure about... try something else.</string>
 	<key>pickBlock</key>

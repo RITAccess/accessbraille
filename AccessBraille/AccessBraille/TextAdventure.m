@@ -138,11 +138,20 @@
                 [self prompt:blockString];
             }
         }
+        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+            if (collectedSilver){
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
+                _currentLocation = @"finalCavern";
+            } else {
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
+            }
+        }
     }
     else if ([command isEqualToString:@"back"])
     {
         // Fill in return commands.
-        
     }
     else if ([command isEqualToString:@"pick"])
     {
@@ -164,6 +173,18 @@
             } else {
                 [self initSoundWithFileName:@"secretCabinBlock"];
                 [self prompt:@"wrongCommand"];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        {
+            if (![_pack containsObject:pickString]){
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
+                collectedSilver = YES;
+            } else {
+                [self initSoundWithFileName:@"femaleHmm"];
+                [self prompt:@"pickBlock"];
             }
         }
         else

@@ -34,6 +34,11 @@
 		2CE9E67E1782FD1D0067E33E /* cabinFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */; };
 		2CE9E67F1782FD920067E33E /* crashSiteLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */; };
 		2CE9E681178302940067E33E /* secretCabinLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E680178302940067E33E /* secretCabinLook.aiff */; };
+		2CE9E68317830BE40067E33E /* darkCaveLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68217830BE40067E33E /* darkCaveLook.aiff */; };
+		2CE9E68517830C1E0067E33E /* darkCaveLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68417830C1E0067E33E /* darkCaveLeave.aiff */; };
+		2CE9E68717830CCB0067E33E /* darkCaveBlock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68617830CCB0067E33E /* darkCaveBlock.aiff */; };
+		2CE9E68917830E5E0067E33E /* finalCavernLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68817830E5E0067E33E /* finalCavernLook.aiff */; };
+		2CE9E68B17830EEF0067E33E /* finalCavernLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68A17830EEF0067E33E /* finalCavernLeave.aiff */; };
 		4C092A60170F1AFA00650986 /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C092A5F170F1AFA00650986 /* ABTouchView.m */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
 		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
@@ -168,6 +173,11 @@
 		2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLook.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLook.aiff; sourceTree = "<group>"; };
 		2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLeave.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLeave.aiff; sourceTree = "<group>"; };
 		2CE9E680178302940067E33E /* secretCabinLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = secretCabinLook.aiff; path = ../../accessbraille_resources/Sounds/secretCabinLook.aiff; sourceTree = "<group>"; };
+		2CE9E68217830BE40067E33E /* darkCaveLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveLook.aiff; path = ../../accessbraille_resources/Sounds/darkCaveLook.aiff; sourceTree = "<group>"; };
+		2CE9E68417830C1E0067E33E /* darkCaveLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveLeave.aiff; path = ../../accessbraille_resources/Sounds/darkCaveLeave.aiff; sourceTree = "<group>"; };
+		2CE9E68617830CCB0067E33E /* darkCaveBlock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveBlock.aiff; path = ../../accessbraille_resources/Sounds/darkCaveBlock.aiff; sourceTree = "<group>"; };
+		2CE9E68817830E5E0067E33E /* finalCavernLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = finalCavernLook.aiff; path = ../../accessbraille_resources/Sounds/finalCavernLook.aiff; sourceTree = "<group>"; };
+		2CE9E68A17830EEF0067E33E /* finalCavernLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = finalCavernLeave.aiff; path = ../../accessbraille_resources/Sounds/finalCavernLeave.aiff; sourceTree = "<group>"; };
 		4C092A5E170F1AFA00650986 /* ABTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchView.h; sourceTree = "<group>"; };
 		4C092A5F170F1AFA00650986 /* ABTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchView.m; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
@@ -372,7 +382,10 @@
 		2CA8797E1781EFD70091701B /* Dark Cave */ = {
 			isa = PBXGroup;
 			children = (
+				2CE9E68417830C1E0067E33E /* darkCaveLeave.aiff */,
+				2CE9E68617830CCB0067E33E /* darkCaveBlock.aiff */,
 				2CE9E66717822ED30067E33E /* darkCaveUse.aiff */,
+				2CE9E68217830BE40067E33E /* darkCaveLook.aiff */,
 			);
 			name = "Dark Cave";
 			sourceTree = "<group>";
@@ -381,6 +394,8 @@
 			isa = PBXGroup;
 			children = (
 				2CE9E66817822ED30067E33E /* finalCavernPick.aiff */,
+				2CE9E68A17830EEF0067E33E /* finalCavernLeave.aiff */,
+				2CE9E68817830E5E0067E33E /* finalCavernLook.aiff */,
 			);
 			name = "Final Cavern";
 			sourceTree = "<group>";
@@ -761,6 +776,7 @@
 				4C4FEB2316C4463700434F60 /* feat.params in Resources */,
 				4C4FEB2416C4463700434F60 /* mdef in Resources */,
 				4C4FEB2516C4463700434F60 /* means in Resources */,
+				2CE9E68717830CCB0067E33E /* darkCaveBlock.aiff in Resources */,
 				2CE9E67217822ED30067E33E /* windyLakeLook.aiff in Resources */,
 				4C4FEB2616C4463700434F60 /* noisedict in Resources */,
 				2CE9E67417822ED30067E33E /* darkCaveUse.aiff in Resources */,
@@ -792,7 +808,9 @@
 				4C1B1DEF175CC85500A3DEDA /* menuItem2x90.png in Resources */,
 				2CE9E66F17822ED30067E33E /* femaleHmm.aiff in Resources */,
 				2CE9E66B17822ED30067E33E /* cabinFloorPuzzle.aiff in Resources */,
+				2CE9E68917830E5E0067E33E /* finalCavernLook.aiff in Resources */,
 				4C1B1DF0175CC85500A3DEDA /* menuItem3.png in Resources */,
+				2CE9E68517830C1E0067E33E /* darkCaveLeave.aiff in Resources */,
 				4C1B1DF1175CC85500A3DEDA /* menuItem3x90.png in Resources */,
 				4C1B1DF2175CC85500A3DEDA /* menuItem4.png in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem4x90.png in Resources */,
@@ -816,6 +834,7 @@
 				2CE9E66C17822ED30067E33E /* cabinFloorPick.aiff in Resources */,
 				4C1B1E06175CC87B00A3DEDA /* correct.aiff in Resources */,
 				4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */,
+				2CE9E68B17830EEF0067E33E /* finalCavernLeave.aiff in Resources */,
 				4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
@@ -829,6 +848,7 @@
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
 				2CE9E67317822ED30067E33E /* secretCabinBlock.aiff in Resources */,
+				2CE9E68317830BE40067E33E /* darkCaveLook.aiff in Resources */,
 				2CAAC7A6175E2A2A004680F9 /* menuItem5.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem5x90.png in Resources */,
 			);
