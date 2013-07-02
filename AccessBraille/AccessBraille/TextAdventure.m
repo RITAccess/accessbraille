@@ -38,12 +38,12 @@
     
     _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
     [_typedText setBackgroundColor:[UIColor greenColor]];
-    [_typedText setFont:[UIFont fontWithName:@"ArialMT" size:30]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:30]];
     _typedText.textColor = [UIColor blackColor];
     [_typedText setUserInteractionEnabled:NO];
     
     _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [_infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
     [_infoText setBackgroundColor:[UIColor clearColor]];
     [_infoText setUserInteractionEnabled:NO];
     [[self view] addSubview:_infoText];
