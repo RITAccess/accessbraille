@@ -164,6 +164,7 @@ Access Braille is also a learning tool for young children who have not learned t
         <!--Navigation Container-->
         <scene sceneID="lVm-cI-VAE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71e-qY-rLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Nse-pc-Zh2" customClass="NavigationContainer" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tV5-xe-HaE">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -182,7 +183,6 @@ Access Braille is also a learning tool for young children who have not learned t
                         <segue destination="qBg-4F-pxI" kind="modal" identifier="instructions" id="3ta-NM-gGK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="71e-qY-rLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-871" y="933"/>
         </scene>

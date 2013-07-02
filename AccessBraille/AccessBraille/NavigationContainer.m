@@ -26,6 +26,8 @@
     
     MainMenu *_mainMenu;
     UIButton *menu;
+    CGRect menuOut;
+    CGRect menuIn;
 }
 
 -(void)viewDidLoad {
@@ -35,6 +37,16 @@
     [self.view addSubview:_mainMenu.view];
     [self.view sendSubviewToBack:_mainMenu.view];
     
+    menuIn = CGRectMake(2, 0, 100, 30);
+    menuOut = CGRectMake(2, -30, 100, 30);
+    
+    menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *img = [UIImage imageNamed:@"menuTag.png"];
+    [menu setBackgroundImage:img forState:UIControlStateNormal];
+    [menu setAlpha:0.6];
+    [menu setFrame:menuOut];
+    [menu setEnabled:YES];
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -44,8 +56,8 @@
 /**
  Takes in a UIViewController and switches the view to that controller
  */
-- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu {
-        
+- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu
+{
     [self.view removeSubviews];
     for (UIViewController *childViewController in self.childViewControllers){
         [childViewController removeFromParentViewController];
@@ -62,14 +74,9 @@
     
     currentVC = controller;
     
-    menu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [menu setFrame:CGRectMake(2, 2, 100, 30)];
-    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
-    [menu setTitle:@"Menu" forState:UIControlStateNormal];
-    [menu setEnabled:YES];
-    [menu setTintColor:[UIColor blackColor]];
     [self.view addSubview:menu];
     [self.view bringSubviewToFront:menu];
+    [menu setFrame:menuIn];
     
     [controller didMoveToParentViewController:self];
 }
@@ -84,6 +91,7 @@
     
     gestures = currentVC.view.gestureRecognizers;
     UITapGestureRecognizer *tapToReturn = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taptoreturn:)];
+    [tapToReturn setCancelsTouchesInView:YES];
     [currentVC.view setGestureRecognizers:@[tapToReturn]];
     
     CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
@@ -91,9 +99,7 @@
         currentVC.view.transform = scale;
         [currentVC.view setCenter:CGPointMake(650, 384)];
         [self.view setBackgroundColor:[UIColor blueColor]];
-        CGPoint up = menu.center;
-        up.y -= 100;
-        [menu setCenter:up];
+        [menu setFrame:menuOut];
     }];
 }
 
@@ -101,10 +107,11 @@
 {
     [currentVC.view setGestureRecognizers:gestures];
     CGAffineTransform scale = CGAffineTransformMakeScale(1.0, 1.0);
+
     [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;
         [currentVC.view setCenter:CGPointMake(512, 384)];
-        [menu setFrame:CGRectMake(2, 2, 100, 30)];
+        [menu setFrame:menuIn];
     }];
 }
 
