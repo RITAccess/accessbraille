@@ -24,11 +24,11 @@
 		2CE9E66F17822ED30067E33E /* femaleHmm.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66217822ED30067E33E /* femaleHmm.aiff */; };
 		2CE9E67017822ED30067E33E /* crashSiteLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66317822ED30067E33E /* crashSiteLeave.aiff */; };
 		2CE9E67117822ED30067E33E /* forestFloorPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66417822ED30067E33E /* forestFloorPick.aiff */; };
-		2CE9E67217822ED30067E33E /* lakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66517822ED30067E33E /* lakeLook.aiff */; };
+		2CE9E67217822ED30067E33E /* windyLakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66517822ED30067E33E /* windyLakeLook.aiff */; };
 		2CE9E67317822ED30067E33E /* secretCabinBlock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66617822ED30067E33E /* secretCabinBlock.aiff */; };
 		2CE9E67417822ED30067E33E /* darkCaveUse.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66717822ED30067E33E /* darkCaveUse.aiff */; };
 		2CE9E67517822ED30067E33E /* finalCavernPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66817822ED30067E33E /* finalCavernPick.aiff */; };
-		2CE9E67617822ED30067E33E /* lakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66917822ED30067E33E /* lakeLeave.aiff */; };
+		2CE9E67617822ED30067E33E /* windyLakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E66917822ED30067E33E /* windyLakeLeave.aiff */; };
 		2CE9E67817822FED0067E33E /* forestFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67717822FED0067E33E /* forestFloorLeave.aiff */; };
 		2CE9E67C1782FC7B0067E33E /* cabinFloorLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */; };
 		2CE9E67E1782FD1D0067E33E /* cabinFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */; };
@@ -158,11 +158,11 @@
 		2CE9E66217822ED30067E33E /* femaleHmm.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = femaleHmm.aiff; path = ../../accessbraille_resources/Sounds/femaleHmm.aiff; sourceTree = "<group>"; };
 		2CE9E66317822ED30067E33E /* crashSiteLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crashSiteLeave.aiff; path = ../../accessbraille_resources/Sounds/crashSiteLeave.aiff; sourceTree = "<group>"; };
 		2CE9E66417822ED30067E33E /* forestFloorPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = forestFloorPick.aiff; path = ../../accessbraille_resources/Sounds/forestFloorPick.aiff; sourceTree = "<group>"; };
-		2CE9E66517822ED30067E33E /* lakeLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lakeLook.aiff; path = ../../accessbraille_resources/Sounds/lakeLook.aiff; sourceTree = "<group>"; };
+		2CE9E66517822ED30067E33E /* windyLakeLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLook.aiff; path = ../../accessbraille_resources/Sounds/windyLakeLook.aiff; sourceTree = "<group>"; };
 		2CE9E66617822ED30067E33E /* secretCabinBlock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = secretCabinBlock.aiff; path = ../../accessbraille_resources/Sounds/secretCabinBlock.aiff; sourceTree = "<group>"; };
 		2CE9E66717822ED30067E33E /* darkCaveUse.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveUse.aiff; path = ../../accessbraille_resources/Sounds/darkCaveUse.aiff; sourceTree = "<group>"; };
 		2CE9E66817822ED30067E33E /* finalCavernPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = finalCavernPick.aiff; path = ../../accessbraille_resources/Sounds/finalCavernPick.aiff; sourceTree = "<group>"; };
-		2CE9E66917822ED30067E33E /* lakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lakeLeave.aiff; path = ../../accessbraille_resources/Sounds/lakeLeave.aiff; sourceTree = "<group>"; };
+		2CE9E66917822ED30067E33E /* windyLakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLeave.aiff; path = ../../accessbraille_resources/Sounds/windyLakeLeave.aiff; sourceTree = "<group>"; };
 		2CE9E67717822FED0067E33E /* forestFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = forestFloorLeave.aiff; path = ../../accessbraille_resources/Sounds/forestFloorLeave.aiff; sourceTree = "<group>"; };
 		2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crashSiteLook.aiff; path = ../../accessbraille_resources/Sounds/crashSiteLook.aiff; sourceTree = "<group>"; };
 		2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLook.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLook.aiff; sourceTree = "<group>"; };
@@ -363,8 +363,8 @@
 		2CA8797D1781EFD10091701B /* Lake */ = {
 			isa = PBXGroup;
 			children = (
-				2CE9E66517822ED30067E33E /* lakeLook.aiff */,
-				2CE9E66917822ED30067E33E /* lakeLeave.aiff */,
+				2CE9E66517822ED30067E33E /* windyLakeLook.aiff */,
+				2CE9E66917822ED30067E33E /* windyLakeLeave.aiff */,
 			);
 			name = Lake;
 			sourceTree = "<group>";
@@ -761,7 +761,7 @@
 				4C4FEB2316C4463700434F60 /* feat.params in Resources */,
 				4C4FEB2416C4463700434F60 /* mdef in Resources */,
 				4C4FEB2516C4463700434F60 /* means in Resources */,
-				2CE9E67217822ED30067E33E /* lakeLook.aiff in Resources */,
+				2CE9E67217822ED30067E33E /* windyLakeLook.aiff in Resources */,
 				4C4FEB2616C4463700434F60 /* noisedict in Resources */,
 				2CE9E67417822ED30067E33E /* darkCaveUse.aiff in Resources */,
 				4C4FEB2716C4463700434F60 /* sendump in Resources */,
@@ -773,7 +773,7 @@
 				4C4FEB2C16C4463700434F60 /* OpenEars1.gram in Resources */,
 				2CE9E67C1782FC7B0067E33E /* cabinFloorLook.aiff in Resources */,
 				4C4FEB2D16C4463700434F60 /* OpenEars1.languagemodel in Resources */,
-				2CE9E67617822ED30067E33E /* lakeLeave.aiff in Resources */,
+				2CE9E67617822ED30067E33E /* windyLakeLeave.aiff in Resources */,
 				4C4FEB2E16C4463700434F60 /* OpenEars2.gram in Resources */,
 				4C4FEB2F16C4463700434F60 /* OpenEarsCorpus.txt in Resources */,
 				4C11AEA216F0D5A500A9210A /* menu.plist in Resources */,

@@ -6,7 +6,7 @@
 	<string>Would you care to start an exciting text-based adventure? Tap once to begin.</string>
 	<key>nameRequest</key>
 	<string>What is the name of your character?</string>
-	<key>crashSite</key>
+	<key>crashSiteLook</key>
 	<string>Your time machine has stopped functioning and you&apos;re stranded sometime in the past. It looks like you&apos;ve landed in the wilderness somewhere. There&apos;s something shiny in the distance.</string>
 	<key>crashSiteLeave</key>
 	<string>You walk forward under the forest canopy towards the distant sparkling object. </string>
@@ -34,13 +34,13 @@
 	<string>The chest slowly creaks open. The password worked! Inside lies a single object: a sail.</string>
 	<key>cabinFloorPick</key>
 	<string>You pick up the sail and stuff it in your pack.</string>
-	<key>lakeUse</key>
+	<key>windyLakeUse</key>
 	<string>You climb into the small vessel and attach the sail.</string>
-	<key>lakeLook</key>
+	<key>windyLakeLook</key>
 	<string>You&apos;ve made it to the lake and a boat lies in front of you. The wind is blowing towards a rocky outcrop in the distance.</string>
-	<key>lakeBlock</key>
+	<key>windyLakeBlock</key>
 	<string>You jump into the boat, but the wind is too strong to move anywhere! Defeated, you climb back out to the shore...</string>
-	<key>lakeLeave</key>
+	<key>windyLakeLeave</key>
 	<string>Almost immediately, the sail catches the mighty wind and starts magically taking you towards the rocky outcrop.</string>
 	<key>darkCave</key>
 	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. Something&apos;s protruding out of the ground...</string>

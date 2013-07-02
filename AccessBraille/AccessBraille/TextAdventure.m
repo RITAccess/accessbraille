@@ -71,7 +71,7 @@
     [[self view] addSubview:_typedText];
     
     [self initSoundWithFileName:@"crashSite"];
-    [self prompt:@"crashSite"];
+    [self prompt:@"crashSiteLook"];
 }
 
 /**
@@ -86,7 +86,7 @@
         NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
         NSLog(@"%@", _currentLocation);
         [self initSoundWithFileName:lookString];
-        [self prompt:_currentLocation];
+        [self prompt:lookString];
     }
     else if ([command isEqualToString:@"move"])
     {
@@ -116,9 +116,9 @@
         else if ([_currentLocation isEqualToString:@"cabinFloor"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
-            _currentLocation = @"lake";
+            _currentLocation = @"windyLake";
         }
-        else if ([_currentLocation isEqualToString:@"lake"]){
+        else if ([_currentLocation isEqualToString:@"windyLake"]){
             if (sailAttached) {
                 [self initSoundWithFileName:leaveString];
                 [self prompt:leaveString];
@@ -150,7 +150,7 @@
         
         if ([_currentLocation isEqualToString:@"crashSite"]
             || [_currentLocation isEqualToString:@"secretCabin"]
-            || [_currentLocation isEqualToString:@"lake"])
+            || [_currentLocation isEqualToString:@"windyLake"])
         {
             [self initSoundWithFileName:@"femaleHmm"];
             [self prompt:@"pickBlock"];
@@ -190,7 +190,7 @@
             [self prompt:useString];
             [_pack removeObject:@"key"];
         }
-        else if ([_currentLocation isEqualToString:@"lake"] && [_pack containsObject:@"cabinFloorPick"])
+        else if ([_currentLocation isEqualToString:@"windyLake"] && [_pack containsObject:@"cabinFloorPick"])
         {
             sailAttached = YES;
             [self initSoundWithFileName:useString  ]; // Still need sail attach sound...
