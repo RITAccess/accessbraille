@@ -13,6 +13,8 @@
 #import "SidebarViewController.h"
 #import "NSArray+ObjectSubsets.h"
 #import "UIView+quickRemove.h"
+#import "TextAdventure.h"
+#import "MainMenu.h"
 
 @implementation NavigationContainer {
     
@@ -26,9 +28,16 @@
     UIPanGestureRecognizer *scroll;
     float menuPosRef;
     
+    MainMenu *_mainMenu;
+    
 }
 
 -(void)viewDidLoad {
+    
+    _mainMenu = [[MainMenu alloc] init];
+    [self addChildViewController:_mainMenu];
+    [self.view addSubview:_mainMenu.view];
+    [self.view sendSubviewToBack:_mainMenu.view];
     
 }
 
@@ -48,7 +57,7 @@
     
     [self addChildViewController:nav];
     [nav didMoveToParentViewController:self];
-   
+    
     openActive = NO;
     
 }
@@ -60,7 +69,7 @@
 /**
  Takes in a UIViewController and switches the view to that controller
  */
-- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
+- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu {
         
     [self.view removeSubviews];
     for (UIViewController *childViewController in self.childViewControllers){
@@ -71,9 +80,6 @@
     
     [self.view addSubview:controller.view];
     [controller viewDidAppear:animated];
-    if (menu) {
-        [self loadNavIntoView];
-    }
     
     CGRect frame = controller.view.frame;
     frame.origin.x = 0;
@@ -81,7 +87,40 @@
     
     currentVC = controller;
     
+    UIButton *menu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [menu setFrame:CGRectMake(2, 2, 100, 30)];
+    [menu addTarget:self action:@selector(menu) forControlEvents:UIControlEventTouchUpInside];
+    [menu setTitle:@"Menu" forState:UIControlStateNormal];
+    [menu setEnabled:YES];
+    [menu setTintColor:[UIColor blackColor]];
+    [self.view addSubview:menu];
+    [self.view bringSubviewToFront:menu];
+    
     [controller didMoveToParentViewController:self];
+}
+
+- (IBAction)testAction:(id)sender
+{
+    TextAdventure *ta = [[TextAdventure alloc] init];
+    [self switchToController:ta animated:YES withMenu:NO];
+    
+}
+
+- (void)menu
+{
+
+    [self addChildViewController:_mainMenu];
+    [self.view addSubview:_mainMenu.view];
+    [self.view sendSubviewToBack:_mainMenu.view];
+    [_mainMenu loadMenuItemsAnimated:YES];
+    
+    CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
+    [currentVC.view setUserInteractionEnabled:NO];
+    [UIView animateWithDuration:1.0 animations:^{
+        currentVC.view.transform = scale;
+        [currentVC.view setCenter:CGPointMake(600, 384)];
+        [self.view setBackgroundColor:[UIColor blueColor]];
+    }];
 }
 
 # pragma mark - Navigation Logic
