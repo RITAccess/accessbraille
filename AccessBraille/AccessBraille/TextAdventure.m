@@ -90,7 +90,7 @@
     }
     else if ([command isEqualToString:@"move"])
     {
-        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation];
+        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation]; 
         NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
         
         if ([_currentLocation isEqualToString:@"crashSite"]){
@@ -151,7 +151,38 @@
     }
     else if ([command isEqualToString:@"back"])
     {
-        // Fill in return commands.
+        NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"crashSite"] ||
+            [_currentLocation isEqualToString:@"darkCave"]) {
+            [self prompt:@"backBlock"];
+        }
+        else if ([_currentLocation isEqualToString:@"forestFloor"]){
+            [self initSoundWithFileName:@"crashSiteLeave"];
+            [self prompt:backString];
+            _currentLocation = @"crashSite";
+        }
+        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+            [self initSoundWithFileName:@"crashSiteLeave"];
+            [self prompt:backString];
+            _currentLocation = @"forestFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+            [self initSoundWithFileName:@"cabinFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"windyLake"]){
+            [self initSoundWithFileName:@"cabinFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"cabinFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:backString];
+            _currentLocation = @"darkFloor";
+        }
+        
     }
     else if ([command isEqualToString:@"pick"])
     {

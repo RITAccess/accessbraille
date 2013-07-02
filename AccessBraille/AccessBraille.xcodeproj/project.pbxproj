@@ -33,7 +33,6 @@
 		2CE9E67C1782FC7B0067E33E /* cabinFloorLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */; };
 		2CE9E67E1782FD1D0067E33E /* cabinFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */; };
 		2CE9E67F1782FD920067E33E /* crashSiteLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */; };
-		2CE9E681178302940067E33E /* secretCabinLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E680178302940067E33E /* secretCabinLook.aiff */; };
 		2CE9E68317830BE40067E33E /* darkCaveLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68217830BE40067E33E /* darkCaveLook.aiff */; };
 		2CE9E68517830C1E0067E33E /* darkCaveLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68417830C1E0067E33E /* darkCaveLeave.aiff */; };
 		2CE9E68717830CCB0067E33E /* darkCaveBlock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9E68617830CCB0067E33E /* darkCaveBlock.aiff */; };
@@ -172,7 +171,6 @@
 		2CE9E6791782FBFE0067E33E /* crashSiteLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crashSiteLook.aiff; path = ../../accessbraille_resources/Sounds/crashSiteLook.aiff; sourceTree = "<group>"; };
 		2CE9E67B1782FC7B0067E33E /* cabinFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLook.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLook.aiff; sourceTree = "<group>"; };
 		2CE9E67D1782FD1D0067E33E /* cabinFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cabinFloorLeave.aiff; path = ../../accessbraille_resources/Sounds/cabinFloorLeave.aiff; sourceTree = "<group>"; };
-		2CE9E680178302940067E33E /* secretCabinLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = secretCabinLook.aiff; path = ../../accessbraille_resources/Sounds/secretCabinLook.aiff; sourceTree = "<group>"; };
 		2CE9E68217830BE40067E33E /* darkCaveLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveLook.aiff; path = ../../accessbraille_resources/Sounds/darkCaveLook.aiff; sourceTree = "<group>"; };
 		2CE9E68417830C1E0067E33E /* darkCaveLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveLeave.aiff; path = ../../accessbraille_resources/Sounds/darkCaveLeave.aiff; sourceTree = "<group>"; };
 		2CE9E68617830CCB0067E33E /* darkCaveBlock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = darkCaveBlock.aiff; path = ../../accessbraille_resources/Sounds/darkCaveBlock.aiff; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 			children = (
 				2CE9E66117822ED30067E33E /* secretCabinLeave.aiff */,
 				2CE9E66617822ED30067E33E /* secretCabinBlock.aiff */,
-				2CE9E680178302940067E33E /* secretCabinLook.aiff */,
 			);
 			name = "Secret Cabin";
 			sourceTree = "<group>";
@@ -838,7 +835,6 @@
 				4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
-				2CE9E681178302940067E33E /* secretCabinLook.aiff in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,

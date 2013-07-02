@@ -16,14 +16,18 @@
 	<string>It&apos;s a shiny key! I wonder what it unlocks...</string>
 	<key>forestFloorLeave</key>
 	<string>You push onwards to the cabin&apos;s faint glow...</string>
+	<key>forestFloorBack</key>
+	<string>You head back to the crash site.</string>
 	<key>secretCabinLook</key>
-	<string>You&apos;ve made it to the cabin, but the door is locked!</string>
+	<string>You&apos;ve made it to the cabin. The cabin&apos;s door is in front of you.</string>
 	<key>secretCabinBlock</key>
 	<string>You slam your weight against the door but it doesn&apos;t budge. Unlocking the door looks like the only way to proceed...</string>
 	<key>secretCabinUse</key>
 	<string>The key fits! You unlock the secret cabin&apos;s door.</string>
 	<key>secretCabinLeave</key>
 	<string>You creep through the unlocked door into the small cabin.</string>
+	<key>secretCabinBack</key>
+	<string>You walk back into the forest.</string>
 	<key>cabinFloorLook</key>
 	<string>A crackling fireplace warms the small cabin. Through the window you see the edge of a lake. You notice a small chest in the corner of the room, on the side of it is a message: &apos;wind&apos;...  </string>
 	<key>cabinFloorLeave</key>
@@ -34,6 +38,8 @@
 	<string>The chest slowly creaks open. The password worked! Inside lies a single object: a sail.</string>
 	<key>cabinFloorPick</key>
 	<string>You pick up the sail and stuff it in your pack.</string>
+	<key>cabinFloorBack</key>
+	<string>You head back to the entrance of the cabin.</string>
 	<key>windyLakeUse</key>
 	<string>You climb into the small vessel and attach the sail.</string>
 	<key>windyLakeLook</key>
@@ -42,6 +48,8 @@
 	<string>You jump into the boat, but the wind is too strong to move anywhere! Defeated, you climb back out to the shore...</string>
 	<key>windyLakeLeave</key>
 	<string>Almost immediately, the sail catches the mighty wind and starts magically taking you towards the rocky outcrop.</string>
+	<key>windyLakeBack</key>
+	<string>You walk back up the beach and enter the back of the cabin.</string>
 	<key>darkCaveLook</key>
 	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. Something&apos;s protruding out of the ground...</string>
 	<key>darkCaveBlock</key>
@@ -60,11 +68,17 @@
 	<string>You rush out of the cavern, hop into the boat, and sail back to the cabin. You make it back to the time machine right before the sun completely sets. You stuff the silver into the engine and hop inside. With dials set to 2020, you slam the go button and warp back into the future. The End!</string>
 	<key>finalCavernBlock</key>
 	<string>Mounds of silver you need to return home is right in front of you! There&apos;s no way you&apos;re leaving the cavern without taking some...</string>
+	<key>finalCavernBack</key>
+	<string>You head back to the entrance of the cave.</string>
 	<key>wrongCommand</key>
 	<string>Not sure about... try something else.</string>
 	<key>pickBlock</key>
 	<string>There&apos;s nothing to pick up here...</string>
 	<key>helpText</key>
 	<string>Type the name of the object to put it in your pack or use it. Type LOOK to survey the area.</string>
+	<key>backBlock</key>
+	<string>You can&apos;t go back anymore... only forward.</string>
+	<key>useBlock</key>
+	<string>Nothing in your pack can be used here...</string>
 </dict>
 </plist>
