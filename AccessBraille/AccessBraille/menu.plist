@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>0</key>
+<array>
 	<string>brailleTyper</string>
-	<key>1</key>
-	<string>menu</string>
-	<key>2</key>
 	<string>settings</string>
-	<key>3</key>
 	<string>InstructionsMenu</string>
-	<key>4</key>
 	<string>FlashCard</string>
-	<key>5</key>
 	<string>TextAdventure</string>
-	<key>6</key>
 	<string>about</string>
-</dict>
+</array>
 </plist>

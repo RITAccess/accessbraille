@@ -23,7 +23,7 @@
 
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
-    NSDictionary *menuItemsDict;
+    NSArray *menuItemStoryboardReferanceName;
     ABSpeak *speak;
     NSNumber *active;
 }
@@ -37,6 +37,9 @@
     // Set menu properties
     _swipeSensitivity = 2000;
     
+
+    [self.view setBackgroundColor:[UIColor blueColor]];
+    
     
     // Pan gesture for scrolling and navigating
     scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
@@ -47,6 +50,14 @@
     
     // Load side menu
     [self loadMenuItemsAnimated:YES];
+    
+    UIGraphicsBeginImageContext(CGSizeMake(1024, 768));
+    [[UIImage imageNamed:@"mainMenu.png"] drawInRect:CGRectMake(0, 0, 1024, 768)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
     
     // Speaking
     speak = [[ABSpeak alloc] init];
@@ -123,14 +134,14 @@
     // Get menu information
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
-    menuItemsDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    menuItemStoryboardReferanceName = [[NSArray alloc] initWithContentsOfFile:finalPath];
     
     int startTag = 31;
     int startPos = 293;
     _menuRootItemPosition = startPos;
     
     // set menu item posisions and add gesture to image view
-    for (int i = 0; i < menuItemsDict.count; i++) {
+    for (int i = 0; i < menuItemStoryboardReferanceName.count; i++) {
         // load image and set tag
         MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
         [menuItem setUserInteractionEnabled:YES];
@@ -145,12 +156,13 @@
         [tap setNumberOfTapsRequired:1];
         [menuItem addGestureRecognizer:tap];
         [menuItem setDelegate:self];
-        
         // increment
         startTag++;
         startPos = startPos + 180;
     }
 
+    [self.view bringSubviewToFront:menuView];
+    
     if (animated) {
         NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
             UIImageView *img = (UIImageView *)obj1;
@@ -273,9 +285,7 @@
         }
     } completion:^(BOOL finished) {
 
-        // Gets storyboard name from menuItemsDict
-        NSString *key = [NSString stringWithFormat:@"%@", vcID];
-        NSString *controller = menuItemsDict[key];
+        NSString *controller = menuItemStoryboardReferanceName[[vcID intValue]];
         
         // Switches to that controller
         NavigationContainer *nc = (NavigationContainer *) self.parentViewController;

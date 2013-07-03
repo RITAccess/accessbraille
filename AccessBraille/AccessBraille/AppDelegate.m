@@ -97,10 +97,6 @@
 {
     // Override point for customization after application launch.
     
-    NavigationContainer *nc = (NavigationContainer *) self.window.rootViewController;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [nc switchToController:[storyboard instantiateViewControllerWithIdentifier:@"menu"] animated:YES withMenu:NO];
-    
     return YES;
 }
 							

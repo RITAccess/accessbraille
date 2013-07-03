@@ -10,49 +10,45 @@
 #import "BrailleTyperController.h"
 #import "UIBezelGestureRecognizer.h"
 #import <AudioToolbox/AudioToolbox.h>
-#import "SidebarViewController.h"
 #import "NSArray+ObjectSubsets.h"
 #import "UIView+quickRemove.h"
+#import "TextAdventure.h"
+#import "MainMenu.h"
 
 #import "ABBrailleOutput.h"
 
 @implementation NavigationContainer {
     
-    SidebarViewController *nav;    
     UIViewController *currentVC;
     
-    // For navigation
-    NSArray *navigationGestures;
-    __strong NSArray *storedGestures;
-    BOOL openActive;
     UIPanGestureRecognizer *scroll;
     float menuPosRef;
     
+    NSArray *gestures;
+    
+    MainMenu *_mainMenu;
+    UIButton *menu;
+    CGRect menuOut;
+    CGRect menuIn;
 }
 
 -(void)viewDidLoad {
     
-}
-
--(void)loadNavIntoView {
-
-    nav = [[SidebarViewController alloc] init];
+    _mainMenu = [[MainMenu alloc] init];
+    [self addChildViewController:_mainMenu];
+    [self.view addSubview:_mainMenu.view];
+    [self.view sendSubviewToBack:_mainMenu.view];
     
-    _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
-    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
-    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
-    navigationGestures = @[tapToClose];
+    menuIn = CGRectMake(2, 0, 100, 30);
+    menuOut = CGRectMake(2, -30, 100, 30);
     
-    [self.view addGestureRecognizer:_leftSideSwipe];
-    
-    [self.view addSubview:nav.view];
-    [self.view sendSubviewToBack:nav.view];
-    
-    [self addChildViewController:nav];
-    [nav didMoveToParentViewController:self];
-   
-    openActive = NO;
-    
+    menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *img = [UIImage imageNamed:@"menuTag.png"];
+    [menu setBackgroundImage:img forState:UIControlStateNormal];
+    [menu setAlpha:0.6];
+    [menu setFrame:menuOut];
+    [menu setEnabled:YES];
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods{ return TRUE; }
@@ -62,8 +58,8 @@
 /**
  Takes in a UIViewController and switches the view to that controller
  */
-- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
-        
+- (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu
+{
     [self.view removeSubviews];
     for (UIViewController *childViewController in self.childViewControllers){
         [childViewController removeFromParentViewController];
@@ -73,9 +69,6 @@
     
     [self.view addSubview:controller.view];
     [controller viewDidAppear:animated];
-    if (menu) {
-        [self loadNavIntoView];
-    }
     
     CGRect frame = controller.view.frame;
     frame.origin.x = 0;
@@ -83,81 +76,45 @@
     
     currentVC = controller;
     
+    [self.view addSubview:menu];
+    [self.view bringSubviewToFront:menu];
+    [menu setFrame:menuIn];
+    
     [controller didMoveToParentViewController:self];
 }
 
-# pragma mark - Navigation Logic
-
-/**
- Called by gesture framework and opens the navigation menu
- */
--(void)navSideBarActions:(UIBezelGestureRecognizer *)reg {
-    CGPoint touch = [reg locationInView:self.view];
-    switch (reg.state) {
-        case UIGestureRecognizerStateChanged: {
-            CGRect frame = currentVC.view.frame;
-            frame.origin.x = touch.x;
-            if (touch.x <= 100) {
-                [currentVC.view setFrame:frame];
-            } else {
-                // Menu is open
-                if (!openActive) {
-                    openActive = YES;
-                    frame.origin.x = 100;
-                    [currentVC.view setFrame:frame];   
-                    storedGestures = currentVC.view.gestureRecognizers;
-                    [currentVC.view setGestureRecognizers:navigationGestures];
-                    [self.view addGestureRecognizer:scroll];
-                }
-            }
-            break;
-        }
-            
-        case UIGestureRecognizerStateEnded:
-            if (touch.x < 100) {
-                [UIView animateWithDuration:.2 animations:^{
-                    CGRect frame = currentVC.view.frame;
-                    frame.origin.x = 0;
-                    [currentVC.view setFrame:frame];
-                }];
-            }
-            break;
-            
-        default:
-            break;
-    }
-}
-
-/**
- * Handles closing the menu
- */
-- (void)tapToClose:(UIGestureRecognizer *)reg {
-    [currentVC.view setGestureRecognizers:storedGestures];
-    [self.view removeGestureRecognizer:scroll];
-    openActive = NO;
-    [UIView animateWithDuration:.2 animations:^{
-        CGRect frame = currentVC.view.frame;
-        frame.origin.x = 0;
-        [currentVC.view setFrame:frame];
+- (void)menu:(id)sender
+{
+    [_mainMenu.view removeSubviews];
+    [self addChildViewController:_mainMenu];
+    [self.view addSubview:_mainMenu.view];
+    [self.view sendSubviewToBack:_mainMenu.view];
+    [_mainMenu loadMenuItemsAnimated:YES];
+    
+    gestures = currentVC.view.gestureRecognizers;
+    UITapGestureRecognizer *tapToReturn = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taptoreturn:)];
+    [tapToReturn setCancelsTouchesInView:YES];
+    [currentVC.view setGestureRecognizers:@[tapToReturn]];
+    
+    CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
+    [UIView animateWithDuration:0.3 animations:^{
+        currentVC.view.transform = scale;
+        [currentVC.view setCenter:CGPointMake(650, 384)];
+        [self.view setBackgroundColor:[UIColor blueColor]];
+        [menu setFrame:menuOut];
     }];
 }
 
+- (void)taptoreturn:(UITapGestureRecognizer *)reg
+{
+    [currentVC.view setGestureRecognizers:gestures];
+    CGAffineTransform scale = CGAffineTransformMakeScale(1.0, 1.0);
 
-/**
- * Called by gesture framework to navigate the menu.
-*/
--(void)panMenu:(UIPanGestureRecognizer *)reg{
-    
-    switch (reg.state){
-        case UIGestureRecognizerStateChanged:
-//            [nav updateMenuWithCGPoint:[reg translationInView:self.view]];
-            break;
-        case UIGestureRecognizerStateBegan:
-//            [nav setStartNavigation];
-            break;
-        default:
-            break;
-    }
+    [UIView animateWithDuration:0.3 animations:^{
+        currentVC.view.transform = scale;
+        [currentVC.view setCenter:CGPointMake(512, 384)];
+        [menu setFrame:menuIn];
+    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

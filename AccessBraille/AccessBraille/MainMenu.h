@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *OverlayDiscription;
 
 - (void)switchToControllerWithID:(NSNumber *)vcID;
+- (void)loadMenuItemsAnimated:(BOOL)animated;
 
 @end
