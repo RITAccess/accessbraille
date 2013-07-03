@@ -20,6 +20,7 @@
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
+#import "ABBrailleOutput.h"
 
 @interface BrailleTyperController ()
 
@@ -33,6 +34,7 @@
     // Layout
     Enabled *enabled;
     ABKeyboard *keyboard;
+    ABBrailleOutput *output;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -55,6 +57,13 @@
     [keyboard setDectiveStateWithTarget:self withSelector:@selector(deactive)];
     
     [keyboard setOutput:_textField];
+    
+    output = [[ABBrailleOutput alloc] init];
+    [output setFrame:CGRectMake(50, 30, 100, 30)];
+    [output setText:@"Write stuff in braille here"];
+    [self.view addSubview:output];
+    [self.view bringSubviewToFront:output];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
