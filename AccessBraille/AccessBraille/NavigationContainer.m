@@ -12,6 +12,9 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "SidebarViewController.h"
 #import "NSArray+ObjectSubsets.h"
+#import "UIView+quickRemove.h"
+
+#import "ABBrailleOutput.h"
 
 @implementation NavigationContainer {
     
@@ -28,7 +31,7 @@
 }
 
 -(void)viewDidLoad {
-
+    
 }
 
 -(void)loadNavIntoView {
@@ -36,6 +39,10 @@
     nav = [[SidebarViewController alloc] init];
     
     _leftSideSwipe = [[UIBezelGestureRecognizer alloc] initWithTarget:self action:@selector(navSideBarActions:)];
+    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
+    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
+    navigationGestures = @[tapToClose];
+    
     [self.view addGestureRecognizer:_leftSideSwipe];
     
     [self.view addSubview:nav.view];
@@ -43,10 +50,7 @@
     
     [self addChildViewController:nav];
     [nav didMoveToParentViewController:self];
-    
-    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
-    scroll = [[UIPanGestureRecognizer alloc] initWithTarget:nav action:@selector(moveMenuItems:)];
-    navigationGestures = @[tapToClose];
+   
     openActive = NO;
     
 }
@@ -60,9 +64,7 @@
  */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu {
         
-    for (UIView *subview in self.view.subviews){
-        [subview removeFromSuperview];
-    }
+    [self.view removeSubviews];
     for (UIViewController *childViewController in self.childViewControllers){
         [childViewController removeFromParentViewController];
     }

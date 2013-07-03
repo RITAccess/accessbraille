@@ -20,7 +20,7 @@
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
-#import "ABKeyboard.h"
+#import "ABBrailleOutput.h"
 
 @interface BrailleTyperController ()
 
@@ -34,6 +34,7 @@
     // Layout
     Enabled *enabled;
     ABKeyboard *keyboard;
+    ABBrailleOutput *output;
 }
 
 @synthesize typingStateOutlet = _typingStateOutlet;
@@ -54,6 +55,15 @@
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [keyboard setActiveStateWithTarget:self withSelector:@selector(active)];
     [keyboard setDectiveStateWithTarget:self withSelector:@selector(deactive)];
+    
+    [keyboard setOutput:_textField];
+    
+    output = [[ABBrailleOutput alloc] init];
+    [output setFrame:CGRectMake(50, 30, 100, 30)];
+    [output setText:@"Write stuff in braille here"];
+    [self.view addSubview:output];
+    [self.view bringSubviewToFront:output];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -73,11 +83,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.view setFrame:self.parentViewController.view.frame];
-    _TextDrawing.buf = [self getLastItemInTable];
+    [_textField setText:[self getLastItemInTable]];
 }
 
 -(void)saveState {
-    [self updateLastValue:[_TextDrawing getCurrentText]];
+    [self updateLastValue:_textField.text];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,26 +97,23 @@
 }
 
 - (void)viewDidUnload {
+    keyboard = nil;
+    enabled = nil;
+    self.view.gestureRecognizers = nil;
     [self setDrawingView:nil];
     [self setTextOutput:nil];
-    [self setTextDrawing:nil];
+    [self setTextField:nil];
     [super viewDidUnload];
 }
 
 # pragma mark - Typing Methods
 
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if (![info[ABBackspaceReceived] boolValue]) {
-        [_TextDrawing appendToText:character];
-        [keyboard startSpeakingString:character];
-    } else {
-        [_TextDrawing removeCharacter];
-    }
+    NSLog(@"Typed: %@", character);
 }
 
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info {
-    NSLog(@"Typed %@", word);
-    [keyboard startSpeakingString:word];
+    NSLog(@"Typed word: %@", word);
 }
 
 #pragma mark - Access Core Data Methods

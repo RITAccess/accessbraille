@@ -88,7 +88,6 @@
 		4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E00175CC87B00A3DEDA /* disable.mp3 */; };
 		4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E01175CC87B00A3DEDA /* hop.mp3 */; };
 		4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */; };
-		4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E03175CC87B00A3DEDA /* a.mp3 */; };
 		4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */; };
 		4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */; };
 		4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0E175CC8FA00A3DEDA /* menuItem0x90.png */; };
@@ -235,7 +234,6 @@
 		4C1B1E00175CC87B00A3DEDA /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disable.mp3; path = ../../accessbraille_resources/sounds/disable.mp3; sourceTree = "<group>"; };
 		4C1B1E01175CC87B00A3DEDA /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hop.mp3; path = ../../accessbraille_resources/sounds/hop.mp3; sourceTree = "<group>"; };
 		4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = incorrect.aiff; path = ../../accessbraille_resources/sounds/incorrect.aiff; sourceTree = "<group>"; };
-		4C1B1E03175CC87B00A3DEDA /* a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = a.mp3; path = ../../accessbraille_resources/sounds/a.mp3; sourceTree = "<group>"; };
 		4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../accessbraille_resources/Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		4C1B1E0C175CC8FA00A3DEDA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../accessbraille_resources/Images/Default.png; sourceTree = "<group>"; };
 		4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../accessbraille_resources/Images/Default@2x.png"; sourceTree = "<group>"; };
@@ -655,7 +653,6 @@
 				4C1B1E00175CC87B00A3DEDA /* disable.mp3 */,
 				4C1B1E01175CC87B00A3DEDA /* hop.mp3 */,
 				4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */,
-				4C1B1E03175CC87B00A3DEDA /* a.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -871,7 +868,6 @@
 				4CB58A341778BBB900D38D3C /* shortHandLookup.plist in Resources */,
 				4CB58A311778BBB900D38D3C /* prefixLevelFive.plist in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
-				4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,

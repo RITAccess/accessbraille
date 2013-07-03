@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "ABBrailleReader.h"
 
 @interface AccessBrailleTests : SenTestCase
 

@@ -44,6 +44,7 @@
         // Set Up Braille Interp
         brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
         [brailleReader setDelegate:_delegate];
+        [brailleReader setKeyboardInterface:self];
         
         // Audio
         _sound = YES;
@@ -55,6 +56,13 @@
         
     }
     return self;
+}
+
+- (void)setOutput:(UITextView *)output
+{
+    _output = output;
+    [_output setInputView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
+    [brailleReader setFieldOutput:_output];
 }
 
 /**
@@ -108,7 +116,6 @@
         
         // touch.transform = CGAffineTransformMakeRotation(angle);
         
-        
         [interface addSubview:touch];
     }
     [interface subViewsAdded];
@@ -153,13 +160,13 @@
             if (reg.translationFromStart > 200) {
                 [reg getTouchInfo];
                 [self playSound:ABEnableSound];
+                [_output becomeFirstResponder];
             }
             
             break;
         case ABGestureDirectionDOWN:
             
             if (reg.translationFromStart > 150) {
-                // Not quite working yet
                 [UIView animateWithDuration:1.5 animations:^{
                     CGRect orig = interface.frame;
                     orig.origin.y += [UIScreen mainScreen].bounds.size.height;
@@ -175,6 +182,7 @@
                 if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
                     [_deactiveTarget performSelector:_deactiveKeyboard];
                 }
+                [_output resignFirstResponder];
                 _keyboardActive = NO;
             }
             

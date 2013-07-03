@@ -14,6 +14,14 @@
 
 @implementation FlashCard
 
+@synthesize cardText;
+@synthesize typedText;
+@synthesize infoText;
+@synthesize pointsText;
+@synthesize swipeToSelectEasy;
+@synthesize swipeToSelectMedium;
+@synthesize swipeToSelectHard;
+
 #pragma mark - View
 
 - (void)viewDidLoad
@@ -59,21 +67,20 @@
     [[self view] addSubview:pointsText];
     
     /* Gestures */
-    UISwipeGestureRecognizer* swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
+    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
     [swipeToSelectEasy setEnabled:YES];
     [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
     [self.view addGestureRecognizer:swipeToSelectEasy];
     
-    UISwipeGestureRecognizer* swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
+    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
     [swipeToSelectMedium setEnabled:YES];
     [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeToSelectMedium];
     
-    UISwipeGestureRecognizer* swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
+    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
     [swipeToSelectHard setEnabled:YES];
     [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -90,8 +97,7 @@
 #pragma mark - Gestures
 
 - (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = false;
+    [self disableGesturesAndManageLabels];
     [self initializeCards:@"easy.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
@@ -99,8 +105,7 @@
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = false;
+    [self disableGesturesAndManageLabels];
     [self initializeCards:@"medium.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
@@ -108,37 +113,48 @@
 }
 
 - (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    infoText.text = nil;
-    pointsText.hidden = false;
     [self initializeCards:@"hard.plist"];
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
+    [self disableGesturesAndManageLabels];
     [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
     [speaker speakString:cardText.text];
 }
 
--(void)initializeCards:(NSString* )withDifficulty{
-    path = [[NSBundle mainBundle] bundlePath];
-    finalPath = [path stringByAppendingPathComponent:withDifficulty];
-    cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
-}
-
-
 #pragma mark - Card Mode
 
--(void)checkCard{
-    if ([cardText.text isEqualToString:typedText.text]) { // If the typed string matches the card.
+/**
+ * Checks to see if typed word matches the card displayed. If so, play a correct sound
+ * and switch to a new card. Else, play an incorrect sound.
+ */
+- (void)checkCard{
+    if ([cardText.text isEqualToString:typedText.text]) {
         AudioServicesPlaySystemSound(correctSound);
         pointsText.text = [NSString stringWithFormat:@"%d", ++points];
         [cardText setText:cards[arc4random() % maxHardCards]];
         [speaker speakString:cardText.text]; // Speak the new card.
         [self clearStrings];
-    }
-    else{
+    }else{
         AudioServicesPlaySystemSound(incorrectSound);
     }
 }
 
--(void)clearStrings{
+- (void)initializeCards:(NSString* )withDifficulty{
+    path = [[NSBundle mainBundle] bundlePath];
+    finalPath = [path stringByAppendingPathComponent:withDifficulty];
+    cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+}
+
+#pragma mark - Helper Methods
+
+- (void)disableGesturesAndManageLabels{
+    infoText.text = nil;
+    pointsText.hidden = NO;
+    swipeToSelectEasy.enabled = NO;
+    swipeToSelectMedium.enabled = NO;
+    swipeToSelectHard.enabled = NO;
+}
+
+- (void)clearStrings{
     typedText.text = @"";
     [stringFromInput setString:@""];
 }
@@ -147,7 +163,7 @@
  * Speak character being typed, as well as appending it to the UITextView.
  */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if ([character isEqual: @" "]){
+    if ([info[ABSpaceTyped] boolValue]){
         [self checkCard];
     }else{
         if ([info[ABBackspaceReceived] boolValue]){ // Remove character from typed string if backspace detected.
@@ -157,7 +173,6 @@
             }
         }
         else{
-            [speaker speakString:character];
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
         }

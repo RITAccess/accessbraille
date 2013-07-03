@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>100110</key>
+	<string>day</string>
+	<key>100010</key>
+	<string>ever</string>
+	<key>110100</key>
+	<string>father</string>
+	<key>110010</key>
+	<string>here</string>
+	<key>101000</key>
+	<string>know</string>
+	<key>111000</key>
+	<string>lord</string>
+	<key>101100</key>
+	<string>mother</string>
+	<key>101110</key>
+	<string>name</string>
+	<key>101010</key>
+	<string>one</string>
+	<key>111100</key>
+	<string>part</string>
+	<key>111110</key>
+	<string>question</string>
+	<key>111010</key>
+	<string>right</string>
+	<key>011100</key>
+	<string>some</string>
+	<key>011110</key>
+	<string>time</string>
+	<key>101001</key>
+	<string>under</string>
+	<key>101111</key>
+	<string>young</string>
+	<key>011101</key>
+	<string>there</string>
+	<key>100001</key>
+	<string>character</string>
+	<key>100111</key>
+	<string>through</string>
+	<key>100011</key>
+	<string>where</string>
+	<key>110011</key>
+	<string>ought</string>
+	<key>010111</key>
+	<string>work</string>
+</dict>
+</plist>

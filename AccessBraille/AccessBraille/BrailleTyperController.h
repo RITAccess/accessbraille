@@ -10,7 +10,8 @@
 #import "Drawing.h"
 #import "BrailleTyperOutputView.h"
 #import <CoreData/CoreData.h>
-#import "ABKeyboard.h"
+
+#import <ABKeyboard/ABKeyboard.h>
 
 @interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard>
 
@@ -19,9 +20,9 @@
 @property (strong, nonatomic) IBOutlet Drawing *DrawingView;
 @property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
+@property (weak, nonatomic) IBOutlet UITextView *textField;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) IBOutlet BrailleTyperOutputView *TextDrawing;
 @end

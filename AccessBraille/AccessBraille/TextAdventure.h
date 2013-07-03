@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ABKeyboard.h"
-#import "ABSpeak.h"
 #import "AVFoundation/AVFoundation.h"
+#import <ABKeyboard/ABKeyboard.h>
+#import <ABKeyboard/ABSpeak.h>
 
 @interface TextAdventure : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
 {
