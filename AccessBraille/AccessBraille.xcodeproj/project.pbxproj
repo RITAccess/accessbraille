@@ -99,6 +99,7 @@
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
 		4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C4CABB01784647200563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
+		4C4CABB21784714400563621 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CABB11784714400563621 /* About.rtf */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
@@ -251,6 +252,7 @@
 		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
 		4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleOutput.h; sourceTree = "<group>"; };
 		4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleOutput.m; sourceTree = "<group>"; };
+		4C4CABB11784714400563621 /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = About.rtf; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				4C751F1716FA052F003967D8 /* MenuTitles.plist */,
 				A9479C441670034E00CE9475 /* main.m */,
 				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
+				4C4CABB11784714400563621 /* About.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E16175CC8FA00A3DEDA /* Default-Landscape~ipad.png in Resources */,
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
+				4C4CABB21784714400563621 /* About.rtf in Resources */,
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				4CB58A331778BBB900D38D3C /* prefixLevelSeven.plist in Resources */,
