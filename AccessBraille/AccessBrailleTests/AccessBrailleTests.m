@@ -11,7 +11,6 @@
 #import "ABTypes.h"
 #import "ABBrailleReader.h"
 #import "ABParser.h"
-#import "SidebarViewController.h"
 #import "MainMenuItemImage.h"
 #import "NSArray+ObjectSubsets.h"
 #import "MainMenu.h"

@@ -8,7 +8,6 @@
 
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
-#import "UIBezelGestureRecognizer.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "NSArray+ObjectSubsets.h"
 #import "UIView+quickRemove.h"

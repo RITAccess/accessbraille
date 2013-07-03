@@ -14,15 +14,11 @@
 #import "BrailleTyperController.h"
 #import "Drawing.h"
 #import "NavigationContainer.h"
-#import "UIBezelGestureRecognizer.h"
-#import "Enabled.h"
-#import "BrailleTyperOutputView.h"
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
 
 @interface BrailleTyperController ()
-
 
 
 @end
@@ -31,7 +27,6 @@
 
 @implementation BrailleTyperController {
     // Layout
-    Enabled *enabled;
     ABKeyboard *keyboard;
     ABBrailleOutput *output;
 }
@@ -44,11 +39,6 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-        
-    // Draw views
-    enabled = [[Enabled alloc] initWithFrame:CGRectMake(971.5, 695.5, 44, 44)];
-    enabled.enable = FALSE;
-    [self.view addSubview:enabled];
     
     // Add Keyboard
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
@@ -96,7 +86,6 @@
 
 - (void)viewDidUnload {
     keyboard = nil;
-    enabled = nil;
     self.view.gestureRecognizers = nil;
     [self setDrawingView:nil];
     [self setTextOutput:nil];

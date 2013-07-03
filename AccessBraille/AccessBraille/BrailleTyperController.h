@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Drawing.h"
-#import "BrailleTyperOutputView.h"
 #import <CoreData/CoreData.h>
 
 #import <ABKeyboard/ABKeyboard.h>
