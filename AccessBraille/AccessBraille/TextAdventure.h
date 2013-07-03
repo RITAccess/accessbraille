@@ -7,24 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVFoundation/AVFoundation.h"
 #import <ABKeyboard/ABKeyboard.h>
 #import <ABKeyboard/ABSpeak.h>
 
-@interface TextAdventure : UIViewController <ABKeyboard> {
-
-    NSDictionary* texts;
+@interface TextAdventure : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
+{
+    ABKeyboard *keyboard;
+    ABSpeak *speaker;
     
-    ABKeyboard* keyboard;
-    ABSpeak* speaker;
+    AVAudioPlayer *avPlayer;
     
-    UITextView *typedText;
-    UITextView *infoText;
-    NSMutableString *stringFromInput;
-    
-    NSMutableArray* pack;
-    NSString* currentLocation;
-    
-    NSString *finalPath;
-    NSString *path;
+    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
 }
+
+@property NSDictionary *texts;
+@property UITextView *typedText, *infoText;
+@property NSMutableString *stringFromInput;
+@property NSMutableArray *pack, *rooms;
+@property NSString *currentLocation, *path, *playerName;
+@property NSURL *crashURL, *forestCrunchURL, *keyDropURL, *lakeURL, *doorOpenURL;
+
 @end

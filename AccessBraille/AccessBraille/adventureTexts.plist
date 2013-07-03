@@ -2,25 +2,83 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>bookPickup</key>
-	<string>That book will come in handy. You put it in your pack.</string>
-	<key>roomLeave</key>
-	<string>You head to the door and exit the room.</string>
 	<key>initialText</key>
 	<string>Would you care to start an exciting text-based adventure? Tap once to begin.</string>
-	<key>wakeupText</key>
-	<string>You wake up in your bed. Type LOOK to see what&apos;s around you.</string>
+	<key>nameRequest</key>
+	<string>What is the name of your character?</string>
+	<key>crashSiteLook</key>
+	<string>Your time machine has stopped functioning and you&apos;re stranded sometime in the past. It looks like you&apos;ve landed in the wilderness somewhere. There&apos;s something shiny in the distance.</string>
+	<key>crashSiteLeave</key>
+	<string>You walk forward under the forest canopy towards the distant sparkling object. </string>
+	<key>forestFloorLook</key>
+	<string>You&apos;re surrounded by trees everywhere deep in some forest. You see a cabin ahead of you. What&apos;s that glistening on the ground at your feet...</string>
+	<key>forestFloorPick</key>
+	<string>It&apos;s a shiny key! I wonder what it unlocks...</string>
+	<key>forestFloorLeave</key>
+	<string>You push onwards to the cabin&apos;s faint glow...</string>
+	<key>forestFloorBack</key>
+	<string>You head back to the crash site.</string>
+	<key>secretCabinLook</key>
+	<string>You&apos;ve made it to the cabin. The cabin&apos;s door is in front of you.</string>
+	<key>secretCabinBlock</key>
+	<string>You slam your weight against the door but it doesn&apos;t budge. Unlocking the door looks like the only way to proceed...</string>
+	<key>secretCabinUse</key>
+	<string>The key fits! You unlock the secret cabin&apos;s door.</string>
+	<key>secretCabinLeave</key>
+	<string>You creep through the unlocked door into the small cabin.</string>
+	<key>secretCabinBack</key>
+	<string>You walk back into the forest.</string>
+	<key>cabinFloorLook</key>
+	<string>A crackling fireplace warms the small cabin. Through the window you see the edge of a lake. You notice a small chest in the corner of the room, on the side of it is a message: &apos;wind&apos;...  </string>
+	<key>cabinFloorLeave</key>
+	<string>You walk out the cabin door and start heading to the lake.</string>
+	<key>cabinFloorPuzzleBlock</key>
+	<string>The password was uneffective. Maybe a different word will work...</string>
+	<key>cabinFloorPuzzle</key>
+	<string>The chest slowly creaks open. The password worked! Inside lies a single object: a sail.</string>
+	<key>cabinFloorPick</key>
+	<string>You pick up the sail and stuff it in your pack.</string>
+	<key>cabinFloorBack</key>
+	<string>You head back to the entrance of the cabin.</string>
+	<key>windyLakeUse</key>
+	<string>You climb into the small vessel and attach the sail.</string>
+	<key>windyLakeLook</key>
+	<string>You&apos;ve made it to the lake and a boat lies in front of you. The wind is blowing towards a rocky outcrop in the distance.</string>
+	<key>windyLakeBlock</key>
+	<string>You jump into the boat, but the wind is too strong to move anywhere! Defeated, you climb back out to the shore...</string>
+	<key>windyLakeLeave</key>
+	<string>Almost immediately, the sail catches the mighty wind and starts magically taking you towards the rocky outcrop.</string>
+	<key>windyLakeBack</key>
+	<string>You walk back up the beach and enter the back of the cabin.</string>
+	<key>darkCaveLook</key>
+	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. Something&apos;s protruding out of the ground...</string>
+	<key>darkCaveBlock</key>
+	<string>The cave is pitch black! There&apos;s no way for you to move forward. If only you could see better...</string>
+	<key>darkCavePick</key>
+	<string>The object protruding out of the ground is a box of matches and stick! You grab them.</string>
+	<key>darkCaveUse</key>
+	<string>You fashion a torch out of the matches and wood. Once you light the torch, a brilliant glow illuminates the room.</string>
+	<key>darkCaveLeave</key>
+	<string>No longer afraid of the dark expanses, you venture into the depths of the cave.</string>
+	<key>finalCavernLook</key>
+	<string>After what seems like miles of trudging through the cave, the path opens up into a giant cavern and you can&apos;t believe your eyes... the room is covered in gold, rubies, and silver!</string>
+	<key>finalCavernPick</key>
+	<string>You grab enough silver and cram it into your pack. You&apos;ll be able to return home!</string>
+	<key>finalCavernLeave</key>
+	<string>You rush out of the cavern, hop into the boat, and sail back to the cabin. You make it back to the time machine right before the sun completely sets. You stuff the silver into the engine and hop inside. With dials set to 2020, you slam the go button and warp back into the future. The End!</string>
+	<key>finalCavernBlock</key>
+	<string>Mounds of silver you need to return home is right in front of you! There&apos;s no way you&apos;re leaving the cavern without taking some...</string>
+	<key>finalCavernBack</key>
+	<string>You head back to the entrance of the cave.</string>
+	<key>wrongCommand</key>
+	<string>Not sure about... try something else.</string>
+	<key>pickBlock</key>
+	<string>There&apos;s nothing to pick up here...</string>
 	<key>helpText</key>
 	<string>Type the name of the object to put it in your pack or use it. Type LOOK to survey the area.</string>
-	<key>roomDescription</key>
-	<string>You&apos;re in a dark room. A book lies in front of you. I wonder what it says...</string>
-	<key>waterfrontDescription</key>
-	<string>You&apos;re at the waterfront. You see a boat in front of you and an island in the distance.</string>
-	<key>islandDescription</key>
-	<string>You made it to the island. A sparkling chest glimmers in front of you.</string>
-	<key>bookDescription</key>
-	<string>The book is full of hints! The first hint says: use the boat to get to the island.</string>
-	<key>boatDescription</key>
-	<string>You jump in the boat. It magically starts to move! It&apos;s taking you to the island.</string>
+	<key>backBlock</key>
+	<string>You can&apos;t go back anymore... only forward.</string>
+	<key>useBlock</key>
+	<string>Nothing in your pack can be used here...</string>
 </dict>
 </plist>

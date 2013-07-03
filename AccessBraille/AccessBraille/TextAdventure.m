@@ -14,98 +14,64 @@
 
 @implementation TextAdventure
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    path = [[NSBundle mainBundle] bundlePath];
-    finalPath = [path stringByAppendingPathComponent:@"adventureTexts.plist"];
-    texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    // Initialize Game Elements
+    _pack = [[NSMutableArray alloc]initWithCapacity:3];
+    _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
+    
+    _path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [_path stringByAppendingPathComponent:@"adventureTexts.plist"];
+    _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [[ABSpeak alloc]init];
-    [speaker speakString:[texts valueForKey:@"initialText"]];
     
     UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
     [tapToStart setEnabled:YES];
     [self.view addGestureRecognizer:tapToStart];
     
-    stringFromInput = [[NSMutableString alloc] init];
+    _stringFromInput = [[NSMutableString alloc] init];
     
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
-    [typedText setBackgroundColor:[UIColor greenColor]];
-    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:30]];
-    typedText.textColor = [UIColor blackColor];
-    [typedText setUserInteractionEnabled:NO];
+    _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
+    [_typedText setBackgroundColor:[UIColor greenColor]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:30]];
+    _typedText.textColor = [UIColor blackColor];
+    [_typedText setUserInteractionEnabled:NO];
     
-    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [infoText setText:[texts valueForKey:@"initialText"]];
-    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
-    [infoText setBackgroundColor:[UIColor clearColor]];
-    [infoText setUserInteractionEnabled:NO];
-    [[self view] addSubview:infoText];
+    _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
+    [_infoText setBackgroundColor:[UIColor clearColor]];
+    [_infoText setUserInteractionEnabled:NO];
+    [[self view] addSubview:_infoText];
+    
+    [self prompt:@"initialText"];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [super viewDidUnload];
 }
 
 
 #pragma mark - Gameplay Methods
 
--(void)startGame:(UIGestureRecognizer* )tapToStart{
+-(void)startGame:(UIGestureRecognizer* )tapToStart
+{
     [tapToStart setEnabled:NO];
-    [[self view] addSubview:typedText];
-    [speaker speakString:[texts valueForKey:@"wakeupText"]];
-    [infoText setText:[texts valueForKey:@"wakeupText"]];
+    [[self view] addSubview:_typedText];
     
-    // Initialize Game Elements
-    pack = [[NSMutableArray alloc]initWithCapacity:3];
-    currentLocation = [[NSString alloc] initWithString:[texts valueForKey:@"roomDescription"]];
-}
-
-/**
- * Add a pickup to the pack array.
- */
--(void)stashObject:(NSString* )item {
-    [pack addObject:item];
-}
-
-
--(void)changeToRoom:(NSString* )room {
-    if ([room isEqual: @"waterfront"]){
-        currentLocation = [texts valueForKey:@"waterfrontDescription"];
-    }
-}
-
-
-#pragma mark - Keyboard Methods
-
-/**
- * Speak character being typed, as well as appending it to the UITextView.
- */
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    if ([info[ABSpaceTyped] boolValue]){
-        [self checkCommand:typedText.text];
-        [self clearStrings];
-    }else{
-        if ([info[ABBackspaceReceived] boolValue]){ // Remove character from typed string if backspace detected.
-            if (stringFromInput.length > 0) {
-                [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
-                [typedText setText:stringFromInput];
-            }
-        }
-        else{
-            [speaker speakString:character];
-            [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-            [typedText setText:stringFromInput]; // Sets typed text to the label.
-        }
-    }
+    [self initSoundWithFileName:@"crashSite"];
+    [self prompt:@"crashSiteLook"];
 }
 
 /**
@@ -113,34 +79,220 @@
  * speak and print the message, or call necessary gameplay methoods
  * like room changing or item stashing.
  */
--(void)checkCommand:(NSString* )command{
-    if ([command isEqualToString:@"look"]){
-        [speaker speakString:currentLocation]; // Breaks on a prompt call for some reason.
-        [infoText setText:currentLocation];
-    } else if ([command isEqualToString:@"book"]){
-        if ([pack containsObject:@"book"]){
-            [self prompt:@"bookDescription"];
-        } else {
-            [self prompt:@"bookPickup"];
-            [self stashObject:@"book"];
-        }
-    } else if ([command isEqualToString:@"help"]){
-        [self prompt:@"helpText"];
-    } else if ([command isEqualToString:@"pack"]){
-        NSString* packContents = [pack componentsJoinedByString:@" "];
-        [speaker speakString:packContents];
-    } else if ([command isEqualToString:@"move"]){
-        if ([currentLocation isEqualToString:[texts valueForKey:@"roomDescription"]]){
-            [self prompt:@"roomLeave"];
-            [self changeToRoom:@"waterfront"];
-        }
-    } else if ([command isEqualToString:@"use"]){
-        if ([pack[0] isEqual: @"book"]){
-            [self prompt:@"book"];
-        }
-    } else {
-        [speaker speakString:@"Not sure about that. Try something else..."];
+- (void)checkCommand:(NSString* )command
+{
+    if ([command isEqualToString:@"look"])
+    {
+        NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
+        NSLog(@"%@", _currentLocation);
+        [self initSoundWithFileName:lookString];
+        [self prompt:lookString];
     }
+    else if ([command isEqualToString:@"move"])
+    {
+        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation]; 
+        NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"crashSite"]){
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
+            _currentLocation = @"forestFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"forestFloor"]){
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
+            _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+            if (doorUnlocked) {
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
+                _currentLocation = @"cabinFloor";
+            } else {
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+            [self initSoundWithFileName:leaveString];
+            [self prompt:leaveString];
+            _currentLocation = @"windyLake";
+        }
+        else if ([_currentLocation isEqualToString:@"windyLake"]){
+            if (sailAttached) {
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
+                _currentLocation = @"darkCave";
+            } else {
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"darkCave"]){
+            if (caveLit){
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
+                _currentLocation = @"finalCavern";
+            } else {
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+            if (collectedSilver){
+                [self initSoundWithFileName:leaveString];
+                [self prompt:leaveString];
+                _currentLocation = @"finalCavern";
+            } else {
+                [self initSoundWithFileName:blockString];
+                [self prompt:blockString];
+            }
+        }
+    }
+    else if ([command isEqualToString:@"back"])
+    {
+        NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"crashSite"] ||
+            [_currentLocation isEqualToString:@"darkCave"]) {
+            [self prompt:@"backBlock"];
+        }
+        else if ([_currentLocation isEqualToString:@"forestFloor"]){
+            [self initSoundWithFileName:@"crashSiteLeave"];
+            [self prompt:backString];
+            _currentLocation = @"crashSite";
+        }
+        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+            [self initSoundWithFileName:@"crashSiteLeave"];
+            [self prompt:backString];
+            _currentLocation = @"forestFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+            [self initSoundWithFileName:@"cabinFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"windyLake"]){
+            [self initSoundWithFileName:@"cabinFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"cabinFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:backString];
+            _currentLocation = @"darkFloor";
+        }
+        
+    }
+    else if ([command isEqualToString:@"pick"])
+    {
+        NSString *pickString = [NSString stringWithFormat:@"%@Pick", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"crashSite"]
+            || [_currentLocation isEqualToString:@"secretCabin"]
+            || [_currentLocation isEqualToString:@"windyLake"])
+        {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"pickBlock"];
+        }
+        else if ([_currentLocation isEqualToString:@"cabinFloor"])
+        {
+            if (chestOpened && ![_pack containsObject:pickString]){
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
+            } else {
+                [self initSoundWithFileName:@"secretCabinBlock"];
+                [self prompt:@"wrongCommand"];
+            }
+        }
+        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        {
+            if (![_pack containsObject:pickString]){
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
+                collectedSilver = YES;
+            } else {
+                [self initSoundWithFileName:@"femaleHmm"];
+                [self prompt:@"pickBlock"];
+            }
+        }
+        else
+        {
+            if ([_pack containsObject:pickString]){
+                [self initSoundWithFileName:@"femaleHmm"];
+                [self prompt:@"pickBlock"];
+            } else {
+                [self initSoundWithFileName:pickString];
+                [self prompt:pickString];
+                [_pack addObject:pickString];
+            }
+        }
+
+    }
+    else if ([command isEqualToString:@"use"])
+    {
+        NSString *useString = [NSString stringWithFormat:@"%@Use", _currentLocation];
+        
+        if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"forestFloorPick"])
+        {
+            doorUnlocked = YES;
+            [self initSoundWithFileName:useString];
+            [self prompt:useString];
+            [_pack removeObject:@"key"];
+        }
+        else if ([_currentLocation isEqualToString:@"windyLake"] && [_pack containsObject:@"cabinFloorPick"])
+        {
+            sailAttached = YES;
+            [self initSoundWithFileName:useString  ]; // Still need sail attach sound...
+            [self prompt:useString];
+            [_pack removeObject:@"sail"];
+        }
+        else if ([_currentLocation isEqualToString:@"darkCave"] && [_pack containsObject:@"darkCavePick"])
+        {
+            caveLit = YES;
+            [self initSoundWithFileName:useString]; // Still need sail attach sound...
+            [self prompt:useString];
+        }
+        else {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"useBlock"];
+        }
+    }
+    else if ([command isEqualToString:@"pack"]) // Speaks the content of the pack.
+    {
+        NSString* packContents = [_pack componentsJoinedByString:@" "];
+        [speaker speakString:packContents];
+    }
+    else if ([command isEqualToString:@"wind"])
+    {
+        if ([_currentLocation isEqualToString:@"cabinFloor"] && !chestOpened)
+        {
+            chestOpened = YES;
+            [self prompt:@"cabinFloorPuzzle"];
+            [self initSoundWithFileName:@"cabinFloorPuzzle"];
+        }
+        else
+        {
+            [self prompt:@"wrongCommand"];
+        }
+    }
+    else if ([command isEqualToString:@"help"])
+    {
+        [self prompt:@"helpText"];
+    }
+    else
+    {
+        [self prompt:@"wrongCommand"];
+    }
+}
+
+- (void)initSoundWithFileName:(NSString *)soundName
+{
+    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aiff"];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    [avPlayer play];
 }
 
 #pragma mark - Helper Methods
@@ -149,14 +301,41 @@
  * Speaks the message associated with the command as well as changing
  * the info text to represent what's being spoken.
  */
--(void)prompt:(NSString *)description {
-    [speaker speakString:[texts valueForKey:description]];
-    [infoText setText:[texts valueForKey:description]];
+- (void)prompt:(NSString *)description
+{
+    [speaker speakString:[_texts valueForKey:description]];
+    _infoText.text = [_texts valueForKey:description]; // This breaks for some reason...
 }
 
--(void)clearStrings{
-    typedText.text = @"";
-    [stringFromInput setString:@""];
+- (void)clearStrings
+{
+    _typedText.text = @"";
+    [_stringFromInput setString:@""];
+}
+
+#pragma mark - Keyboard Methods
+
+/**
+ * Speak character being typed, as well as appending it to the UITextView.
+ */
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
+{
+    if ([info[ABSpaceTyped] boolValue]){
+        [self checkCommand:_typedText.text];
+        [self clearStrings];
+    } else {
+        // Remove character from typed string if backspace detected.
+        if ([info[ABBackspaceReceived] boolValue]){
+            if (_stringFromInput.length > 0) {
+                [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
+                [_typedText setText:_stringFromInput];
+            }
+        } else {
+            [speaker speakString:character];
+            [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+            [_typedText setText:_stringFromInput]; // Sets typed text to the label.
+        }
+    }
 }
 
 @end

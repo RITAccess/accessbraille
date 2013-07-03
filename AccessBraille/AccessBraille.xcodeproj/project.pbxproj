@@ -86,7 +86,6 @@
 		4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E00175CC87B00A3DEDA /* disable.mp3 */; };
 		4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E01175CC87B00A3DEDA /* hop.mp3 */; };
 		4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */; };
-		4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E03175CC87B00A3DEDA /* a.mp3 */; };
 		4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */; };
 		4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */; };
 		4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E0E175CC8FA00A3DEDA /* menuItem0x90.png */; };
@@ -98,6 +97,7 @@
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */; };
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
+		4C4CABAE17845E7A00563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
@@ -230,7 +230,6 @@
 		4C1B1E00175CC87B00A3DEDA /* disable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = disable.mp3; path = ../../accessbraille_resources/sounds/disable.mp3; sourceTree = "<group>"; };
 		4C1B1E01175CC87B00A3DEDA /* hop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hop.mp3; path = ../../accessbraille_resources/sounds/hop.mp3; sourceTree = "<group>"; };
 		4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = incorrect.aiff; path = ../../accessbraille_resources/sounds/incorrect.aiff; sourceTree = "<group>"; };
-		4C1B1E03175CC87B00A3DEDA /* a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = a.mp3; path = ../../accessbraille_resources/sounds/a.mp3; sourceTree = "<group>"; };
 		4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../accessbraille_resources/Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		4C1B1E0C175CC8FA00A3DEDA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../accessbraille_resources/Images/Default.png; sourceTree = "<group>"; };
 		4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../accessbraille_resources/Images/Default@2x.png"; sourceTree = "<group>"; };
@@ -252,6 +251,8 @@
 		4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuNavigation.h; sourceTree = "<group>"; };
 		4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuNavigation.m; sourceTree = "<group>"; };
 		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
+		4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleOutput.h; sourceTree = "<group>"; };
+		4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleOutput.m; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
@@ -458,6 +459,8 @@
 		4CEFD38D16EE388E00961754 /* AccessBraille Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */,
+				4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */,
 				2C10E23517302D8600A2864B /* ABParser.h */,
 				2C10E23617302D8600A2864B /* ABParser.m */,
 				2C10E23717302D8600A2864B /* ABSpeak.h */,
@@ -644,7 +647,6 @@
 				4C1B1E00175CC87B00A3DEDA /* disable.mp3 */,
 				4C1B1E01175CC87B00A3DEDA /* hop.mp3 */,
 				4C1B1E02175CC87B00A3DEDA /* incorrect.aiff */,
-				4C1B1E03175CC87B00A3DEDA /* a.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -857,7 +859,6 @@
 				4CB58A341778BBB900D38D3C /* shortHandLookup.plist in Resources */,
 				4CB58A311778BBB900D38D3C /* prefixLevelFive.plist in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
-				4C1B1E0A175CC87B00A3DEDA /* a.mp3 in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
@@ -942,6 +943,7 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
+				4C4CABAE17845E7A00563621 /* ABBrailleOutput.m in Sources */,
 				4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,
