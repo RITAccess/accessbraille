@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
+#import "WelcomeViewController.h"
 #import <CoreData/CoreData.h>
 
 @implementation AppDelegate
@@ -97,6 +98,18 @@
 {
     // Override point for customization after application launch.
     
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"firstRun"]) { // !!!!!!!!!!!! SWITCH TO NOT !!!!!!!!!!!!!!!!!!
+        // First run!!!
+        
+        WelcomeViewController *wvc = [[UIStoryboard storyboardWithName:@"Welcome" bundle:nil] instantiateViewControllerWithIdentifier:WelcomeViewControllerID];
+        self.window.rootViewController = wvc;
+        
+        [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     return YES;
 }
 							

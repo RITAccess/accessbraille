@@ -100,6 +100,9 @@
 		4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C4CABB01784647200563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
 		4C4CABB21784714400563621 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CABB11784714400563621 /* About.rtf */; };
+		4C4CABB6178490C500563621 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABB5178490C500563621 /* WelcomeViewController.m */; };
+		4C4CABB8178495B600563621 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CABB71784958300563621 /* Welcome.storyboard */; };
+		4C4CAC961784966E00563621 /* Swipe_Left.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4CAC951784966E00563621 /* Swipe_Left.png */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
@@ -253,6 +256,10 @@
 		4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBrailleOutput.h; sourceTree = "<group>"; };
 		4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBrailleOutput.m; sourceTree = "<group>"; };
 		4C4CABB11784714400563621 /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = About.rtf; sourceTree = "<group>"; };
+		4C4CABB4178490C500563621 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		4C4CABB5178490C500563621 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		4C4CABB71784958300563621 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		4C4CAC951784966E00563621 /* Swipe_Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swipe_Left.png; sourceTree = "<group>"; };
 		4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTouchLayer.h; sourceTree = "<group>"; };
 		4C50A417170DCA8F00D03D44 /* ABTouchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTouchLayer.m; sourceTree = "<group>"; };
 		4C569AA417147A7B0073D8F8 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
@@ -403,6 +410,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4C4CABB3178490AA00563621 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				4C4CABB4178490C500563621 /* WelcomeViewController.h */,
+				4C4CABB5178490C500563621 /* WelcomeViewController.m */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
 		4C6442111774F95300A2771E /* Lookups */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +524,7 @@
 				4C1B1DE6175CC85500A3DEDA /* typerIcon.png */,
 				4C1B1DE7175CC85500A3DEDA /* icon.png */,
 				4C1B1DE8175CC85500A3DEDA /* menuItem.png */,
+				4C4CAC951784966E00563621 /* Swipe_Left.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -577,6 +594,7 @@
 				A9479C471670034E00CE9475 /* AppDelegate.h */,
 				A9479C481670034E00CE9475 /* AppDelegate.m */,
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
+				4C4CABB71784958300563621 /* Welcome.storyboard */,
 				A9479C3F1670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBraille;
@@ -635,6 +653,7 @@
 		A9ECC82216A764E900998AD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C4CABB3178490AA00563621 /* Welcome */,
 				A9ECC82916A7780B00998AD4 /* NavigationContainer.h */,
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
@@ -828,6 +847,7 @@
 				4C1B1DF9175CC85500A3DEDA /* splash@2x.png in Resources */,
 				4C1B1DFA175CC85500A3DEDA /* typerIcon.png in Resources */,
 				4C1B1DFB175CC85500A3DEDA /* icon.png in Resources */,
+				4C4CAC961784966E00563621 /* Swipe_Left.png in Resources */,
 				4C1B1DFC175CC85500A3DEDA /* menuItem.png in Resources */,
 				4CB58A2C1778BBB900D38D3C /* grade2lookup.plist in Resources */,
 				4C1B1E04175CC87B00A3DEDA /* navClick.aiff in Resources */,
@@ -850,6 +870,7 @@
 				4C4CABB21784714400563621 /* About.rtf in Resources */,
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
+				4C4CABB8178495B600563621 /* Welcome.storyboard in Resources */,
 				4CB58A331778BBB900D38D3C /* prefixLevelSeven.plist in Resources */,
 				4CB58A2E1778BBB900D38D3C /* prefixLevelTwo.plist in Resources */,
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
@@ -937,6 +958,7 @@
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
+				4C4CABB6178490C500563621 /* WelcomeViewController.m in Sources */,
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
 				2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */,
 				2CC54E84176615C2001B595A /* AboutViewController.m in Sources */,
