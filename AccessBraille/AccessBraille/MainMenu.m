@@ -23,7 +23,7 @@
 
 @implementation MainMenu {
     UIPanGestureRecognizer *scrollMenu;
-    NSArray *menuItemsDict;
+    NSArray *menuItemStoryboardReferanceName;
     ABSpeak *speak;
     NSNumber *active;
 }
@@ -134,14 +134,14 @@
     // Get menu information
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
-    menuItemsDict = [[NSArray alloc] initWithContentsOfFile:finalPath];
+    menuItemStoryboardReferanceName = [[NSArray alloc] initWithContentsOfFile:finalPath];
     
     int startTag = 31;
     int startPos = 293;
     _menuRootItemPosition = startPos;
     
     // set menu item posisions and add gesture to image view
-    for (int i = 0; i < menuItemsDict.count; i++) {
+    for (int i = 0; i < menuItemStoryboardReferanceName.count; i++) {
         // load image and set tag
         MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
         [menuItem setUserInteractionEnabled:YES];
@@ -285,7 +285,7 @@
         }
     } completion:^(BOOL finished) {
 
-        NSString *controller = menuItemsDict[[vcID intValue]];
+        NSString *controller = menuItemStoryboardReferanceName[[vcID intValue]];
         
         // Switches to that controller
         NavigationContainer *nc = (NavigationContainer *) self.parentViewController;
