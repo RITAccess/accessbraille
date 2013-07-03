@@ -97,7 +97,8 @@
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */; };
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
-		4C4CABAE17845E7A00563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
+		4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C4CABB01784647200563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
@@ -684,6 +685,7 @@
 				4C05CE1F1778B10000F80C70 /* ABParser.h in Headers */,
 				4C05CE211778B16700F80C70 /* ABSpeak.h in Headers */,
 				4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */,
+				4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */,
 				4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */,
 				4C05CE251778B17800F80C70 /* ABTouchLayer.h in Headers */,
 				4C05CE241778B17400F80C70 /* ABBrailleReader.h in Headers */,
@@ -933,6 +935,7 @@
 				4CB58A281778B6EA00D38D3C /* UITextView+simpleadd.m in Sources */,
 				4C05CE281778B18700F80C70 /* ABSpeak.m in Sources */,
 				4C05CE2D1778B18700F80C70 /* ABTouchLayer.m in Sources */,
+				4C4CABB01784647200563621 /* ABBrailleOutput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,7 +946,6 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
-				4C4CABAE17845E7A00563621 /* ABBrailleOutput.m in Sources */,
 				4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A934326B169F483D00C659C1 /* UIBezelGestureRecognizer.m in Sources */,

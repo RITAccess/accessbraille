@@ -20,7 +20,6 @@
 #import "AppDelegate.h"
 #import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
-#import "ABBrailleOutput.h"
 
 @interface BrailleTyperController ()
 
@@ -59,8 +58,8 @@
     [keyboard setOutput:_textField];
     
     output = [[ABBrailleOutput alloc] init];
-    [output setFrame:CGRectMake(50, 30, 100, 30)];
-    [output setText:@"Write stuff in braille here"];
+    [output setFrame:CGRectMake(25, 300, 100, 30)];
+    [output setText:@""];
     [self.view addSubview:output];
     [self.view bringSubviewToFront:output];
     
@@ -109,6 +108,7 @@
 
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     NSLog(@"Typed: %@", character);
+    [output setText:_textField.text];
 }
 
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info {
