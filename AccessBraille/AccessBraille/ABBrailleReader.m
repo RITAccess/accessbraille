@@ -149,7 +149,6 @@
         }
         // if space proccess last typed word if grade two
         if ([brailleString isEqualToString:ABSpaceCharacter]) {
-            NSString *word = @"";
             switch (_grade) {
                 case ABGradeOne:
                     break;
