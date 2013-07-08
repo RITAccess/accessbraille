@@ -8,8 +8,6 @@
 
 #import "ABActivateKeyboardGestureRecognizer.h"
 
-// TODO add documentation...
-
 @protocol ABKeyboard <NSObject>
 
 @optional
@@ -62,7 +60,6 @@
 - (void)startSpeakingString:(NSString *)string;
 
 /* Keyboard state callbacks */
-// TODO rewrite to delegate calls
 - (void)setActiveStateWithTarget:(id)target withSelector:(SEL)selector;
 - (void)setDectiveStateWithTarget:(id)target withSelector:(SEL)selector;
 
