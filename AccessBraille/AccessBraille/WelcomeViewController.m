@@ -7,8 +7,11 @@
 //
 
 #import "WelcomeViewController.h"
+#import <ABKeyboard/ABSpeak.h>
 
 @interface WelcomeViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextView *infoText;
 
 @end
 
@@ -27,6 +30,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[[ABSpeak alloc]init]speakString:_infoText.text];
 }
 
 - (void)didReceiveMemoryWarning
