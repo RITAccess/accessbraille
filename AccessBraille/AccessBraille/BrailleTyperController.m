@@ -53,7 +53,6 @@
     [self.view addSubview:output];
     [self.view bringSubviewToFront:output];
     
-    [[ABSpeak sharedInstance] speakString:@"Hello World this is a long sentance that is being spoken a few times, Hello World this is a long sentance that is being spoken a few times, Hello World this is a long sentance that is being spoken a few times, Hello World this is a long sentance that is being spoken a few times"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -69,7 +68,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self saveState];
     NSLog(@"View did disappear");
-    [[ABSpeak sharedInstance] stopSpeaking];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
