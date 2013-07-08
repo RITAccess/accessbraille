@@ -14,6 +14,10 @@
 #endif
 
 @implementation ABSpeak
+{
+    NSOperationQueue *speakQueue;
+}
+
 #if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
 @synthesize fliteController;
 @synthesize slt;
@@ -21,18 +25,28 @@
 
 - (void)speakString:(NSString *)string {
     
+    if (speakQueue)
+        speakQueue = [[NSOperationQueue alloc] init];
+    
     if(NSClassFromString(@"AVSpeechSynthesizer")) {
         
         AVSpeechSynthesizer *speak = [[AVSpeechSynthesizer alloc] init];
         AVSpeechUtterance *talk = [AVSpeechUtterance speechUtteranceWithString:string];
-        [speak speakUtterance:talk];
+        [speakQueue addOperationWithBlock:^{
+            [speak speakUtterance:talk];
+        }];
         
     } else {
-
-        [self.fliteController say:string withVoice:self.slt];
-    
+        [speakQueue addOperationWithBlock:^{
+            [self.fliteController say:string withVoice:self.slt];
+        }];
     }
     
+}
+
+- (void)stopSpeaking
+{
+    [speakQueue cancelAllOperations];
 }
 
 #if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0

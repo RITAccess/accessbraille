@@ -20,5 +20,6 @@
 @property (strong, nonatomic) Slt *slt;
 
 - (void)speakString:(NSString *)string;
+- (void)stopSpeaking;
 
 @end
