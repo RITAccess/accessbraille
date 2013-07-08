@@ -1,5 +1,4 @@
 # Access Braille
-### Master
  [![Build Status](https://travis-ci.org/RITAccess/accessbraille.png?branch=master)](https://travis-ci.org/RITAccess/accessbraille)
 
 * * *
