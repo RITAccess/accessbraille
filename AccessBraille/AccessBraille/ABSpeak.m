@@ -18,10 +18,16 @@
     NSOperationQueue *speakQueue;
 }
 
-#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
 @synthesize fliteController;
 @synthesize slt;
-#endif
+
++ (instancetype)sharedInstance
+{
+    
+    
+    
+    return nil;
+}
 
 - (void)speakString:(NSString *)string {
     
@@ -49,8 +55,6 @@
     [speakQueue cancelAllOperations];
 }
 
-#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
-
 - (FliteController *)fliteController {
 	if (fliteController == nil) {
 		fliteController = [[FliteController alloc] init];
@@ -64,7 +68,5 @@
 	}
 	return slt;
 }
-
-#endif
 
 @end
