@@ -105,6 +105,8 @@
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
+		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
+		4C8EB64E178B0C1A00C1A317 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
 		4C97DC731783610400D83968 /* menuTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C97DC7217835CC900D83968 /* menuTag.png */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
@@ -147,7 +149,6 @@
 		A9479C491670034E00CE9475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C481670034E00CE9475 /* AppDelegate.m */; };
 		A9479C521670034E00CE9475 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9479C501670034E00CE9475 /* MainStoryboard.storyboard */; };
 		A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9479C541670034E00CE9475 /* BrailleTyperController.m */; };
-		A9479C5D1670034E00CE9475 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
 		A9479C5E1670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C671670034F00CE9475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9479C651670034E00CE9475 /* InfoPlist.strings */; };
@@ -158,6 +159,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		4C05CE3E1778B24300F80C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9479C2D1670034D00CE9475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C05CE101778AFD200F80C70;
+			remoteInfo = ABKeyboard;
+		};
+		4CFEE0D9178B0C63003DEEF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9479C2D1670034D00CE9475 /* Project object */;
 			proxyType = 1;
@@ -269,6 +277,7 @@
 		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
+		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
 		4C97DC7217835CC900D83968 /* menuTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuTag.png; path = ../../accessbraille_resources/menuTag.png; sourceTree = "<group>"; };
 		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		4CA076E116D58A3A006DDBD3 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -335,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */,
 				3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */,
 				4C05CE421778B42300F80C70 /* ABKeyboard.framework in Frameworks */,
 				4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */,
@@ -349,7 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9479C5D1670034E00CE9475 /* SenTestingKit.framework in Frameworks */,
+				4C8EB64E178B0C1A00C1A317 /* SenTestingKit.framework in Frameworks */,
 				A9479C5E1670034E00CE9475 /* UIKit.framework in Frameworks */,
 				A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */,
 			);
@@ -553,6 +563,7 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C8EB643178B0B0700C1A317 /* Slt.framework */,
 				3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */,
 				4C05CE411778B42300F80C70 /* ABKeyboard.framework */,
 				4C89EA9916C0143B00318BE2 /* CoreData.framework */,
@@ -727,6 +738,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4CFEE0DA178B0C63003DEEF8 /* PBXTargetDependency */,
 				A9479C611670034E00CE9475 /* PBXTargetDependency */,
 			);
 			name = AccessBrailleTests;
@@ -820,6 +832,7 @@
 				4C1B1DF2175CC85500A3DEDA /* menuItem3.png in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem3x90.png in Resources */,
 				4C1B1DF4175CC85500A3DEDA /* slideOutMenu.png in Resources */,
+				4C4CABB21784714400563621 /* About.rtf in Resources */,
 				4C1B1DF5175CC85500A3DEDA /* HightBar.png in Resources */,
 				4C1B1DF6175CC85500A3DEDA /* icon144.png in Resources */,
 				4C1B1DF7175CC85500A3DEDA /* splash-01.png in Resources */,
@@ -847,7 +860,6 @@
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E16175CC8FA00A3DEDA /* Default-Landscape~ipad.png in Resources */,
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
-				4C4CABB21784714400563621 /* About.rtf in Resources */,
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				4CB58A331778BBB900D38D3C /* prefixLevelSeven.plist in Resources */,
@@ -958,6 +970,11 @@
 			isa = PBXTargetDependency;
 			target = 4C05CE101778AFD200F80C70 /* ABKeyboard */;
 			targetProxy = 4C05CE3E1778B24300F80C70 /* PBXContainerItemProxy */;
+		};
+		4CFEE0DA178B0C63003DEEF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C05CE101778AFD200F80C70 /* ABKeyboard */;
+			targetProxy = 4CFEE0D9178B0C63003DEEF8 /* PBXContainerItemProxy */;
 		};
 		A9479C611670034E00CE9475 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1171,11 +1188,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Framework\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Framework\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\\\\\\\\\"",
 					"$(SRCROOT)",
 					"$(SRCROOT)/Products",
 					"$(SRCROOT)/ABKeyboard/OpenEars",
+					"$(SRCROOT)/Framework/OpenEars",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1219,11 +1237,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Framework\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Framework\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\\\\\\\\\"",
 					"$(SRCROOT)",
 					"$(SRCROOT)/Products",
 					"$(SRCROOT)/ABKeyboard/OpenEars",
+					"$(SRCROOT)/Framework/OpenEars",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1258,12 +1277,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SRCROOT)/Framework/OpenEars",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1275,12 +1297,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SRCROOT)/Framework/OpenEars",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

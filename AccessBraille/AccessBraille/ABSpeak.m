@@ -6,16 +6,17 @@
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
+
 #import <Availability.h>
 #import "ABSpeak.h"
+#import "AppDelegate.h"
 
 #if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
     #import <AVFoundation/AVSpeechSynthesis.h>
 #endif
 
-@implementation ABSpeak
-{
-    NSOperationQueue *speakQueue;
+@implementation ABSpeak {
+    AVSpeechSynthesizer *speaker;
 }
 
 @synthesize fliteController;
@@ -23,36 +24,34 @@
 
 + (instancetype)sharedInstance
 {
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
     
+    if (!app.speaker)
+        app.speaker = [[ABSpeak alloc] init];
     
-    
-    return nil;
+    return app.speaker;
 }
 
 - (void)speakString:(NSString *)string {
     
-    if (speakQueue)
-        speakQueue = [[NSOperationQueue alloc] init];
-    
     if(NSClassFromString(@"AVSpeechSynthesizer")) {
         
-        AVSpeechSynthesizer *speak = [[AVSpeechSynthesizer alloc] init];
-        AVSpeechUtterance *talk = [AVSpeechUtterance speechUtteranceWithString:string];
-        [speakQueue addOperationWithBlock:^{
-            [speak speakUtterance:talk];
-        }];
+        speaker = [[AVSpeechSynthesizer alloc] init];
+        AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
+        [speaker speakUtterance:currentUtterance];
         
     } else {
-        [speakQueue addOperationWithBlock:^{
-            [self.fliteController say:string withVoice:self.slt];
-        }];
+        [self.fliteController say:string withVoice:self.slt];
     }
     
 }
 
 - (void)stopSpeaking
 {
-    [speakQueue cancelAllOperations];
+    // TODO Stop fliteController
+    self.fliteController = nil;
+    self.fliteController = [self fliteController];
+    [speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
 }
 
 - (FliteController *)fliteController {
