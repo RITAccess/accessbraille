@@ -37,9 +37,10 @@
     _stringFromInput = [[NSMutableString alloc] init];
     
     _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
-    [_typedText setBackgroundColor:[UIColor greenColor]];
-    [_typedText setFont:[UIFont boldSystemFontOfSize:30]];
+    [_typedText setBackgroundColor:[UIColor colorWithHue:50 saturation:10 brightness:91 alpha:.5]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
     _typedText.textColor = [UIColor blackColor];
+    _typedText.layer.cornerRadius = 5;
     [_typedText setUserInteractionEnabled:NO];
     
     _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
@@ -336,7 +337,6 @@
                 [_typedText setText:_stringFromInput];
             }
         } else {
-            [speaker speakString:character];
             [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [_typedText setText:_stringFromInput]; // Sets typed text to the label.
         }
