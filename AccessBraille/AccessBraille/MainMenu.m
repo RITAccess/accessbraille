@@ -131,8 +131,7 @@
         [speak stopSpeaking];
         active = [self checkInBounds];
         if (![active  isEqual: @(-1)]) {
-            [speak speakString:[NSString stringWithFormat:@"%@", [names objectAtIndex:[active intValue
-                                                                                       ]]]];
+            [speak speakString:[NSString stringWithFormat:@"%@", [names objectAtIndex:[active intValue]]]];
         }
     }
 }

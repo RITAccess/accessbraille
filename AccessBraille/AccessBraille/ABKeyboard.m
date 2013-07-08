@@ -101,6 +101,7 @@
     [interface setAlpha:0.4];
     [interface setClearsContextBeforeDrawing:YES];
     [interface setDelegate:brailleReader];
+    [brailleReader setLayer:interface];
     
     for (int i = 0; i < 6; i++){
         

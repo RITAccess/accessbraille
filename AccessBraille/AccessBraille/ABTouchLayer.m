@@ -21,6 +21,7 @@
     
     /* Avg tracking */
     float farX;
+    float nearX;
     float avgY;
     int totalY;
 }
@@ -63,6 +64,33 @@
     
     CGContextStrokePath(context);
     
+    if (_shift || _caps) {
+        // Start Caps
+        [[UIColor blueColor] set];
+        UIBezierPath *caps = [UIBezierPath new];
+        [caps setLineWidth:5.0];
+        [caps moveToPoint:CGPointMake(50, 50)];
+        [caps addLineToPoint:CGPointMake(70, 75)];
+        [caps addLineToPoint:CGPointMake(60, 75)];
+        [caps addLineToPoint:CGPointMake(60, 100)];
+        [caps addLineToPoint:CGPointMake(40, 100)];
+        [caps addLineToPoint:CGPointMake(40, 75)];
+        [caps addLineToPoint:CGPointMake(30, 75)];
+        [caps addLineToPoint:CGPointMake(50, 50)];
+        [caps addLineToPoint:CGPointMake(70, 75)];
+        
+        if (_caps) {
+            [caps fill];
+            [[UIColor whiteColor] set];
+            [caps setLineWidth:3.0];
+            [caps stroke];
+        } else {
+            [caps stroke];
+        }
+    }
+    
+    // End Caps
+    
     for (ABTouchView *subview in self.subviews) {
         if ([subview isKindOfClass:[ABTouchView class]]) {
             CGRect frame = subview.frame;
@@ -81,6 +109,8 @@
     for (UIView *sv in self.subviews) {
         if (sv.tag == 5) {
             farX = sv.frame.origin.x + sv.frame.size.width;
+        } else if (sv.tag == 0) {
+            nearX = sv.frame.origin.x;
         }
     }
 }
@@ -142,6 +172,16 @@
 - (void)receiveScreenTap:(UITapGestureRecognizer *)reg {
     if ([reg locationInView:self].x > farX) {
         [self backspace];
+    } else if ([reg locationInView:self].x < nearX) {
+        if (_shift == YES && _caps == NO) {
+            _caps = YES;
+        } else if (_caps == YES) {
+            _shift = NO;
+            _caps = NO;
+        } else {
+            _shift = YES;
+        }
+        [self setNeedsDisplay];
     } else if ([reg locationInView:self].y > (avgY + 70 + _ajt) && [reg locationInView:self].x < farX) {
         [self space];
     }

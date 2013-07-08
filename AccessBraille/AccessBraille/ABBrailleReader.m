@@ -195,6 +195,16 @@
         return;
     } else {
         [speak speakString:string];
+        
+        if(_layer.shift) {
+            string = [string uppercaseString];
+            _layer.shift = NO;
+            [_layer setNeedsDisplay];
+        }
+        if (_layer.caps) {
+            string = [string uppercaseString];
+        }
+        
         [_fieldOutput insertText:string];
         [_delegate characterTyped:string withInfo:@{ABGestureInfoStatus : @(YES),
                                                            ABSpaceTyped : @(NO),
