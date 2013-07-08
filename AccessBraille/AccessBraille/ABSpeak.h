@@ -9,6 +9,8 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 
+// TODO add documentation
+
 @interface ABSpeak : NSObject {
     FliteController *fliteController;
     Slt *slt;
@@ -18,5 +20,6 @@
 @property (strong, nonatomic) Slt *slt;
 
 - (void)speakString:(NSString *)string;
+- (void)stopSpeaking;
 
 @end
