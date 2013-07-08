@@ -11,7 +11,7 @@
 #import "MainMenuNavigation.h"
 #import "NSArray+ObjectSubsets.h"
 #import "MainMenuItemImage.h"
-#import "ABSpeak.h"
+#import <ABKeyboard/ABSpeak.h>
 
 @interface MainMenu ()
     
@@ -26,6 +26,7 @@
     NSArray *menuItemStoryboardReferanceName;
     ABSpeak *speak;
     NSNumber *active;
+    NSArray *names;
 }
 
 @synthesize menuView;
@@ -58,9 +59,11 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     
+    NSString *titlePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"MenuTitles.plist"];
+    names = [[NSArray alloc] initWithContentsOfFile:titlePath];
     
     // Speaking
-    speak = [[ABSpeak alloc] init];
+    speak = [ABSpeak sharedInstance];
     
 }
 
@@ -123,6 +126,14 @@
     for (UIImageView *item in menuItems){
         float diffFromRoot = 180 * (item.tag - 31);
         [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
+    }
+    if (![active isEqual:[self checkInBounds]]) {
+        [speak stopSpeaking];
+        active = [self checkInBounds];
+        if (![active  isEqual: @(-1)]) {
+            [speak speakString:[NSString stringWithFormat:@"%@", [names objectAtIndex:[active intValue
+                                                                                       ]]]];
+        }
     }
 }
 
@@ -230,9 +241,7 @@
  **/
 - (void)setMenuContentInformationAtLocation:(NSNumber *)cvID {
     NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
     NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
-    NSArray *titles = [[NSArray alloc] initWithContentsOfFile:titlePath];
     NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
     
     if (cvID.intValue == -1){
@@ -243,7 +252,7 @@
     } else {
         [UIView animateWithDuration:2.0 animations:^{
             [menuView setHightlightWidth:750];
-            [_OverlayTitle setText:titles[cvID.intValue]];
+            [_OverlayTitle setText:names[cvID.intValue]];
             [_OverlayDiscription setText:context[cvID.intValue]];
         }];
     }
@@ -256,12 +265,12 @@
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
     NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
-    NSArray *titles = [[NSArray alloc] initWithContentsOfFile:titlePath];
+    names = [[NSArray alloc] initWithContentsOfFile:titlePath];
     NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
     
     NSString *b = @"";
     if (cvID.intValue != -1) {
-        b = [b stringByAppendingString:titles[cvID.intValue]];
+        b = [b stringByAppendingString:names[cvID.intValue]];
         b = [b stringByAppendingString:@". "];
         b = [b stringByAppendingString:context[cvID.intValue]];
     }
