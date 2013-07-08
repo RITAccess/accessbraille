@@ -11,12 +11,11 @@
 #import "ABSpeak.h"
 #import "AppDelegate.h"
 
-#if defined(__IPHONE_7_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
-    #import <AVFoundation/AVSpeechSynthesis.h>
-#endif
+#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVSpeechSynthesis.h>
 
 @implementation ABSpeak {
-    AVSpeechSynthesizer *speaker;
+    __strong AVSpeechSynthesizer *speaker;
 }
 
 @synthesize fliteController;
@@ -25,33 +24,37 @@
 + (instancetype)sharedInstance
 {
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
-    
     if (!app.speaker)
         app.speaker = [[ABSpeak alloc] init];
-    
     return app.speaker;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        speaker = [AVSpeechSynthesizer new];
+    }
+    return self;
+}
+
 - (void)speakString:(NSString *)string {
-    
     if(NSClassFromString(@"AVSpeechSynthesizer")) {
-        
-        speaker = [[AVSpeechSynthesizer alloc] init];
         AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
         [speaker speakUtterance:currentUtterance];
-        
     } else {
         [self.fliteController say:string withVoice:self.slt];
     }
-    
 }
 
 - (void)stopSpeaking
 {
-    // TODO Stop fliteController
-    self.fliteController = nil;
-    self.fliteController = [self fliteController];
-    [speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    if(NSClassFromString(@"AVSpeechSynthesizer")) {
+        [speaker stopSpeakingAtBoundary:AVSpeechBoundaryWord];
+    } else {
+        self.fliteController = nil;
+        self.fliteController = [self fliteController];
+    }
 }
 
 - (FliteController *)fliteController {

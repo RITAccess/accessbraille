@@ -18,8 +18,6 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 
-// TODO add documentation
-
 @interface ABSpeak : NSObject {
     FliteController *fliteController;
     Slt *slt;
@@ -28,10 +26,11 @@
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
 
+/* Use this to get the current active instance of ABSpeak, if one does not exist it will be created for you */
 + (instancetype)sharedInstance;
 
+/* Start/Stop speaking strings */
 - (void)speakString:(NSString *)string;
 - (void)stopSpeaking;
-
 
 @end
