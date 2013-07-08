@@ -48,6 +48,9 @@
 - (UIImage *)imageWithHeight:(float)height
 {
     
+    if (_text.length < 1)
+        return nil;
+    
     float scale = height/30.0;
     
     CGRect dot1 = CGRectMake(1, 1, 8, 8);
@@ -110,13 +113,15 @@
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    UIGraphicsPopContext();
     
     return image;
 }
 
 - (void)drawRect:(CGRect)rect
 {
-    [block drawInRect:rect];
+    if (block)
+        [block drawInRect:rect];
 }
 
 @end
