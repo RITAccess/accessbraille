@@ -9,6 +9,8 @@
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
 
+// TODO add documentation
+
 @interface ABSpeak : NSObject {
     FliteController *fliteController;
     Slt *slt;
