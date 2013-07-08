@@ -28,7 +28,7 @@
     _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
-    speaker = [[ABSpeak alloc]init];
+    speaker = [ABSpeak sharedInstance];
     
     UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
     [tapToStart setEnabled:YES];
@@ -60,6 +60,11 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [speaker stopSpeaking];
 }
 
 
