@@ -18,6 +18,14 @@
 	<string>You push onwards to the cabin&apos;s faint glow...</string>
 	<key>forestFloorBack</key>
 	<string>You head back to the crash site.</string>
+	<key>forestFloorRight</key>
+	<string>You adjust your position right, and trudge forwards towards the giant tree.</string>
+	<key>giantTreeLook</key>
+	<string>You&apos;ve made it to the giant tree. A message is inscribed on its beastly trunk: &quot;The one who seeks the treaure must be lit with the spirit of exploration...&quot;</string>
+	<key>giantTreeBlock</key>
+	<string>Behind the tree is a deep expanse of forest, and far too dark for you to see. You can&apos;t move any farther forward.</string>
+	<key>giantTreeBack</key>
+	<string>You return back to the forest floor.</string>
 	<key>secretCabinLook</key>
 	<string>You&apos;ve made it to the cabin. The cabin&apos;s door is in front of you.</string>
 	<key>secretCabinBlock</key>
@@ -74,6 +82,10 @@
 	<string>Not sure about... try something else.</string>
 	<key>pickBlock</key>
 	<string>There&apos;s nothing to pick up here...</string>
+	<key>rightBlock</key>
+	<string>There&apos;s nothing in the distance to the right. You stay where you are.</string>
+	<key>leftBlock</key>
+	<string>Hmm, it doesn&apos;t seem wise to head to the left. You stay where you are.</string>
 	<key>helpText</key>
 	<string>Type the name of the object to put it in your pack or use it. Type LOOK to survey the area.</string>
 	<key>backBlock</key>

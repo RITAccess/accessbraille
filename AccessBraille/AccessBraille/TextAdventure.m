@@ -87,6 +87,12 @@
  */
 - (void)checkCommand:(NSString* )command
 {
+    NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation];
+    NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
+    NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
+    NSString *rightString = [NSString stringWithFormat:@"%@Right", _currentLocation];
+    NSString *leftString = [NSString stringWithFormat:@"%@Left", _currentLocation];
+    
     if ([command isEqualToString:@"look"])
     {
         NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
@@ -96,9 +102,6 @@
     }
     else if ([command isEqualToString:@"move"])
     {
-        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation]; 
-        NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
-        
         if ([_currentLocation isEqualToString:@"crashSite"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
@@ -108,6 +111,10 @@
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
             _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"giantTree"]){
+            [self initSoundWithFileName:@"darkCaveBlock"];
+            [self prompt:blockString];
         }
         else if ([_currentLocation isEqualToString:@"secretCabin"]){
             if (doorUnlocked) {
@@ -155,10 +162,35 @@
             }
         }
     }
+    else if ([command isEqualToString:@"right"]) // Tries to move right.
+    {
+        if ([_currentLocation isEqualToString:@"forestFloor"])
+        {
+            [self initSoundWithFileName:leaveString];
+            [self prompt:rightString];
+            _currentLocation = @"giantTree";
+        }
+        else
+        {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"rightBlock"];
+        }
+        
+    }
+    else if ([command isEqualToString:@"left"]) // Tries to move left.
+    {
+        if ([_currentLocation isEqualToString:@"darkCave"])
+        {
+            
+        }
+        else
+        {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"leftBlock"];
+        }
+    }
     else if ([command isEqualToString:@"back"])
     {
-        NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
-        
         if ([_currentLocation isEqualToString:@"crashSite"] ||
             [_currentLocation isEqualToString:@"darkCave"]) {
             [self prompt:@"backBlock"];
@@ -167,6 +199,11 @@
             [self initSoundWithFileName:@"crashSiteLeave"];
             [self prompt:backString];
             _currentLocation = @"crashSite";
+        }
+        else if ([_currentLocation isEqualToString:@"giantTree"]){
+            [self initSoundWithFileName:@"forestFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"forestFloor";
         }
         else if ([_currentLocation isEqualToString:@"secretCabin"]){
             [self initSoundWithFileName:@"crashSiteLeave"];
