@@ -151,6 +151,10 @@
                 [self prompt:blockString];
             }
         }
+        else if ([_currentLocation isEqualToString:@"sideCave"]){
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:blockString];
+        }
         else if ([_currentLocation isEqualToString:@"finalCavern"]){
             if (collectedSilver){
                 [self initSoundWithFileName:leaveString];
@@ -181,7 +185,9 @@
     {
         if ([_currentLocation isEqualToString:@"darkCave"])
         {
-            
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:leftString];
+            _currentLocation = @"sideCave";
         }
         else
         {
@@ -219,6 +225,11 @@
             [self initSoundWithFileName:@"cabinFloorLeave"];
             [self prompt:backString];
             _currentLocation = @"cabinFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"sideCave"]){
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:backString];
+            _currentLocation = @"darkCave";
         }
         else if ([_currentLocation isEqualToString:@"finalCavern"]){
             [self initSoundWithFileName:@"darkCaveLeave"];
