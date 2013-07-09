@@ -8,6 +8,7 @@
 
 #import "ABTypes.h"
 #import "ABTouchView.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @protocol ABTouchReciever <NSObject>
 @required
@@ -21,6 +22,9 @@
 
 @property BOOL shift;
 @property BOOL caps;
+
+/* Set sounds enabled */
+@property BOOL sound;
 
 @property (nonatomic) id<ABTouchReciever> delegate;
 @property int ajt;

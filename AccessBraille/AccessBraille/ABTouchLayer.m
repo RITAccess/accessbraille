@@ -7,17 +7,20 @@
 //
 
 #import "ABTouchLayer.h"
-#import "ABTypes.h"
-#import "ABTouchView.h"
 #import "ABBrailleReader.h"
 
-@implementation ABTouchLayer {
-    
+@implementation ABTouchLayer
+{
     /* Reading Input */
     NSMutableArray *activeTouches;
     BOOL reading;
     /* Backspace/Space */
     UITapGestureRecognizer *screenTap;
+    
+    /* Caps Lock Sounds */
+    SystemSoundID enableCapsSound;
+    SystemSoundID disableCapsSound;
+    SystemSoundID lockCapsSound;
     
     /* Avg tracking */
     float farX;
@@ -30,7 +33,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         
         activeTouches = [[NSMutableArray alloc] initWithCapacity:6];
         screenTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(receiveScreenTap:)];
@@ -41,11 +43,16 @@
         avgY = 550;
         farX = 760;
         totalY = 0;
+        
+        enableCapsSound = [self createSoundID:@"enableCapsSound.aiff"];
+        disableCapsSound = [self createSoundID:@"disableCapsSound.aiff"];
+        lockCapsSound = [self createSoundID:@"lockCapsSound.aiff"];
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect
+{
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetLineWidth(context, 4);
@@ -103,9 +110,10 @@
 }
 
 /**
- * Called when sub Views Have Been Added
+ * Called when subviews have been added.
  */
-- (void)subViewsAdded {
+- (void)subViewsAdded
+{
     for (UIView *sv in self.subviews) {
         if (sv.tag == 5) {
             farX = sv.frame.origin.x + sv.frame.size.width;
@@ -116,23 +124,26 @@
 }
 
 /**
- * Returns the point of the tap in this view
+ * Returns the point of the tap in this view.
  */
-- (CGPoint)locationInDelegate:(UITapGestureRecognizer *)reg {
+- (CGPoint)locationInDelegate:(UITapGestureRecognizer *)reg
+{
     return [reg locationInView:self];
 }
 
 /**
- * returns the average Y tap
+ * Returns the average Y tap.
  */
-- (float)averageY {
+- (float)averageY
+{
     return avgY;
 }
 
 /**
- * Updates the Y average for touch points
+ * Updates the Y average for touch points.
  */
-- (void)updateYAverage:(float)newPoint {
+- (void)updateYAverage:(float)newPoint
+{
     if (totalY == 0) {
         avgY = newPoint;
     } else {
@@ -145,7 +156,8 @@
 /**
  * Removes all subviews from view and resets tracking.
  */
-- (void)resetView {
+- (void)resetView
+{
     totalY = 0;
     for (UIView *v in self.subviews) {
         [v removeFromSuperview];
@@ -153,32 +165,38 @@
 }
 
 /**
- * Space was called
+ * Space was called.
  */
-- (void)space {
+- (void)space
+{
     [_delegate characterReceived:ABSpaceCharacter];
 }
 
 /**
- * Backspace was called
+ * Backspace was called.
  */
-- (void)backspace {
+- (void)backspace
+{
     [_delegate characterReceived:ABBackspace];
 }
 
 /**
- * receives taps from anywhere on the screen when keyboard is active.
+ * Receives taps from anywhere on the screen when keyboard is active.
  */
-- (void)receiveScreenTap:(UITapGestureRecognizer *)reg {
+- (void)receiveScreenTap:(UITapGestureRecognizer *)reg
+{
     if ([reg locationInView:self].x > farX) {
         [self backspace];
     } else if ([reg locationInView:self].x < nearX) {
         if (_shift == YES && _caps == NO) {
+            AudioServicesPlaySystemSound(lockCapsSound);
             _caps = YES;
         } else if (_caps == YES) {
+            AudioServicesPlaySystemSound(disableCapsSound);
             _shift = NO;
             _caps = NO;
         } else {
+            AudioServicesPlaySystemSound(enableCapsSound);
             _shift = YES;
         }
         [self setNeedsDisplay];
@@ -188,9 +206,10 @@
 }
 
 /**
- * Reciever for taps from touch views
+ * Reciever for taps from touch views.
  */
-- (void)touchWithId:(NSInteger)tapID tap:(BOOL)tapped {
+- (void)touchWithId:(NSInteger)tapID tap:(BOOL)tapped
+{
     if (tapped) {
         if (!reading) {
             [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(readBits) userInfo:nil repeats:NO];
@@ -200,12 +219,27 @@
     }
 }
 
-- (void)readBits {
+- (void)readBits
+{
     reading = NO;
     if ([_delegate respondsToSelector:@selector(characterReceived:)]) {
         [_delegate characterReceived:[ABBrailleReader brailleStringFromTouchIDs:activeTouches]];
     }
     [activeTouches removeAllObjects];
+}
+
+#pragma mark - Audio
+
+/**
+ * Creates system sound.
+ */
+- (SystemSoundID) createSoundID: (NSString*)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    return soundID;
 }
 
 @end

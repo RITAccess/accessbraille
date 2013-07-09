@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2C80FAEE178C409D0077BA2D /* lockCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */; };
+		2C80FAEF178C409D0077BA2D /* lockCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
 		2CAAC7A6175E2A2A004680F9 /* menuItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem4.png */; };
@@ -32,6 +34,10 @@
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
+		2CE1B412178B5064009B8E1D /* disableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */; };
+		2CE1B413178B5064009B8E1D /* disableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */; };
+		2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
+		2CE1B415178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
 		3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */; };
 		4C05CE191778AFD300F80C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C05CE171778AFD300F80C70 /* InfoPlist.strings */; };
 		4C05CE1F1778B10000F80C70 /* ABParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C10E23517302D8600A2864B /* ABParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -186,6 +192,7 @@
 		2C10E23617302D8600A2864B /* ABParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABParser.m; sourceTree = "<group>"; };
 		2C10E23717302D8600A2864B /* ABSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSpeak.h; sourceTree = "<group>"; };
 		2C10E23817302D8600A2864B /* ABSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSpeak.m; sourceTree = "<group>"; };
+		2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lockCapsSound.aiff; path = ../../accessbraille_resources/Sounds/lockCapsSound.aiff; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
@@ -198,6 +205,8 @@
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
+		2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = disableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/disableCapsSound.aiff; sourceTree = "<group>"; };
+		2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = enableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/enableCapsSound.aiff; sourceTree = "<group>"; };
 		3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C05CE111778AFD200F80C70 /* ABKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C05CE161778AFD300F80C70 /* ABKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABKeyboard-Info.plist"; sourceTree = "<group>"; };
@@ -633,6 +642,9 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */,
+				2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */,
+				2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */,
 				4C1B1DFD175CC87B00A3DEDA /* navClick.aiff */,
 				4C1B1DFE175CC87B00A3DEDA /* backspace.aiff */,
 				4C1B1DFF175CC87B00A3DEDA /* correct.aiff */,
@@ -790,6 +802,7 @@
 				4CB58A481778BDAD00D38D3C /* mdef in Resources */,
 				4CB58A4B1778BDAD00D38D3C /* sendump in Resources */,
 				4CB58A521778BDAD00D38D3C /* OpenEars2.gram in Resources */,
+				2CE1B415178B5064009B8E1D /* enableCapsSound.aiff in Resources */,
 				4CB58A4A1778BDAD00D38D3C /* noisedict in Resources */,
 				4C05CE361778B19200F80C70 /* prefixLevelSeven.plist in Resources */,
 				4C05CE351778B19200F80C70 /* prefixLevelSix.plist in Resources */,
@@ -797,7 +810,9 @@
 				4C05CE301778B19200F80C70 /* numberLookup.plist in Resources */,
 				4CB58A531778BDAD00D38D3C /* OpenEarsCorpus.txt in Resources */,
 				4CB58A511778BDAD00D38D3C /* OpenEars1.languagemodel in Resources */,
+				2C80FAEF178C409D0077BA2D /* lockCapsSound.aiff in Resources */,
 				4C05CE191778AFD300F80C70 /* InfoPlist.strings in Resources */,
+				2CE1B413178B5064009B8E1D /* disableCapsSound.aiff in Resources */,
 				4CB58A491778BDAD00D38D3C /* means in Resources */,
 				4C05CE311778B19200F80C70 /* prefixLevelTwo.plist in Resources */,
 				4C05CE331778B19200F80C70 /* prefixLevelFour.plist in Resources */,
@@ -850,6 +865,7 @@
 				4CB58A321778BBB900D38D3C /* prefixLevelSix.plist in Resources */,
 				4C1B1E07175CC87B00A3DEDA /* disable.mp3 in Resources */,
 				4CB58A301778BBB900D38D3C /* prefixLevelFour.plist in Resources */,
+				2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */,
 				4C1B1E08175CC87B00A3DEDA /* hop.mp3 in Resources */,
 				4CB58A341778BBB900D38D3C /* shortHandLookup.plist in Resources */,
 				4CB58A311778BBB900D38D3C /* prefixLevelFive.plist in Resources */,
@@ -868,8 +884,10 @@
 				2CAAC7A6175E2A2A004680F9 /* menuItem4.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem4x90.png in Resources */,
 				2CC54E8617661A3A001B595A /* menuItem5.png in Resources */,
+				2CE1B412178B5064009B8E1D /* disableCapsSound.aiff in Resources */,
 				4CB58A2F1778BBB900D38D3C /* prefixLevelThree.plist in Resources */,
 				2CC54E8817661A72001B595A /* menuItem5x90.png in Resources */,
+				2C80FAEE178C409D0077BA2D /* lockCapsSound.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
