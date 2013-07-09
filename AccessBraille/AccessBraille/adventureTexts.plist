@@ -18,6 +18,14 @@
 	<string>You push onwards to the cabin&apos;s faint glow...</string>
 	<key>forestFloorBack</key>
 	<string>You head back to the crash site.</string>
+	<key>forestFloorRight</key>
+	<string>You adjust your position right, and trudge forwards towards the giant tree.</string>
+	<key>giantTreeLook</key>
+	<string>You&apos;ve made it to the giant tree. A message is inscribed on its beastly trunk: &quot;The one who seeks the treaure must be lit with the spirit of exploration...&quot;</string>
+	<key>giantTreeBlock</key>
+	<string>Behind the tree is a deep expanse of forest, and far too dark for you to see. You can&apos;t move any farther forward.</string>
+	<key>giantTreeBack</key>
+	<string>You return back to the forest floor.</string>
 	<key>secretCabinLook</key>
 	<string>You&apos;ve made it to the cabin. The cabin&apos;s door is in front of you.</string>
 	<key>secretCabinBlock</key>
@@ -51,7 +59,9 @@
 	<key>windyLakeBack</key>
 	<string>You walk back up the beach and enter the back of the cabin.</string>
 	<key>darkCaveLook</key>
-	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. Something&apos;s protruding out of the ground...</string>
+	<string>The boat carried you all the way across the lake to the entrance of a dark cave. You step out of the boat and head inside. There&apos;s a cave off to your left. Something&apos;s protruding out of the ground...</string>
+	<key>darkCaveLeft</key>
+	<string>You cautiously clamber into the small chamber to your left.</string>
 	<key>darkCaveBlock</key>
 	<string>The cave is pitch black! There&apos;s no way for you to move forward. If only you could see better...</string>
 	<key>darkCavePick</key>
@@ -60,6 +70,12 @@
 	<string>You fashion a torch out of the matches and wood. Once you light the torch, a brilliant glow illuminates the room.</string>
 	<key>darkCaveLeave</key>
 	<string>No longer afraid of the dark expanses, you venture into the depths of the cave.</string>
+	<key>sideCaveLook</key>
+	<string>The side cave is completely empty. Well that was disappointing...</string>
+	<key>sideCaveBlock</key>
+	<string>The cave is blocked by a pile of rubble and you can&apos;t move any more forward. You&apos;ll have to turn around.</string>
+	<key>sideCaveBack</key>
+	<string>Disappointed, you return to the main cave.</string>
 	<key>finalCavernLook</key>
 	<string>After what seems like miles of trudging through the cave, the path opens up into a giant cavern and you can&apos;t believe your eyes... the room is covered in gold, rubies, and silver!</string>
 	<key>finalCavernPick</key>
@@ -74,6 +90,10 @@
 	<string>Not sure about... try something else.</string>
 	<key>pickBlock</key>
 	<string>There&apos;s nothing to pick up here...</string>
+	<key>rightBlock</key>
+	<string>There&apos;s nothing in the distance to the right. You stay where you are.</string>
+	<key>leftBlock</key>
+	<string>Hmm, it doesn&apos;t seem wise to head to the left. You stay where you are.</string>
 	<key>helpText</key>
 	<string>Type the name of the object to put it in your pack or use it. Type LOOK to survey the area.</string>
 	<key>backBlock</key>
