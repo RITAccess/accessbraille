@@ -45,6 +45,9 @@
 /* Set sounds enabled */
 @property BOOL sound;
 
+/* Set keyboard grade */
+@property (assign) ABGrade grade;
+
 /* Keyboard state properites */
 @property SEL activeKeyboard;
 @property id activeTarget;

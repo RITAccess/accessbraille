@@ -33,5 +33,5 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 @property (weak) ABTouchLayer *layer;
 @property (nonatomic) NSString *wordTyping;
 @property (nonatomic) UITextView *fieldOutput;
-@property (nonatomic) NSUInteger grade;
+@property (nonatomic) ABGrade grade;
 @end

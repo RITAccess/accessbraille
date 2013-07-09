@@ -74,6 +74,18 @@
     }
 }
 
+#pragma mark Set Grade
+
+- (ABGrade)grade
+{
+    return brailleReader.grade;
+}
+
+- (void)setGrade:(ABGrade)grade
+{
+    [brailleReader setGrade:grade];
+}
+
 #pragma mark Keyboard Implementation
 
 /*
