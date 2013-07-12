@@ -113,7 +113,8 @@
 {
     // Backspace
     if ([brailleString isEqualToString:ABBackspace]) {
-        _wordTyping = [_wordTyping substringWithRange:NSMakeRange(0, _wordTyping.length - 1)];
+        if (_wordTyping.length > 0)
+            _wordTyping = [_wordTyping substringWithRange:NSMakeRange(0, _wordTyping.length - 1)];
         return ABBackspace;
     }
     
