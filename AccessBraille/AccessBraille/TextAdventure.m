@@ -37,9 +37,10 @@
     _stringFromInput = [[NSMutableString alloc] init];
     
     _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
-    [_typedText setBackgroundColor:[UIColor greenColor]];
-    [_typedText setFont:[UIFont boldSystemFontOfSize:30]];
+    [_typedText setBackgroundColor:[UIColor colorWithHue:50 saturation:10 brightness:91 alpha:.5]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
     _typedText.textColor = [UIColor blackColor];
+    _typedText.layer.cornerRadius = 5;
     [_typedText setUserInteractionEnabled:NO];
     
     _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
@@ -86,6 +87,12 @@
  */
 - (void)checkCommand:(NSString* )command
 {
+    NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation];
+    NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
+    NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
+    NSString *rightString = [NSString stringWithFormat:@"%@Right", _currentLocation];
+    NSString *leftString = [NSString stringWithFormat:@"%@Left", _currentLocation];
+    
     if ([command isEqualToString:@"look"])
     {
         NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
@@ -95,9 +102,6 @@
     }
     else if ([command isEqualToString:@"move"])
     {
-        NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation]; 
-        NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
-        
         if ([_currentLocation isEqualToString:@"crashSite"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
@@ -107,6 +111,10 @@
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
             _currentLocation = @"secretCabin";
+        }
+        else if ([_currentLocation isEqualToString:@"giantTree"]){
+            [self initSoundWithFileName:@"darkCaveBlock"];
+            [self prompt:blockString];
         }
         else if ([_currentLocation isEqualToString:@"secretCabin"]){
             if (doorUnlocked) {
@@ -143,6 +151,10 @@
                 [self prompt:blockString];
             }
         }
+        else if ([_currentLocation isEqualToString:@"sideCave"]){
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:blockString];
+        }
         else if ([_currentLocation isEqualToString:@"finalCavern"]){
             if (collectedSilver){
                 [self initSoundWithFileName:leaveString];
@@ -154,10 +166,37 @@
             }
         }
     }
+    else if ([command isEqualToString:@"right"]) // Tries to move right.
+    {
+        if ([_currentLocation isEqualToString:@"forestFloor"])
+        {
+            [self initSoundWithFileName:leaveString];
+            [self prompt:rightString];
+            _currentLocation = @"giantTree";
+        }
+        else
+        {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"rightBlock"];
+        }
+        
+    }
+    else if ([command isEqualToString:@"left"]) // Tries to move left.
+    {
+        if ([_currentLocation isEqualToString:@"darkCave"])
+        {
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:leftString];
+            _currentLocation = @"sideCave";
+        }
+        else
+        {
+            [self initSoundWithFileName:@"femaleHmm"];
+            [self prompt:@"leftBlock"];
+        }
+    }
     else if ([command isEqualToString:@"back"])
     {
-        NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
-        
         if ([_currentLocation isEqualToString:@"crashSite"] ||
             [_currentLocation isEqualToString:@"darkCave"]) {
             [self prompt:@"backBlock"];
@@ -166,6 +205,11 @@
             [self initSoundWithFileName:@"crashSiteLeave"];
             [self prompt:backString];
             _currentLocation = @"crashSite";
+        }
+        else if ([_currentLocation isEqualToString:@"giantTree"]){
+            [self initSoundWithFileName:@"forestFloorLeave"];
+            [self prompt:backString];
+            _currentLocation = @"forestFloor";
         }
         else if ([_currentLocation isEqualToString:@"secretCabin"]){
             [self initSoundWithFileName:@"crashSiteLeave"];
@@ -181,6 +225,11 @@
             [self initSoundWithFileName:@"cabinFloorLeave"];
             [self prompt:backString];
             _currentLocation = @"cabinFloor";
+        }
+        else if ([_currentLocation isEqualToString:@"sideCave"]){
+            [self initSoundWithFileName:@"darkCaveLeave"];
+            [self prompt:backString];
+            _currentLocation = @"darkCave";
         }
         else if ([_currentLocation isEqualToString:@"finalCavern"]){
             [self initSoundWithFileName:@"darkCaveLeave"];
@@ -336,7 +385,6 @@
                 [_typedText setText:_stringFromInput];
             }
         } else {
-            [speaker speakString:character];
             [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [_typedText setText:_stringFromInput]; // Sets typed text to the label.
         }
