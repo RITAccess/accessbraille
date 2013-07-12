@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/michael/Library/Developer/Shared/Documentation/DocSets/edu.rit.se.ABKeyboard.docset
+Time: 2013-07-09 12:54:07 +0000
