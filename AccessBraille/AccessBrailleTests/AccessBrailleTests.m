@@ -149,10 +149,23 @@
     STAssertEqualObjects(reader.wordTyping, @"count", @"failed to type count");
     [reader processString:ABSpaceCharacter];
     
-    
-    
     reader = nil;
 }
 
+- (void)testABBrailleReaderGrade2_test2
+{
+    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
+    
+    // Prefix followed by non recongnized post
+    [reader processString:@"000010"];
+    [reader processString:@"100000"];
+    // Check should have typed nothing
+    STAssertEqualObjects(reader.wordTyping, @"", @"Char was typed that shouldn't have");
+    [reader processString:@"100000"];
+    // An A should have been typed
+    STAssertEqualObjects(reader.wordTyping, @"a", @"An A should have been typed");
+    
+    reader = nil;
+}
 
 @end
