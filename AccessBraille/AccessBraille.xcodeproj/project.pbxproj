@@ -1206,8 +1206,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Framework\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\\\\\\\\\"",
+					"$(SRCROOT)/Framework",
+					"$(SRCROOT)/Voices/Demo",
 					"$(SRCROOT)",
 					"$(SRCROOT)/Products",
 					"$(SRCROOT)/ABKeyboard/OpenEars",
@@ -1255,8 +1255,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Framework\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Voices/Demo\\\\\\\\\\\\\\\"",
+					"$(SRCROOT)/Framework",
+					"$(SRCROOT)/Voices/Demo",
 					"$(SRCROOT)",
 					"$(SRCROOT)/Products",
 					"$(SRCROOT)/ABKeyboard/OpenEars",
