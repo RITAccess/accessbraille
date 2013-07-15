@@ -51,7 +51,7 @@
         shortHandlookup = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingPathComponent:@"shortHandLookup.plist"]];
         
         // Typing store
-        [self setWord:@""];
+        _wordTyping = @"";
         
         // Default grade
         _grade = ABGradeTwo;
@@ -87,20 +87,6 @@
     return str;
 }
 
-#pragma mark wordTyping
-
-- (void)setWord:(NSString *)wordTyping
-{
-    self.wordTyping = wordTyping;
-}
-
-- (NSString* )getWord
-{
-    return self.wordTyping;
-}
-
-#pragma mark Parser
-
 /**
  * Receives character from touchLayer in form of braille string
  */
@@ -127,8 +113,8 @@
 {
     // Backspace
     if ([brailleString isEqualToString:ABBackspace]) {
-        if ([self getWord].length > 0)
-            [self setWord:[[self getWord] substringWithRange:NSMakeRange(0, [self getWord].length - 1)]];
+        if (_wordTyping.length > 0)
+            _wordTyping = [_wordTyping substringWithRange:NSMakeRange(0, _wordTyping.length - 1)];
         return ABBackspace;
     }
     
@@ -151,7 +137,7 @@
         } else if ([prefix isEqualToString:ABPrefixLevelSeven] && [[prefixLevelSeven allKeys] containsObject:brailleString]) {
             postfix = prefixLevelSeven[brailleString];
         }
-        [self setWord:[[self getWord] stringByAppendingString:postfix]];
+        _wordTyping = [_wordTyping stringByAppendingString:postfix];
         if (![prefix isEqualToString:ABPrefixNumber]) {
             prefix = @"";
         }
@@ -169,14 +155,14 @@
                 case ABGradeOne:
                     break;
                 case ABGradeTwo:
-                    if ([[shortHandlookup allKeys] containsObject:[self getWord]]) {
-                        [self setWord:shortHandlookup[[self getWord]]];
+                    if ([[shortHandlookup allKeys] containsObject:_wordTyping]) {
+                        _wordTyping = shortHandlookup[_wordTyping];
                     }
                     break;
             }
-            [self sendWord:[self getWord]];
+            [self sendWord:_wordTyping];
             prefix = @"";
-            [self setWord:@""];
+            _wordTyping = @"";
             return @"";
         }
         
@@ -185,7 +171,7 @@
             return @"";
         } else {
             if ([[grade2Lookup allKeys] containsObject:brailleString]) {
-                [self setWord:[[self getWord] stringByAppendingString:grade2Lookup[brailleString]]];
+                _wordTyping = [_wordTyping stringByAppendingString:grade2Lookup[brailleString]];
                 return grade2Lookup[brailleString];
             } else {
                 return @"";
