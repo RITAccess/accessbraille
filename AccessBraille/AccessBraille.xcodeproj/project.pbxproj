@@ -112,7 +112,7 @@
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
-		4C8EB64E178B0C1A00C1A317 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
+		4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
 		4C97DC731783610400D83968 /* menuTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C97DC7217835CC900D83968 /* menuTag.png */; };
 		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
@@ -368,7 +368,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C8EB64E178B0C1A00C1A317 /* SenTestingKit.framework in Frameworks */,
+				4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */,
 				A9479C5E1670034E00CE9475 /* UIKit.framework in Frameworks */,
 				A9479C5F1670034E00CE9475 /* Foundation.framework in Frameworks */,
 			);
@@ -551,11 +551,11 @@
 				4C1B1E19175CC92000A3DEDA /* Default-Landscape@2x~ipad.png */,
 				4C1B1E17175CC91800A3DEDA /* Default-Landscape~ipad.png */,
 				A9479C3E1670034E00CE9475 /* AccessBraille */,
-				A9479C621670034E00CE9475 /* AccessBrailleTests */,
 				4CEFD38D16EE388E00961754 /* AccessBraille Framework */,
 				4C05CE141778AFD200F80C70 /* ABKeyboard */,
 				A9479C371670034E00CE9475 /* Frameworks */,
 				A9479C361670034E00CE9475 /* Products */,
+				A9479C621670034E00CE9475 /* AccessBrailleTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1294,17 +1294,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(SRCROOT)/Framework/OpenEars",
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D317E1DD-3577-4279-8F19-F0CE01EEF35D";
+				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1314,17 +1318,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AccessBraille.app/AccessBraille";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(SRCROOT)/Framework/OpenEars",
 					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AccessBraille/AccessBraille-Prefix.pch";
 				INFOPLIST_FILE = "AccessBrailleTests/AccessBrailleTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D317E1DD-3577-4279-8F19-F0CE01EEF35D";
+				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
