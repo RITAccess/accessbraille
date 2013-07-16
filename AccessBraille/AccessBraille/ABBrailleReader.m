@@ -35,7 +35,8 @@
     
 }
 
-- (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
+- (id)init
+{
     self = [super init];
     if (self) {
         // init lookups
@@ -58,12 +59,18 @@
         
         // Setup parser
         prefix = @"";
-        
+
+    }
+    return self;
+}
+
+- (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
+    self = [self init];
+    if (self) {
         // Audio
         target = tar;
         selector = sel;
         speak = [[ABSpeak alloc] init];
-    
     }
     return self;
 }
