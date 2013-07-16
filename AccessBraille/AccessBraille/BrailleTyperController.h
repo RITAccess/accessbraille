@@ -17,8 +17,6 @@
 
 -(void)saveState;
 
-@property (strong, nonatomic) IBOutlet Drawing *DrawingView;
-@property (weak, nonatomic) IBOutlet UILabel *typingStateOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
 @property (weak, nonatomic) IBOutlet UITextView *textField;
 

@@ -21,14 +21,19 @@
 
 @end
 
-@implementation ABKeyboard {
+@implementation ABKeyboard
+{
     ABTouchLayer *interface;
     __strong ABActivateKeyboardGestureRecognizer *activate;
-    // Audio
-    SystemSoundID enabledSound;
-    SystemSoundID disabledSound;
-    SystemSoundID backspaceSound;
+    
+    // Audio URL paths and AVPlayer.
+    NSURL *enabledURL, *disabledURL, *backspaceURL;
+    AVAudioPlayer *avPlayer;
+    
     ABSpeak *speak;
+    
+    // Hold gestures
+    NSArray *gestures;
 }
 
 #pragma mark Setup
@@ -47,11 +52,12 @@
         
         // Audio
         _sound = YES;
-        enabledSound = [self createSoundID:@"hop.mp3"];
-        disabledSound = [self createSoundID:@"disable.mp3"];
-        backspaceSound = [self createSoundID:@"backspace.aiff"];
         
-        speak = [[ABSpeak alloc] init];
+        enabledURL = [[NSBundle mainBundle] URLForResource:@"enableKeyboard" withExtension:@"aiff"];
+        disabledURL = [[NSBundle mainBundle] URLForResource:@"disableKeyboard" withExtension:@"aiff"];
+        backspaceURL = [[NSBundle mainBundle] URLForResource:@"backspace" withExtension:@"aiff"];
+        
+        speak = [ABSpeak new];
     }
     return self;
 }
@@ -182,8 +188,7 @@
             
             if (reg.translationFromStart > 200) {
                 [reg getTouchInfo];
-                [self playSound:ABEnableSound];
-                [_output becomeFirstResponder];
+                [self activated];
             }
             
             break;
@@ -202,9 +207,7 @@
                     orig.origin.y -= [UIScreen mainScreen].bounds.size.height;
                     [interface setFrame:orig];
                 }];
-                if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
-                    [_deactiveTarget performSelector:_deactiveKeyboard];
-                }
+                [self deactivated];
                 [_output resignFirstResponder];
                 _keyboardActive = NO;
             }
@@ -212,6 +215,27 @@
             break;
         default:
             break;
+    }
+}
+
+#pragma mark active/deactive
+
+- (void)activated
+{
+    gestures = _delegate.view.gestureRecognizers;
+    [_delegate.view setGestureRecognizers:@[activate]];
+    [self playSound:ABEnableSound];
+    [_output becomeFirstResponder];
+    if ([_deactiveTarget respondsToSelector:_activeKeyboard]) {
+        [_deactiveTarget performSelector:_activeKeyboard];
+    }
+}
+
+- (void)deactivated
+{
+    [_delegate.view setGestureRecognizers:gestures];
+    if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
+        [_deactiveTarget performSelector:_deactiveKeyboard];
     }
 }
 
@@ -232,26 +256,19 @@
 #pragma mark Audio
 
 - (void)playSound:(NSString *)type {
-    if (!_sound) { return; }
-    if ([type isEqualToString:ABBackspaceSound]){
-        AudioServicesPlaySystemSound(backspaceSound);
-    } else if ([type isEqualToString:ABEnableSound]) {
-        AudioServicesPlaySystemSound(enabledSound);
-    } else if ([type isEqualToString:ABDisableSound]) {
-        AudioServicesPlaySystemSound(disabledSound);
+    if (!_sound) {
+        return;
     }
-}
-
-/**
- * Creates system sound
- */
-- (SystemSoundID) createSoundID: (NSString*)name
-{
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
-    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
-    return soundID;
+    
+    if ([type isEqualToString:ABBackspaceSound]){
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backspaceURL error:nil];
+    } else if ([type isEqualToString:ABEnableSound]) {
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:enabledURL error:nil];
+    } else if ([type isEqualToString:ABDisableSound]) {
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:disabledURL error:nil];
+    }
+    
+    [avPlayer play];
 }
 
 @end

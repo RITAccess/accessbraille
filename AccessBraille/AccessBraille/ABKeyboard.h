@@ -31,7 +31,7 @@
 @property (strong, nonatomic) UITextView *output;
 
 /* Delegate */
-@property (strong, nonatomic) id<ABKeyboard> delegate;
+@property (strong, nonatomic) UIViewController<ABKeyboard> *delegate;
 
 /* Access the Gesture */
 @property (strong, nonatomic) ABActivateKeyboardGestureRecognizer *keyboardGesture;
