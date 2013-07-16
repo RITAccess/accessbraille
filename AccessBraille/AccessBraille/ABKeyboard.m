@@ -15,10 +15,14 @@
 #import "ABSpeak.h"
 #import <AudioToolbox/AudioToolbox.h>
 
+@interface ABKeyboard ()
+
+@property (retain) ABBrailleReader *brailleReader;
+
+@end
 
 @implementation ABKeyboard {
     ABTouchLayer *interface;
-    ABBrailleReader *brailleReader;
     __strong ABActivateKeyboardGestureRecognizer *activate;
     // Audio
     SystemSoundID enabledSound;
@@ -29,22 +33,17 @@
 
 #pragma mark Setup
 
-- (id)initWithDelegate:(id)delegate {
+- (id)init
+{
     self = [super init];
     if (self) {
-        // GR setup
-        _delegate = delegate;
-        activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
-        [activate setTouchDelegate:self];
-        [((UIViewController *)_delegate).view addGestureRecognizer:activate];
-
         // Enable the keyboard
         _enabled = YES;
         
         // Set Up Braille Interp
-        brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
-        [brailleReader setDelegate:_delegate];
-        [brailleReader setKeyboardInterface:self];
+        _brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
+        [_brailleReader setDelegate:_delegate];
+        [_brailleReader setKeyboardInterface:self];
         
         // Audio
         _sound = YES;
@@ -53,7 +52,18 @@
         backspaceSound = [self createSoundID:@"backspace.aiff"];
         
         speak = [[ABSpeak alloc] init];
-        
+    }
+    return self;
+}
+
+- (id)initWithDelegate:(id)delegate {
+    self = [self init];
+    if (self) {
+        // GR setup
+        _delegate = delegate;
+        activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
+        [activate setTouchDelegate:self];
+        [((UIViewController *)_delegate).view addGestureRecognizer:activate];
     }
     return self;
 }
@@ -62,7 +72,7 @@
 {
     _output = output;
     [_output setInputView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
-    [brailleReader setFieldOutput:_output];
+    [_brailleReader setFieldOutput:_output];
 }
 
 /**
@@ -78,12 +88,12 @@
 
 - (ABGrade)grade
 {
-    return brailleReader.grade;
+    return _brailleReader.grade;
 }
 
 - (void)setGrade:(ABGrade)grade
 {
-    [brailleReader setGrade:grade];
+    [_brailleReader setGrade:grade];
 }
 
 #pragma mark Keyboard Implementation
@@ -112,8 +122,8 @@
     [interface setBackgroundColor:[UIColor grayColor]];
     [interface setAlpha:0.4];
     [interface setClearsContextBeforeDrawing:YES];
-    [interface setDelegate:brailleReader];
-    [brailleReader setLayer:interface];
+    [interface setDelegate:_brailleReader];
+    [_brailleReader setLayer:interface];
     
     for (int i = 0; i < 6; i++){
         
