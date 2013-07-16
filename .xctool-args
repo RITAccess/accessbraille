@@ -1,0 +1,4 @@
+[
+  "-project", "AccessBraille/AccessBraille.xcodeproj",
+  "-scheme", "AccessBraille"
+]
