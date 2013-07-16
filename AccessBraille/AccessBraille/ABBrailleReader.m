@@ -228,7 +228,7 @@
 {
     NSLog(@"Word Typed: %@", string);
     [speak speakString:string];
-    if (![string isEqualToString:ABSpaceCharacter]) {
+    if (![string isEqualToString:ABSpaceCharacter] && ![_wordTyping isEqualToString:@""] && ![_wordTyping isEqualToString:@" "]) {
         [_fieldOutput replaceLastWordWithString:string];
     }
     [_fieldOutput insertText:@" "]; 
