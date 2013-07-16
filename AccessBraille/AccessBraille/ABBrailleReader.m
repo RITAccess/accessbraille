@@ -11,7 +11,7 @@
 #import "ABSpeak.h"
 #import "UITextView+simpleadd.h"
 
-@implementation ABBrailleReader{
+@implementation ABBrailleReader {
     
     // Look ups
     NSDictionary *grade2Lookup;
