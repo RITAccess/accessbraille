@@ -13,7 +13,6 @@
 #import "UIView+quickRemove.h"
 #import "TextAdventure.h"
 #import "MainMenu.h"
-
 #import "ABBrailleOutput.h"
 
 @implementation NavigationContainer {
@@ -27,12 +26,11 @@
     
     MainMenu *_mainMenu;
     UIButton *menu;
-    CGRect menuOut;
-    CGRect menuIn;
+    CGRect menuOut, menuIn;
 }
 
--(void)viewDidLoad {
-    
+-(void)viewDidLoad
+{    
     _mainMenu = [[MainMenu alloc] init];
     [self addChildViewController:_mainMenu];
     [self.view addSubview:_mainMenu.view];
