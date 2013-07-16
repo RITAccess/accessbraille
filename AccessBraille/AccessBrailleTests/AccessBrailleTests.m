@@ -168,4 +168,11 @@
     reader = nil;
 }
 
+- (void)testCapsMethod
+{
+    NSString *string = @"test";
+    string = [NSString stringWithFormat:@"%@%@", [[string substringToIndex:1] uppercaseString], [string substringFromIndex:1]];
+    STAssertEqualObjects(string, @"Test", @"Did not caps");
+}
+
 @end

@@ -194,19 +194,22 @@
         [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
                                                          ABSpaceTyped : @(YES),
                                                   ABBackspaceReceived : @(NO)}];
+        
     } else if ([string isEqualToString:ABBackspace]) {
         [_fieldOutput deleteBackward];
         [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
                                                         ABSpaceTyped : @(NO),
                                                  ABBackspaceReceived : @(YES)}];
         [target performSelector:selector withObject:ABBackspaceSound];
+        
     } else if ([string isEqualToString:@""]) {
         return;
     } else {
+        
         [speak speakString:string];
         
         if(_layer.shift) {
-            string = [string uppercaseString];
+            string = [NSString stringWithFormat:@"%@%@", [[string substringToIndex:1] uppercaseString], [string substringFromIndex:1]];
             _layer.shift = NO;
             [_layer setNeedsDisplay];
         }
