@@ -38,8 +38,8 @@
     [self.view addSubview:_mainMenu.view];
     [self.view sendSubviewToBack:_mainMenu.view];
     
-    menuIn = CGRectMake(2, 0, 100, 30);
-    menuOut = CGRectMake(2, -30, 100, 30);
+    menuIn = CGRectMake(2, 0, 100, 76);
+    menuOut = CGRectMake(2, -30, 100, 76);
     
     menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
@@ -55,7 +55,7 @@
 - (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
 
 /**
- Takes in a UIViewController and switches the view to that controller
+ Takes in a UIViewController and switches the view to that controller.
  */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu
 {
@@ -95,6 +95,8 @@
     [tapToReturn setCancelsTouchesInView:YES];
     [currentVC.view setGestureRecognizers:@[tapToReturn]];
     
+    
+    /* Scales main controller down. */
     CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
     [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;
