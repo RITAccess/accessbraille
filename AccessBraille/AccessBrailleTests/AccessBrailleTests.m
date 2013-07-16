@@ -17,6 +17,12 @@
 #import "MainMenuItemImage.h"
 #import "ABBrailleOutput.h"
 
+@interface ABKeyboard ()
+
+@property (retain) ABBrailleReader *brailleReader;
+
+@end
+
 @implementation AccessBrailleTests
 
 - (void)setUp
@@ -173,6 +179,25 @@
     NSString *string = @"test";
     string = [NSString stringWithFormat:@"%@%@", [[string substringToIndex:1] uppercaseString], [string substringFromIndex:1]];
     STAssertEqualObjects(string, @"Test", @"Did not caps");
+}
+
+- (void)testABKeyboardTyping_test1
+{
+    ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:nil];
+    ABBrailleReader *reader = keyboard.brailleReader;
+    UITextView *output = [UITextView new];
+    [keyboard setOutput:output];
+    
+    [reader processString:@"101100"];
+    [reader processString:@"101111"];
+    [reader processString:ABSpaceCharacter];
+    [reader processString:@"111100"];
+    [reader processString:@"110010"];
+    [reader processString:@"000010"];
+    [reader processString:@"101010"];
+    [reader processString:ABSpaceCharacter];
+    
+    STAssertEqualObjects(output.text, @"my phone", @"Did not type to output correctly");
 }
 
 @end
