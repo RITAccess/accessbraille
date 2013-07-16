@@ -211,7 +211,7 @@
 - (void)activated
 {
     gestures = _delegate.view.gestureRecognizers;
-    [_delegate.view setGestureRecognizers:nil];
+    [_delegate.view setGestureRecognizers:@[activate]];
     [self playSound:ABEnableSound];
     [_output becomeFirstResponder];
     if ([_deactiveTarget respondsToSelector:_activeKeyboard]) {
