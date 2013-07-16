@@ -11,5 +11,6 @@
 @interface UITextView (simpleadd)
 
 - (void)replaceLastWordWithString:(NSString *)string;
+- (NSArray *)arrayOfWordsFromSentence:(NSString *)sentence;
 
 @end
