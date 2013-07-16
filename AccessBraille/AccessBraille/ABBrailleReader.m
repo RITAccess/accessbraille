@@ -223,8 +223,8 @@
     }
     [_fieldOutput insertText:@" "]; 
     [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
-                                             ABSpaceTyped : @(YES),
-                                             ABBackspaceReceived : @(NO)}];
+                                                     ABSpaceTyped : @(YES),
+                                              ABBackspaceReceived : @(NO)}];
 }
 
 @end
