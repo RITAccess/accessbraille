@@ -39,6 +39,7 @@
 		2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
 		2CE1B415178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
 		2CF45FD017956EF300E6C69E /* menuTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF45FCF17956EF300E6C69E /* menuTag.png */; };
+		2CF45FD317957A4200E6C69E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF45FD217957A4200E6C69E /* SettingsViewController.m */; };
 		3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */; };
 		4C05CE191778AFD300F80C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C05CE171778AFD300F80C70 /* InfoPlist.strings */; };
 		4C05CE1F1778B10000F80C70 /* ABParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C10E23517302D8600A2864B /* ABParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,7 +115,6 @@
 		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
 		4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
-		4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA076E116D58A3A006DDBD3 /* Settings.m */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
 		4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB58A221778B6EA00D38D3C /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */; };
@@ -208,6 +208,8 @@
 		2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = disableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/disableCapsSound.aiff; sourceTree = "<group>"; };
 		2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = enableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/enableCapsSound.aiff; sourceTree = "<group>"; };
 		2CF45FCF17956EF300E6C69E /* menuTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuTag.png; path = ../../accessbraille_resources/Images/menuTag.png; sourceTree = "<group>"; };
+		2CF45FD117957A4200E6C69E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		2CF45FD217957A4200E6C69E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C05CE111778AFD200F80C70 /* ABKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C05CE161778AFD300F80C70 /* ABKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABKeyboard-Info.plist"; sourceTree = "<group>"; };
@@ -288,8 +290,6 @@
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
-		4CA076E016D58A3A006DDBD3 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		4CA076E116D58A3A006DDBD3 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuItemImage.h; sourceTree = "<group>"; };
 		4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuItemImage.m; sourceTree = "<group>"; };
 		4CB222AD1706063E00BD3608 /* ABTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTypes.m; sourceTree = "<group>"; };
@@ -668,12 +668,12 @@
 				4C65356216C443A900611B6F /* MainMenu.m */,
 				4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */,
 				4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */,
-				4CA076E016D58A3A006DDBD3 /* Settings.h */,
-				4CA076E116D58A3A006DDBD3 /* Settings.m */,
 				2CAAC79E175E2783004680F9 /* TextAdventure.h */,
 				2CAAC79F175E2783004680F9 /* TextAdventure.m */,
 				2CC54E82176615C1001B595A /* AboutViewController.h */,
 				2CC54E83176615C1001B595A /* AboutViewController.m */,
+				2CF45FD117957A4200E6C69E /* SettingsViewController.h */,
+				2CF45FD217957A4200E6C69E /* SettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -963,9 +963,9 @@
 				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */,
 				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
+				2CF45FD317957A4200E6C69E /* SettingsViewController.m in Sources */,
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
-				4CA076E216D58A3A006DDBD3 /* Settings.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
 				2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */,
