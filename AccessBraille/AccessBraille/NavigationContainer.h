@@ -13,6 +13,5 @@
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)menu;
 
 @property (strong, nonatomic) UIPanGestureRecognizer *menuTrav;
-@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 @end

@@ -42,7 +42,7 @@
     menuOut = CGRectMake(2, -30, 100, 76);
     
     menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
+    [menu addTarget:self action:@selector(tapToShowMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *img = [UIImage imageNamed:@"menuTag.png"];
     [menu setBackgroundImage:img forState:UIControlStateNormal];
     [menu setAlpha:0.6];
@@ -82,7 +82,7 @@
     [controller didMoveToParentViewController:self];
 }
 
-- (void)menu:(id)sender
+- (void)tapToShowMenu:(id)sender
 {
     [_mainMenu.view removeSubviews];
     [self addChildViewController:_mainMenu];
