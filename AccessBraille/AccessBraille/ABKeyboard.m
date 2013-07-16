@@ -16,24 +16,26 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 
-@implementation ABKeyboard {
+@implementation ABKeyboard
+{
     ABTouchLayer *interface;
     ABBrailleReader *brailleReader;
     __strong ABActivateKeyboardGestureRecognizer *activate;
-    // Audio
-    SystemSoundID enabledSound;
-    SystemSoundID disabledSound;
-    SystemSoundID backspaceSound;
+    
+    // Audio URL paths and AVPlayer.
+    NSURL *enabledURL, *disabledURL, *backspaceURL;
+    AVAudioPlayer *avPlayer;
+    
     ABSpeak *speak;
     
     // Hold gestures
     NSArray *gestures;
-    
 }
 
 #pragma mark Setup
 
-- (id)initWithDelegate:(id)delegate {
+- (id)initWithDelegate:(id)delegate
+{
     self = [super init];
     if (self) {
         // GR setup
@@ -52,12 +54,12 @@
         
         // Audio
         _sound = YES;
-        enabledSound = [self createSoundID:@"hop.mp3"];
-        disabledSound = [self createSoundID:@"disable.mp3"];
-        backspaceSound = [self createSoundID:@"backspace.aiff"];
         
-        speak = [[ABSpeak alloc] init];
+        enabledURL = [[NSBundle mainBundle] URLForResource:@"enableKeyboard" withExtension:@"aiff"];
+        disabledURL = [[NSBundle mainBundle] URLForResource:@"disableKeyboard" withExtension:@"aiff"];
+        backspaceURL = [[NSBundle mainBundle] URLForResource:@"backspace" withExtension:@"aiff"];
         
+        speak = [ABSpeak new];
     }
     return self;
 }
@@ -244,26 +246,19 @@
 #pragma mark Audio
 
 - (void)playSound:(NSString *)type {
-    if (!_sound) { return; }
-    if ([type isEqualToString:ABBackspaceSound]){
-        AudioServicesPlaySystemSound(backspaceSound);
-    } else if ([type isEqualToString:ABEnableSound]) {
-        AudioServicesPlaySystemSound(enabledSound);
-    } else if ([type isEqualToString:ABDisableSound]) {
-        AudioServicesPlaySystemSound(disabledSound);
+    if (!_sound) {
+        return;
     }
-}
-
-/**
- * Creates system sound
- */
-- (SystemSoundID) createSoundID: (NSString*)name
-{
-    NSString *path = [NSString stringWithFormat: @"%@/%@", [[NSBundle mainBundle] resourcePath], name];
-    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
-    return soundID;
+    
+    if ([type isEqualToString:ABBackspaceSound]){
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backspaceURL error:nil];
+    } else if ([type isEqualToString:ABEnableSound]) {
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:enabledURL error:nil];
+    } else if ([type isEqualToString:ABDisableSound]) {
+        avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:disabledURL error:nil];
+    }
+    
+    [avPlayer play];
 }
 
 @end
