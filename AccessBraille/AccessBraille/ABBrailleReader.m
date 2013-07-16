@@ -9,6 +9,7 @@
 #import "ABBrailleReader.h"
 #import "ABKeyboard.h"
 #import "ABSpeak.h"
+#import "ABParser.h"
 #import "UITextView+simpleadd.h"
 
 @implementation ABBrailleReader {
@@ -98,11 +99,11 @@
  * Receives character from touchLayer in form of braille string
  */
 - (NSString *)characterReceived:(NSString *)brailleString
-{
+{    
     NSString *returnChar = [self processString:brailleString];
     if ([returnChar isEqualToString:ABBackspace]) {
         [self sendBackspace];
-    } else if (![returnChar isEqualToString:nil]) {
+    } else if (returnChar) {
         [self sendCharacter:returnChar];
     }
     return returnChar;
@@ -205,16 +206,67 @@
 
 - (void)sendCharacter:(NSString *)string
 {
-
+    // Update _fieldOutput
+    
+    if (_fieldOutput)
+        _fieldOutput.text = [_fieldOutput.text stringByAppendingString:string];
+    
+    // Return char to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:NO
+                             string:string];
 }
 
 - (void)sendWord:(NSString *)string
 {
-
+    // Update _fieldOutput
+    
+    if (_fieldOutput) {
+        NSArray *words = [ABParser arrayOfWordsFromSentence:_fieldOutput.text];
+        NSString *newSent = @"";
+        for (int i = 0; i < words.count - 1; i++) {
+            newSent = [newSent stringByAppendingString:words[i]];
+            newSent = [newSent stringByAppendingString:@" "];
+        }
+        _fieldOutput.text = [newSent stringByAppendingString:string];
+        [_fieldOutput insertText:@" "];
+    }
+    // Return word to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(YES),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:NO
+                             string:ABSpaceCharacter];
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:YES
+                             string:string];
 }
 
 - (void)sendBackspace
 {
+    // Update _fieldOutput
     
+    if (_fieldOutput && _fieldOutput.text.length > 0)
+        _fieldOutput.text = [_fieldOutput.text substringWithRange:NSMakeRange(0, _fieldOutput.text.length - 1)];
+    
+    // Return backspace to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(YES)}
+                          wordTyped:NO
+                             string:ABBackspace];
+}
+
+- (void)respondToDelegateWithInfo:(NSDictionary *)info wordTyped:(BOOL)word string:(NSString *)string
+{
+    if (!word && [_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:string withInfo:info];
+    } else if (word && [_delegate respondsToSelector:@selector(wordTyped:withInfo:)]) {
+        [_delegate wordTyped:string withInfo:info];
+    }
 }
 @end
