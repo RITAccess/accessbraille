@@ -8,7 +8,9 @@
 
 #import "SettingsViewController.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController (){
+    NSUserDefaults *userDefaults;
+}
 
 @end
 
@@ -17,6 +19,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // Sets the switch view depending on its status (ON or OFF).
+    [userDefaults boolForKey:@"GradeTwoSelection"] ? [self.gradeTwoSwitch setOn:YES] : [self.gradeTwoSwitch setOn:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +41,11 @@
     [super viewDidUnload];
 }
 
+/**
+ * Toggles the NSUserDefault of GradeTwoSelection either on, or off.
+ */
+- (IBAction)gradeSelectionToggle:(id)sender
+{
+    [userDefaults setBool:![userDefaults boolForKey:@"GradeTwoSelection"] forKey:@"GradeTwoSelection"];
+}
 @end

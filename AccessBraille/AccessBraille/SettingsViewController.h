@@ -10,4 +10,9 @@
 
 @interface SettingsViewController : UIViewController
 
+// Choosing between Grade 1 and Grade 2.
+- (IBAction)gradeSelectionToggle:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *gradeTwoSwitch;
+
 @end
