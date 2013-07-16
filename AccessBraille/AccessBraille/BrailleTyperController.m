@@ -23,6 +23,8 @@
     // Layout
     ABKeyboard *keyboard;
     ABBrailleOutput *output;
+    
+    UITapGestureRecognizer *doubleTap;
 }
 
 # pragma mark - ViewController Methods
@@ -43,6 +45,9 @@
     [output setText:@""];
     [self.view addSubview:output];
     [self.view bringSubviewToFront:output];
+
+    doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDisplayMenu:)];
+    [self.view addGestureRecognizer:doubleTap];
 }
 
 - (void)tapToDisplayMenu:(UITapGestureRecognizer *)gesture

@@ -16,7 +16,6 @@
 #import "ABBrailleOutput.h"
 
 @implementation NavigationContainer {
-    
     UIViewController *currentVC;
     
     UIPanGestureRecognizer *scroll;
@@ -27,6 +26,8 @@
     MainMenu *_mainMenu;
     UIButton *menu;
     CGRect menuOut, menuIn;
+    
+    UITapGestureRecognizer *doubleTap;
 }
 
 -(void)viewDidLoad
@@ -37,7 +38,7 @@
     [self.view sendSubviewToBack:_mainMenu.view];
     
     menuIn = CGRectMake(2, 0, 100, 76);
-    menuOut = CGRectMake(2, -30, 100, 76);
+    menuOut = CGRectMake(2, -30, 100, 0);
     
     menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [menu addTarget:self action:@selector(tapToShowMenu:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,6 +64,10 @@
     }
     
     [self addChildViewController:controller];
+    
+    doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowMenu:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [controller.view addGestureRecognizer:doubleTap];
     
     [self.view addSubview:controller.view];
     [controller viewDidAppear:animated];
