@@ -8,6 +8,8 @@
 	<string>AccessBraille</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
+		<string>https://github.com/ReactiveCocoa/ReactiveCocoa.git</string>
 		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
 		<string>ssh://github.com/RITAccess/accessbraille.git</string>
 	</dict>
@@ -15,6 +17,8 @@
 	<string>AccessBraille/AccessBraille.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
+		<string>../../../RAC</string>
 		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
 		<string>../../..</string>
 	</dict>
@@ -33,6 +37,14 @@
 			<string>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>accessbraille</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9A69059F-226A-4219-ACE2-01826BCCED1E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RAC</string>
 		</dict>
 	</array>
 </dict>
