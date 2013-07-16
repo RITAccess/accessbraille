@@ -60,7 +60,7 @@
 
 - (void)testABReaderGrade1 {
     
-    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
+    ABBrailleReader *reader = [ABBrailleReader new];
 
     // Test Grade 1
     [reader setGrade:ABGradeOne];
@@ -86,7 +86,7 @@
 
 - (void)testABBrailleReaderGrade2 {
     
-    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
+    ABBrailleReader *reader = [ABBrailleReader new];
     
     // Test grade two
     [reader setGrade:ABGradeTwo];
@@ -154,7 +154,7 @@
 
 - (void)testABBrailleReaderGrade2_test2
 {
-    ABBrailleReader *reader = [[ABBrailleReader alloc] initWithAudioTarget:nil selector:nil];
+    ABBrailleReader *reader = [ABBrailleReader new];
     
     // Prefix followed by non recongnized post
     [reader processString:@"000010"];
