@@ -25,6 +25,10 @@
     SystemSoundID disabledSound;
     SystemSoundID backspaceSound;
     ABSpeak *speak;
+    
+    // Hold gestures
+    NSArray *gestures;
+    
 }
 
 #pragma mark Setup
@@ -172,8 +176,7 @@
             
             if (reg.translationFromStart > 200) {
                 [reg getTouchInfo];
-                [self playSound:ABEnableSound];
-                [_output becomeFirstResponder];
+                [self activated];
             }
             
             break;
@@ -192,9 +195,7 @@
                     orig.origin.y -= [UIScreen mainScreen].bounds.size.height;
                     [interface setFrame:orig];
                 }];
-                if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
-                    [_deactiveTarget performSelector:_deactiveKeyboard];
-                }
+                [self deactivated];
                 [_output resignFirstResponder];
                 _keyboardActive = NO;
             }
@@ -202,6 +203,27 @@
             break;
         default:
             break;
+    }
+}
+
+#pragma mark active/deactive
+
+- (void)activated
+{
+    gestures = _delegate.view.gestureRecognizers;
+    [_delegate.view setGestureRecognizers:nil];
+    [self playSound:ABEnableSound];
+    [_output becomeFirstResponder];
+    if ([_deactiveTarget respondsToSelector:_activeKeyboard]) {
+        [_deactiveTarget performSelector:_activeKeyboard];
+    }
+}
+
+- (void)deactivated
+{
+    [_delegate.view setGestureRecognizers:gestures];
+    if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
+        [_deactiveTarget performSelector:_deactiveKeyboard];
     }
 }
 
