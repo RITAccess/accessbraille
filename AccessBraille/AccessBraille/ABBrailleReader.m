@@ -188,11 +188,29 @@
             switch (_grade) {
                 case ABGradeOne:
                     if (lookup.length == 1) { // Grade one is only single char
+                        // Check shift/caps
+                        if(_layer.shift) {
+                            lookup = [lookup uppercaseString];
+                            _layer.shift = NO;
+                            [_layer setNeedsDisplay];
+                        }
+                        if (_layer.caps) {
+                            lookup = [lookup uppercaseString];
+                        }
                         _wordTyping = [_wordTyping stringByAppendingString:lookup];
                         return lookup;
                     }
                     break;
                 case ABGradeTwo:
+                    // Check shift/caps
+                    if(_layer.shift) {
+                        lookup = [NSString stringWithFormat:@"%@%@", [[lookup substringToIndex:1] uppercaseString], [lookup substringFromIndex:1]];;
+                        _layer.shift = NO;
+                        [_layer setNeedsDisplay];
+                    }
+                    if (_layer.caps) {
+                        lookup = [lookup uppercaseString];
+                    }
                     _wordTyping = [_wordTyping stringByAppendingString:lookup];
                     return lookup;
                     break;

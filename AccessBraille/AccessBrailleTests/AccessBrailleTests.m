@@ -251,20 +251,4 @@
     
 }
 
-- (void)testABKeyboardTyping_test3
-{
-    ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:nil];
-    ABBrailleReader *reader = keyboard.brailleReader;
-    UITextView *output = [UITextView new];
-    [keyboard setOutput:output];
-    
-    reader.layer.shift = YES;
-    [reader characterReceived:@"101100"];
-    [reader characterReceived:@"101111"];
-    [reader characterReceived:ABSpaceCharacter];
-    
-    STAssertEqualObjects(output.text, @"My ", @"Did not type to output correctly");
-    
-}
-
 @end
