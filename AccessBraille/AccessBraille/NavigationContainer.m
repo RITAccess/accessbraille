@@ -13,7 +13,6 @@
 #import "UIView+quickRemove.h"
 #import "TextAdventure.h"
 #import "MainMenu.h"
-
 #import "ABBrailleOutput.h"
 
 @implementation NavigationContainer {
@@ -27,22 +26,21 @@
     
     MainMenu *_mainMenu;
     UIButton *menu;
-    CGRect menuOut;
-    CGRect menuIn;
+    CGRect menuOut, menuIn;
 }
 
--(void)viewDidLoad {
-    
+-(void)viewDidLoad
+{    
     _mainMenu = [[MainMenu alloc] init];
     [self addChildViewController:_mainMenu];
     [self.view addSubview:_mainMenu.view];
     [self.view sendSubviewToBack:_mainMenu.view];
     
-    menuIn = CGRectMake(2, 0, 100, 30);
-    menuOut = CGRectMake(2, -30, 100, 30);
+    menuIn = CGRectMake(2, 0, 100, 76);
+    menuOut = CGRectMake(2, -30, 100, 76);
     
     menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
+    [menu addTarget:self action:@selector(tapToShowMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *img = [UIImage imageNamed:@"menuTag.png"];
     [menu setBackgroundImage:img forState:UIControlStateNormal];
     [menu setAlpha:0.6];
@@ -55,7 +53,7 @@
 - (BOOL)shouldAutomaticallyForwardRotationMethods { return TRUE; }
 
 /**
- Takes in a UIViewController and switches the view to that controller
+ Takes in a UIViewController and switches the view to that controller.
  */
 - (void)switchToController:(UIViewController*)controller animated:(BOOL)animated withMenu:(BOOL)withmenu
 {
@@ -82,7 +80,7 @@
     [controller didMoveToParentViewController:self];
 }
 
-- (void)menu:(id)sender
+- (void)tapToShowMenu:(id)sender
 {
     [_mainMenu.view removeSubviews];
     [self addChildViewController:_mainMenu];
@@ -95,6 +93,8 @@
     [tapToReturn setCancelsTouchesInView:YES];
     [currentVC.view setGestureRecognizers:@[tapToReturn]];
     
+    
+    /* Scales main controller down. */
     CGAffineTransform scale = CGAffineTransformMakeScale(0.6, 0.6);
     [UIView animateWithDuration:0.3 animations:^{
         currentVC.view.transform = scale;

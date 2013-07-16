@@ -29,25 +29,21 @@
     NSArray *names;
 }
 
-@synthesize menuView;
-
 #pragma mark - Load Methods
 
--(void)viewDidLoad{
-    
+-(void)viewDidLoad
+{
     // Set menu properties
     _swipeSensitivity = 2000;
     
-
     [self.view setBackgroundColor:[UIColor blueColor]];
-    
     
     // Pan gesture for scrolling and navigating
     scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
     scrollMenu.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:scrollMenu];
-    [self.menuView makeClear];
-    [self.view sendSubviewToBack:menuView];
+    [_menuView makeClear];
+    [self.view sendSubviewToBack:_menuView];
     
     // Load side menu
     [self loadMenuItemsAnimated:YES];
@@ -67,19 +63,23 @@
     
 }
 
--(void)didMoveToParentViewController:(UIViewController *)parent {
+-(void)didMoveToParentViewController:(UIViewController *)parent
+{
     
 }
 
-- (void)willMoveToParentViewController:(UIViewController *)parent {
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setMenuView:nil];
     [self setOverlayTitle:nil];
     [self setOverlayDiscription:nil];
@@ -92,10 +92,9 @@
 /**
  * Checks what menu item is in the selection box and returns it's ID
  **/
-- (NSNumber *)checkInBounds {
-    
+- (NSNumber *)checkInBounds
+{
     // 284 - 484 highlight bounds
-    
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
@@ -108,17 +107,21 @@
             [inBounds addObject:@(img.tag - 31)];
         }
     }
+    
     if (inBounds.count > 1) {
         return @(-1);
     } else if (inBounds.count == 1) {
         return [[inBounds allObjects] objectAtIndex:0];
-    } else { return @(-1); }
+    } else {
+        return @(-1);
+    }
 }
 
 /**
  * Moves the menu items a set distance from the root menu item position
  **/
-- (void)moveMenuItemsByDelta:(float)delta {
+- (void)moveMenuItemsByDelta:(float)delta
+{
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
@@ -139,8 +142,8 @@
 /**
  * Loads menu items into view
  **/
-- (void)loadMenuItemsAnimated:(BOOL)animated {
-    
+- (void)loadMenuItemsAnimated:(BOOL)animated
+{
     // Get menu information
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"menu.plist"];
@@ -171,7 +174,7 @@
         startPos = startPos + 180;
     }
 
-    [self.view bringSubviewToFront:menuView];
+    [self.view bringSubviewToFront:_menuView];
     
     if (animated) {
         NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
@@ -188,10 +191,11 @@
 
 
 /**
- * Menu Scrolling
+ * Handles Menu Scrolling.
  **/
-- (void)scrollMenu:(UIPanGestureRecognizer *)reg {
-    MainMenuNavigation *view = menuView;
+- (void)scrollMenu:(UIPanGestureRecognizer *)reg
+{
+    MainMenuNavigation *view = _menuView;
     
     switch (reg.state) {
         case UIGestureRecognizerStateBegan:
@@ -226,7 +230,8 @@
     [self.menuView setNeedsDisplay];
 }
 
-- (BOOL)setActiveItem {
+- (BOOL)setActiveItem
+{
     if ([self checkInBounds] != active) {
         active = [self checkInBounds];
         return true;
@@ -236,9 +241,10 @@
 }
 
 /**
- * Updates the the menu discription based on its ID and the contents of the menuDiscription.plist
+ * Updates the the menu discription based on its ID and the contents of the menuDiscription.plist.
  **/
-- (void)setMenuContentInformationAtLocation:(NSNumber *)cvID {
+- (void)setMenuContentInformationAtLocation:(NSNumber *)cvID
+{
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
     NSArray *context = [[NSArray alloc] initWithContentsOfFile:contentPath];
@@ -250,7 +256,7 @@
         }];
     } else {
         [UIView animateWithDuration:2.0 animations:^{
-            [menuView setHightlightWidth:750];
+            [_menuView setHightlightWidth:750];
             [_OverlayTitle setText:names[cvID.intValue]];
             [_OverlayDiscription setText:context[cvID.intValue]];
         }];
@@ -258,9 +264,10 @@
 }
 
 /**
- * Get menu speaking string at locaton
+ * Get menu speaking string at locaton.
  */
-- (NSString *)getSpeakingStringAtLocation:(NSNumber *)cvID {
+- (NSString *)getSpeakingStringAtLocation:(NSNumber *)cvID
+{
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *titlePath = [path stringByAppendingPathComponent:@"MenuTitles.plist"];
     NSString *contentPath = [path stringByAppendingPathComponent:@"menuDiscriptions.plist"];
@@ -279,7 +286,8 @@
 /**
  * Switches to a new controller by it's ID
  **/
-- (void)switchToControllerWithID:(NSNumber *)vcID {
+- (void)switchToControllerWithID:(NSNumber *)vcID
+{
     if ([vcID isEqual: @(-1)]) { return; }
     
     // Animate off screen
