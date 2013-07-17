@@ -281,6 +281,9 @@
                                       ABBackspaceReceived : @(YES)}
                           wordTyped:NO
                              string:ABBackspace];
+    
+    // Backspace sound
+    [target performSelector:selector withObject:ABBackspaceSound];
 }
 
 - (void)respondToDelegateWithInfo:(NSDictionary *)info wordTyped:(BOOL)word string:(NSString *)string
