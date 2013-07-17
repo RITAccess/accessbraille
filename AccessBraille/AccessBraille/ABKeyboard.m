@@ -57,7 +57,7 @@
         disabledURL = [[NSBundle mainBundle] URLForResource:@"disableKeyboard" withExtension:@"aiff"];
         backspaceURL = [[NSBundle mainBundle] URLForResource:@"backspace" withExtension:@"aiff"];
         
-        speak = [ABSpeak new];
+        speak = [ABSpeak sharedInstance];
     }
     return self;
 }
