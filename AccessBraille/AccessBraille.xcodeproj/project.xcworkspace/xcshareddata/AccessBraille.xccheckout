@@ -8,8 +8,6 @@
 	<string>AccessBraille</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>648B01AF-26F5-4A31-8F9C-453C172B4473</key>
-		<string>git://github.com/github/specta.git</string>
 		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
 		<string>https://github.com/ReactiveCocoa/ReactiveCocoa.git</string>
 		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
@@ -19,8 +17,6 @@
 	<string>AccessBraille/AccessBraille.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>648B01AF-26F5-4A31-8F9C-453C172B4473</key>
-		<string>../../../../../ReactiveCocoa/external/specta</string>
 		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
 		<string>../../../RAC</string>
 		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
@@ -49,14 +45,6 @@
 			<string>9A69059F-226A-4219-ACE2-01826BCCED1E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RAC</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>648B01AF-26F5-4A31-8F9C-453C172B4473</string>
-			<key>IDESourceControlWCCName</key>
-			<string>specta</string>
 		</dict>
 	</array>
 </dict>

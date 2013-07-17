@@ -31,7 +31,7 @@
 @property (strong, nonatomic) UITextView *output;
 
 /* Delegate */
-@property (strong, nonatomic) id<ABKeyboard> delegate;
+@property (strong, nonatomic) UIViewController<ABKeyboard> *delegate;
 
 /* Access the Gesture */
 @property (strong, nonatomic) ABActivateKeyboardGestureRecognizer *keyboardGesture;
@@ -45,6 +45,9 @@
 /* Set sounds enabled */
 @property BOOL sound;
 
+/* Set keyboard grade */
+@property (assign) ABGrade grade;
+
 /* Keyboard state properites */
 @property SEL activeKeyboard;
 @property id activeTarget;
@@ -56,6 +59,7 @@
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 
 /* Basic Speaking Method */
+// TODO part of ABSpeak rework to singlton instance, use new contructor format
 - (void)startSpeakingString:(NSString *)string;
 
 /* Keyboard state callbacks */

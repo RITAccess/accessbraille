@@ -38,20 +38,16 @@
 		2CE1B413178B5064009B8E1D /* disableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */; };
 		2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
 		2CE1B415178B5064009B8E1D /* enableCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */; };
-		2CF45FD017956EF300E6C69E /* menuTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF45FCF17956EF300E6C69E /* menuTag.png */; };
-		2CF45FD317957A4200E6C69E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF45FD217957A4200E6C69E /* SettingsViewController.m */; };
-		2CF45FD61795E51600E6C69E /* disableKeyboard.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CF45FD41795E51600E6C69E /* disableKeyboard.aiff */; };
-		2CF45FD71795E51600E6C69E /* enableKeyboard.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CF45FD51795E51600E6C69E /* enableKeyboard.aiff */; };
 		3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */; };
 		4C05CE191778AFD300F80C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C05CE171778AFD300F80C70 /* InfoPlist.strings */; };
 		4C05CE1F1778B10000F80C70 /* ABParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C10E23517302D8600A2864B /* ABParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C05CE201778B11300F80C70 /* ABKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEE19A216FCA05400E36128 /* ABKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C05CE211778B16700F80C70 /* ABSpeak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C10E23717302D8600A2864B /* ABSpeak.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C05CE221778B16D00F80C70 /* ABTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C433B8F1705DF4B003D2DE7 /* ABTypes.h */; };
-		4C05CE231778B17000F80C70 /* ABActivateKeyboardGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */; };
-		4C05CE241778B17400F80C70 /* ABBrailleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B824E171316F60035797D /* ABBrailleReader.h */; };
-		4C05CE251778B17800F80C70 /* ABTouchLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */; };
-		4C05CE261778B17A00F80C70 /* ABTouchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C092A5E170F1AFA00650986 /* ABTouchView.h */; };
+		4C05CE221778B16D00F80C70 /* ABTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C433B8F1705DF4B003D2DE7 /* ABTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C05CE231778B17000F80C70 /* ABActivateKeyboardGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C05CE241778B17400F80C70 /* ABBrailleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B824E171316F60035797D /* ABBrailleReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C05CE251778B17800F80C70 /* ABTouchLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C50A416170DCA8F00D03D44 /* ABTouchLayer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4C05CE261778B17A00F80C70 /* ABTouchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C092A5E170F1AFA00650986 /* ABTouchView.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4C05CE271778B18700F80C70 /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23617302D8600A2864B /* ABParser.m */; };
 		4C05CE281778B18700F80C70 /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23817302D8600A2864B /* ABSpeak.m */; };
 		4C05CE291778B18700F80C70 /* ABTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB222AD1706063E00BD3608 /* ABTypes.m */; };
@@ -104,6 +100,32 @@
 		4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1B175CC92B00A3DEDA /* icon144.png */; };
 		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */; };
+		4C3605A51795E8AF00777EC4 /* menuTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605A41795E8AF00777EC4 /* menuTag.png */; };
+		4C3605BE1795E8D100777EC4 /* cabinFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605A61795E8D100777EC4 /* cabinFloorLeave.aiff */; };
+		4C3605BF1795E8D100777EC4 /* cabinFloorLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605A71795E8D100777EC4 /* cabinFloorLook.aiff */; };
+		4C3605C01795E8D100777EC4 /* cabinFloorPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605A81795E8D100777EC4 /* cabinFloorPick.aiff */; };
+		4C3605C11795E8D100777EC4 /* cabinFloorPuzzle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605A91795E8D100777EC4 /* cabinFloorPuzzle.aiff */; };
+		4C3605C21795E8D100777EC4 /* crashSite.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AA1795E8D100777EC4 /* crashSite.aiff */; };
+		4C3605C31795E8D100777EC4 /* crashSiteLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AB1795E8D100777EC4 /* crashSiteLeave.aiff */; };
+		4C3605C41795E8D100777EC4 /* crashSiteLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AC1795E8D100777EC4 /* crashSiteLook.aiff */; };
+		4C3605C51795E8D100777EC4 /* darkCaveBlock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AD1795E8D100777EC4 /* darkCaveBlock.aiff */; };
+		4C3605C61795E8D100777EC4 /* darkCaveLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AE1795E8D100777EC4 /* darkCaveLeave.aiff */; };
+		4C3605C71795E8D100777EC4 /* darkCaveLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605AF1795E8D100777EC4 /* darkCaveLook.aiff */; };
+		4C3605C81795E8D100777EC4 /* darkCaveUse.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B01795E8D100777EC4 /* darkCaveUse.aiff */; };
+		4C3605C91795E8D100777EC4 /* disableKeyboard.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B11795E8D100777EC4 /* disableKeyboard.aiff */; };
+		4C3605CA1795E8D100777EC4 /* enableKeyboard.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B21795E8D100777EC4 /* enableKeyboard.aiff */; };
+		4C3605CB1795E8D100777EC4 /* femaleHmm.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B31795E8D100777EC4 /* femaleHmm.aiff */; };
+		4C3605CC1795E8D100777EC4 /* finalCavernLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B41795E8D100777EC4 /* finalCavernLeave.aiff */; };
+		4C3605CD1795E8D100777EC4 /* finalCavernLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B51795E8D100777EC4 /* finalCavernLook.aiff */; };
+		4C3605CE1795E8D100777EC4 /* finalCavernPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B61795E8D100777EC4 /* finalCavernPick.aiff */; };
+		4C3605CF1795E8D100777EC4 /* forestFloorLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B71795E8D100777EC4 /* forestFloorLeave.aiff */; };
+		4C3605D01795E8D100777EC4 /* forestFloorLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B81795E8D100777EC4 /* forestFloorLook.aiff */; };
+		4C3605D11795E8D100777EC4 /* forestFloorPick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605B91795E8D100777EC4 /* forestFloorPick.aiff */; };
+		4C3605D21795E8D100777EC4 /* secretCabinBlock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605BA1795E8D100777EC4 /* secretCabinBlock.aiff */; };
+		4C3605D31795E8D100777EC4 /* secretCabinLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605BB1795E8D100777EC4 /* secretCabinLeave.aiff */; };
+		4C3605D41795E8D100777EC4 /* windyLakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605BC1795E8D100777EC4 /* windyLakeLeave.aiff */; };
+		4C3605D51795E8D100777EC4 /* windyLakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4C3605BD1795E8D100777EC4 /* windyLakeLook.aiff */; };
+		4C3605D81795E98A00777EC4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3605D71795E98A00777EC4 /* SettingsViewController.m */; };
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
 		4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4CABAC17845E7A00563621 /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C4CABB01784647200563621 /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CABAD17845E7A00563621 /* ABBrailleOutput.m */; };
@@ -118,9 +140,9 @@
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
 		4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB58A221778B6EA00D38D3C /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */; };
-		4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */; };
+		4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4CB58A241778B6EA00D38D3C /* UIView+quickRemove.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */; };
-		4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */; };
+		4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4CB58A281778B6EA00D38D3C /* UITextView+simpleadd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */; };
 		4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
@@ -207,11 +229,6 @@
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
 		2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = disableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/disableCapsSound.aiff; sourceTree = "<group>"; };
 		2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = enableCapsSound.aiff; path = ../../accessbraille_resources/Sounds/enableCapsSound.aiff; sourceTree = "<group>"; };
-		2CF45FCF17956EF300E6C69E /* menuTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuTag.png; path = ../../accessbraille_resources/Images/menuTag.png; sourceTree = "<group>"; };
-		2CF45FD117957A4200E6C69E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		2CF45FD217957A4200E6C69E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		2CF45FD41795E51600E6C69E /* disableKeyboard.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = disableKeyboard.aiff; path = ../../accessbraille_resources/Sounds/disableKeyboard.aiff; sourceTree = "<group>"; };
-		2CF45FD51795E51600E6C69E /* enableKeyboard.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = enableKeyboard.aiff; path = ../../accessbraille_resources/Sounds/enableKeyboard.aiff; sourceTree = "<group>"; };
 		3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C05CE111778AFD200F80C70 /* ABKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C05CE161778AFD300F80C70 /* ABKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABKeyboard-Info.plist"; sourceTree = "<group>"; };
@@ -267,6 +284,33 @@
 		4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
 		4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuDiscriptions.plist; sourceTree = "<group>"; };
+		4C3605A41795E8AF00777EC4 /* menuTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuTag.png; sourceTree = "<group>"; };
+		4C3605A61795E8D100777EC4 /* cabinFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = cabinFloorLeave.aiff; sourceTree = "<group>"; };
+		4C3605A71795E8D100777EC4 /* cabinFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = cabinFloorLook.aiff; sourceTree = "<group>"; };
+		4C3605A81795E8D100777EC4 /* cabinFloorPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = cabinFloorPick.aiff; sourceTree = "<group>"; };
+		4C3605A91795E8D100777EC4 /* cabinFloorPuzzle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = cabinFloorPuzzle.aiff; sourceTree = "<group>"; };
+		4C3605AA1795E8D100777EC4 /* crashSite.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = crashSite.aiff; sourceTree = "<group>"; };
+		4C3605AB1795E8D100777EC4 /* crashSiteLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = crashSiteLeave.aiff; sourceTree = "<group>"; };
+		4C3605AC1795E8D100777EC4 /* crashSiteLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = crashSiteLook.aiff; sourceTree = "<group>"; };
+		4C3605AD1795E8D100777EC4 /* darkCaveBlock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = darkCaveBlock.aiff; sourceTree = "<group>"; };
+		4C3605AE1795E8D100777EC4 /* darkCaveLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = darkCaveLeave.aiff; sourceTree = "<group>"; };
+		4C3605AF1795E8D100777EC4 /* darkCaveLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = darkCaveLook.aiff; sourceTree = "<group>"; };
+		4C3605B01795E8D100777EC4 /* darkCaveUse.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = darkCaveUse.aiff; sourceTree = "<group>"; };
+		4C3605B11795E8D100777EC4 /* disableKeyboard.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = disableKeyboard.aiff; sourceTree = "<group>"; };
+		4C3605B21795E8D100777EC4 /* enableKeyboard.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = enableKeyboard.aiff; sourceTree = "<group>"; };
+		4C3605B31795E8D100777EC4 /* femaleHmm.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = femaleHmm.aiff; sourceTree = "<group>"; };
+		4C3605B41795E8D100777EC4 /* finalCavernLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = finalCavernLeave.aiff; sourceTree = "<group>"; };
+		4C3605B51795E8D100777EC4 /* finalCavernLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = finalCavernLook.aiff; sourceTree = "<group>"; };
+		4C3605B61795E8D100777EC4 /* finalCavernPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = finalCavernPick.aiff; sourceTree = "<group>"; };
+		4C3605B71795E8D100777EC4 /* forestFloorLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = forestFloorLeave.aiff; sourceTree = "<group>"; };
+		4C3605B81795E8D100777EC4 /* forestFloorLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = forestFloorLook.aiff; sourceTree = "<group>"; };
+		4C3605B91795E8D100777EC4 /* forestFloorPick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = forestFloorPick.aiff; sourceTree = "<group>"; };
+		4C3605BA1795E8D100777EC4 /* secretCabinBlock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = secretCabinBlock.aiff; sourceTree = "<group>"; };
+		4C3605BB1795E8D100777EC4 /* secretCabinLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = secretCabinLeave.aiff; sourceTree = "<group>"; };
+		4C3605BC1795E8D100777EC4 /* windyLakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = windyLakeLeave.aiff; sourceTree = "<group>"; };
+		4C3605BD1795E8D100777EC4 /* windyLakeLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = windyLakeLook.aiff; sourceTree = "<group>"; };
+		4C3605D61795E98A00777EC4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		4C3605D71795E98A00777EC4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		4C3C91B116CE9D7D00954A54 /* MainMenuNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuNavigation.h; sourceTree = "<group>"; };
 		4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuNavigation.m; sourceTree = "<group>"; };
 		4C433B8F1705DF4B003D2DE7 /* ABTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTypes.h; sourceTree = "<group>"; };
@@ -498,7 +542,7 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2CF45FCF17956EF300E6C69E /* menuTag.png */,
+				4C3605A41795E8AF00777EC4 /* menuTag.png */,
 				4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */,
 				4C1B1E0C175CC8FA00A3DEDA /* Default.png */,
 				4C1B1E0D175CC8FA00A3DEDA /* Default@2x.png */,
@@ -642,8 +686,30 @@
 		A9ECC82116A764C300998AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2CF45FD41795E51600E6C69E /* disableKeyboard.aiff */,
-				2CF45FD51795E51600E6C69E /* enableKeyboard.aiff */,
+				4C3605A61795E8D100777EC4 /* cabinFloorLeave.aiff */,
+				4C3605A71795E8D100777EC4 /* cabinFloorLook.aiff */,
+				4C3605A81795E8D100777EC4 /* cabinFloorPick.aiff */,
+				4C3605A91795E8D100777EC4 /* cabinFloorPuzzle.aiff */,
+				4C3605AA1795E8D100777EC4 /* crashSite.aiff */,
+				4C3605AB1795E8D100777EC4 /* crashSiteLeave.aiff */,
+				4C3605AC1795E8D100777EC4 /* crashSiteLook.aiff */,
+				4C3605AD1795E8D100777EC4 /* darkCaveBlock.aiff */,
+				4C3605AE1795E8D100777EC4 /* darkCaveLeave.aiff */,
+				4C3605AF1795E8D100777EC4 /* darkCaveLook.aiff */,
+				4C3605B01795E8D100777EC4 /* darkCaveUse.aiff */,
+				4C3605B11795E8D100777EC4 /* disableKeyboard.aiff */,
+				4C3605B21795E8D100777EC4 /* enableKeyboard.aiff */,
+				4C3605B31795E8D100777EC4 /* femaleHmm.aiff */,
+				4C3605B41795E8D100777EC4 /* finalCavernLeave.aiff */,
+				4C3605B51795E8D100777EC4 /* finalCavernLook.aiff */,
+				4C3605B61795E8D100777EC4 /* finalCavernPick.aiff */,
+				4C3605B71795E8D100777EC4 /* forestFloorLeave.aiff */,
+				4C3605B81795E8D100777EC4 /* forestFloorLook.aiff */,
+				4C3605B91795E8D100777EC4 /* forestFloorPick.aiff */,
+				4C3605BA1795E8D100777EC4 /* secretCabinBlock.aiff */,
+				4C3605BB1795E8D100777EC4 /* secretCabinLeave.aiff */,
+				4C3605BC1795E8D100777EC4 /* windyLakeLeave.aiff */,
+				4C3605BD1795E8D100777EC4 /* windyLakeLook.aiff */,
 				2CE1B40F178B5064009B8E1D /* disableCapsSound.aiff */,
 				2CE1B410178B5064009B8E1D /* enableCapsSound.aiff */,
 				2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */,
@@ -658,6 +724,8 @@
 		A9ECC82216A764E900998AD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C3605D61795E98A00777EC4 /* SettingsViewController.h */,
+				4C3605D71795E98A00777EC4 /* SettingsViewController.m */,
 				A9ECC82916A7780B00998AD4 /* NavigationContainer.h */,
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
@@ -672,8 +740,6 @@
 				2CAAC79F175E2783004680F9 /* TextAdventure.m */,
 				2CC54E82176615C1001B595A /* AboutViewController.h */,
 				2CC54E83176615C1001B595A /* AboutViewController.m */,
-				2CF45FD117957A4200E6C69E /* SettingsViewController.h */,
-				2CF45FD217957A4200E6C69E /* SettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -690,12 +756,12 @@
 				4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */,
 				4C4CABAF1784647200563621 /* ABBrailleOutput.h in Headers */,
 				4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */,
-				4C05CE251778B17800F80C70 /* ABTouchLayer.h in Headers */,
-				4C05CE241778B17400F80C70 /* ABBrailleReader.h in Headers */,
-				4C05CE261778B17A00F80C70 /* ABTouchView.h in Headers */,
-				4C05CE201778B11300F80C70 /* ABKeyboard.h in Headers */,
 				4C05CE221778B16D00F80C70 /* ABTypes.h in Headers */,
 				4C05CE231778B17000F80C70 /* ABActivateKeyboardGestureRecognizer.h in Headers */,
+				4C05CE241778B17400F80C70 /* ABBrailleReader.h in Headers */,
+				4C05CE251778B17800F80C70 /* ABTouchLayer.h in Headers */,
+				4C05CE261778B17A00F80C70 /* ABTouchView.h in Headers */,
+				4C05CE201778B11300F80C70 /* ABKeyboard.h in Headers */,
 				4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,13 +897,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9479C521670034E00CE9475 /* MainStoryboard.storyboard in Resources */,
+				4C3605CA1795E8D100777EC4 /* enableKeyboard.aiff in Resources */,
 				4C11AEA216F0D5A500A9210A /* menu.plist in Resources */,
+				4C3605D01795E8D100777EC4 /* forestFloorLook.aiff in Resources */,
 				4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */,
 				4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */,
 				2CCB7549173BF3220059E580 /* easy.plist in Resources */,
 				2CCB754B173BF3610059E580 /* medium.plist in Resources */,
 				2CCB754D173BF3B40059E580 /* hard.plist in Resources */,
 				4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */,
+				4C3605D41795E8D100777EC4 /* windyLakeLeave.aiff in Resources */,
+				4C3605CC1795E8D100777EC4 /* finalCavernLeave.aiff in Resources */,
 				4C1B1DEA175CC85500A3DEDA /* mainMenu@2x.png in Resources */,
 				4C1B1DEB175CC85500A3DEDA /* menuItem0.png in Resources */,
 				4C1B1DEE175CC85500A3DEDA /* menuItem1.png in Resources */,
@@ -845,38 +915,51 @@
 				4C1B1DF0175CC85500A3DEDA /* menuItem2.png in Resources */,
 				4C1B1DF1175CC85500A3DEDA /* menuItem2x90.png in Resources */,
 				4C1B1DF2175CC85500A3DEDA /* menuItem3.png in Resources */,
+				4C3605D51795E8D100777EC4 /* windyLakeLook.aiff in Resources */,
 				4C1B1DF3175CC85500A3DEDA /* menuItem3x90.png in Resources */,
 				4C1B1DF4175CC85500A3DEDA /* slideOutMenu.png in Resources */,
 				4C4CABB21784714400563621 /* About.rtf in Resources */,
 				4C1B1DF5175CC85500A3DEDA /* HightBar.png in Resources */,
 				4C1B1DF6175CC85500A3DEDA /* icon144.png in Resources */,
 				4C1B1DF7175CC85500A3DEDA /* splash-01.png in Resources */,
+				4C3605CF1795E8D100777EC4 /* forestFloorLeave.aiff in Resources */,
+				4C3605BF1795E8D100777EC4 /* cabinFloorLook.aiff in Resources */,
 				4C1B1DF8175CC85500A3DEDA /* splash.png in Resources */,
 				4CB58A2D1778BBB900D38D3C /* numberLookup.plist in Resources */,
+				4C3605BE1795E8D100777EC4 /* cabinFloorLeave.aiff in Resources */,
+				4C3605C61795E8D100777EC4 /* darkCaveLeave.aiff in Resources */,
 				4C1B1DF9175CC85500A3DEDA /* splash@2x.png in Resources */,
 				4C1B1DFA175CC85500A3DEDA /* typerIcon.png in Resources */,
+				4C3605C01795E8D100777EC4 /* cabinFloorPick.aiff in Resources */,
 				4C1B1DFB175CC85500A3DEDA /* icon.png in Resources */,
 				4C1B1DFC175CC85500A3DEDA /* menuItem.png in Resources */,
 				4CB58A2C1778BBB900D38D3C /* grade2lookup.plist in Resources */,
 				4C1B1E04175CC87B00A3DEDA /* navClick.aiff in Resources */,
+				4C3605CE1795E8D100777EC4 /* finalCavernPick.aiff in Resources */,
 				4C1B1E05175CC87B00A3DEDA /* backspace.aiff in Resources */,
 				4C1B1E06175CC87B00A3DEDA /* correct.aiff in Resources */,
+				4C3605D11795E8D100777EC4 /* forestFloorPick.aiff in Resources */,
+				4C3605C51795E8D100777EC4 /* darkCaveBlock.aiff in Resources */,
 				4CB58A321778BBB900D38D3C /* prefixLevelSix.plist in Resources */,
 				4CB58A301778BBB900D38D3C /* prefixLevelFour.plist in Resources */,
 				2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */,
 				4CB58A341778BBB900D38D3C /* shortHandLookup.plist in Resources */,
 				4CB58A311778BBB900D38D3C /* prefixLevelFive.plist in Resources */,
+				4C3605C71795E8D100777EC4 /* darkCaveLook.aiff in Resources */,
 				4C1B1E09175CC87B00A3DEDA /* incorrect.aiff in Resources */,
+				4C3605D31795E8D100777EC4 /* secretCabinLeave.aiff in Resources */,
 				4C1B1E11175CC8FA00A3DEDA /* Default-568h@2x.png in Resources */,
-				2CF45FD61795E51600E6C69E /* disableKeyboard.aiff in Resources */,
 				4C1B1E13175CC8FA00A3DEDA /* Default@2x.png in Resources */,
+				4C3605CB1795E8D100777EC4 /* femaleHmm.aiff in Resources */,
 				4C1B1E14175CC8FA00A3DEDA /* menuItem0x90.png in Resources */,
 				4C1B1E15175CC8FA00A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
+				4C3605A51795E8AF00777EC4 /* menuTag.png in Resources */,
 				4C1B1E16175CC8FA00A3DEDA /* Default-Landscape~ipad.png in Resources */,
-				2CF45FD71795E51600E6C69E /* enableKeyboard.aiff in Resources */,
+				4C3605C11795E8D100777EC4 /* cabinFloorPuzzle.aiff in Resources */,
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
+				4C3605C31795E8D100777EC4 /* crashSiteLeave.aiff in Resources */,
 				4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */,
-				2CF45FD017956EF300E6C69E /* menuTag.png in Resources */,
+				4C3605C91795E8D100777EC4 /* disableKeyboard.aiff in Resources */,
 				4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */,
 				4CB58A331778BBB900D38D3C /* prefixLevelSeven.plist in Resources */,
 				4CB58A2E1778BBB900D38D3C /* prefixLevelTwo.plist in Resources */,
@@ -885,9 +968,14 @@
 				2CAAC7A7175E2A2A004680F9 /* menuItem4x90.png in Resources */,
 				2CC54E8617661A3A001B595A /* menuItem5.png in Resources */,
 				2CE1B412178B5064009B8E1D /* disableCapsSound.aiff in Resources */,
+				4C3605D21795E8D100777EC4 /* secretCabinBlock.aiff in Resources */,
 				4CB58A2F1778BBB900D38D3C /* prefixLevelThree.plist in Resources */,
+				4C3605C41795E8D100777EC4 /* crashSiteLook.aiff in Resources */,
 				2CC54E8817661A72001B595A /* menuItem5x90.png in Resources */,
+				4C3605C21795E8D100777EC4 /* crashSite.aiff in Resources */,
 				2C80FAEE178C409D0077BA2D /* lockCapsSound.aiff in Resources */,
+				4C3605CD1795E8D100777EC4 /* finalCavernLook.aiff in Resources */,
+				4C3605C81795E8D100777EC4 /* darkCaveUse.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,13 +1045,13 @@
 				A9479C451670034E00CE9475 /* main.m in Sources */,
 				A9479C491670034E00CE9475 /* AppDelegate.m in Sources */,
 				A9479C551670034E00CE9475 /* BrailleTyperController.m in Sources */,
+				4C3605D81795E98A00777EC4 /* SettingsViewController.m in Sources */,
 				4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
 				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */,
 				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
-				2CF45FD317957A4200E6C69E /* SettingsViewController.m in Sources */,
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
@@ -1055,13 +1143,18 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ABKeyboard/ABKeyboard-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
@@ -1093,13 +1186,18 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "ABKeyboard/ABKeyboard-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
