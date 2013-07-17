@@ -22,10 +22,8 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 @interface ABBrailleReader : NSObject <ABTouchReciever>
 
 + (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs;
-- (void)characterReceived:(NSString *)brailleString;
+- (NSString *)characterReceived:(NSString *)brailleString;
 - (id)initWithAudioTarget:(id)target selector:(SEL)selector;
-
-// Testing
 - (NSString *)processString:(NSString *)brailleString;
 
 @property (nonatomic) id<ABKeyboard> delegate;

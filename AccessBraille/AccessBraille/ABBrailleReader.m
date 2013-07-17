@@ -9,6 +9,7 @@
 #import "ABBrailleReader.h"
 #import "ABKeyboard.h"
 #import "ABSpeak.h"
+#import "ABParser.h"
 #import "UITextView+simpleadd.h"
 
 @implementation ABBrailleReader {
@@ -35,7 +36,8 @@
     
 }
 
-- (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
+- (id)init
+{
     self = [super init];
     if (self) {
         // init lookups
@@ -58,12 +60,18 @@
         
         // Setup parser
         prefix = @"";
-        
+
+    }
+    return self;
+}
+
+- (id)initWithAudioTarget:(id)tar selector:(SEL)sel {
+    self = [self init];
+    if (self) {
         // Audio
         target = tar;
         selector = sel;
-        speak = [[ABSpeak alloc] init];
-    
+        speak = [ABSpeak sharedInstance];
     }
     return self;
 }
@@ -90,11 +98,20 @@
 /**
  * Receives character from touchLayer in form of braille string
  */
-- (void)characterReceived:(NSString *)brailleString
-{
-    [self sendCharacter:[self processString:brailleString]];
+- (NSString *)characterReceived:(NSString *)brailleString
+{    
+    NSString *returnChar = [self processString:brailleString];
+    if ([returnChar isEqualToString:ABBackspace]) {
+        [self sendBackspace];
+    } else if (returnChar) {
+        [self sendCharacter:returnChar];
+    }
+    return returnChar;
 }
 
+/**
+ * Checks if a braille string is a prefix
+ */
 + (BOOL)isValidPrefix:(NSString *)braille
 {
     return ([braille isEqualToString:ABPrefixLevelOne] ||
@@ -119,112 +136,162 @@
     }
     
     // Intercept prefix operators
-    if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo) && ![brailleString isEqualToString:ABSpaceCharacter]) {
+    if ((_grade == ABGradeTwo) && [ABBrailleReader isValidPrefix:prefix] && ![brailleString isEqualToString:ABSpaceCharacter]) {
         // Handle prefix
-        NSString *postfix = @"";
+        NSString *postfixChar = @"";
         if ([prefix isEqualToString:ABPrefixNumber] && [[numberLookup allKeys] containsObject:brailleString]) {
-            postfix = numberLookup[brailleString];
+            postfixChar = numberLookup[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelTwo] && [[prefixLevelTwo allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelTwo[brailleString];
+            postfixChar = prefixLevelTwo[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelThree] && [[prefixLevelThree allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelThree[brailleString];
+            postfixChar = prefixLevelThree[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelFour] && [[prefixLevelFour allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelFour[brailleString];
+            postfixChar = prefixLevelFour[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelFive] && [[prefixLevelFive allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelFive[brailleString];
+            postfixChar = prefixLevelFive[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelSix] && [[prefixLevelSix allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelSix[brailleString];
+            postfixChar = prefixLevelSix[brailleString];
         } else if ([prefix isEqualToString:ABPrefixLevelSeven] && [[prefixLevelSeven allKeys] containsObject:brailleString]) {
-            postfix = prefixLevelSeven[brailleString];
+            postfixChar = prefixLevelSeven[brailleString];
         }
-        _wordTyping = [_wordTyping stringByAppendingString:postfix];
+        _wordTyping = [_wordTyping stringByAppendingString:postfixChar];
         if (![prefix isEqualToString:ABPrefixNumber]) {
+            // If prefix is not a number prefix, clear it
             prefix = @"";
         }
-        return postfix;
+        // return as a send char
+        return postfixChar;
         
     } else {
         prefix = brailleString;
-        if ([ABBrailleReader isValidPrefix:prefix] && (_grade == ABGradeTwo)) {
-            // return if a valid prefix is set
-            return @"";
-        }
-        // if space proccess last typed word if grade two
+        // return if a valid prefix is set because it's not a character.
+        if ([ABBrailleReader isValidPrefix:prefix])
+            return nil;
+        
+        // if space proccess last typed word if grade two for shorthand lookup.
         if ([brailleString isEqualToString:ABSpaceCharacter]) {
-            switch (_grade) {
-                case ABGradeOne:
-                    break;
-                case ABGradeTwo:
-                    if ([[shortHandlookup allKeys] containsObject:_wordTyping]) {
-                        _wordTyping = shortHandlookup[_wordTyping];
-                    }
-                    break;
+            if (_grade == ABGradeTwo) {
+                if ([[shortHandlookup allKeys] containsObject:_wordTyping]) {
+                    _wordTyping = shortHandlookup[_wordTyping];
+                    // Handle updating textview corrently
+                }
             }
             [self sendWord:_wordTyping];
             prefix = @"";
             _wordTyping = @"";
-            return @"";
+            return nil; // return nil to not send character
         }
         
         // Is typed character
-        if (_grade == ABGradeOne && [grade2Lookup[brailleString] length] > 1) {
-            return @"";
-        } else {
-            if ([[grade2Lookup allKeys] containsObject:brailleString]) {
-                _wordTyping = [_wordTyping stringByAppendingString:grade2Lookup[brailleString]];
-                return grade2Lookup[brailleString];
-            } else {
-                return @"";
+        if ([[grade2Lookup allKeys] containsObject:brailleString]) {
+            NSString *lookup = grade2Lookup[brailleString];
+            switch (_grade) {
+                case ABGradeOne:
+                    if (lookup.length == 1) { // Grade one is only single char
+                        // Check shift/caps
+                        if(_layer.shift) {
+                            lookup = [lookup uppercaseString];
+                            _layer.shift = NO;
+                            [_layer setNeedsDisplay];
+                        }
+                        if (_layer.caps) {
+                            lookup = [lookup uppercaseString];
+                        }
+                        _wordTyping = [_wordTyping stringByAppendingString:lookup];
+                        return lookup;
+                    }
+                    break;
+                case ABGradeTwo:
+                    // Check shift/caps
+                    if(_layer.shift) {
+                        lookup = [NSString stringWithFormat:@"%@%@", [[lookup substringToIndex:1] uppercaseString], [lookup substringFromIndex:1]];;
+                        _layer.shift = NO;
+                        [_layer setNeedsDisplay];
+                    }
+                    if (_layer.caps) {
+                        lookup = [lookup uppercaseString];
+                    }
+                    _wordTyping = [_wordTyping stringByAppendingString:lookup];
+                    return lookup;
+                    break;
             }
         }
     }
+    return nil;
 }
+
+#pragma mark Handle updating with infomation
 
 - (void)sendCharacter:(NSString *)string
 {
-    if ([string isEqualToString:ABSpaceCharacter]) {
-        [_fieldOutput insertText:@" "];
-        [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
-                                                         ABSpaceTyped : @(YES),
-                                                  ABBackspaceReceived : @(NO)}];
-    } else if ([string isEqualToString:ABBackspace]) {
-        [_fieldOutput deleteBackward];
-        [_delegate characterTyped:@"" withInfo:@{ABGestureInfoStatus : @(YES),
-                                                        ABSpaceTyped : @(NO),
-                                                 ABBackspaceReceived : @(YES)}];
-        [target performSelector:selector withObject:ABBackspaceSound];
-    } else if ([string isEqualToString:@""]) {
-        return;
-    } else {
-        [speak speakString:string];
-        
-        if(_layer.shift) {
-            string = [string uppercaseString];
-            _layer.shift = NO;
-            [_layer setNeedsDisplay];
-        }
-        if (_layer.caps) {
-            string = [string uppercaseString];
-        }
-        
-        [_fieldOutput insertText:string];
-        [_delegate characterTyped:string withInfo:@{ABGestureInfoStatus : @(YES),
-                                                           ABSpaceTyped : @(NO),
-                                                    ABBackspaceReceived : @(NO)}];
-    }
+    // Speak
+    [speak speakString:string];
+    
+    // Update _fieldOutput
+    if (_fieldOutput)
+        _fieldOutput.text = [_fieldOutput.text stringByAppendingString:string];
+    
+    // Return char to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:NO
+                             string:string];
 }
 
 - (void)sendWord:(NSString *)string
 {
-    NSLog(@"Word Typed: %@", string);
+    // Speak
     [speak speakString:string];
-    if (![string isEqualToString:ABSpaceCharacter]) {
-        [_fieldOutput replaceLastWordWithString:string];
+    
+    // Update _fieldOutput
+    if (_fieldOutput) {
+        NSArray *words = [ABParser arrayOfWordsFromSentence:_fieldOutput.text];
+        NSString *newSent = @"";
+        for (int i = 0; i < words.count - 1; i++) {
+            newSent = [newSent stringByAppendingString:words[i]];
+            newSent = [newSent stringByAppendingString:@" "];
+        }
+        _fieldOutput.text = [newSent stringByAppendingString:string];
+        [_fieldOutput insertText:@" "];
     }
-    [_fieldOutput insertText:@" "]; 
-    [_delegate characterTyped:@" " withInfo:@{ABGestureInfoStatus : @(YES),
-                                                     ABSpaceTyped : @(YES),
-                                              ABBackspaceReceived : @(NO)}];
+    // Return word to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(YES),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:NO
+                             string:ABSpaceCharacter];
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(NO)}
+                          wordTyped:YES
+                             string:string];
 }
 
+- (void)sendBackspace
+{
+    // Update _fieldOutput
+    
+    if (_fieldOutput && _fieldOutput.text.length > 0)
+        _fieldOutput.text = [_fieldOutput.text substringWithRange:NSMakeRange(0, _fieldOutput.text.length - 1)];
+    
+    // Return backspace to delegate
+    [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
+                                      ABSpaceTyped : @(NO),
+                                      ABBackspaceReceived : @(YES)}
+                          wordTyped:NO
+                             string:ABBackspace];
+    
+    // Backspace sound
+    [target performSelector:selector withObject:ABBackspaceSound];
+}
+
+- (void)respondToDelegateWithInfo:(NSDictionary *)info wordTyped:(BOOL)word string:(NSString *)string
+{
+    if (!word && [_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:string withInfo:info];
+    } else if (word && [_delegate respondsToSelector:@selector(wordTyped:withInfo:)]) {
+        [_delegate wordTyped:string withInfo:info];
+    }
+}
 @end
