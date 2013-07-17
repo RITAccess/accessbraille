@@ -71,7 +71,7 @@
         // Audio
         target = tar;
         selector = sel;
-        speak = [[ABSpeak alloc] init];
+        speak = [ABSpeak sharedInstance];
     }
     return self;
 }
@@ -224,8 +224,10 @@
 
 - (void)sendCharacter:(NSString *)string
 {
-    // Update _fieldOutput
+    // Speak
+    [speak speakString:string];
     
+    // Update _fieldOutput
     if (_fieldOutput)
         _fieldOutput.text = [_fieldOutput.text stringByAppendingString:string];
     
@@ -239,8 +241,10 @@
 
 - (void)sendWord:(NSString *)string
 {
-    // Update _fieldOutput
+    // Speak
+    [speak speakString:string];
     
+    // Update _fieldOutput
     if (_fieldOutput) {
         NSArray *words = [ABParser arrayOfWordsFromSentence:_fieldOutput.text];
         NSString *newSent = @"";
