@@ -98,7 +98,16 @@
 {
     // Override point for customization after application launch.
 
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"firstRun"]) {
+        // First run!!!
+        
+        WelcomeViewController *wvc = [[UIStoryboard storyboardWithName:@"Welcome" bundle:nil] instantiateViewControllerWithIdentifier:WelcomeViewControllerID];
+        self.window.rootViewController = wvc;
+        
+        [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
     return YES;
 }
