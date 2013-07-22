@@ -13,6 +13,7 @@
 #import "ABTouchView.h"
 #import "ABBrailleReader.h"
 #import "ABSpeak.h"
+#import "SettingsViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ABKeyboard ()
@@ -126,7 +127,14 @@
     // Type interface setup
     interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
     [interface setBackgroundColor:[UIColor grayColor]];
-    [interface setAlpha:0.4];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    id val = [defaults objectForKey:KeyboardTransparency];
+    if (val != nil) {
+        [interface setAlpha:[defaults floatForKey:KeyboardTransparency]];
+    } else {
+        [interface setAlpha:0.4];
+    }
     [interface setClearsContextBeforeDrawing:YES];
     [interface setDelegate:_brailleReader];
     [_brailleReader setLayer:interface];

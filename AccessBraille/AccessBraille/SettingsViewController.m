@@ -44,8 +44,8 @@
     [userDefaults setBool:sender.on forKey:GradeTwoSet];
 }
 
-- (IBAction)transChanged:(id)sender
+- (IBAction)transChanged:(UISlider *)sender
 {
-    
+    [userDefaults setFloat:sender.value forKey:KeyboardTransparency];
 }
 @end
