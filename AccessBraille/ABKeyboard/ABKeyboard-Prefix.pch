@@ -4,6 +4,8 @@
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
 
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
