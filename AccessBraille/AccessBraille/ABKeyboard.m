@@ -46,11 +46,6 @@
         // Enable the keyboard
         _enabled = YES;
         
-        // Set Up Braille Interp
-        _brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
-        [_brailleReader setDelegate:_delegate];
-        [_brailleReader setKeyboardInterface:self];
-        
         // Audio
         _sound = YES;
         
@@ -71,6 +66,12 @@
         activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
+        
+        // Set Up Braille Interp
+        _brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
+        [_brailleReader setDelegate:_delegate];
+        [_brailleReader setKeyboardInterface:self];
+
     }
     return self;
 }
