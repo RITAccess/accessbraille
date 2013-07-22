@@ -14,7 +14,6 @@
 - (void)replaceLastWordWithString:(NSString *)string
 {
     NSArray *words = [self arrayOfWordsFromSentence:self.text];
-    NSLog(@"%@", words);
     NSString *lastWord = [words lastObject];
     NSString *newString = [self.text substringWithRange:NSMakeRange(0, self.text.length - lastWord.length)];
     self.text = [newString stringByAppendingString:string];

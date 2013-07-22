@@ -69,7 +69,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self saveState];
-    NSLog(@"View did disappear.");
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,19 +94,6 @@
     [self setTextOutput:nil];
     [self setTextField:nil];
     [super viewDidUnload];
-}
-
-# pragma mark - Typing Methods
-
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
-{
-    NSLog(@"Typed: %@", character);
-    [output setText:_textField.text];
-}
-
-- (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info
-{
-    NSLog(@"Typed word: %@", word);
 }
 
 #pragma mark - Access Core Data Methods

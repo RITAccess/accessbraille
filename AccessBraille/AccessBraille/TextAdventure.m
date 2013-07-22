@@ -96,7 +96,6 @@
     if ([command isEqualToString:@"look"])
     {
         NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
-        NSLog(@"%@", _currentLocation);
         [self initSoundWithFileName:lookString];
         [self prompt:lookString];
     }
