@@ -154,6 +154,15 @@
         } else if ([prefix isEqualToString:ABPrefixLevelSeven] && [[prefixLevelSeven allKeys] containsObject:brailleString]) {
             postfixChar = prefixLevelSeven[brailleString];
         }
+        // check for caps/shift
+        if(_layer.shift) {
+            postfixChar = [NSString stringWithFormat:@"%@%@", [[postfixChar substringToIndex:1] uppercaseString], [postfixChar substringFromIndex:1]];;
+            _layer.shift = NO;
+            [_layer setNeedsDisplay];
+        }
+        if (_layer.caps) {
+            postfixChar = [postfixChar uppercaseString];
+        }
         _wordTyping = [_wordTyping stringByAppendingString:postfixChar];
         if (![prefix isEqualToString:ABPrefixNumber]) {
             // If prefix is not a number prefix, clear it
