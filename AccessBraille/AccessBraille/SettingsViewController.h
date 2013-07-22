@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UITableViewController
 
 // Choosing between Grade 1 and Grade 2.
 - (IBAction)gradeSelectionToggle:(id)sender;

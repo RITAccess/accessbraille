@@ -170,6 +170,7 @@
 		4CB58A521778BDAD00D38D3C /* OpenEars2.gram in Resources */ = {isa = PBXBuildFile; fileRef = 4CB58A431778BDAD00D38D3C /* OpenEars2.gram */; };
 		4CB58A531778BDAD00D38D3C /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CB58A441778BDAD00D38D3C /* OpenEarsCorpus.txt */; };
 		4CB58A541778BDAD00D38D3C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB58A451778BDAD00D38D3C /* Slt.framework */; };
+		4CB788A1179D769700923DD7 /* SettingsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB788A0179D769700923DD7 /* SettingsContainer.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3C1670034E00CE9475 /* CoreGraphics.framework */; };
@@ -352,6 +353,8 @@
 		4CB58A431778BDAD00D38D3C /* OpenEars2.gram */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEars2.gram; sourceTree = "<group>"; };
 		4CB58A441778BDAD00D38D3C /* OpenEarsCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEarsCorpus.txt; sourceTree = "<group>"; };
 		4CB58A451778BDAD00D38D3C /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		4CB7889F179D769700923DD7 /* SettingsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsContainer.h; sourceTree = "<group>"; };
+		4CB788A0179D769700923DD7 /* SettingsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsContainer.m; sourceTree = "<group>"; };
 		4CEE19A016FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABActivateKeyboardGestureRecognizer.h; sourceTree = "<group>"; };
 		4CEE19A116FCA05400E36128 /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABActivateKeyboardGestureRecognizer.m; sourceTree = "<group>"; };
 		4CEE19A216FCA05400E36128 /* ABKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKeyboard.h; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 			children = (
 				4C3605D61795E98A00777EC4 /* SettingsViewController.h */,
 				4C3605D71795E98A00777EC4 /* SettingsViewController.m */,
+				4CB7889F179D769700923DD7 /* SettingsContainer.h */,
+				4CB788A0179D769700923DD7 /* SettingsContainer.m */,
 				A9ECC82916A7780B00998AD4 /* NavigationContainer.h */,
 				A9ECC82A16A7780B00998AD4 /* NavigationContainer.m */,
 				A9479C531670034E00CE9475 /* BrailleTyperController.h */,
@@ -1058,6 +1063,7 @@
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
+				4CB788A1179D769700923DD7 /* SettingsContainer.m in Sources */,
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
 				2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */,
 				2CC54E84176615C2001B595A /* AboutViewController.m in Sources */,
