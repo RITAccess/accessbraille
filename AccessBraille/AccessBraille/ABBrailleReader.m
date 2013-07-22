@@ -287,7 +287,7 @@
     // Update _fieldOutput
     
     if (_fieldOutput && _fieldOutput.text.length > 0)
-        _fieldOutput.text = [_fieldOutput.text substringWithRange:NSMakeRange(0, _fieldOutput.text.length - 1)];
+        [_fieldOutput deleteBackward];
     
     // Return backspace to delegate
     [self respondToDelegateWithInfo:@{ABGestureInfoStatus : @(YES),
