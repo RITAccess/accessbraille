@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4471.1" systemVersion="13A510d" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="Nse-pc-Zh2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4471.1" systemVersion="13A510d" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nse-pc-Zh2">
     <dependencies>
         <deployment version="1536" defaultVersion="1552" identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
@@ -10,11 +10,15 @@
         <scene sceneID="cYN-nC-UlX">
             <objects>
                 <viewController storyboardIdentifier="brailleTyper" id="anX-Mq-XdO" customClass="BrailleTyperController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eeb-8o-B0D"/>
+                        <viewControllerLayoutGuide type="bottom" id="PzS-mr-4if"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E3Q-qa-Umh">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="JFs-UL-fYz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFs-UL-fYz">
                                 <rect key="frame" x="20" y="71" width="984" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,19 +45,23 @@
         <scene sceneID="RPd-1y-RLf">
             <objects>
                 <viewController storyboardIdentifier="settings" id="Rzf-i4-cCU" customClass="SettingsContainer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9EK-t7-qSO"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFn-Bv-81a"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QW3-PE-pRt">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ouA-Pr-t02">
-                                <rect key="frame" x="451" y="20" width="123" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouA-Pr-t02">
+                                <rect key="frame" x="451" y="27" width="123" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView clipsSubviews="YES" contentMode="scaleToFill" id="J30-ui-J0D">
-                                <rect key="frame" x="117" y="102" width="790" height="592"/>
+                            <containerView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J30-ui-J0D">
+                                <rect key="frame" x="0.0" y="99" width="1024" height="669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -78,34 +86,45 @@
             <objects>
                 <tableViewController id="jxV-aK-rbF" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NKR-D5-rbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="790" height="592"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="669"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <sections>
                             <tableViewSection headerTitle="Keyboard Defaults" id="WOT-g1-2eK">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nha-sv-ywx">
-                                        <rect key="frame" x="0.0" y="55" width="790" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" id="nha-sv-ywx">
+                                        <rect key="frame" x="0.0" y="55" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nha-sv-ywx" id="BSw-A5-Mv3">
-                                            <rect key="frame" x="0.0" y="0.0" width="790" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="nha-sv-ywx" id="BSw-A5-Mv3">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="2fd-Us-USg">
-                                                    <rect key="frame" x="721" y="6" width="51" height="31"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-Us-USg">
+                                                    <rect key="frame" x="955" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="gradeSelectionToggle:" destination="jxV-aK-rbF" eventType="valueChanged" id="K5S-gI-ULv"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vHu-sb-skf">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-sb-skf">
                                                     <rect key="frame" x="20" y="11" width="75" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="rTs-Qe-axx"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vHu-sb-skf" firstAttribute="top" secondItem="BSw-A5-Mv3" secondAttribute="top" constant="11" id="E43-1R-MMw"/>
+                                                <constraint firstAttribute="trailing" secondItem="2fd-Us-USg" secondAttribute="trailing" constant="20" id="H6W-Am-B5r"/>
+                                                <constraint firstItem="vHu-sb-skf" firstAttribute="leading" secondItem="BSw-A5-Mv3" secondAttribute="leading" constant="20" symbolic="YES" id="Ll8-ZT-wbA"/>
+                                                <constraint firstItem="vHu-sb-skf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BSw-A5-Mv3" secondAttribute="leading" constant="20" id="MQ0-vC-1ic"/>
+                                                <constraint firstItem="2fd-Us-USg" firstAttribute="centerY" secondItem="BSw-A5-Mv3" secondAttribute="centerY" id="oE5-wm-Ywt"/>
+                                                <constraint firstItem="2fd-Us-USg" firstAttribute="centerY" secondItem="vHu-sb-skf" secondAttribute="centerY" id="ss8-QF-uDK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -116,18 +135,23 @@
                             <outlet property="delegate" destination="jxV-aK-rbF" id="sLQ-Qr-PeH"/>
                         </connections>
                     </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="790" height="592"/>
                     <connections>
                         <outlet property="gradeTwoSwitch" destination="2fd-Us-USg" id="ef9-8H-MAJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="133-Hn-N1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="-330"/>
+            <point key="canvasLocation" x="2064" y="-369"/>
         </scene>
         <!--Instructions Menu-->
         <scene sceneID="E6z-5e-RJi">
             <objects>
                 <viewController storyboardIdentifier="InstructionsMenu" id="qBg-4F-pxI" customClass="InstructionsMenu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P6V-8N-IYc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ofb-y6-Pfg"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dy9-R4-Cgu">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -146,11 +170,15 @@
         <scene sceneID="4PT-5s-sWW">
             <objects>
                 <viewController storyboardIdentifier="about" id="yUB-5E-RIE" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ph5-my-nYc"/>
+                        <viewControllerLayoutGuide type="bottom" id="gTu-tV-Wbz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RtG-5r-Ouq">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="lgh-14-Ope">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-14-Ope">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,6 +203,10 @@
         <scene sceneID="lVm-cI-VAE">
             <objects>
                 <viewController id="Nse-pc-Zh2" customClass="NavigationContainer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L0x-fp-b5R"/>
+                        <viewControllerLayoutGuide type="bottom" id="YX2-Hg-9wQ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tV5-xe-HaE">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,6 +232,10 @@
         <scene sceneID="b0j-4J-lno">
             <objects>
                 <viewController storyboardIdentifier="TextAdventure" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TextAdventure" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pyw-Xc-o9y"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cqd-or-T7o"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7I8-fz-Wgg">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -218,6 +254,10 @@
         <scene sceneID="pos-Wi-idZ">
             <objects>
                 <viewController storyboardIdentifier="FlashCard" id="Obv-Rl-bIK" customClass="FlashCard" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P0D-Xr-uH1"/>
+                        <viewControllerLayoutGuide type="bottom" id="hcJ-pA-R1X"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CVm-CJ-4aS">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
