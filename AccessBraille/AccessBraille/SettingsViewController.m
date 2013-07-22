@@ -22,7 +22,8 @@
     userDefaults = [NSUserDefaults standardUserDefaults];
     
     // Sets the switch view depending on its status (ON or OFF).
-    [self.gradeTwoSwitch setOn:[userDefaults boolForKey:@"GradeTwoSelection"]];
+    [self.gradeTwoSwitch setOn:[userDefaults boolForKey:GradeTwoSet]];
+    [self.trans setValue:[userDefaults floatForKey:KeyboardTransparency]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +41,11 @@
  */
 - (IBAction)gradeSelectionToggle:(UISwitch *)sender
 {
-    [userDefaults setBool:sender.on forKey:@"GradeTwoSelection"];
+    [userDefaults setBool:sender.on forKey:GradeTwoSet];
+}
+
+- (IBAction)transChanged:(id)sender
+{
+    
 }
 @end

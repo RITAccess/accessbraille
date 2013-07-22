@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
+#import "SettingsViewController.h"
 #import <CoreData/CoreData.h>
 
 @implementation AppDelegate
@@ -99,7 +100,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"firstRun"]) {
         
-        
+        // Set user defaults
+        [defaults setBool:YES forKey:GradeTwoSet];
+        [defaults setFloat:0.6 forKey:KeyboardTransparency];
         
         [defaults setObject:[NSDate date] forKey:@"firstRun"];
     }

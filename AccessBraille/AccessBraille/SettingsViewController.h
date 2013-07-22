@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const GradeTwoSet = @"GradeTwoSelection";
+static NSString *const KeyboardTransparency = @"transparency";
+
 @interface SettingsViewController : UITableViewController
 
 // Choosing between Grade 1 and Grade 2.
 - (IBAction)gradeSelectionToggle:(id)sender;
+- (IBAction)transChanged:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISwitch *gradeTwoSwitch;
+@property (weak, nonatomic) IBOutlet UISlider *trans;
 
 @end
