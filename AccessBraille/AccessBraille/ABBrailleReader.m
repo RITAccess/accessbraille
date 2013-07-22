@@ -250,6 +250,11 @@
 
 - (void)sendWord:(NSString *)string
 {
+    if ([string isEqualToString:@""]) {
+        [_fieldOutput insertText:@" "];
+        return;
+    }
+    
     // Speak
     [speak speakString:string];
     
