@@ -30,12 +30,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.view setNeedsDisplay];
-}
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
