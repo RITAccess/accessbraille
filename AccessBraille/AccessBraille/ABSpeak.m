@@ -16,6 +16,7 @@
 
 @implementation ABSpeak {
     __strong AVSpeechSynthesizer *speaker;
+    dispatch_queue_t speaking;
 }
 
 @synthesize fliteController;
@@ -34,27 +35,32 @@
     self = [super init];
     if (self) {
         speaker = [AVSpeechSynthesizer new];
+        speaking = dispatch_queue_create("edu.rit.abspeak", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
 
 - (void)speakString:(NSString *)string {
-    if(NSClassFromString(@"AVSpeechSynthesizer")) {
-        AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
-        [speaker speakUtterance:currentUtterance];
-    } else {
-        [self.fliteController say:string withVoice:self.slt];
-    }
+    dispatch_sync(speaking, ^{
+        if(NSClassFromString(@"AVSpeechSynthesizer")) {
+            AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
+            [speaker speakUtterance:currentUtterance];
+        } else {
+            [self.fliteController say:string withVoice:self.slt];
+        }
+    });
 }
 
 - (void)stopSpeaking
 {
-    if(NSClassFromString(@"AVSpeechSynthesizer")) {
-        [speaker stopSpeakingAtBoundary:AVSpeechBoundaryWord];
-    } else {
-        self.fliteController = nil;
-        self.fliteController = [self fliteController];
-    }
+    dispatch_sync(speaking, ^{
+        if(NSClassFromString(@"AVSpeechSynthesizer")) {
+            [speaker stopSpeakingAtBoundary:AVSpeechBoundaryWord];
+        } else {
+            self.fliteController = nil;
+            self.fliteController = [self fliteController];
+        }
+    });
 }
 
 - (FliteController *)fliteController {

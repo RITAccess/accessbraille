@@ -17,6 +17,6 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property ABSpeak *speaker;
+@property (nonatomic) ABSpeak *speaker;
 
 @end
