@@ -41,7 +41,7 @@
 }
 
 - (void)speakString:(NSString *)string {
-    dispatch_sync(speaking, ^{
+    dispatch_async(speaking, ^{
         if(NSClassFromString(@"AVSpeechSynthesizer")) {
             AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
             [speaker speakUtterance:currentUtterance];
@@ -53,7 +53,7 @@
 
 - (void)stopSpeaking
 {
-    dispatch_sync(speaking, ^{
+    dispatch_async(speaking, ^{
         if(NSClassFromString(@"AVSpeechSynthesizer")) {
             [speaker stopSpeakingAtBoundary:AVSpeechBoundaryWord];
         } else {
