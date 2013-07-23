@@ -21,6 +21,10 @@
 /* Presents the last typed sentance with typing info */
 - (void)senctanceCompleted:(NSString *)sentance withInfo:(NSDictionary *)info;
 
+/* keyboard active/deactive calls */
+- (void)keyboardDidBecomeActive;
+- (void)keyboardDidDismiss;
+
 @end
 
 @interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
@@ -46,10 +50,6 @@
 @property (assign) ABGrade grade;
 
 /* Keyboard state properites */
-@property SEL activeKeyboard;
-@property id activeTarget;
-@property SEL deactiveKeyboard;
-@property id deactiveTarget;
 @property (nonatomic) int spaceOffset;
 
 /* Init methods to set up the Keyboard Controller */

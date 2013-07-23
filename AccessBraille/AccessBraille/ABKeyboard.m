@@ -97,18 +97,6 @@
 
 #pragma mark Keyboard Implementation
 
-/*
- * Ask the implementer to go into a typing state
- */
-- (void)setActiveStateWithTarget:(id)target withSelector:(SEL)selector {
-    _activeKeyboard = selector;
-    _activeTarget = target;
-}
-- (void)setDectiveStateWithTarget:(id)target withSelector:(SEL)selector {
-    _deactiveKeyboard = selector;
-    _deactiveTarget = target;
-}
-
 /**
  * Creates a view overlay for recognizing braille type
  */
@@ -165,17 +153,11 @@
  * Gets touch colums from GR
  */
 - (void)touchColumns:(ABVector[])vectors withInfo:(NSDictionary *)info{
-    
     _keyboardActive = YES;
-    if ([_activeTarget respondsToSelector:_activeKeyboard]) {
-        [_activeTarget performSelector:_activeKeyboard];
-    }
     [self setUpViewWithTouchesFromABVectorArray:vectors];
-    
     UIViewController *VCDelegate = (UIViewController *)_delegate;
     [VCDelegate.view addSubview:interface];
     [VCDelegate.view bringSubviewToFront:interface];
-    
 }
 
 /**
@@ -226,16 +208,16 @@
     [_delegate.view setGestureRecognizers:@[activate]];
     [self playSound:ABEnableSound];
     [_output becomeFirstResponder];
-    if ([_deactiveTarget respondsToSelector:_activeKeyboard]) {
-        [_deactiveTarget performSelector:_activeKeyboard];
+    if ([_delegate respondsToSelector:@selector(keyboardDidBecomeActive)]) {
+        [_delegate keyboardDidBecomeActive];
     }
 }
 
 - (void)deactivated
 {
     [_delegate.view setGestureRecognizers:gestures];
-    if ([_deactiveTarget respondsToSelector:_deactiveKeyboard]) {
-        [_deactiveTarget performSelector:_deactiveKeyboard];
+    if ([_delegate respondsToSelector:@selector(keyboardDidDismiss)]) {
+        [_delegate keyboardDidDismiss];
     }
 }
 
