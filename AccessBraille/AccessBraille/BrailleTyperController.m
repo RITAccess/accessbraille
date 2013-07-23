@@ -34,8 +34,6 @@
     
     // Add Keyboard
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [keyboard setActiveStateWithTarget:self withSelector:@selector(active)];
-    [keyboard setDectiveStateWithTarget:self withSelector:@selector(deactive)];
     [keyboard setOutput:_textField];
     [[NSUserDefaults standardUserDefaults] boolForKey:@"GradeTwoSelection"] ? [keyboard setGrade:ABGradeTwo] : [keyboard setGrade:ABGradeOne]; // Setting Grade.
     

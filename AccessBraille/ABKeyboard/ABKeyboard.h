@@ -13,16 +13,17 @@
 @optional
 
 /* Presents the last typed character with typing info */
--(void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info;
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info;
 
 /* Presents the last typed word with typing info */
--(void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info;
+- (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info;
 
 /* Presents the last typed sentance with typing info */
--(void)senctanceCompleted:(NSString *)sentance withInfo:(NSDictionary *)info;
+- (void)senctanceCompleted:(NSString *)sentance withInfo:(NSDictionary *)info;
 
-/* Option to recieve status logs from keyboard */
-- (void)ABLog:(NSString *)log;
+/* keyboard active/deactive calls */
+- (void)keyboardDidBecomeActive;
+- (void)keyboardDidDismiss;
 
 @end
 
@@ -49,10 +50,6 @@
 @property (assign) ABGrade grade;
 
 /* Keyboard state properites */
-@property SEL activeKeyboard;
-@property id activeTarget;
-@property SEL deactiveKeyboard;
-@property id deactiveTarget;
 @property (nonatomic) int spaceOffset;
 
 /* Init methods to set up the Keyboard Controller */
@@ -61,9 +58,5 @@
 /* Basic Speaking Method */
 // TODO part of ABSpeak rework to singlton instance, use new contructor format
 - (void)startSpeakingString:(NSString *)string;
-
-/* Keyboard state callbacks */
-- (void)setActiveStateWithTarget:(id)target withSelector:(SEL)selector;
-- (void)setDectiveStateWithTarget:(id)target withSelector:(SEL)selector;
 
 @end
