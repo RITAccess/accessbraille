@@ -10,89 +10,8 @@
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
 #import "SettingsViewController.h"
-#import <CoreData/CoreData.h>
 
 @implementation AppDelegate
-
-@synthesize managedObjectContext,persistentStoreCoordinator,managedObjectModel;
-
-- (NSManagedObjectContext *) managedObjectContext {
-    
-    if (managedObjectContext != nil) {
-        
-        return managedObjectContext;
-        
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    
-    if (coordinator != nil) {
-        
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-        
-    }
-    
-    return managedObjectContext;
-    
-}
-
-- (NSManagedObjectModel *)managedObjectModel
-
-{
-    
-    if (managedObjectModel != nil) {
-        
-        return managedObjectModel;
-        
-    }
-    
-    else
-        
-    {
-        
-        managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-        
-        return managedObjectModel;
-        
-    }
-    
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    
-    if (persistentStoreCoordinator != nil) {
-        
-        return persistentStoreCoordinator;
-        
-    }
-    
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Model.sqlite"]];
-    
-    NSError *error = nil;
-    
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
-        
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        
-        abort();
-        
-    }
-    
-    return persistentStoreCoordinator;
-    
-}
-
-- (NSString *)applicationDocumentsDirectory
-
-{
-    
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -135,21 +54,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
-    NSError *error = nil;
-    
-    if (managedObjectContext != nil) {
-        
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            
-            abort();
-            
-        }
-        
-    }
 }
 
 @end

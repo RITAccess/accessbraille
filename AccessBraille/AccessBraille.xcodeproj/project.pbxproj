@@ -67,7 +67,6 @@
 		4C05CE371778B19200F80C70 /* shortHandLookup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C61BEA717788B3D00904C7D /* shortHandLookup.plist */; };
 		4C05CE421778B42300F80C70 /* ABKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C05CE411778B42300F80C70 /* ABKeyboard.framework */; };
 		4C11AEA216F0D5A500A9210A /* menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C11AEA116F0D5A500A9210A /* menu.plist */; };
-		4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17FA1716C03C9500FFC112 /* BrailleTyper.m */; };
 		4C1B1DE9175CC85500A3DEDA /* mainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1DD5175CC85400A3DEDA /* mainMenu.png */; };
 		4C1B1DEA175CC85500A3DEDA /* mainMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1DD6175CC85400A3DEDA /* mainMenu@2x.png */; };
 		4C1B1DEB175CC85500A3DEDA /* menuItem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1DD7175CC85400A3DEDA /* menuItem0.png */; };
@@ -134,7 +133,6 @@
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
-		4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
 		4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
@@ -243,8 +241,6 @@
 		4C0EA04F17750EE1008FF161 /* prefixLevelSix.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSix.plist; sourceTree = "<group>"; };
 		4C0EA05117750F48008FF161 /* prefixLevelSeven.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelSeven.plist; sourceTree = "<group>"; };
 		4C11AEA116F0D5A500A9210A /* menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menu.plist; sourceTree = "<group>"; };
-		4C17FA1616C03C9500FFC112 /* BrailleTyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrailleTyper.h; sourceTree = "<group>"; };
-		4C17FA1716C03C9500FFC112 /* BrailleTyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrailleTyper.m; sourceTree = "<group>"; };
 		4C1B1DD5175CC85400A3DEDA /* mainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainMenu.png; path = ../../accessbraille_resources/Images/mainMenu.png; sourceTree = "<group>"; };
 		4C1B1DD6175CC85400A3DEDA /* mainMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mainMenu@2x.png"; path = "../../accessbraille_resources/Images/mainMenu@2x.png"; sourceTree = "<group>"; };
 		4C1B1DD7175CC85400A3DEDA /* menuItem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem0.png; path = ../../accessbraille_resources/Images/menuItem0.png; sourceTree = "<group>"; };
@@ -333,7 +329,6 @@
 		4C7A1110177502AB00726199 /* numberLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = numberLookup.plist; sourceTree = "<group>"; };
 		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApplicationStore.xcdatamodel; sourceTree = "<group>"; };
 		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
 		4CA74D9E16F8C99F007036F3 /* MainMenuItemImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuItemImage.h; sourceTree = "<group>"; };
 		4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuItemImage.m; sourceTree = "<group>"; };
@@ -457,16 +452,6 @@
 				4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		4C48079016C01CAF001E3EF1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */,
-				4C17FA1616C03C9500FFC112 /* BrailleTyper.h */,
-				4C17FA1716C03C9500FFC112 /* BrailleTyper.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		4C6442111774F95300A2771E /* Lookups */ = {
@@ -636,7 +621,6 @@
 			isa = PBXGroup;
 			children = (
 				4C1B1E27175CFAA300A3DEDA /* Categories */,
-				4C48079016C01CAF001E3EF1 /* Models */,
 				A934326F16A075A400C659C1 /* View */,
 				A9ECC82216A764E900998AD4 /* Controllers */,
 				A9ECC82116A764C300998AD4 /* Resources */,
@@ -1057,9 +1041,7 @@
 				4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */,
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
-				4C89EA9D16C0158600318BE2 /* ApplicationStore.xcdatamodeld in Sources */,
 				4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */,
-				4C17FA1816C03C9500FFC112 /* BrailleTyper.m in Sources */,
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
 				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
@@ -1498,19 +1480,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4C89EA9B16C0158600318BE2 /* ApplicationStore.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */,
-			);
-			currentVersion = 4C89EA9C16C0158600318BE2 /* ApplicationStore.xcdatamodel */;
-			path = ApplicationStore.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A9479C2D1670034D00CE9475 /* Project object */;
 }

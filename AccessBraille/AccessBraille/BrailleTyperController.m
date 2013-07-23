@@ -10,7 +10,6 @@
 #import "Drawing.h"
 #import "NavigationContainer.h"
 #import "AppDelegate.h"
-#import "BrailleTyper.h"
 #import <CoreData/CoreData.h>
 
 @interface BrailleTyperController ()
@@ -68,18 +67,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self saveState];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.view setFrame:self.parentViewController.view.frame];
-    [_textField setText:[self getLastItemInTable]];
-}
-
--(void)saveState
-{
-    [self updateLastValue:_textField.text];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,56 +87,6 @@
     [self setTextOutput:nil];
     [self setTextField:nil];
     [super viewDidUnload];
-}
-
-#pragma mark - Access Core Data Methods
-
-/**
- * Update CoreData object for this controller with new typed value. Creates a new row if one does not exist.
- */
-- (void)updateLastValue:(NSString *)content
-{
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *req = [[NSFetchRequest alloc] init];
-    [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
-    NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
-    
-    if ([results count] == 0) {
-        // Add row if empty
-        BrailleTyper *cdEntry = (BrailleTyper *)[NSEntityDescription insertNewObjectForEntityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext];
-        [cdEntry setTypedString:content];
-        [cdEntry setTimeStamp:[NSDate date]];
-        [app.managedObjectContext save:nil];
-    } else {
-        [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
-        [req setSortDescriptors:@[sortDescriptor]];
-        BrailleTyper *updateEntity = [results objectAtIndex:0];
-        [updateEntity setTypedString:content];
-        [updateEntity setTimeStamp:[NSDate date]];
-        [app.managedObjectContext save:nil];
-    }
-}
-
-/**
- * Returns the last row from the CoreData object for this controller. Returns empty string if no table exists.
- */
-- (NSString *)getLastItemInTable
-{
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSFetchRequest *req = [[NSFetchRequest alloc] init];
-    [req setEntity:[NSEntityDescription entityForName:@"BrailleTyper" inManagedObjectContext:app.managedObjectContext]];
-
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
-    [req setSortDescriptors:@[sortDescriptor]];
-    
-    NSArray *results = [app.managedObjectContext executeFetchRequest:req error:NULL];
-    if ([results count] == 0){
-        return @"";
-    }
-    BrailleTyper *latestEntity = [results objectAtIndex:0];
-    
-    return latestEntity.typedString;
 }
 
 @end

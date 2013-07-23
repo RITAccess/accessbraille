@@ -13,14 +13,9 @@
 #import <ABKeyboard/ABKeyboard.h>
 #import <ABKeyboard/ABBrailleOutput.h>
 
-@interface BrailleTyperController : UIViewController <NSFetchedResultsControllerDelegate, ABKeyboard>
-
--(void)saveState;
+@interface BrailleTyperController : UIViewController <ABKeyboard>
 
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
 @property (weak, nonatomic) IBOutlet UITextView *textField;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
