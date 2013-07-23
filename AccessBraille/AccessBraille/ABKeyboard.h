@@ -21,9 +21,6 @@
 /* Presents the last typed sentance with typing info */
 -(void)senctanceCompleted:(NSString *)sentance withInfo:(NSDictionary *)info;
 
-/* Option to recieve status logs from keyboard */
-- (void)ABLog:(NSString *)log;
-
 @end
 
 @interface ABKeyboard : UIView <ABGestureRecognizerDelegate>

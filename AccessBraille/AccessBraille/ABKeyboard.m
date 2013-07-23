@@ -83,15 +83,6 @@
     [_brailleReader setFieldOutput:_output];
 }
 
-/**
- * Returns status logs from ABKeyboard to delegate
- */
-- (void)Log:(NSString *)str {
-    if ([_delegate respondsToSelector:@selector(ABLog:)]) {
-        [_delegate ABLog:str];
-    }
-}
-
 #pragma mark Set Grade
 
 - (ABGrade)grade
