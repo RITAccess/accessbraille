@@ -38,7 +38,7 @@
 @property BOOL keyboardActive;
 
 /* Sets the keyboard active state */
-@property BOOL enabled;
+@property (assign) BOOL enabled;
 
 /* Set sounds enabled */
 @property BOOL sound;
@@ -47,13 +47,12 @@
 @property (assign) ABGrade grade;
 
 /* Keyboard state properites */
-@property (nonatomic) int spaceOffset;
+@property (assign) int spaceOffset;
 
 /* Init methods to set up the Keyboard Controller */
 - (id)initWithDelegate:(id<ABKeyboard>)delegate;
 
 /* Basic Speaking Method */
-// TODO part of ABSpeak rework to singlton instance, use new contructor format
 - (void)startSpeakingString:(NSString *)string;
 
 @end
