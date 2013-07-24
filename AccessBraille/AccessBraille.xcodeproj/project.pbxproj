@@ -95,7 +95,7 @@
 		4C95833E179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */; };
 		4C95833F179ECF9F0011B6EE /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C958340179ECF9F0011B6EE /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832C179ECF9F0011B6EE /* ABBrailleOutput.m */; };
-		4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832D179ECF9F0011B6EE /* ABBrailleReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832D179ECF9F0011B6EE /* ABBrailleReader.h */; };
 		4C958342179ECF9F0011B6EE /* ABBrailleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832E179ECF9F0011B6EE /* ABBrailleReader.m */; };
 		4C958343179ECF9F0011B6EE /* ABKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832F179ECF9F0011B6EE /* ABKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C958344179ECF9F0011B6EE /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C958330179ECF9F0011B6EE /* ABKeyboard.m */; };
@@ -103,19 +103,19 @@
 		4C958348179ECF9F0011B6EE /* ABParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C958334179ECF9F0011B6EE /* ABParser.m */; };
 		4C958349179ECF9F0011B6EE /* ABSpeak.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958335179ECF9F0011B6EE /* ABSpeak.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C95834A179ECF9F0011B6EE /* ABSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C958336179ECF9F0011B6EE /* ABSpeak.m */; };
-		4C95834B179ECF9F0011B6EE /* ABTouchLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958337179ECF9F0011B6EE /* ABTouchLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C95834B179ECF9F0011B6EE /* ABTouchLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958337179ECF9F0011B6EE /* ABTouchLayer.h */; };
 		4C95834C179ECF9F0011B6EE /* ABTouchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C958338179ECF9F0011B6EE /* ABTouchLayer.m */; };
-		4C95834D179ECF9F0011B6EE /* ABTouchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958339179ECF9F0011B6EE /* ABTouchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C95834D179ECF9F0011B6EE /* ABTouchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958339179ECF9F0011B6EE /* ABTouchView.h */; };
 		4C95834E179ECF9F0011B6EE /* ABTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95833A179ECF9F0011B6EE /* ABTouchView.m */; };
 		4C95834F179ECF9F0011B6EE /* ABTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95833B179ECF9F0011B6EE /* ABTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C958350179ECF9F0011B6EE /* ABTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95833C179ECF9F0011B6EE /* ABTypes.m */; };
 		4C95836C179ECFEF0011B6EE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95836B179ECFEF0011B6EE /* AboutViewController.m */; };
 		4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA74D9F16F8C99F007036F3 /* MainMenuItemImage.m */; };
-		4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E1D175CF76D00A3DEDA /* NSString+helpers.h */; };
 		4CB58A221778B6EA00D38D3C /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */; };
-		4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */; };
 		4CB58A241778B6EA00D38D3C /* UIView+quickRemove.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */; };
-		4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C61BEA417787D2700904C7D /* UITextView+simpleadd.h */; };
 		4CB58A281778B6EA00D38D3C /* UITextView+simpleadd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61BEA517787D2700904C7D /* UITextView+simpleadd.m */; };
 		4CB58A291778B73900D38D3C /* NSArray+ObjectSubsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */; };
 		4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C569AA517147A7B0073D8F8 /* FlashCard.m */; };
@@ -716,17 +716,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C958343179ECF9F0011B6EE /* ABKeyboard.h in Headers */,
-				4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */,
 				4C958347179ECF9F0011B6EE /* ABParser.h in Headers */,
-				4C95834B179ECF9F0011B6EE /* ABTouchLayer.h in Headers */,
 				4C95834F179ECF9F0011B6EE /* ABTypes.h in Headers */,
 				4C95833F179ECF9F0011B6EE /* ABBrailleOutput.h in Headers */,
-				4C95834D179ECF9F0011B6EE /* ABTouchView.h in Headers */,
-				4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */,
 				4C958349179ECF9F0011B6EE /* ABSpeak.h in Headers */,
 				4C95833D179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h in Headers */,
-				4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */,
 				4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */,
+				4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */,
+				4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */,
+				4C95834D179ECF9F0011B6EE /* ABTouchView.h in Headers */,
+				4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */,
+				4C95834B179ECF9F0011B6EE /* ABTouchLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

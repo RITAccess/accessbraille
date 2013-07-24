@@ -14,6 +14,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVSpeechSynthesis.h>
 
+__strong static ABSpeak *_sharedInstance;
+static dispatch_once_t createInstance;
+
 @implementation ABSpeak {
     __strong AVSpeechSynthesizer *speaker;
     dispatch_queue_t speaking;
@@ -24,10 +27,10 @@
 
 + (instancetype)sharedInstance
 {
-    AppDelegate *app = [[UIApplication sharedApplication] delegate];
-    if (!app.speaker)
-        app.speaker = [[ABSpeak alloc] init];
-    return app.speaker;
+    dispatch_once(&createInstance, ^{
+        _sharedInstance = [[ABSpeak alloc] init];
+    });
+    return _sharedInstance;
 }
 
 - (id)init
@@ -41,19 +44,23 @@
 }
 
 - (void)speakString:(NSString *)string {
-    dispatch_async(speaking, ^{
+    dispatch_sync(speaking, ^{
         if(NSClassFromString(@"AVSpeechSynthesizer")) {
             AVSpeechUtterance *currentUtterance = [AVSpeechUtterance speechUtteranceWithString:string];
             [speaker speakUtterance:currentUtterance];
         } else {
-            [self.fliteController say:string withVoice:self.slt];
+            if(NSClassFromString(@"Slt")) {
+                [self.fliteController say:string withVoice:self.slt];
+            } else {
+                [NSException raise:@"Slt.framework not found" format:@""];
+            }
         }
     });
 }
 
 - (void)stopSpeaking
 {
-    dispatch_async(speaking, ^{
+    dispatch_sync(speaking, ^{
         if(NSClassFromString(@"AVSpeechSynthesizer")) {
             [speaker stopSpeakingAtBoundary:AVSpeechBoundaryWord];
         } else {

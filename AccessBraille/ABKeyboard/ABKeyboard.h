@@ -18,9 +18,6 @@
 /* Presents the last typed word with typing info */
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info;
 
-/* Presents the last typed sentance with typing info */
-- (void)senctanceCompleted:(NSString *)sentance withInfo:(NSDictionary *)info;
-
 /* keyboard active/deactive calls */
 - (void)keyboardDidBecomeActive;
 - (void)keyboardDidDismiss;

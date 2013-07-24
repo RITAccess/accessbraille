@@ -15,8 +15,10 @@
 //  @property ABSpeak *speaker;
 //
 
+#if __IPHONE_6_1
 #import <Slt/Slt.h>
 #import <OpenEars/FliteController.h>
+#endif
 
 @interface ABSpeak : NSObject {
     FliteController *fliteController;
