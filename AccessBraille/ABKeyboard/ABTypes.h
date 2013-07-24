@@ -33,6 +33,9 @@ static NSString *const ABBackspaceSound = @"BS";
 static NSString *const ABEnableSound = @"ES";
 static NSString *const ABDisableSound = @"DS";
 
+/* Config constant */
+static NSString *const KeyboardTransparency = @"transparency";
+
 /* ABVector */
 typedef struct {
     CGPoint start;

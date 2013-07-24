@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ABKeyboard/ABTypes.h>
 
 static NSString *const GradeTwoSet = @"GradeTwoSelection";
-static NSString *const KeyboardTransparency = @"transparency";
 
 @interface SettingsViewController : UITableViewController
 
