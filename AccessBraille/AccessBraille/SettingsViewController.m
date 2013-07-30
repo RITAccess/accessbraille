@@ -24,6 +24,7 @@
     // Sets the switch view depending on its status (ON or OFF).
     [self.gradeTwoSwitch setOn:[userDefaults boolForKey:GradeTwoSet]];
     [self.trans setValue:[userDefaults floatForKey:KeyboardTransparency]];
+    [_fontSizeSlider setValue:[userDefaults floatForKey:ABFontSize]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +52,7 @@
 
 - (IBAction)fontSizeChange:(UISlider *)sender
 {
-    [userDefaults setFloat:sender.value forKey:@"FontSize"];
+    [userDefaults setFloat:sender.value forKey:ABFontSize];
 }
 
 

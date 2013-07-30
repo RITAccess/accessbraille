@@ -50,6 +50,9 @@
     [tapToZoom setNumberOfTapsRequired:2];
     [_textField addGestureRecognizer:tapToZoom];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [_textField setFont:[UIFont boldSystemFontOfSize:[defaults floatForKey:ABFontSize]]];
+    
     isZoomed = NO;
 }
 

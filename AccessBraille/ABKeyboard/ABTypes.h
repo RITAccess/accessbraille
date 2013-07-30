@@ -33,8 +33,11 @@ static NSString *const ABBackspaceSound = @"BS";
 static NSString *const ABEnableSound = @"ES";
 static NSString *const ABDisableSound = @"DS";
 
-/* Config constant */
+/* Config Constant */
 static NSString *const KeyboardTransparency = @"transparency";
+
+/* Ouptut Constant */
+static NSString *const ABFontSize = @"ABFontSize";
 
 /* ABVector */
 typedef struct {
