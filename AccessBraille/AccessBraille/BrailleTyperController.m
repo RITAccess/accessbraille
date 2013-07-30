@@ -16,17 +16,17 @@
 
 @end
 
-#pragma mark - Implementation
-
 @implementation BrailleTyperController {
     // Layout
     ABKeyboard *keyboard;
     ABBrailleOutput *output;
     
     UITapGestureRecognizer *doubleTap;
+    
+    BOOL isZoomed;
 }
 
-# pragma mark - ViewController Methods
+#pragma mark - View Control
 
 - (void)viewDidLoad
 {
@@ -45,6 +45,41 @@
 
     doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDisplayMenu:)];
     [self.view addGestureRecognizer:doubleTap];
+    
+    UITapGestureRecognizer *tapToZoom = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapToZoom:)];
+    [tapToZoom setNumberOfTapsRequired:2];
+    [_textField addGestureRecognizer:tapToZoom];
+    
+    isZoomed = NO;
+}
+
+- (void)viewDidUnload
+{
+    keyboard = nil;
+    self.view.gestureRecognizers = nil;
+    [self setTextOutput:nil];
+    [self setTextField:nil];
+    [super viewDidUnload];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [self.view setNeedsDisplay];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.view setFrame:self.parentViewController.view.frame];
+}
+
+#pragma mark - Gesture Handling
+
+- (void)tapToZoom:(UITapGestureRecognizer *)gesture
+{
+    isZoomed ? [_textField setFont:[UIFont systemFontOfSize:17]] : [_textField setFont:[UIFont boldSystemFontOfSize:55]];
+    isZoomed = !isZoomed;
 }
 
 - (void)tapToDisplayMenu:(UITapGestureRecognizer *)gesture
@@ -57,34 +92,11 @@
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
-    [self.view setNeedsDisplay];    
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.view setFrame:self.parentViewController.view.frame];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidUnload
-{
-    keyboard = nil;
-    self.view.gestureRecognizers = nil;
-    [self setTextOutput:nil];
-    [self setTextField:nil];
-    [super viewDidUnload];
-}
+
 
 @end
