@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2C6335F617A8440100A67170 /* pointsTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6335F517A8440100A67170 /* pointsTag.png */; };
 		2C80FAEE178C409D0077BA2D /* lockCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */; };
 		2C80FAEF178C409D0077BA2D /* lockCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
@@ -175,6 +176,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C6335F517A8440100A67170 /* pointsTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pointsTag.png; path = ../../AccessBraille_Resources/Images/pointsTag.png; sourceTree = "<group>"; };
 		2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = lockCapsSound.aiff; path = ../../accessbraille_resources/Sounds/lockCapsSound.aiff; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 		A934326C16A070CB00C659C1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2C6335F517A8440100A67170 /* pointsTag.png */,
 				4C958351179ECFB50011B6EE /* menuTag.png */,
 				4C1B1E0B175CC8FA00A3DEDA /* Default-568h@2x.png */,
 				4C1B1E0C175CC8FA00A3DEDA /* Default.png */,
@@ -862,6 +865,7 @@
 				4C1B1E06175CC87B00A3DEDA /* correct.aiff in Resources */,
 				4CB58A321778BBB900D38D3C /* prefixLevelSix.plist in Resources */,
 				4CB58A301778BBB900D38D3C /* prefixLevelFour.plist in Resources */,
+				2C6335F617A8440100A67170 /* pointsTag.png in Resources */,
 				2CE1B414178B5064009B8E1D /* enableCapsSound.aiff in Resources */,
 				4CB58A341778BBB900D38D3C /* shortHandLookup.plist in Resources */,
 				4CB58A311778BBB900D38D3C /* prefixLevelFive.plist in Resources */,

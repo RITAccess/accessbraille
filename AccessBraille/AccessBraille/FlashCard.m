@@ -10,7 +10,7 @@
 
 @implementation FlashCard {
     UISwipeGestureRecognizer *swipeToSelectEasy, *swipeToSelectMedium, *swipeToSelectHard;
-    UITextView *cardText, *pointsText, *infoText, *typedText;
+    UITextView *cardText, *typedText;
     
     NSMutableArray *cards;
     NSArray *card, *letters;
@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_scoreLabel setHidden:YES];
+    [_pointsTagView setHidden:YES];
 
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
@@ -36,14 +39,6 @@
     
     stringFromInput = [[NSMutableString alloc] init];
     speaker = [[ABSpeak alloc] init];
-    
-    /* Text Views */
-    infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [infoText setText:welcomeText];
-    [infoText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
-    [infoText setBackgroundColor:[UIColor clearColor]];
-    [infoText setUserInteractionEnabled:NO];
-    [[self view] addSubview:infoText];
     
     cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
     [cardText setBackgroundColor:[UIColor clearColor]];
@@ -57,14 +52,6 @@
     typedText.textColor = [UIColor colorWithRed:0.f green:.8 blue:0.f alpha:1.f];
     [typedText setUserInteractionEnabled:NO];
     [[self view] addSubview:typedText];
-    
-    pointsText = [[UITextView alloc] initWithFrame:CGRectMake(900, 50, 100, 100)];
-    [pointsText setBackgroundColor:[UIColor clearColor]];
-    [pointsText setFont:[UIFont fontWithName:@"ArialMT" size:40]];
-    pointsText.textColor = [UIColor redColor];
-    pointsText.hidden = true;
-    pointsText.text = [NSString stringWithFormat:@"%d", points];
-    [[self view] addSubview:pointsText];
     
     /* Gestures */
     swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
@@ -82,7 +69,7 @@
     [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
     
-    [speaker speakString:welcomeText];
+    [speaker speakString:_infoTextView.text];  // Speaking the text from Storyboard.
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -110,6 +97,10 @@
     keyboard = [[ABKeyboard alloc] initWithDelegate:self];
     [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
     [speaker speakString:cardText.text];
+
+    [_infoTextView removeFromSuperview];
+    [_pointsTagView setHidden:NO];
+    [_scoreLabel setHidden:NO];
 }
 
 - (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
@@ -137,7 +128,7 @@
 - (void)checkCard{
     if ([cardText.text isEqualToString:typedText.text]) {
         AudioServicesPlaySystemSound(correctSound);
-        pointsText.text = [NSString stringWithFormat:@"%d", ++points];
+        [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
         [cardText setText:cards[arc4random() % maxHardCards]];
         [speaker speakString:cardText.text]; // Speak the new card.
         [self clearStrings];
@@ -155,8 +146,6 @@
 #pragma mark - Helper Methods
 
 - (void)disableGesturesAndManageLabels{
-    infoText.text = nil;
-    pointsText.hidden = NO;
     swipeToSelectEasy.enabled = NO;
     swipeToSelectMedium.enabled = NO;
     swipeToSelectHard.enabled = NO;

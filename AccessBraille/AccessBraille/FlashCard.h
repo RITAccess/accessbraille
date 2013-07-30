@@ -11,11 +11,14 @@
 #import <ABKeyboard/ABKeyboard.h>
 #import <ABKeyboard/ABSpeak.h>
 
-NSString *const welcomeText = @"Welcome to Flash Card mode! Swipe UP to select easy mode, RIGHT for medium mode, and DOWN for hard mode. Once playing, swipe 6 fingers up to initialize the typing keyboard.";
 NSInteger const maxEasyCards = 30;
 NSInteger const maxMediumCards = 60;
 NSInteger const maxHardCards = 20;
 
 @interface FlashCard : UIViewController <ABKeyboard>
+
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UITextView *infoTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *pointsTagView;
 
 @end

@@ -319,19 +319,73 @@
                     <view key="view" contentMode="scaleToFill" id="CVm-CJ-4aS">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-zY-8OA">
+                                <rect key="frame" x="0.0" y="142" width="1024" height="479"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="479" id="j59-bk-Ehm"/>
+                                    <constraint firstAttribute="width" constant="1024" id="phg-Lx-5F2"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Welcome to Flash Card mode! Swipe UP to select easy mode, RIGHT for medium mode, and DOWN for hard mode. Once playing, swipe 6 fingers up to initialize the typing keyboard.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="40" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointsTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="9n4-XV-Rov">
+                                <rect key="frame" x="899" y="0.0" width="76" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="l4a-Lp-mQo"/>
+                                    <constraint firstAttribute="width" constant="76" id="mtl-7H-NM9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5N-VJ-DCV">
+                                <rect key="frame" x="916" y="15" width="42" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="8HP-zY-8OA" firstAttribute="leading" secondItem="CVm-CJ-4aS" secondAttribute="leading" id="F8V-rt-uwu"/>
+                            <constraint firstItem="d5N-VJ-DCV" firstAttribute="centerY" secondItem="9n4-XV-Rov" secondAttribute="centerY" id="HEJ-62-wXP"/>
+                            <constraint firstAttribute="trailing" secondItem="9n4-XV-Rov" secondAttribute="trailing" constant="49" id="dT8-zK-5SW"/>
+                            <constraint firstAttribute="trailing" secondItem="d5N-VJ-DCV" secondAttribute="trailing" constant="66" id="frv-gt-a7x"/>
+                            <constraint firstItem="d5N-VJ-DCV" firstAttribute="centerX" secondItem="9n4-XV-Rov" secondAttribute="centerX" id="jWa-Jo-vdS"/>
+                            <constraint firstItem="9n4-XV-Rov" firstAttribute="top" secondItem="CVm-CJ-4aS" secondAttribute="top" id="jhW-R5-JuS"/>
+                            <constraint firstItem="8HP-zY-8OA" firstAttribute="top" secondItem="9n4-XV-Rov" secondAttribute="bottom" constant="74" id="k9b-Be-qtl"/>
+                            <constraint firstItem="8HP-zY-8OA" firstAttribute="top" secondItem="d5N-VJ-DCV" secondAttribute="bottom" constant="88" id="nvm-JC-Tuz"/>
+                            <constraint firstItem="hcJ-pA-R1X" firstAttribute="top" secondItem="8HP-zY-8OA" secondAttribute="bottom" constant="147" id="yOO-Sy-tkU"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="bA7-5Y-hvH"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="infoTextView" destination="8HP-zY-8OA" id="KnC-b6-fc9"/>
+                        <outlet property="pointsTagView" destination="9n4-XV-Rov" id="D0p-Qj-XHb"/>
+                        <outlet property="scoreLabel" destination="d5N-VJ-DCV" id="HT5-x8-3Qi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ql3-jE-q2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="864" y="2310"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pointsTag.png" width="300" height="228"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
         <simulatedOrientationMetrics key="orientation"/>
