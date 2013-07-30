@@ -54,18 +54,15 @@
     [[self view] addSubview:typedText];
     
     /* Gestures */
-    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterEasyMode:)];
-    [swipeToSelectEasy setEnabled:YES];
+    swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
     [swipeToSelectEasy setDirection:UISwipeGestureRecognizerDirectionUp];
     [self.view addGestureRecognizer:swipeToSelectEasy];
     
-    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterMediumMode:)];
-    [swipeToSelectMedium setEnabled:YES];
+    swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
     [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeToSelectMedium];
     
-    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterHardMode:)];
-    [swipeToSelectHard setEnabled:YES];
+    swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
     [swipeToSelectHard setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeToSelectHard];
     
@@ -88,35 +85,36 @@
     [speaker stopSpeaking];
 }
 
-
-#pragma mark - Gestures
-
-- (void)enterEasyMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self disableGesturesAndManageLabels];
-    [self initializeCards:@"easy.plist"];
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [cardText setText:cards[arc4random() % maxEasyCards]]; // Display the word.
+/**
+ * Initializes proper cards based on the direction of the swipe. Initializes
+ * keyboard, disables gestures, and removes info text.
+ *
+ * @param gesture UISwipeGestureRecognizer that's direction determines difficulty selection.
+ */
+- (void)beginPlaying:(UISwipeGestureRecognizer *)gesture
+{
+    //  Initialize Proper Cards
+    if (gesture.direction == UISwipeGestureRecognizerDirectionUp){
+        [self initializeCards:@"easy.plist"];
+        [cardText setText:cards[arc4random() % maxEasyCards]];
+    } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
+        [self initializeCards:@"medium.plist"];
+        [cardText setText:cards[arc4random() % maxMediumCards]];
+    } else if (gesture.direction == UISwipeGestureRecognizerDirectionDown){
+        [self initializeCards:@"hard.plist"];
+        [cardText setText:cards[arc4random() % maxHardCards]];
+    }
+    
+    keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     [speaker speakString:cardText.text];
-
+    
     [_infoTextView removeFromSuperview];
     [_pointsTagView setHidden:NO];
     [_scoreLabel setHidden:NO];
-}
-
-- (void)enterMediumMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self disableGesturesAndManageLabels];
-    [self initializeCards:@"medium.plist"];
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [cardText setText:cards[arc4random() % maxMediumCards]]; // Display the word.
-    [speaker speakString:cardText.text];
-}
-
-- (void)enterHardMode:(UIGestureRecognizer *)withGestureRecognizer{
-    [self initializeCards:@"hard.plist"];
-    keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-    [self disableGesturesAndManageLabels];
-    [cardText setText:cards[arc4random() % maxHardCards]]; // Display the word.
-    [speaker speakString:cardText.text];
+    
+    [swipeToSelectEasy setEnabled:NO];
+    [swipeToSelectMedium setEnabled:NO];
+    [swipeToSelectHard setEnabled:NO];
 }
 
 #pragma mark - Card Mode
@@ -131,7 +129,9 @@
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
         [cardText setText:cards[arc4random() % maxHardCards]];
         [speaker speakString:cardText.text]; // Speak the new card.
-        [self clearStrings];
+        
+        [typedText setText:@""];
+        [stringFromInput setString:@""];
     }else{
         AudioServicesPlaySystemSound(incorrectSound);
     }
@@ -145,31 +145,17 @@
 
 #pragma mark - Helper Methods
 
-- (void)disableGesturesAndManageLabels{
-    swipeToSelectEasy.enabled = NO;
-    swipeToSelectMedium.enabled = NO;
-    swipeToSelectHard.enabled = NO;
-}
-
-- (void)clearStrings{
-    typedText.text = @"";
-    [stringFromInput setString:@""];
-}
-
-/**
- * Speak character being typed, as well as appending it to the UITextView.
- */
 - (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
     if ([info[ABSpaceTyped] boolValue]){
         [self checkCard];
     }else{
-        if ([info[ABBackspaceReceived] boolValue]){ // Remove character from typed string if backspace detected.
+        // Remove character from typed string if backspace detected.
+        if ([info[ABBackspaceReceived] boolValue]){
             if (stringFromInput.length > 0) {
                 [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
                 [typedText setText:stringFromInput];
             }
-        }
-        else{
+        } else {
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
             [typedText setText:stringFromInput]; // Sets typed text to the label.
         }
