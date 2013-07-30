@@ -48,4 +48,11 @@
 {
     [userDefaults setFloat:sender.value forKey:KeyboardTransparency];
 }
+
+- (IBAction)fontSizeChange:(UISlider *)sender
+{
+    [userDefaults setFloat:sender.value forKey:@"FontSize"];
+}
+
+
 @end

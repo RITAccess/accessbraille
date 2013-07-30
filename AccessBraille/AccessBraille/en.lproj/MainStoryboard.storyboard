@@ -159,6 +159,30 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zt4-4V-Lcs">
+                                        <rect key="frame" x="0.0" y="169" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zt4-4V-Lcs" id="MgX-lQ-hue">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc9-y1-aEn">
+                                                    <rect key="frame" x="20" y="11" width="83" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="17" minValue="10" maxValue="70" translatesAutoresizingMaskIntoConstraints="NO" id="Qht-85-gts">
+                                                    <rect key="frame" x="727" y="5" width="279" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="fontSizeChange:" destination="jxV-aK-rbF" eventType="valueChanged" id="RwS-0f-B7k"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -169,6 +193,7 @@
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="790" height="592"/>
                     <connections>
+                        <outlet property="fontSizeSlider" destination="Qht-85-gts" id="5nG-be-95D"/>
                         <outlet property="gradeTwoSwitch" destination="2fd-Us-USg" id="ef9-8H-MAJ"/>
                         <outlet property="trans" destination="Gzl-BN-AKA" id="G5R-78-S2S"/>
                     </connections>
