@@ -16,25 +16,6 @@ NSInteger const maxEasyCards = 30;
 NSInteger const maxMediumCards = 60;
 NSInteger const maxHardCards = 20;
 
-@interface FlashCard : UIViewController <ABKeyboard> {
-    UITextView *typedText, *cardText, *pointsText, *infoText;
-    NSMutableArray *cards;
-    NSArray *card, *letters;
-    NSMutableString *stringFromInput;
-    ABKeyboard *keyboard;
-    ABSpeak *speaker;
-    int points;
-    NSString *finalPath, *path;
-    SystemSoundID correctSound, incorrectSound;
-}
-
-@property UISwipeGestureRecognizer *swipeToSelectEasy;
-@property UISwipeGestureRecognizer *swipeToSelectMedium;
-@property UISwipeGestureRecognizer *swipeToSelectHard;
-
-@property UITextView *typedText;
-@property UITextView *cardText;
-@property UITextView *pointsText;
-@property UITextView *infoText;
+@interface FlashCard : UIViewController <ABKeyboard>
 
 @end

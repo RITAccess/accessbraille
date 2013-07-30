@@ -8,19 +8,19 @@
 
 #import "FlashCard.h"
 
-@interface FlashCard ()
-
-@end
-
-@implementation FlashCard
-
-@synthesize cardText;
-@synthesize typedText;
-@synthesize infoText;
-@synthesize pointsText;
-@synthesize swipeToSelectEasy;
-@synthesize swipeToSelectMedium;
-@synthesize swipeToSelectHard;
+@implementation FlashCard {
+    UISwipeGestureRecognizer *swipeToSelectEasy, *swipeToSelectMedium, *swipeToSelectHard;
+    UITextView *cardText, *pointsText, *infoText, *typedText;
+    
+    NSMutableArray *cards;
+    NSArray *card, *letters;
+    NSMutableString *stringFromInput;
+    ABKeyboard *keyboard;
+    ABSpeak *speaker;
+    int points;
+    NSString *finalPath, *path;
+    SystemSoundID correctSound, incorrectSound;
+}
 
 #pragma mark - View
 
