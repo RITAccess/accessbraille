@@ -156,7 +156,7 @@
     // set menu item posisions and add gesture to image view
     for (int i = 0; i < menuItemStoryboardReferanceName.count; i++) {
         // load image and set tag
-        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%dx90.png", i]]];
+        MainMenuItemImage *menuItem = [[MainMenuItemImage alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"menuItem%d.png", i]]];
         [menuItem setUserInteractionEnabled:YES];
         [menuItem setFrame:CGRectMake(animated ? -200 : 30, startPos, 180, 180)];
         [menuItem setTag:startTag];
