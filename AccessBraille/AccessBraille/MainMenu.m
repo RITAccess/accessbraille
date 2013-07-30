@@ -63,16 +63,6 @@
     
 }
 
--(void)didMoveToParentViewController:(UIViewController *)parent
-{
-    
-}
-
-- (void)willMoveToParentViewController:(UIViewController *)parent
-{
-    
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
@@ -87,7 +77,6 @@
 }
 
 #pragma mark - Menu Methods
-
 
 /**
  * Checks what menu item is in the selection box and returns it's ID
