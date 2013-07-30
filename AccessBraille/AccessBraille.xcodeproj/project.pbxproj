@@ -26,7 +26,6 @@
 		2C80FAEF178C409D0077BA2D /* lockCapsSound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C80FAED178C409D0077BA2D /* lockCapsSound.aiff */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
-		2CAAC7A6175E2A2A004680F9 /* menuItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A4175E2A29004680F9 /* menuItem4.png */; };
 		2CAAC7A7175E2A2A004680F9 /* menuItem4x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC7A5175E2A2A004680F9 /* menuItem4x90.png */; };
 		2CC54E8617661A3A001B595A /* menuItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC54E8517661A3A001B595A /* menuItem5.png */; };
 		2CC54E8817661A72001B595A /* menuItem5x90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC54E8717661A72001B595A /* menuItem5x90.png */; };
@@ -188,7 +187,6 @@
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
-		2CAAC7A4175E2A29004680F9 /* menuItem4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem4.png; path = ../../accessbraille_resources/Images/menuItem4.png; sourceTree = "<group>"; };
 		2CAAC7A5175E2A2A004680F9 /* menuItem4x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem4x90.png; path = ../../accessbraille_resources/Images/menuItem4x90.png; sourceTree = "<group>"; };
 		2CC54E8517661A3A001B595A /* menuItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5.png; path = ../../accessbraille_resources/Images/menuItem5.png; sourceTree = "<group>"; };
 		2CC54E8717661A72001B595A /* menuItem5x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuItem5x90.png; path = ../../accessbraille_resources/Images/menuItem5x90.png; sourceTree = "<group>"; };
@@ -521,7 +519,6 @@
 				4C1B1DDD175CC85400A3DEDA /* menuItem2x90.png */,
 				4C1B1DDE175CC85400A3DEDA /* menuItem3.png */,
 				4C1B1DDF175CC85400A3DEDA /* menuItem3x90.png */,
-				2CAAC7A4175E2A29004680F9 /* menuItem4.png */,
 				2CAAC7A5175E2A2A004680F9 /* menuItem4x90.png */,
 				2CC54E8517661A3A001B595A /* menuItem5.png */,
 				2CC54E8717661A72001B595A /* menuItem5x90.png */,
@@ -911,7 +908,6 @@
 				4CB58A331778BBB900D38D3C /* prefixLevelSeven.plist in Resources */,
 				4CB58A2E1778BBB900D38D3C /* prefixLevelTwo.plist in Resources */,
 				2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */,
-				2CAAC7A6175E2A2A004680F9 /* menuItem4.png in Resources */,
 				2CAAC7A7175E2A2A004680F9 /* menuItem4x90.png in Resources */,
 				2CC54E8617661A3A001B595A /* menuItem5.png in Resources */,
 				2CE1B412178B5064009B8E1D /* disableCapsSound.aiff in Resources */,
