@@ -10,8 +10,6 @@
 
 @implementation FlashCard {
     UISwipeGestureRecognizer *swipeToSelectEasy, *swipeToSelectMedium, *swipeToSelectHard;
-    UITextView *cardText, *typedText;
-    
     NSMutableArray *cards;
     NSArray *card, *letters;
     NSMutableString *stringFromInput;
@@ -30,28 +28,14 @@
     
     [_scoreLabel setHidden:YES];
     [_pointsTagView setHidden:YES];
-
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    [_cardTextView setHidden:YES];
+    [_typedTextView setHidden:YES];
     
     correctSound = [self createSoundID:@"correct.aiff"];
     incorrectSound = [self createSoundID:@"incorrect.aiff"];
     
     stringFromInput = [[NSMutableString alloc] init];
     speaker = [[ABSpeak alloc] init];
-    
-    cardText = [[UITextView alloc] initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
-    [cardText setBackgroundColor:[UIColor clearColor]];
-    [cardText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
-    [cardText setUserInteractionEnabled:NO];
-    [[self view] addSubview:cardText];
-    
-    typedText = [[UITextView alloc]initWithFrame:CGRectMake((height / 2) - 200, (width / 2) - 200, 700, 300)];
-    [typedText setBackgroundColor:[UIColor clearColor]];
-    [typedText setFont:[UIFont fontWithName:@"ArialMT" size:140]];
-    typedText.textColor = [UIColor colorWithRed:0.f green:.8 blue:0.f alpha:1.f];
-    [typedText setUserInteractionEnabled:NO];
-    [[self view] addSubview:typedText];
     
     /* Gestures */
     swipeToSelectEasy = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
@@ -96,21 +80,27 @@
     //  Initialize Proper Cards
     if (gesture.direction == UISwipeGestureRecognizerDirectionUp){
         [self initializeCards:@"easy.plist"];
-        [cardText setText:cards[arc4random() % maxEasyCards]];
+        [_cardTextView setText:cards[arc4random() % maxEasyCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
         [self initializeCards:@"medium.plist"];
-        [cardText setText:cards[arc4random() % maxMediumCards]];
+        [_cardTextView setText:cards[arc4random() % maxMediumCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionDown){
         [self initializeCards:@"hard.plist"];
-        [cardText setText:cards[arc4random() % maxHardCards]];
+        [_cardTextView setText:cards[arc4random() % maxHardCards]];
     }
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
-    [speaker speakString:cardText.text];
+    [speaker speakString:_cardTextView.text];
     
     [_infoTextView removeFromSuperview];
+    [_cardTextView setHidden:NO];
     [_pointsTagView setHidden:NO];
     [_scoreLabel setHidden:NO];
+    [_typedTextView setTextColor:[UIColor greenColor]];  // Not working in Interface Builder for some reason...
+    [_typedTextView setHidden:NO];
+    [_typedTextView setText:@""];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     [swipeToSelectEasy setEnabled:NO];
     [swipeToSelectMedium setEnabled:NO];
@@ -123,21 +113,22 @@
  * Checks to see if typed word matches the card displayed. If so, play a correct sound
  * and switch to a new card. Else, play an incorrect sound.
  */
-- (void)checkCard{
-    if ([cardText.text isEqualToString:typedText.text]) {
+- (void)checkCard
+{
+    if ([_cardTextView.text isEqualToString:_typedTextView.text]){
         AudioServicesPlaySystemSound(correctSound);
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
-        [cardText setText:cards[arc4random() % maxHardCards]];
-        [speaker speakString:cardText.text]; // Speak the new card.
-        
-        [typedText setText:@""];
+        [_cardTextView setText:cards[arc4random() % maxHardCards]];
+        [speaker speakString:_cardTextView.text]; // Speak the new card.
+        [_typedTextView setText:@""];
         [stringFromInput setString:@""];
-    }else{
+    } else {
         AudioServicesPlaySystemSound(incorrectSound);
     }
 }
 
-- (void)initializeCards:(NSString* )withDifficulty{
+- (void)initializeCards:(NSString* )withDifficulty
+{
     path = [[NSBundle mainBundle] bundlePath];
     finalPath = [path stringByAppendingPathComponent:withDifficulty];
     cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
@@ -145,19 +136,20 @@
 
 #pragma mark - Helper Methods
 
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
+- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info
+{
     if ([info[ABSpaceTyped] boolValue]){
         [self checkCard];
-    }else{
+    } else {
         // Remove character from typed string if backspace detected.
         if ([info[ABBackspaceReceived] boolValue]){
             if (stringFromInput.length > 0) {
                 [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
-                [typedText setText:stringFromInput];
+                [_typedTextView setText:stringFromInput];
             }
         } else {
             [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-            [typedText setText:stringFromInput]; // Sets typed text to the label.
+            [_typedTextView setText:stringFromInput]; // Sets typed text to the label.
         }
     }
 }

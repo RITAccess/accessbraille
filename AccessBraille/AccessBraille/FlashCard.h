@@ -19,6 +19,8 @@ NSInteger const maxHardCards = 20;
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextView *infoTextView;
+@property (weak, nonatomic) IBOutlet UITextView *cardTextView;
+@property (weak, nonatomic) IBOutlet UITextView *typedTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *pointsTagView;
 
 @end
