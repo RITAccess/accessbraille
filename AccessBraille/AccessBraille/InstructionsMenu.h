@@ -10,6 +10,4 @@
 
 @interface InstructionsMenu : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
-
 @end
