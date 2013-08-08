@@ -89,6 +89,7 @@
     if (_output.text.length > 0) {
         _output.text = [_output.text substringToIndex:_output.text.length - 1];
         [_interpreter dropEndOffGraph];
+        [self playSound:ABBackspaceSound];
     }
 }
 
