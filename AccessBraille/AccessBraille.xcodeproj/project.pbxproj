@@ -75,6 +75,7 @@
 		2C100F9517B3D3020024C8C5 /* secretCabinLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7617B3D3020024C8C5 /* secretCabinLeave.aiff */; };
 		2C100F9617B3D3020024C8C5 /* windyLakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7717B3D3020024C8C5 /* windyLakeLeave.aiff */; };
 		2C100F9717B3D3020024C8C5 /* windyLakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7817B3D3020024C8C5 /* windyLakeLook.aiff */; };
+		2C100F9B17B3D6F90024C8C5 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F9A17B3D6F90024C8C5 /* About.rtf */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
@@ -106,7 +107,6 @@
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
 		4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
-		4C958328179ECF730011B6EE /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C958327179ECF730011B6EE /* About.rtf */; };
 		4C95833D179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958329179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C95833E179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */; };
 		4C95833F179ECF9F0011B6EE /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -253,6 +253,7 @@
 		2C100F7617B3D3020024C8C5 /* secretCabinLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = secretCabinLeave.aiff; path = ../../Resources/Sounds/secretCabinLeave.aiff; sourceTree = "<group>"; };
 		2C100F7717B3D3020024C8C5 /* windyLakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLeave.aiff; path = ../../Resources/Sounds/windyLakeLeave.aiff; sourceTree = "<group>"; };
 		2C100F7817B3D3020024C8C5 /* windyLakeLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLook.aiff; path = ../../Resources/Sounds/windyLakeLook.aiff; sourceTree = "<group>"; };
+		2C100F9A17B3D6F90024C8C5 /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = About.rtf; path = "../../Resources/Text Files/About.rtf"; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
-		4C958327179ECF730011B6EE /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = About.rtf; path = Resouces/About.rtf; sourceTree = SOURCE_ROOT; };
 		4C958329179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABActivateKeyboardGestureRecognizer.h; path = ABKeyboard/ABActivateKeyboardGestureRecognizer.h; sourceTree = SOURCE_ROOT; };
 		4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABActivateKeyboardGestureRecognizer.m; path = ABKeyboard/ABActivateKeyboardGestureRecognizer.m; sourceTree = SOURCE_ROOT; };
 		4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABBrailleOutput.h; path = ABKeyboard/ABBrailleOutput.h; sourceTree = SOURCE_ROOT; };
@@ -564,13 +564,6 @@
 			path = AccessBraille;
 			sourceTree = "<group>";
 		};
-		A934326C16A070CB00C659C1 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		A934326F16A075A400C659C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,7 +625,6 @@
 				A934326F16A075A400C659C1 /* View */,
 				A9ECC82216A764E900998AD4 /* Controllers */,
 				A9ECC82116A764C300998AD4 /* Resources */,
-				A934326C16A070CB00C659C1 /* Images */,
 				A9479C471670034E00CE9475 /* AppDelegate.h */,
 				A9479C481670034E00CE9475 /* AppDelegate.m */,
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
@@ -644,6 +636,7 @@
 		A9479C3F1670034E00CE9475 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C100F9A17B3D6F90024C8C5 /* About.rtf */,
 				2CAAC79B175E2783004680F9 /* adventureTexts.plist */,
 				2CCB7548173BF3220059E580 /* easy.plist */,
 				2CCB754A173BF3610059E580 /* medium.plist */,
@@ -654,7 +647,6 @@
 				4C751F1716FA052F003967D8 /* MenuTitles.plist */,
 				A9479C441670034E00CE9475 /* main.m */,
 				A9479C461670034E00CE9475 /* AccessBraille-Prefix.pch */,
-				4C958327179ECF730011B6EE /* About.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -906,7 +898,6 @@
 				2C100F9117B3D3020024C8C5 /* lockCapsSound.aiff in Resources */,
 				2CCB754B173BF3610059E580 /* medium.plist in Resources */,
 				2CCB754D173BF3B40059E580 /* hard.plist in Resources */,
-				4C958328179ECF730011B6EE /* About.rtf in Resources */,
 				2C100F5017B3CE3D0024C8C5 /* menuItem3.png in Resources */,
 				2C100F4D17B3CE3D0024C8C5 /* menuItem0.png in Resources */,
 				2C100F9417B3D3020024C8C5 /* secretCabinBlock.aiff in Resources */,
@@ -932,6 +923,7 @@
 				2C100F4B17B3CE3D0024C8C5 /* mainMenu.png in Resources */,
 				2C100F4A17B3CE3D0024C8C5 /* icon144.png in Resources */,
 				4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */,
+				2C100F9B17B3D6F90024C8C5 /* About.rtf in Resources */,
 				2C100F5317B3CE3D0024C8C5 /* menuTag.png in Resources */,
 				2C100F8917B3D3020024C8C5 /* femaleHmm.aiff in Resources */,
 				2C100F8A17B3D3020024C8C5 /* finalCavernLeave.aiff in Resources */,
