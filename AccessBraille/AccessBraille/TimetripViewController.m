@@ -12,17 +12,13 @@
 {
     ABKeyboard *keyboard;
     ABSpeak *speaker;
-    
     AVAudioPlayer *avPlayer;
-    
-    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
     
     NSMutableArray *pack;
     NSString *currentLocation;
-    
     NSMutableString *stringFromInput;
-    
     NSDictionary *texts;
+    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
 }
 
 - (void)viewDidLoad
@@ -44,20 +40,9 @@
     [tapToStart setEnabled:YES];
     [self.view addGestureRecognizer:tapToStart];
     
-    stringFromInput = [[NSMutableString alloc] init];
+    stringFromInput = [NSMutableString new];
     
-    _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
-    [_typedText setBackgroundColor:[UIColor colorWithHue:50 saturation:10 brightness:91 alpha:.5]];
-    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
-    _typedText.textColor = [UIColor blackColor];
-    _typedText.layer.cornerRadius = 5;
-    [_typedText setUserInteractionEnabled:NO];
-    
-    _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
-    [_infoText setBackgroundColor:[UIColor clearColor]];
-    [_infoText setUserInteractionEnabled:NO];
-    [[self view] addSubview:_infoText];
+    [_typedText.layer setCornerRadius:5];
     
     [self prompt:@"initialText"];
 }
@@ -66,6 +51,9 @@
 {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
+    
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
 }
 
 - (void)viewDidUnload
@@ -88,6 +76,9 @@
     
     [self initSoundWithFileName:@"crashSite"];
     [self prompt:@"crashSiteLook"];
+    
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
 }
 
 /**
