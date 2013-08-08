@@ -224,7 +224,7 @@
 {
     reading = NO;
     if ([_interpreter respondsToSelector:@selector(processBrailleString:)]) {
-        [_interpreter processBrailleString:[ABTouchLayer brailleStringFromTouchIDs:activeTouches]];
+        [_interpreter processBrailleString:[ABTouchLayer brailleStringFromTouchIDs:activeTouches] isShift:_shift];
     }
     [activeTouches removeAllObjects];
 }
