@@ -77,6 +77,7 @@
 		2C100F9717B3D3020024C8C5 /* windyLakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7817B3D3020024C8C5 /* windyLakeLook.aiff */; };
 		2C100F9B17B3D6F90024C8C5 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F9A17B3D6F90024C8C5 /* About.rtf */; };
 		2C100F9E17B3E79F0024C8C5 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */; };
+		2C22726217B438EE00615B5E /* TimetripViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TimetripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TimetripViewController.m */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
@@ -256,6 +257,7 @@
 		2C100F9A17B3D6F90024C8C5 /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = About.rtf; path = "../../Resources/Text Files/About.rtf"; sourceTree = "<group>"; };
 		2C100F9C17B3E79F0024C8C5 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
+		2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewControllerTests.m; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TimetripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetripViewController.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TimetripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewController.m; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				A9479C681670034F00CE9475 /* AccessBrailleTests.h */,
 				A9479C691670034F00CE9475 /* AccessBrailleTests.m */,
 				A9479C631670034E00CE9475 /* Supporting Files */,
+				2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */,
 			);
 			path = AccessBrailleTests;
 			sourceTree = "<group>";
@@ -1032,6 +1035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C22726217B438EE00615B5E /* TimetripViewControllerTests.m in Sources */,
 				A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
