@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ABKeyboard/ABSpeak.h>
 
 @interface InstructionsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *labelContainerView;
+@property (weak, nonatomic) IBOutlet UITextView *firstTextView;
+@property (weak, nonatomic) IBOutlet UITextView *secondTextView;
+@property (weak, nonatomic) IBOutlet UITextView *thirdTextView;
 
 @end

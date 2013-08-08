@@ -274,7 +274,10 @@
                     <navigationItem key="navigationItem" id="CfK-HK-gML"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="firstTextView" destination="8Lk-dd-fYl" id="E4t-wR-e28"/>
                         <outlet property="labelContainerView" destination="fpe-KR-vic" id="2bk-SB-SYx"/>
+                        <outlet property="secondTextView" destination="CC1-ya-AZR" id="Zdg-hv-588"/>
+                        <outlet property="thirdTextView" destination="qcQ-FQ-4Nh" id="KL7-Nu-4Ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-DB-Fes" userLabel="First Responder" sceneMemberID="firstResponder"/>
