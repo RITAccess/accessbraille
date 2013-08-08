@@ -105,14 +105,13 @@
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
+		4C8AD31C17B4132400F812EA /* KeyboardResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C8AD31B17B4132400F812EA /* KeyboardResponder.h */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
 		4C945902179439F2000C28B1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C5C1670034E00CE9475 /* SenTestingKit.framework */; };
 		4C95833D179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958329179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C95833E179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */; };
 		4C95833F179ECF9F0011B6EE /* ABBrailleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C958340179ECF9F0011B6EE /* ABBrailleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832C179ECF9F0011B6EE /* ABBrailleOutput.m */; };
-		4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832D179ECF9F0011B6EE /* ABBrailleReader.h */; };
-		4C958342179ECF9F0011B6EE /* ABBrailleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C95832E179ECF9F0011B6EE /* ABBrailleReader.m */; };
 		4C958343179ECF9F0011B6EE /* ABKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C95832F179ECF9F0011B6EE /* ABKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C958344179ECF9F0011B6EE /* ABKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C958330179ECF9F0011B6EE /* ABKeyboard.m */; };
 		4C958347179ECF9F0011B6EE /* ABParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C958333179ECF9F0011B6EE /* ABParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +159,9 @@
 		4CB58A531778BDAD00D38D3C /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CB58A441778BDAD00D38D3C /* OpenEarsCorpus.txt */; };
 		4CB58A541778BDAD00D38D3C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB58A451778BDAD00D38D3C /* Slt.framework */; };
 		4CB788A1179D769700923DD7 /* SettingsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB788A0179D769700923DD7 /* SettingsContainer.m */; };
+		4CE76C7917B3FE4A00AEE40A /* ABBrailleInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CE76C7717B3FE4A00AEE40A /* ABBrailleInterpreter.h */; };
+		4CE76C7A17B3FE4A00AEE40A /* ABBrailleInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE76C7817B3FE4A00AEE40A /* ABBrailleInterpreter.m */; };
+		4CE76C7C17B401C300AEE40A /* TestABBrailleParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE76C7B17B401C300AEE40A /* TestABBrailleParsing.m */; };
 		A9479C391670034E00CE9475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C381670034E00CE9475 /* UIKit.framework */; };
 		A9479C3B1670034E00CE9475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3A1670034E00CE9475 /* Foundation.framework */; };
 		A9479C3D1670034E00CE9475 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9479C3C1670034E00CE9475 /* CoreGraphics.framework */; };
@@ -298,13 +300,12 @@
 		4C7A1110177502AB00726199 /* numberLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = numberLookup.plist; sourceTree = "<group>"; };
 		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C8AD31B17B4132400F812EA /* KeyboardResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardResponder.h; sourceTree = "<group>"; };
 		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
 		4C958329179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABActivateKeyboardGestureRecognizer.h; path = ABKeyboard/ABActivateKeyboardGestureRecognizer.h; sourceTree = SOURCE_ROOT; };
 		4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABActivateKeyboardGestureRecognizer.m; path = ABKeyboard/ABActivateKeyboardGestureRecognizer.m; sourceTree = SOURCE_ROOT; };
 		4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABBrailleOutput.h; path = ABKeyboard/ABBrailleOutput.h; sourceTree = SOURCE_ROOT; };
 		4C95832C179ECF9F0011B6EE /* ABBrailleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABBrailleOutput.m; path = ABKeyboard/ABBrailleOutput.m; sourceTree = SOURCE_ROOT; };
-		4C95832D179ECF9F0011B6EE /* ABBrailleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABBrailleReader.h; path = ABKeyboard/ABBrailleReader.h; sourceTree = SOURCE_ROOT; };
-		4C95832E179ECF9F0011B6EE /* ABBrailleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABBrailleReader.m; path = ABKeyboard/ABBrailleReader.m; sourceTree = SOURCE_ROOT; };
 		4C95832F179ECF9F0011B6EE /* ABKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABKeyboard.h; path = ABKeyboard/ABKeyboard.h; sourceTree = SOURCE_ROOT; };
 		4C958330179ECF9F0011B6EE /* ABKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABKeyboard.m; path = ABKeyboard/ABKeyboard.m; sourceTree = SOURCE_ROOT; };
 		4C958333179ECF9F0011B6EE /* ABParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABParser.h; path = ABKeyboard/ABParser.h; sourceTree = SOURCE_ROOT; };
@@ -338,6 +339,9 @@
 		4CB58A451778BDAD00D38D3C /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		4CB7889F179D769700923DD7 /* SettingsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsContainer.h; sourceTree = "<group>"; };
 		4CB788A0179D769700923DD7 /* SettingsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsContainer.m; sourceTree = "<group>"; };
+		4CE76C7717B3FE4A00AEE40A /* ABBrailleInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABBrailleInterpreter.h; path = ABKeyboard/ABBrailleInterpreter.h; sourceTree = SOURCE_ROOT; };
+		4CE76C7817B3FE4A00AEE40A /* ABBrailleInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABBrailleInterpreter.m; path = ABKeyboard/ABBrailleInterpreter.m; sourceTree = SOURCE_ROOT; };
+		4CE76C7B17B401C300AEE40A /* TestABBrailleParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestABBrailleParsing.m; sourceTree = "<group>"; };
 		4CEFD38A16EE1F9100961754 /* NSArray+ObjectSubsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectSubsets.h"; sourceTree = "<group>"; };
 		4CEFD38B16EE1F9100961754 /* NSArray+ObjectSubsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectSubsets.m"; sourceTree = "<group>"; };
 		A9479C351670034E00CE9475 /* AccessBraille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessBraille.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -545,8 +549,9 @@
 				4C95832A179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m */,
 				4C95832B179ECF9F0011B6EE /* ABBrailleOutput.h */,
 				4C95832C179ECF9F0011B6EE /* ABBrailleOutput.m */,
-				4C95832D179ECF9F0011B6EE /* ABBrailleReader.h */,
-				4C95832E179ECF9F0011B6EE /* ABBrailleReader.m */,
+				4C8AD31B17B4132400F812EA /* KeyboardResponder.h */,
+				4CE76C7717B3FE4A00AEE40A /* ABBrailleInterpreter.h */,
+				4CE76C7817B3FE4A00AEE40A /* ABBrailleInterpreter.m */,
 				4C95832F179ECF9F0011B6EE /* ABKeyboard.h */,
 				4C958330179ECF9F0011B6EE /* ABKeyboard.m */,
 				4C958333179ECF9F0011B6EE /* ABParser.h */,
@@ -654,8 +659,9 @@
 		A9479C621670034E00CE9475 /* AccessBrailleTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9479C681670034F00CE9475 /* AccessBrailleTests.h */,
+				4CE76C7B17B401C300AEE40A /* TestABBrailleParsing.m */,
 				A9479C691670034F00CE9475 /* AccessBrailleTests.m */,
+				A9479C681670034F00CE9475 /* AccessBrailleTests.h */,
 				A9479C631670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBrailleTests;
@@ -731,10 +737,11 @@
 				4C95833F179ECF9F0011B6EE /* ABBrailleOutput.h in Headers */,
 				4C958349179ECF9F0011B6EE /* ABSpeak.h in Headers */,
 				4C95833D179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.h in Headers */,
+				4C8AD31C17B4132400F812EA /* KeyboardResponder.h in Headers */,
 				4CB58A231778B6EA00D38D3C /* UIView+quickRemove.h in Headers */,
 				4CB58A271778B6EA00D38D3C /* UITextView+simpleadd.h in Headers */,
-				4C958341179ECF9F0011B6EE /* ABBrailleReader.h in Headers */,
 				4C95834D179ECF9F0011B6EE /* ABTouchView.h in Headers */,
+				4CE76C7917B3FE4A00AEE40A /* ABBrailleInterpreter.h in Headers */,
 				4CB58A211778B6EA00D38D3C /* NSString+helpers.h in Headers */,
 				4C95834B179ECF9F0011B6EE /* ABTouchLayer.h in Headers */,
 			);
@@ -991,6 +998,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE76C7A17B3FE4A00AEE40A /* ABBrailleInterpreter.m in Sources */,
 				4C95834C179ECF9F0011B6EE /* ABTouchLayer.m in Sources */,
 				4C95834E179ECF9F0011B6EE /* ABTouchView.m in Sources */,
 				4C95833E179ECF9F0011B6EE /* ABActivateKeyboardGestureRecognizer.m in Sources */,
@@ -1002,7 +1010,6 @@
 				4C958348179ECF9F0011B6EE /* ABParser.m in Sources */,
 				4C958350179ECF9F0011B6EE /* ABTypes.m in Sources */,
 				4CB58A281778B6EA00D38D3C /* UITextView+simpleadd.m in Sources */,
-				4C958342179ECF9F0011B6EE /* ABBrailleReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1040,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */,
+				4CE76C7C17B401C300AEE40A /* TestABBrailleParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

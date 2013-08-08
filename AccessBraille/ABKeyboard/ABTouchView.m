@@ -55,6 +55,10 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self touchesCancelled:nil withEvent:nil];
+}
+
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     touched = NO;
     [self setNeedsDisplay];
