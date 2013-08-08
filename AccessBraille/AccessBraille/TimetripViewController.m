@@ -1,18 +1,18 @@
 //
-//  TextAdventure.m
+//  TimetripViewController.m
 //  AccessBraille
 //
 //  Created by Piper Chester on 6/3/13.
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import "TextAdventure.h"
+#import "TimetripViewController.h"
 
-@interface TextAdventure ()
+@interface TimetripViewController ()
 
 @end
 
-@implementation TextAdventure
+@implementation TimetripViewController
 
 
 - (void)viewDidLoad

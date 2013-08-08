@@ -1,5 +1,5 @@
 //
-//  TextAdventure.h
+//  TimetripViewController.h
 //  AccessBraille
 //
 //  Created by Piper Chester on 6/3/13.
@@ -11,7 +11,7 @@
 #import <ABKeyboard/ABKeyboard.h>
 #import <ABKeyboard/ABSpeak.h>
 
-@interface TextAdventure : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
+@interface TimetripViewController : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
 {
     ABKeyboard *keyboard;
     ABSpeak *speaker;

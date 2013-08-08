@@ -349,7 +349,7 @@
         <!--Text Adventure-->
         <scene sceneID="b0j-4J-lno">
             <objects>
-                <viewController storyboardIdentifier="Timetrip" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TextAdventure" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timetrip" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TimetripViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pyw-Xc-o9y"/>
                         <viewControllerLayoutGuide type="bottom" id="Cqd-or-T7o"/>
