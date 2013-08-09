@@ -17,7 +17,6 @@
     NSMutableArray *pack;
     NSString *currentLocation;
     NSMutableString *stringFromInput;
-    NSDictionary *texts;
     BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
 }
 
@@ -31,7 +30,7 @@
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"adventureTexts.plist"];
-    texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [ABSpeak sharedInstance];
@@ -357,8 +356,8 @@
  */
 - (void)prompt:(NSString *)description
 {
-    [speaker speakString:[texts valueForKey:description]];
-    _infoText.text = [texts valueForKey:description]; // This breaks for some reason...
+    [speaker speakString:[_texts valueForKey:description]];
+    _infoText.text = [_texts valueForKey:description]; // This breaks for some reason...
 }
 
 - (void)clearStrings

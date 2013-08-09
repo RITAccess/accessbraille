@@ -13,8 +13,9 @@
 
 @interface TimetripViewController : UIViewController <ABKeyboard, AVAudioPlayerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *infoText;
+@property (nonatomic) IBOutlet UITextView *infoText;
 @property (nonatomic) IBOutlet UITextView *typedText;
 @property (nonatomic) UITapGestureRecognizer *tapToStart;
+@property (nonatomic) NSDictionary *texts;
 
 @end

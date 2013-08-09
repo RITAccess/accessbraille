@@ -17,6 +17,7 @@
 
 - (void)clearStrings;
 - (void)startGame:(UITapGestureRecognizer *)gesture;
+- (void)prompt:(NSString *)description;
 
 @end
 
@@ -30,7 +31,13 @@
     [super setUp];
     timetrip = [TimetripViewController new];
     timetrip.typedText = [UITextView new];
+    timetrip.infoText = [UITextView new];
     timetrip.tapToStart = [UITapGestureRecognizer new];
+
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"adventureTexts.plist"];
+    timetrip.texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
+    
     timetrip.tapToStart.enabled = NO;
 }
 
@@ -59,6 +66,14 @@
     if (!timetrip.tapToStart.enabled){
         STFail(@"Gesture was not disabled.");
     }
+}
+
+- (void)testPrompt
+{
+    STAssertNotNil(timetrip.infoText, @"Info text should not be nil.");
+    STAssertNotNil(timetrip.texts, @"Dictionary should not be nil.");
+    [timetrip prompt:@"nameRequest"];
+    STAssertTrue([timetrip.infoText.text isEqualToString:@"What is the name of your character?"], @"Text is not being assigned.");
 }
 
 @end
