@@ -36,9 +36,9 @@
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [ABSpeak sharedInstance];
     
-    UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
-    [tapToStart setEnabled:YES];
-    [self.view addGestureRecognizer:tapToStart];
+    _tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
+    [_tapToStart setEnabled:YES];
+    [self.view addGestureRecognizer:_tapToStart];
     
     stringFromInput = [NSMutableString new];
     
@@ -69,9 +69,9 @@
 
 #pragma mark - Gameplay Methods
 
--(void)startGame:(UIGestureRecognizer* )tapToStart
+-(void)startGame:(UITapGestureRecognizer* )tapToStart
 {
-    [tapToStart setEnabled:NO];
+    [_tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
     
     [self initSoundWithFileName:@"crashSite"];

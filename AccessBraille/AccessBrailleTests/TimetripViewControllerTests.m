@@ -16,6 +16,7 @@
 @interface TimetripViewController (TimetripTest)
 
 - (void)clearStrings;
+- (void)startGame:(UITapGestureRecognizer *)gesture;
 
 @end
 
@@ -29,6 +30,8 @@
     [super setUp];
     timetrip = [TimetripViewController new];
     timetrip.typedText = [UITextView new];
+    timetrip.tapToStart = [UITapGestureRecognizer new];
+    timetrip.tapToStart.enabled = NO;
 }
 
 - (void)tearDown
@@ -39,9 +42,23 @@
 
 - (void)testClearPrompts
 {
+    STAssertNotNil(timetrip, @"View controller should not be nil.");
+    STAssertNotNil(timetrip.typedText, @"String should not be nil.");
     [timetrip.typedText setText:@"Testing..."];
     [timetrip clearStrings];
-    STAssertTrue([timetrip.typedText.text isEqualToString:@""], @"Text was not cleared...");
+    STAssertTrue([timetrip.typedText.text isEqualToString:@""], @"Text was not cleared.");
+}
+
+- (void)testDisableGestureOnTapStart
+{
+    STAssertNotNil(timetrip, @"View controller should not be nil.");
+    STAssertNotNil(timetrip.tapToStart, @"Gesture should not be nil.");
+    
+    [timetrip startGame:nil];
+    
+    if (!timetrip.tapToStart.enabled){
+        STFail(@"Gesture was not disabled.");
+    }
 }
 
 @end

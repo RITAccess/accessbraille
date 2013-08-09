@@ -15,5 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *infoText;
 @property (nonatomic) IBOutlet UITextView *typedText;
+@property (nonatomic) UITapGestureRecognizer *tapToStart;
 
 @end
