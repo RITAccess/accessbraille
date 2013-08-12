@@ -21,8 +21,8 @@
         
         // Set user defaults
         [defaults setBool:YES forKey:GradeTwoSet];
-        [defaults setFloat:0.6 forKey:KeyboardTransparency];
-        [defaults setFloat:17 forKey:ABFontSize];
+        [defaults setFloat:0.4 forKey:KeyboardTransparency];
+        [defaults setFloat:17.0 forKey:ABFontSize];
         [defaults setObject:[NSDate date] forKey:@"firstRun"];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
