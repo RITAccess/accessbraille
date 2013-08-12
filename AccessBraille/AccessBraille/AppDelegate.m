@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ABSpeak.h"
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
 #import "SettingsViewController.h"
@@ -27,6 +28,9 @@
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+    // Call once to stop lag and crash in main menu
+    [ABSpeak sharedInstance];
+    
     return YES;
 }
 							
