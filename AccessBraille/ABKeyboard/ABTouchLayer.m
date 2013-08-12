@@ -147,7 +147,7 @@
 - (void)space
 {
     if ([_reponder respondsToSelector:@selector(spaceRevieved)])
-        [_reponder spaceRevieved];
+        [_reponder spaceRecieved];
 }
 
 /**
@@ -160,12 +160,20 @@
 }
 
 /**
+ * Enter was called
+ */
+- (void)enter
+{
+    
+}
+
+/**
  * Receives taps from anywhere on the screen when keyboard is active.
  */
 - (void)receiveScreenTap:(UITapGestureRecognizer *)reg
 {
     if ([reg locationInView:self].x > farX) {
-        // Enter
+        [self enter];
     } else if ([reg locationInView:self].x < nearX) {
         [self backspace];
     } else if ([reg locationInView:self].y > (avgY + 70 + _ajt) && [reg locationInView:self].x < farX) {

@@ -114,7 +114,7 @@
     }
 }
 
-- (void)spaceRevieved
+- (void)spaceRecieved
 {
     // Update output text object
     [_output insertText:@" "];

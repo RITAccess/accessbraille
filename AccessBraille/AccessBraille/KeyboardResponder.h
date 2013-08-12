@@ -12,6 +12,7 @@
 
 - (void)newCharacterFromInterpreter:(NSString *)string;
 - (void)backspaceRecieved;
-- (void)spaceRevieved;
+- (void)spaceRecieved;
+- (void)enterRecieved;
 
 @end
