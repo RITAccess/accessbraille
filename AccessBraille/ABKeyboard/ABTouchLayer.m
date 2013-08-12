@@ -146,7 +146,7 @@
  */
 - (void)space
 {
-    if ([_reponder respondsToSelector:@selector(spaceRevieved)])
+    if ([_reponder respondsToSelector:@selector(spaceRecieved)])
         [_reponder spaceRecieved];
 }
 
