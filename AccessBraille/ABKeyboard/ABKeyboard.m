@@ -91,6 +91,9 @@
                                     ABSpaceTyped : @(NO),
                                     ABBackspaceReceived : @(NO)}];
     }
+    
+    // Speak
+    [speak speakString:string];
 }
 
 - (void)backspaceRecieved
@@ -115,7 +118,6 @@
 {
     // Update output text object
     [_output insertText:@" "];
-    [_interpreter reset];
     
     // Make delegate calls
     if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
@@ -124,6 +126,11 @@
                                     ABSpaceTyped : @(YES),
                                     ABBackspaceReceived : @(NO)}];
     }
+    
+    // Speak
+    [speak speakString:_interpreter.getCurrentWord];
+    
+    [_interpreter reset];
 }
 
 #pragma mark Set Grade

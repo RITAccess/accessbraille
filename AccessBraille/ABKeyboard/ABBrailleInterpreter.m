@@ -134,6 +134,17 @@ gradeLookup:
     }
 }
 
+- (NSString *)getCurrentWord;
+{
+    NSString *word = @"";
+    for (NSString *str in _wordGraph) {
+        if (![ABBrailleInterpreter isValidPrefix:str]) {
+            word = [word stringByAppendingString:str];
+        }
+    }
+    return word;
+}
+
 #pragma mark Helpers
 
 /**

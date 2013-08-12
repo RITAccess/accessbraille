@@ -49,6 +49,11 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 - (void)dropEndOffGraph;
 
 /**
+ * Gets the current "Build" of the word
+ */
+- (NSString *)getCurrentWord;
+
+/**
  * Checks if a braille string is a prefix
  */
 + (BOOL)isValidPrefix:(NSString *)braille;
