@@ -76,8 +76,10 @@
 		2C100F9617B3D3020024C8C5 /* windyLakeLeave.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7717B3D3020024C8C5 /* windyLakeLeave.aiff */; };
 		2C100F9717B3D3020024C8C5 /* windyLakeLook.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F7817B3D3020024C8C5 /* windyLakeLook.aiff */; };
 		2C100F9B17B3D6F90024C8C5 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F9A17B3D6F90024C8C5 /* About.rtf */; };
+		2C100F9E17B3E79F0024C8C5 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */; };
+		2C22726217B438EE00615B5E /* TimetripViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
-		2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TextAdventure.m */; };
+		2CAAC7A3175E2783004680F9 /* TimetripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TimetripViewController.m */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
 		2CCB754B173BF3610059E580 /* medium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754A173BF3610059E580 /* medium.plist */; };
 		2CCB754D173BF3B40059E580 /* hard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB754C173BF3B40059E580 /* hard.plist */; };
@@ -97,7 +99,6 @@
 		4C1B1E18175CC91800A3DEDA /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E17175CC91800A3DEDA /* Default-Landscape~ipad.png */; };
 		4C1B1E1A175CC92000A3DEDA /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E19175CC92000A3DEDA /* Default-Landscape@2x~ipad.png */; };
 		4C1B1E1C175CC92B00A3DEDA /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B1E1B175CC92B00A3DEDA /* icon144.png */; };
-		4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */; };
 		4C2F59E916F76EBC008F8185 /* menuDiscriptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */; };
 		4C3605D81795E98A00777EC4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3605D71795E98A00777EC4 /* SettingsViewController.m */; };
 		4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C91B216CE9D7D00954A54 /* MainMenuNavigation.m */; };
@@ -254,9 +255,12 @@
 		2C100F7717B3D3020024C8C5 /* windyLakeLeave.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLeave.aiff; path = ../../Resources/Sounds/windyLakeLeave.aiff; sourceTree = "<group>"; };
 		2C100F7817B3D3020024C8C5 /* windyLakeLook.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = windyLakeLook.aiff; path = ../../Resources/Sounds/windyLakeLook.aiff; sourceTree = "<group>"; };
 		2C100F9A17B3D6F90024C8C5 /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = About.rtf; path = "../../Resources/Text Files/About.rtf"; sourceTree = "<group>"; };
+		2C100F9C17B3E79F0024C8C5 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
+		2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
+		2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewControllerTests.m; sourceTree = "<group>"; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
-		2CAAC79E175E2783004680F9 /* TextAdventure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextAdventure.h; sourceTree = "<group>"; };
-		2CAAC79F175E2783004680F9 /* TextAdventure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextAdventure.m; sourceTree = "<group>"; };
+		2CAAC79E175E2783004680F9 /* TimetripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetripViewController.h; sourceTree = "<group>"; };
+		2CAAC79F175E2783004680F9 /* TimetripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewController.m; sourceTree = "<group>"; };
 		2CCB7548173BF3220059E580 /* easy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easy.plist; sourceTree = "<group>"; };
 		2CCB754A173BF3610059E580 /* medium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = medium.plist; sourceTree = "<group>"; };
 		2CCB754C173BF3B40059E580 /* hard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hard.plist; sourceTree = "<group>"; };
@@ -278,8 +282,6 @@
 		4C1B1E1E175CF76D00A3DEDA /* NSString+helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+helpers.m"; sourceTree = "<group>"; };
 		4C1B1E21175CF76D00A3DEDA /* UIView+quickRemove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+quickRemove.h"; sourceTree = "<group>"; };
 		4C1B1E22175CF76D00A3DEDA /* UIView+quickRemove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+quickRemove.m"; sourceTree = "<group>"; };
-		4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsMenu.h; sourceTree = "<group>"; };
-		4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsMenu.m; sourceTree = "<group>"; };
 		4C2F59E816F76EBC008F8185 /* menuDiscriptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menuDiscriptions.plist; sourceTree = "<group>"; };
 		4C3605D61795E98A00777EC4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4C3605D71795E98A00777EC4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				A9479C681670034F00CE9475 /* AccessBrailleTests.h */,
 				A9479C691670034F00CE9475 /* AccessBrailleTests.m */,
 				A9479C631670034E00CE9475 /* Supporting Files */,
+				2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */,
 			);
 			path = AccessBrailleTests;
 			sourceTree = "<group>";
@@ -710,10 +713,10 @@
 				4C569AA517147A7B0073D8F8 /* FlashCard.m */,
 				4C65356116C443A900611B6F /* MainMenu.h */,
 				4C65356216C443A900611B6F /* MainMenu.m */,
-				4C2B0B1416F37A2D00CC64F2 /* InstructionsMenu.h */,
-				4C2B0B1516F37A2D00CC64F2 /* InstructionsMenu.m */,
-				2CAAC79E175E2783004680F9 /* TextAdventure.h */,
-				2CAAC79F175E2783004680F9 /* TextAdventure.m */,
+				2C100F9C17B3E79F0024C8C5 /* InstructionsViewController.h */,
+				2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */,
+				2CAAC79E175E2783004680F9 /* TimetripViewController.h */,
+				2CAAC79F175E2783004680F9 /* TimetripViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1018,13 +1021,13 @@
 				A9C960D5167F7B4F00084764 /* Drawing.m in Sources */,
 				4C95836C179ECFEF0011B6EE /* AboutViewController.m in Sources */,
 				A9ECC82B16A7780B00998AD4 /* NavigationContainer.m in Sources */,
+				2C100F9E17B3E79F0024C8C5 /* InstructionsViewController.m in Sources */,
 				4CB58A2B1778B89700D38D3C /* FlashCard.m in Sources */,
 				4C65356316C443A900611B6F /* MainMenu.m in Sources */,
 				4C3C91B316CE9D7D00954A54 /* MainMenuNavigation.m in Sources */,
-				4C2B0B1916F37A2D00CC64F2 /* InstructionsMenu.m in Sources */,
 				4CB788A1179D769700923DD7 /* SettingsContainer.m in Sources */,
 				4CA74DA016F8C99F007036F3 /* MainMenuItemImage.m in Sources */,
-				2CAAC7A3175E2783004680F9 /* TextAdventure.m in Sources */,
+				2CAAC7A3175E2783004680F9 /* TimetripViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C22726217B438EE00615B5E /* TimetripViewControllerTests.m in Sources */,
 				A9479C6A1670034F00CE9475 /* AccessBrailleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

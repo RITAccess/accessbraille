@@ -11,7 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "NSArray+ObjectSubsets.h"
 #import "UIView+quickRemove.h"
-#import "TextAdventure.h"
+#import "TimetripViewController.h"
 #import "MainMenu.h"
 
 @implementation NavigationContainer {
