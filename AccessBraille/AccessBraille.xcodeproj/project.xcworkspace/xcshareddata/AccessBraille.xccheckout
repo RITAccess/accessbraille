@@ -2,49 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5F0B08AD-4136-487F-BCAD-B91A60B2DF26</string>
+	<string>AA4A9784-116B-4A35-8D52-74BAD0E9F179</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AccessBraille</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
-		<string>https://github.com/ReactiveCocoa/ReactiveCocoa.git</string>
-		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
-		<string>ssh://github.com/RITAccess/accessbraille.git</string>
+		<key>E5850BA3-4842-4D48-B71F-BC748CA9A3C9</key>
+		<string>https://github.com/7imbrook/accessbraille</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AccessBraille/AccessBraille.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9A69059F-226A-4219-ACE2-01826BCCED1E</key>
-		<string>../../../RAC</string>
-		<key>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</key>
+		<key>E5850BA3-4842-4D48-B71F-BC748CA9A3C9</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/RITAccess/accessbraille.git</string>
+	<string>https://github.com/7imbrook/accessbraille</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</string>
+	<string>E5850BA3-4842-4D48-B71F-BC748CA9A3C9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FD8919F2-CBFA-4934-9E9D-D32E592A9FF9</string>
+			<string>E5850BA3-4842-4D48-B71F-BC748CA9A3C9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>accessbraille</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9A69059F-226A-4219-ACE2-01826BCCED1E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>RAC</string>
 		</dict>
 	</array>
 </dict>
