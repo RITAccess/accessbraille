@@ -7,7 +7,6 @@
 //
 
 #import "ABTouchLayer.h"
-#import "ABBrailleReader.h"
 
 @implementation ABTouchLayer
 {
@@ -169,7 +168,8 @@
  */
 - (void)space
 {
-    [_delegate characterReceived:ABSpaceCharacter];
+    if ([_reponder respondsToSelector:@selector(spaceRevieved)])
+        [_reponder spaceRevieved];
 }
 
 /**
@@ -177,7 +177,8 @@
  */
 - (void)backspace
 {
-    [_delegate characterReceived:ABBackspace];
+    if ([_reponder respondsToSelector:@selector(backspaceRecieved)])
+        [_reponder backspaceRecieved];
 }
 
 /**
@@ -222,10 +223,25 @@
 - (void)readBits
 {
     reading = NO;
-    if ([_delegate respondsToSelector:@selector(characterReceived:)]) {
-        [_delegate characterReceived:[ABBrailleReader brailleStringFromTouchIDs:activeTouches]];
+    if ([_interpreter respondsToSelector:@selector(processBrailleString:)]) {
+        [_interpreter processBrailleString:[ABTouchLayer brailleStringFromTouchIDs:activeTouches] isShift:_shift];
     }
     [activeTouches removeAllObjects];
+}
+
++ (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs {
+    NSMutableString *str = [[NSMutableString alloc] initWithCapacity:6];
+    [str setString:@"000000"];
+    for (NSNumber *i in touchIDs) {
+        if (i.intValue == 0) {
+            [str replaceCharactersInRange:NSMakeRange(2, 1) withString:@"1"];
+        } else if (i.intValue == 2) {
+            [str replaceCharactersInRange:NSMakeRange(0, 1) withString:@"1"];
+        } else {
+            [str replaceCharactersInRange:NSMakeRange(i.intValue, 1) withString:@"1"];
+        }
+    }
+    return str;
 }
 
 #pragma mark - Audio

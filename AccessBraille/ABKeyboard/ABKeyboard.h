@@ -7,6 +7,7 @@
 //
 
 #import "ABActivateKeyboardGestureRecognizer.h"
+#import "KeyboardResponder.h"
 
 @protocol ABKeyboard <NSObject>
 
@@ -24,7 +25,7 @@
 
 @end
 
-@interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
+@interface ABKeyboard : UIView <ABGestureRecognizerDelegate, KeyboardResponder>
 
 @property (strong, nonatomic) UITextView *output;
 
