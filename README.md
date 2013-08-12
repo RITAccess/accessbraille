@@ -20,10 +20,9 @@ Using the keyboard in your own apps simply create an ABKeyboard in your ```UIVie
 @interface YourClass : NSObject <ABKeyboard> // Follow the ABKeyboard protocol
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-// Somewhere in your implementation
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    // Your code goes here
-    NSLog(@"You just typed %@", character);
-}
+
+UITextView *myOutput = [UITextView new];
+[keyboard setOutput:myOutput];
+
 ```
 [View the full API](https://github.com/RITAccess/accessbraille/wiki/AccessBraille-API-Documentation)
