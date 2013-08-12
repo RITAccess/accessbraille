@@ -17,8 +17,6 @@
 - (void)resetView;
 - (void)subViewsAdded;
 
-@property BOOL caps;
-
 /* Set sounds enabled */
 @property BOOL sound;
 
