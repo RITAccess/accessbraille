@@ -15,7 +15,7 @@
 @implementation InstructionsViewController
 {
     ABSpeak *speaker;
-    NSMutableArray *instructionViews;
+    NSArray *instructionViews;
 }
 
 - (void)viewDidLoad
@@ -23,8 +23,8 @@
     [super viewDidLoad];
     
     [_labelContainerView.layer setCornerRadius:20];
-    speaker = [ABSpeak new];
-    instructionViews = [[NSMutableArray alloc] initWithObjects:_firstTextView, _secondTextView, _thirdTextView, nil];
+    speaker = [ABSpeak sharedInstance];
+    instructionViews = @[_firstTextView, _secondTextView, _thirdTextView];
     [self speakInstructions];
 }
 
