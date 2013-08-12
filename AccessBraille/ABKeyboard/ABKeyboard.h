@@ -19,6 +19,9 @@
 /* Presents the last typed word with typing info */
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info;
 
+/* Called when the user presses enter */
+- (void)keyboardEnterPressed;
+
 /* keyboard active/deactive calls */
 - (void)keyboardDidBecomeActive;
 - (void)keyboardDidDismiss;

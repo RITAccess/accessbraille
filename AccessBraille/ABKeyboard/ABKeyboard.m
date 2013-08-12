@@ -133,6 +133,14 @@
     [_interpreter reset];
 }
 
+- (void)enterRecieved
+{
+    [_output insertText:@"\n"];
+    if ([_delegate respondsToSelector:@selector(keyboardEnterPressed)])
+        [_delegate keyboardEnterPressed];
+    
+}
+
 #pragma mark Set Grade
 
 - (ABGrade)grade

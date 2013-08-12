@@ -164,7 +164,8 @@
  */
 - (void)enter
 {
-    
+    if ([_reponder respondsToSelector:@selector(enterRecieved)])
+        [_reponder enterRecieved];
 }
 
 /**
@@ -213,7 +214,6 @@
 
 - (void)readBits
 {
-    NSLog(@"%f", [[NSProcessInfo processInfo] systemUptime]);
     reading = NO;
     if ([_interpreter respondsToSelector:@selector(processBrailleString:)]) {
         if (screenContact &&
