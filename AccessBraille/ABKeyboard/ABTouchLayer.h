@@ -9,23 +9,20 @@
 #import "ABTypes.h"
 #import "ABTouchView.h"
 #import <AudioToolbox/AudioToolbox.h>
-
-@protocol ABTouchReciever <NSObject>
-@required
-- (void)characterReceived:(NSString *)brailleString;
-@end
+#import "ABBrailleInterpreter.h"
+#import "KeyboardResponder.h"
 
 @interface ABTouchLayer : UIView <ABTouchColumn>
 
 - (void)resetView;
 - (void)subViewsAdded;
 
-@property BOOL shift;
-@property BOOL caps;
-
 /* Set sounds enabled */
 @property BOOL sound;
 
-@property (nonatomic) id<ABTouchReciever> delegate;
+/* responder and interpreter */
+@property (strong) ABBrailleInterpreter *interpreter;
+@property id<KeyboardResponder> reponder;
+
 @property int ajt;
 @end

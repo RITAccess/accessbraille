@@ -7,6 +7,7 @@
 //
 
 #import "ABActivateKeyboardGestureRecognizer.h"
+#import "KeyboardResponder.h"
 
 @protocol ABKeyboard <NSObject>
 
@@ -18,13 +19,16 @@
 /* Presents the last typed word with typing info */
 - (void)wordTyped:(NSString *)word withInfo:(NSDictionary *)info;
 
+/* Called when the user presses enter */
+- (void)keyboardEnterPressed;
+
 /* keyboard active/deactive calls */
 - (void)keyboardDidBecomeActive;
 - (void)keyboardDidDismiss;
 
 @end
 
-@interface ABKeyboard : UIView <ABGestureRecognizerDelegate>
+@interface ABKeyboard : UIView <ABGestureRecognizerDelegate, KeyboardResponder>
 
 @property (strong, nonatomic) UITextView *output;
 

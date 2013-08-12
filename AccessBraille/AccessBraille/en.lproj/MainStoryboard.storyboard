@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nse-pc-Zh2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4488.2" systemVersion="13A538g" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nse-pc-Zh2">
     <dependencies>
         <deployment version="1536" defaultVersion="1552" identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
@@ -173,7 +173,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="17" minValue="10" maxValue="70" translatesAutoresizingMaskIntoConstraints="NO" id="Qht-85-gts">
+                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="17" minValue="10" maxValue="70" translatesAutoresizingMaskIntoConstraints="NO" id="Qht-85-gts">
                                                     <rect key="frame" x="727" y="5" width="279" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
@@ -181,6 +181,9 @@
                                                     </connections>
                                                 </slider>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Qht-85-gts" secondAttribute="trailing" constant="20" id="ybc-tG-slT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -202,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="2064" y="-369"/>
         </scene>
-        <!--Instructions Menu-->
+        <!--Instructions View Controller-->
         <scene sceneID="E6z-5e-RJi">
             <objects>
-                <viewController storyboardIdentifier="InstructionsMenu" id="qBg-4F-pxI" customClass="InstructionsMenu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstructionsMenu" autoresizesArchivedViewToFullSize="NO" id="qBg-4F-pxI" customClass="InstructionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P6V-8N-IYc"/>
                         <viewControllerLayoutGuide type="bottom" id="Ofb-y6-Pfg"/>
@@ -213,16 +216,76 @@
                     <view key="view" contentMode="scaleToFill" id="dy9-R4-Cgu">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE4-6i-zgV">
+                                <rect key="frame" x="430" y="20" width="165" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-KR-vic" userLabel="Container View">
+                                <rect key="frame" x="70" y="112" width="884" height="602"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" text="Tap the red 'Menu' flag to display the navigation menu." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lk-dd-fYl">
+                                        <rect key="frame" x="100" y="52" width="685" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" text="Swipe 6 fingers up to initialize the typing keyboard." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC1-ya-AZR">
+                                        <rect key="frame" x="100" y="188" width="685" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="·" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBc-jn-6ly">
+                                        <rect key="frame" x="50" y="48" width="42" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="·" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBd-uw-MF8">
+                                        <rect key="frame" x="50" y="184" width="42" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" text="With your thumb, tap below the keyboard to insert a space." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcQ-FQ-4Nh">
+                                        <rect key="frame" x="100" y="328" width="685" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="·" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diY-Lx-4TH">
+                                        <rect key="frame" x="50" y="324" width="42" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.92549026010000002" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="CfK-HK-gML"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="firstTextView" destination="8Lk-dd-fYl" id="E4t-wR-e28"/>
+                        <outlet property="labelContainerView" destination="fpe-KR-vic" id="2bk-SB-SYx"/>
+                        <outlet property="secondTextView" destination="CC1-ya-AZR" id="Zdg-hv-588"/>
+                        <outlet property="thirdTextView" destination="qcQ-FQ-4Nh" id="KL7-Nu-4Ca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-DB-Fes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="508"/>
+            <point key="canvasLocation" x="869" y="508"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="4PT-5s-sWW">
@@ -289,7 +352,7 @@
         <!--Text Adventure-->
         <scene sceneID="b0j-4J-lno">
             <objects>
-                <viewController storyboardIdentifier="Timetrip" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TextAdventure" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timetrip" id="EJb-iZ-yYN" userLabel="Text Adventure" customClass="TimetripViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pyw-Xc-o9y"/>
                         <viewControllerLayoutGuide type="bottom" id="Cqd-or-T7o"/>
@@ -297,12 +360,32 @@
                     <view key="view" contentMode="scaleToFill" id="7I8-fz-Wgg">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="_" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-7N-Th1">
+                                <rect key="frame" x="99" y="113" width="826" height="407"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-Ar-lln">
+                                <rect key="frame" x="50" y="665" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36793865613018595" green="0.78135671260252371" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="NIy-nO-Llb"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="infoText" destination="9NI-7N-Th1" id="3Ts-9U-q25"/>
+                        <outlet property="typedText" destination="f5M-Ar-lln" id="aR3-gr-Gun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAT-Ut-NMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -360,7 +443,7 @@
                                     <fragment content="Card Text">
                                         <attributes>
                                             <font key="NSFont" size="140" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -373,7 +456,7 @@
                                     <fragment content="Typed">
                                         <attributes>
                                             <font key="NSFont" size="140" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>

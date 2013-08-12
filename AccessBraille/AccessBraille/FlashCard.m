@@ -89,6 +89,10 @@
         [_cardTextView setText:cards[arc4random() % maxHardCards]];
     }
     
+    // Defining font size - wasn't working in Storyboard for some reason...
+    [_cardTextView setFont:[UIFont boldSystemFontOfSize:140]];
+    [_typedTextView setFont:[UIFont boldSystemFontOfSize:140]];
+    
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     [speaker speakString:_cardTextView.text];
     

@@ -11,20 +11,20 @@
 #import "ABTouchLayer.h"
 #import "ABTypes.h"
 #import "ABTouchView.h"
-#import "ABBrailleReader.h"
 #import "ABSpeak.h"
 #import "SettingsViewController.h"
+#import "ABBrailleInterpreter.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ABKeyboard ()
-
-@property (retain) ABBrailleReader *brailleReader;
 
 @end
 
 @implementation ABKeyboard
 {
     ABTouchLayer *interface;
+    ABBrailleInterpreter *_interpreter;
+    
     __strong ABActivateKeyboardGestureRecognizer *activate;
     
     // Audio URL paths and AVPlayer.
@@ -66,11 +66,6 @@
         activate = [[ABActivateKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(ABKeyboardRecognized:)];
         [activate setTouchDelegate:self];
         [((UIViewController *)_delegate).view addGestureRecognizer:activate];
-        
-        // Set Up Braille Interp
-        _brailleReader = [[ABBrailleReader alloc] initWithAudioTarget:self selector:@selector(playSound:)];
-        [_brailleReader setDelegate:_delegate];
-        [_brailleReader setKeyboardInterface:self];
 
     }
     return self;
@@ -80,19 +75,82 @@
 {
     _output = output;
     [_output setInputView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
-    [_brailleReader setFieldOutput:_output];
+}
+
+#pragma mark Responder Actions
+
+- (void)newCharacterFromInterpreter:(NSString *)string
+{
+    // Update output text object
+    [_output insertText:string];
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:string
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(NO),
+                                    ABBackspaceReceived : @(NO)}];
+    }
+    
+    // Speak
+    [speak speakString:string];
+}
+
+- (void)backspaceRecieved
+{
+    // Update output text object
+    if (_output.text.length > 0) {
+        _output.text = [_output.text substringToIndex:_output.text.length - 1];
+        [_interpreter dropEndOffGraph];
+        [self playSound:ABBackspaceSound];
+    }
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:ABBackspace
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(NO),
+                                    ABBackspaceReceived : @(YES)}];
+    }
+}
+
+- (void)spaceRecieved
+{
+    // Update output text object
+    [_output insertText:@" "];
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:ABSpaceCharacter
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(YES),
+                                    ABBackspaceReceived : @(NO)}];
+    }
+    
+    // Speak
+    [speak speakString:_interpreter.getCurrentWord];
+    
+    [_interpreter reset];
+}
+
+- (void)enterRecieved
+{
+    [_output insertText:@"\n"];
+    if ([_delegate respondsToSelector:@selector(keyboardEnterPressed)])
+        [_delegate keyboardEnterPressed];
+    
 }
 
 #pragma mark Set Grade
 
 - (ABGrade)grade
 {
-    return _brailleReader.grade;
+    return _interpreter.grade;
 }
 
 - (void)setGrade:(ABGrade)grade
 {
-    [_brailleReader setGrade:grade];
+    [_interpreter setGrade:grade];
 }
 
 #pragma mark Keyboard Implementation
@@ -101,9 +159,6 @@
  * Creates a view overlay for recognizing braille type
  */
 - (void)setUpViewWithTouchesFromABVectorArray:(ABVector[])vectors {
-    
-    // Call Drawing Methods
-    
     // Type interface setup
     interface = [[ABTouchLayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
     [interface setBackgroundColor:[UIColor grayColor]];
@@ -116,9 +171,7 @@
         [interface setAlpha:0.4];
     }
     [interface setClearsContextBeforeDrawing:YES];
-    [interface setDelegate:_brailleReader];
-    [_brailleReader setLayer:interface];
-    
+
     for (int i = 0; i < 6; i++){
         
         ABTouchView *touch = [[ABTouchView alloc] initWithFrame:CGRectMake(vectors[i].end.x - 50, [UIScreen mainScreen].bounds.size.height, 100, 800)];
@@ -136,6 +189,13 @@
         [interface addSubview:touch];
     }
     [interface subViewsAdded];
+    
+    // Added reponders
+    _interpreter = [ABBrailleInterpreter new];
+    [_interpreter setResponder:self];
+    [interface setInterpreter:_interpreter];
+    [interface setReponder:self];
+    
 }
 
 /**
@@ -223,7 +283,7 @@
 
 #pragma mark args
 
-- (void) setSpaceOffset:(int)spaceOffset {
+- (void)setSpaceOffset:(int)spaceOffset {
     _spaceOffset = spaceOffset;
     [interface setAjt:spaceOffset];
 }

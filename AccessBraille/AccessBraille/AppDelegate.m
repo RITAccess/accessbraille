@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ABSpeak.h"
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
 #import "SettingsViewController.h"
@@ -21,12 +22,15 @@
         
         // Set user defaults
         [defaults setBool:YES forKey:GradeTwoSet];
-        [defaults setFloat:0.6 forKey:KeyboardTransparency];
-        [defaults setFloat:17 forKey:ABFontSize];
+        [defaults setFloat:0.4 forKey:KeyboardTransparency];
+        [defaults setFloat:17.0 forKey:ABFontSize];
         [defaults setObject:[NSDate date] forKey:@"firstRun"];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+    // Call once to stop lag and crash in main menu
+    [ABSpeak sharedInstance];
+    
     return YES;
 }
 							

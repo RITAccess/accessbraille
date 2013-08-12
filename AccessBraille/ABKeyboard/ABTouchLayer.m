@@ -7,7 +7,6 @@
 //
 
 #import "ABTouchLayer.h"
-#import "ABBrailleReader.h"
 
 @implementation ABTouchLayer
 {
@@ -16,6 +15,8 @@
     BOOL reading;
     /* Backspace/Space */
     UITapGestureRecognizer *screenTap;
+    
+    UITouch *screenContact;
     
     /* Caps Lock Sounds */
     SystemSoundID enableCapsSound;
@@ -27,6 +28,7 @@
     float nearX;
     float avgY;
     int totalY;
+
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -70,31 +72,6 @@
     CGContextAddLineToPoint(context, 1024, avgY + 100);
     
     CGContextStrokePath(context);
-    
-    if (_shift || _caps) {
-        // Start Caps
-        [[UIColor blueColor] set];
-        UIBezierPath *caps = [UIBezierPath new];
-        [caps setLineWidth:5.0];
-        [caps moveToPoint:CGPointMake(50, 50)];
-        [caps addLineToPoint:CGPointMake(70, 75)];
-        [caps addLineToPoint:CGPointMake(60, 75)];
-        [caps addLineToPoint:CGPointMake(60, 100)];
-        [caps addLineToPoint:CGPointMake(40, 100)];
-        [caps addLineToPoint:CGPointMake(40, 75)];
-        [caps addLineToPoint:CGPointMake(30, 75)];
-        [caps addLineToPoint:CGPointMake(50, 50)];
-        [caps addLineToPoint:CGPointMake(70, 75)];
-        
-        if (_caps) {
-            [caps fill];
-            [[UIColor whiteColor] set];
-            [caps setLineWidth:3.0];
-            [caps stroke];
-        } else {
-            [caps stroke];
-        }
-    }
     
     // End Caps
     
@@ -169,7 +146,8 @@
  */
 - (void)space
 {
-    [_delegate characterReceived:ABSpaceCharacter];
+    if ([_reponder respondsToSelector:@selector(spaceRecieved)])
+        [_reponder spaceRecieved];
 }
 
 /**
@@ -177,7 +155,17 @@
  */
 - (void)backspace
 {
-    [_delegate characterReceived:ABBackspace];
+    if ([_reponder respondsToSelector:@selector(backspaceRecieved)])
+        [_reponder backspaceRecieved];
+}
+
+/**
+ * Enter was called
+ */
+- (void)enter
+{
+    if ([_reponder respondsToSelector:@selector(enterRecieved)])
+        [_reponder enterRecieved];
 }
 
 /**
@@ -186,24 +174,29 @@
 - (void)receiveScreenTap:(UITapGestureRecognizer *)reg
 {
     if ([reg locationInView:self].x > farX) {
-        [self backspace];
+        [self enter];
     } else if ([reg locationInView:self].x < nearX) {
-        if (_shift == YES && _caps == NO) {
-            AudioServicesPlaySystemSound(lockCapsSound);
-            _caps = YES;
-        } else if (_caps == YES) {
-            AudioServicesPlaySystemSound(disableCapsSound);
-            _shift = NO;
-            _caps = NO;
-        } else {
-            AudioServicesPlaySystemSound(enableCapsSound);
-            _shift = YES;
-        }
-        [self setNeedsDisplay];
+        [self backspace];
     } else if ([reg locationInView:self].y > (avgY + 70 + _ajt) && [reg locationInView:self].x < farX) {
         [self space];
     }
 }
+
+/**
+ * Touches begin and changed
+ */
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    screenContact = [touches anyObject];
+    [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(readBits) userInfo:nil repeats:NO];
+    reading = YES;
+}
+
 
 /**
  * Reciever for taps from touch views.
@@ -212,7 +205,7 @@
 {
     if (tapped) {
         if (!reading) {
-            [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(readBits) userInfo:nil repeats:NO];
+            [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(readBits) userInfo:nil repeats:NO];
             reading = YES;
         }
         [activeTouches addObject:@(tapID)];
@@ -222,10 +215,35 @@
 - (void)readBits
 {
     reading = NO;
-    if ([_delegate respondsToSelector:@selector(characterReceived:)]) {
-        [_delegate characterReceived:[ABBrailleReader brailleStringFromTouchIDs:activeTouches]];
+    if ([_interpreter respondsToSelector:@selector(processBrailleString:)]) {
+        if (screenContact &&
+            screenContact.phase != UITouchPhaseEnded &&
+            screenContact.timestamp <= [[NSProcessInfo processInfo] systemUptime] + 0.10
+        ) {
+            BOOL shift = [screenContact locationInView:self].x < nearX;
+            [_interpreter processBrailleString:[ABTouchLayer brailleStringFromTouchIDs:activeTouches]
+                                       isShift:shift];
+        } else {
+            [_interpreter processBrailleString:[ABTouchLayer brailleStringFromTouchIDs:activeTouches]
+                                       isShift:NO];
+        }
     }
     [activeTouches removeAllObjects];
+}
+
++ (NSString *)brailleStringFromTouchIDs:(NSArray *)touchIDs {
+    NSMutableString *str = [[NSMutableString alloc] initWithCapacity:6];
+    [str setString:@"000000"];
+    for (NSNumber *i in touchIDs) {
+        if (i.intValue == 0) {
+            [str replaceCharactersInRange:NSMakeRange(2, 1) withString:@"1"];
+        } else if (i.intValue == 2) {
+            [str replaceCharactersInRange:NSMakeRange(0, 1) withString:@"1"];
+        } else {
+            [str replaceCharactersInRange:NSMakeRange(i.intValue, 1) withString:@"1"];
+        }
+    }
+    return str;
 }
 
 #pragma mark - Audio

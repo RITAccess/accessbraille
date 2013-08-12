@@ -13,17 +13,20 @@ Led by [Stephanie Ludi](https://github.com/retrogamer80s), this project's curren
 * [Piper Chester](https://github.com/piperchester) SE Undergraduate 
 
 ## How to Get Started
-Using the keyboard in your own apps simply create an ABKeyboard in your ```UIViewController``` and add the necessary protocol methods to start reciving typing events from the ABKeyboard. Here's an example of receiving the last character typed:
+The simplest way to get started is by just handing a keyboard instance a UITextView and it will automaticly start outputing to it, and act as it's first responder!
+
 ```objective-c
 // In your header
 #import <ABKeyboard/ABKeyboard.h>
 @interface YourClass : NSObject <ABKeyboard> // Follow the ABKeyboard protocol
 // In your viewDidLoad method
 ABKeyboard *keyboard = [[ABKeyboard alloc] initWithDelegate:self];
-// Somewhere in your implementation
-- (void)characterTyped:(NSString *)character withInfo:(NSDictionary *)info {
-    // Your code goes here
-    NSLog(@"You just typed %@", character);
-}
+
+UITextView *myOutput = [UITextView new];
+[keyboard setOutput:myOutput];
+
 ```
+
+To recieve calls from the keyboard during events, see the `KeyboardResponder` protocol.
+
 [View the full API](https://github.com/RITAccess/accessbraille/wiki/AccessBraille-API-Documentation)

@@ -1,53 +1,47 @@
 //
-//  TextAdventure.m
+//  TimetripViewController.m
 //  AccessBraille
 //
 //  Created by Piper Chester on 6/3/13.
 //  Copyright (c) 2013 RIT. All rights reserved.
 //
 
-#import "TextAdventure.h"
+#import "TimetripViewController.h"
 
-@interface TextAdventure ()
-
-@end
-
-@implementation TextAdventure
-
+@implementation TimetripViewController
+{
+    ABKeyboard *keyboard;
+    ABSpeak *speaker;
+    AVAudioPlayer *avPlayer;
+    
+    NSMutableArray *pack;
+    NSString *currentLocation;
+    NSMutableString *stringFromInput;
+    BOOL isPlaying, doorUnlocked, sailAttached, chestOpened, caveLit, collectedSilver;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // Initialize Game Elements
-    _pack = [[NSMutableArray alloc]initWithCapacity:3];
-    _currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
+    pack = [[NSMutableArray alloc]initWithCapacity:3];
+    currentLocation = [[NSMutableString alloc] initWithString:@"crashSite"];
     
-    _path = [[NSBundle mainBundle] bundlePath];
-    NSString *finalPath = [_path stringByAppendingPathComponent:@"adventureTexts.plist"];
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"adventureTexts.plist"];
     _texts = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     speaker = [ABSpeak sharedInstance];
     
-    UITapGestureRecognizer* tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
-    [tapToStart setEnabled:YES];
-    [self.view addGestureRecognizer:tapToStart];
+    _tapToStart = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startGame:)];
+    [_tapToStart setEnabled:YES];
+    [self.view addGestureRecognizer:_tapToStart];
     
-    _stringFromInput = [[NSMutableString alloc] init];
+    stringFromInput = [NSMutableString new];
     
-    _typedText = [[UITextView alloc]initWithFrame:CGRectMake(50, 650, 200, 50)];
-    [_typedText setBackgroundColor:[UIColor colorWithHue:50 saturation:10 brightness:91 alpha:.5]];
-    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
-    _typedText.textColor = [UIColor blackColor];
-    _typedText.layer.cornerRadius = 5;
-    [_typedText setUserInteractionEnabled:NO];
-    
-    _infoText = [[UITextView alloc]initWithFrame:CGRectMake(50, 150, 900, 400)];
-    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
-    [_infoText setBackgroundColor:[UIColor clearColor]];
-    [_infoText setUserInteractionEnabled:NO];
-    [[self view] addSubview:_infoText];
+    [_typedText.layer setCornerRadius:5];
     
     [self prompt:@"initialText"];
 }
@@ -56,6 +50,9 @@
 {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
     [self.view setNeedsDisplay];
+    
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
 }
 
 - (void)viewDidUnload
@@ -71,13 +68,16 @@
 
 #pragma mark - Gameplay Methods
 
--(void)startGame:(UIGestureRecognizer* )tapToStart
+-(void)startGame:(UITapGestureRecognizer* )tapToStart
 {
-    [tapToStart setEnabled:NO];
+    [_tapToStart setEnabled:NO];
     [[self view] addSubview:_typedText];
     
     [self initSoundWithFileName:@"crashSite"];
     [self prompt:@"crashSiteLook"];
+    
+    [_infoText setFont:[UIFont boldSystemFontOfSize:40]];
+    [_typedText setFont:[UIFont boldSystemFontOfSize:35]];
 }
 
 /**
@@ -87,78 +87,78 @@
  */
 - (void)checkCommand:(NSString* )command
 {
-    NSString *leaveString = [NSString stringWithFormat:@"%@Leave", _currentLocation];
-    NSString *blockString = [NSString stringWithFormat:@"%@Block", _currentLocation];
-    NSString *backString = [NSString stringWithFormat:@"%@Back", _currentLocation];
-    NSString *rightString = [NSString stringWithFormat:@"%@Right", _currentLocation];
-    NSString *leftString = [NSString stringWithFormat:@"%@Left", _currentLocation];
+    NSString *leaveString = [NSString stringWithFormat:@"%@Leave", currentLocation];
+    NSString *blockString = [NSString stringWithFormat:@"%@Block", currentLocation];
+    NSString *backString = [NSString stringWithFormat:@"%@Back", currentLocation];
+    NSString *rightString = [NSString stringWithFormat:@"%@Right", currentLocation];
+    NSString *leftString = [NSString stringWithFormat:@"%@Left", currentLocation];
     
     if ([command isEqualToString:@"look"])
     {
-        NSString *lookString = [NSString stringWithFormat:@"%@Look", _currentLocation];
+        NSString *lookString = [NSString stringWithFormat:@"%@Look", currentLocation];
         [self initSoundWithFileName:lookString];
         [self prompt:lookString];
     }
     else if ([command isEqualToString:@"move"])
     {
-        if ([_currentLocation isEqualToString:@"crashSite"]){
+        if ([currentLocation isEqualToString:@"crashSite"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
-            _currentLocation = @"forestFloor";
+            currentLocation = @"forestFloor";
         }
-        else if ([_currentLocation isEqualToString:@"forestFloor"]){
+        else if ([currentLocation isEqualToString:@"forestFloor"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
-            _currentLocation = @"secretCabin";
+            currentLocation = @"secretCabin";
         }
-        else if ([_currentLocation isEqualToString:@"giantTree"]){
+        else if ([currentLocation isEqualToString:@"giantTree"]){
             [self initSoundWithFileName:@"darkCaveBlock"];
             [self prompt:blockString];
         }
-        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+        else if ([currentLocation isEqualToString:@"secretCabin"]){
             if (doorUnlocked) {
                 [self initSoundWithFileName:leaveString];
                 [self prompt:leaveString];
-                _currentLocation = @"cabinFloor";
+                currentLocation = @"cabinFloor";
             } else {
                 [self initSoundWithFileName:blockString];
                 [self prompt:blockString];
             }
         }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+        else if ([currentLocation isEqualToString:@"cabinFloor"]){
             [self initSoundWithFileName:leaveString];
             [self prompt:leaveString];
-            _currentLocation = @"windyLake";
+            currentLocation = @"windyLake";
         }
-        else if ([_currentLocation isEqualToString:@"windyLake"]){
+        else if ([currentLocation isEqualToString:@"windyLake"]){
             if (sailAttached) {
                 [self initSoundWithFileName:leaveString];
                 [self prompt:leaveString];
-                _currentLocation = @"darkCave";
+                currentLocation = @"darkCave";
             } else {
                 [self initSoundWithFileName:blockString];
                 [self prompt:blockString];
             }
         }
-        else if ([_currentLocation isEqualToString:@"darkCave"]){
+        else if ([currentLocation isEqualToString:@"darkCave"]){
             if (caveLit){
                 [self initSoundWithFileName:leaveString];
                 [self prompt:leaveString];
-                _currentLocation = @"finalCavern";
+                currentLocation = @"finalCavern";
             } else {
                 [self initSoundWithFileName:blockString];
                 [self prompt:blockString];
             }
         }
-        else if ([_currentLocation isEqualToString:@"sideCave"]){
+        else if ([currentLocation isEqualToString:@"sideCave"]){
             [self initSoundWithFileName:@"femaleHmm"];
             [self prompt:blockString];
         }
-        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+        else if ([currentLocation isEqualToString:@"finalCavern"]){
             if (collectedSilver){
                 [self initSoundWithFileName:leaveString];
                 [self prompt:leaveString];
-                _currentLocation = @"finalCavern";
+                currentLocation = @"finalCavern";
             } else {
                 [self initSoundWithFileName:blockString];
                 [self prompt:blockString];
@@ -167,11 +167,11 @@
     }
     else if ([command isEqualToString:@"right"]) // Tries to move right.
     {
-        if ([_currentLocation isEqualToString:@"forestFloor"])
+        if ([currentLocation isEqualToString:@"forestFloor"])
         {
             [self initSoundWithFileName:leaveString];
             [self prompt:rightString];
-            _currentLocation = @"giantTree";
+            currentLocation = @"giantTree";
         }
         else
         {
@@ -182,11 +182,11 @@
     }
     else if ([command isEqualToString:@"left"]) // Tries to move left.
     {
-        if ([_currentLocation isEqualToString:@"darkCave"])
+        if ([currentLocation isEqualToString:@"darkCave"])
         {
             [self initSoundWithFileName:@"darkCaveLeave"];
             [self prompt:leftString];
-            _currentLocation = @"sideCave";
+            currentLocation = @"sideCave";
         }
         else
         {
@@ -196,75 +196,75 @@
     }
     else if ([command isEqualToString:@"back"])
     {
-        if ([_currentLocation isEqualToString:@"crashSite"] ||
-            [_currentLocation isEqualToString:@"darkCave"]) {
+        if ([currentLocation isEqualToString:@"crashSite"] ||
+            [currentLocation isEqualToString:@"darkCave"]) {
             [self prompt:@"backBlock"];
         }
-        else if ([_currentLocation isEqualToString:@"forestFloor"]){
+        else if ([currentLocation isEqualToString:@"forestFloor"]){
             [self initSoundWithFileName:@"crashSiteLeave"];
             [self prompt:backString];
-            _currentLocation = @"crashSite";
+            currentLocation = @"crashSite";
         }
-        else if ([_currentLocation isEqualToString:@"giantTree"]){
+        else if ([currentLocation isEqualToString:@"giantTree"]){
             [self initSoundWithFileName:@"forestFloorLeave"];
             [self prompt:backString];
-            _currentLocation = @"forestFloor";
+            currentLocation = @"forestFloor";
         }
-        else if ([_currentLocation isEqualToString:@"secretCabin"]){
+        else if ([currentLocation isEqualToString:@"secretCabin"]){
             [self initSoundWithFileName:@"crashSiteLeave"];
             [self prompt:backString];
-            _currentLocation = @"forestFloor";
+            currentLocation = @"forestFloor";
         }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"]){
+        else if ([currentLocation isEqualToString:@"cabinFloor"]){
             [self initSoundWithFileName:@"cabinFloorLeave"];
             [self prompt:backString];
-            _currentLocation = @"secretCabin";
+            currentLocation = @"secretCabin";
         }
-        else if ([_currentLocation isEqualToString:@"windyLake"]){
+        else if ([currentLocation isEqualToString:@"windyLake"]){
             [self initSoundWithFileName:@"cabinFloorLeave"];
             [self prompt:backString];
-            _currentLocation = @"cabinFloor";
+            currentLocation = @"cabinFloor";
         }
-        else if ([_currentLocation isEqualToString:@"sideCave"]){
+        else if ([currentLocation isEqualToString:@"sideCave"]){
             [self initSoundWithFileName:@"darkCaveLeave"];
             [self prompt:backString];
-            _currentLocation = @"darkCave";
+            currentLocation = @"darkCave";
         }
-        else if ([_currentLocation isEqualToString:@"finalCavern"]){
+        else if ([currentLocation isEqualToString:@"finalCavern"]){
             [self initSoundWithFileName:@"darkCaveLeave"];
             [self prompt:backString];
-            _currentLocation = @"darkFloor";
+            currentLocation = @"darkFloor";
         }
         
     }
     else if ([command isEqualToString:@"pick"])
     {
-        NSString *pickString = [NSString stringWithFormat:@"%@Pick", _currentLocation];
+        NSString *pickString = [NSString stringWithFormat:@"%@Pick", currentLocation];
         
-        if ([_currentLocation isEqualToString:@"crashSite"]
-            || [_currentLocation isEqualToString:@"secretCabin"]
-            || [_currentLocation isEqualToString:@"windyLake"])
+        if ([currentLocation isEqualToString:@"crashSite"]
+            || [currentLocation isEqualToString:@"secretCabin"]
+            || [currentLocation isEqualToString:@"windyLake"])
         {
             [self initSoundWithFileName:@"femaleHmm"];
             [self prompt:@"pickBlock"];
         }
-        else if ([_currentLocation isEqualToString:@"cabinFloor"])
+        else if ([currentLocation isEqualToString:@"cabinFloor"])
         {
-            if (chestOpened && ![_pack containsObject:pickString]){
+            if (chestOpened && ![pack containsObject:pickString]){
                 [self initSoundWithFileName:pickString];
                 [self prompt:pickString];
-                [_pack addObject:pickString];
+                [pack addObject:pickString];
             } else {
                 [self initSoundWithFileName:@"secretCabinBlock"];
                 [self prompt:@"wrongCommand"];
             }
         }
-        else if ([_currentLocation isEqualToString:@"finalCavern"])
+        else if ([currentLocation isEqualToString:@"finalCavern"])
         {
-            if (![_pack containsObject:pickString]){
+            if (![pack containsObject:pickString]){
                 [self initSoundWithFileName:pickString];
                 [self prompt:pickString];
-                [_pack addObject:pickString];
+                [pack addObject:pickString];
                 collectedSilver = YES;
             } else {
                 [self initSoundWithFileName:@"femaleHmm"];
@@ -273,36 +273,36 @@
         }
         else
         {
-            if ([_pack containsObject:pickString]){
+            if ([pack containsObject:pickString]){
                 [self initSoundWithFileName:@"femaleHmm"];
                 [self prompt:@"pickBlock"];
             } else {
                 [self initSoundWithFileName:pickString];
                 [self prompt:pickString];
-                [_pack addObject:pickString];
+                [pack addObject:pickString];
             }
         }
 
     }
     else if ([command isEqualToString:@"use"])
     {
-        NSString *useString = [NSString stringWithFormat:@"%@Use", _currentLocation];
+        NSString *useString = [NSString stringWithFormat:@"%@Use", currentLocation];
         
-        if ([_currentLocation isEqualToString:@"secretCabin"] && [_pack containsObject:@"forestFloorPick"])
+        if ([currentLocation isEqualToString:@"secretCabin"] && [pack containsObject:@"forestFloorPick"])
         {
             doorUnlocked = YES;
             [self initSoundWithFileName:useString];
             [self prompt:useString];
-            [_pack removeObject:@"key"];
+            [pack removeObject:@"key"];
         }
-        else if ([_currentLocation isEqualToString:@"windyLake"] && [_pack containsObject:@"cabinFloorPick"])
+        else if ([currentLocation isEqualToString:@"windyLake"] && [pack containsObject:@"cabinFloorPick"])
         {
             sailAttached = YES;
             [self initSoundWithFileName:useString  ]; // Still need sail attach sound...
             [self prompt:useString];
-            [_pack removeObject:@"sail"];
+            [pack removeObject:@"sail"];
         }
-        else if ([_currentLocation isEqualToString:@"darkCave"] && [_pack containsObject:@"darkCavePick"])
+        else if ([currentLocation isEqualToString:@"darkCave"] && [pack containsObject:@"darkCavePick"])
         {
             caveLit = YES;
             [self initSoundWithFileName:useString]; // Still need sail attach sound...
@@ -315,12 +315,12 @@
     }
     else if ([command isEqualToString:@"pack"]) // Speaks the content of the pack.
     {
-        NSString* packContents = [_pack componentsJoinedByString:@" "];
+        NSString* packContents = [pack componentsJoinedByString:@" "];
         [speaker speakString:packContents];
     }
     else if ([command isEqualToString:@"wind"])
     {
-        if ([_currentLocation isEqualToString:@"cabinFloor"] && !chestOpened)
+        if ([currentLocation isEqualToString:@"cabinFloor"] && !chestOpened)
         {
             chestOpened = YES;
             [self prompt:@"cabinFloorPuzzle"];
@@ -363,7 +363,7 @@
 - (void)clearStrings
 {
     _typedText.text = @"";
-    [_stringFromInput setString:@""];
+    [stringFromInput setString:@""];
 }
 
 #pragma mark - Keyboard Methods
@@ -379,13 +379,13 @@
     } else {
         // Remove character from typed string if backspace detected.
         if ([info[ABBackspaceReceived] boolValue]){
-            if (_stringFromInput.length > 0) {
-                [_stringFromInput deleteCharactersInRange:NSMakeRange(_stringFromInput.length - 1, 1)];
-                [_typedText setText:_stringFromInput];
+            if (stringFromInput.length > 0) {
+                [stringFromInput deleteCharactersInRange:NSMakeRange(stringFromInput.length - 1, 1)];
+                [_typedText setText:stringFromInput];
             }
         } else {
-            [_stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
-            [_typedText setText:_stringFromInput]; // Sets typed text to the label.
+            [stringFromInput appendFormat:@"%@", character]; // Concat typed letters together.
+            [_typedText setText:stringFromInput]; // Sets typed text to the label.
         }
     }
 }
