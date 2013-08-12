@@ -81,22 +81,49 @@
 
 - (void)newCharacterFromInterpreter:(NSString *)string
 {
+    // Update output text object
     [_output insertText:string];
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:string
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(NO),
+                                    ABBackspaceReceived : @(NO)}];
+    }
 }
 
 - (void)backspaceRecieved
 {
+    // Update output text object
     if (_output.text.length > 0) {
         _output.text = [_output.text substringToIndex:_output.text.length - 1];
         [_interpreter dropEndOffGraph];
         [self playSound:ABBackspaceSound];
     }
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:ABBackspace
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(NO),
+                                    ABBackspaceReceived : @(YES)}];
+    }
 }
 
 - (void)spaceRevieved
 {
+    // Update output text object
     [_output insertText:@" "];
     [_interpreter reset];
+    
+    // Make delegate calls
+    if ([_delegate respondsToSelector:@selector(characterTyped:withInfo:)]) {
+        [_delegate characterTyped:ABSpaceCharacter
+                         withInfo:@{ABGestureInfoStatus : @(YES),
+                                    ABSpaceTyped : @(YES),
+                                    ABBackspaceReceived : @(NO)}];
+    }
 }
 
 #pragma mark Set Grade
