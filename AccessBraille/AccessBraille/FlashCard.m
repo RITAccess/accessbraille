@@ -10,7 +10,7 @@
 
 @implementation FlashCard {
     UISwipeGestureRecognizer *swipeToSelectEasy, *swipeToSelectMedium, *swipeToSelectHard;
-    NSMutableArray *cards;
+    NSMutableArray *deck;
     NSArray *card, *letters;
     NSMutableString *stringFromInput;
     ABKeyboard *keyboard;
@@ -70,6 +70,9 @@
     [speaker stopSpeaking];
 }
 
+
+#pragma mark - Gameplay
+
 /**
  * Initializes proper cards based on the direction of the swipe. Initializes
  * keyboard, disables gestures, and removes info text.
@@ -87,7 +90,7 @@
         [self initializeCards:@"hard.plist"];
     }
     
-    [_cardTextView setText:cards[arc4random() % cards.count]];
+    [_cardTextView setText:deck[arc4random() % deck.count]];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     [speaker speakString:_cardTextView.text];
@@ -106,7 +109,7 @@
     [swipeToSelectHard setEnabled:NO];
 }
 
-#pragma mark - Card Mode
+#pragma mark - Card Handling
 
 /**
  * Checks to see if typed word matches the card displayed. If so, play a correct sound
@@ -115,12 +118,12 @@
 - (void)checkCard
 {
     if ([_cardTextView.text isEqualToString:_typedTextView.text]){
-        [cards removeObject:_cardTextView.text];  // Remove correct card from the deck.
+        [deck removeObject:_cardTextView.text];  // Remove correct card from the deck.
         AudioServicesPlaySystemSound(correctSound);
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
         
         // Checking to see if the deck is empty...
-        if (cards.count <= 29){
+        if (deck.count <= 29){
             [_infoTextView setHidden:NO];
             [_cardTextView setHidden:YES];
             [_typedTextView setHidden:YES];
@@ -137,7 +140,7 @@
             [speaker speakString:_infoTextView.text];
             
         } else {
-            [_cardTextView setText:cards[arc4random() % cards.count]];
+            [_cardTextView setText:deck[arc4random() % deck.count]];
             [speaker speakString:_cardTextView.text]; // Speak the new card.
             [_typedTextView setText:@""];
             [stringFromInput setString:@""];
@@ -152,7 +155,7 @@
 {
     path = [[NSBundle mainBundle] bundlePath];
     finalPath = [path stringByAppendingPathComponent:withDifficulty];
-    cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+    deck = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
 }
 
 #pragma mark - Helper Methods
