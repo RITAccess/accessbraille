@@ -95,7 +95,7 @@
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     [speaker speakString:_cardTextView.text];
     
-    [_infoTextView removeFromSuperview];
+    [_infoTextView setHidden:YES];
     [_cardTextView setHidden:NO];
     [_pointsTagView setHidden:NO];
     [_scoreLabel setHidden:NO];
@@ -118,12 +118,22 @@
 - (void)checkCard
 {
     if ([_cardTextView.text isEqualToString:_typedTextView.text]){
+        [cards removeObject:_cardTextView.text];  // Remove correct card from the deck.
         AudioServicesPlaySystemSound(correctSound);
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
-        [_cardTextView setText:cards[arc4random() % cards.count]];
-        [speaker speakString:_cardTextView.text]; // Speak the new card.
-        [_typedTextView setText:@""];
-        [stringFromInput setString:@""];
+        
+        // Checking to see if the deck is empty...
+        if (cards.count <= 0){
+            [_infoTextView setHidden:NO];
+            [_infoTextView setText:@"You win!"];
+            [_cardTextView setHidden:YES];
+            [_typedTextView setHidden:YES];
+        } else {
+            [_cardTextView setText:cards[arc4random() % cards.count]];
+            [speaker speakString:_cardTextView.text]; // Speak the new card.
+            [_typedTextView setText:@""];
+            [stringFromInput setString:@""];
+        }
     } else {
         AudioServicesPlaySystemSound(incorrectSound);
     }
