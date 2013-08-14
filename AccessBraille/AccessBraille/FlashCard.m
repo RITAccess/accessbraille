@@ -17,7 +17,7 @@
     ABSpeak *speaker;
     int points, misses;
     NSString *finalPath, *path;
-    SystemSoundID correctSound, incorrectSound;
+    SystemSoundID correctSound, incorrectSound, perfectSound;
 }
 
 #pragma mark - View
@@ -33,6 +33,7 @@
     
     correctSound = [self createSoundID:@"correct.aiff"];
     incorrectSound = [self createSoundID:@"incorrect.aiff"];
+    perfectSound = [self createSoundID:@"finalCavernLeave.aiff"];
     
     stringFromInput = [[NSMutableString alloc] init];
     speaker = [[ABSpeak alloc] init];
@@ -132,6 +133,7 @@
                 [_infoTextView setText:[NSString stringWithFormat:@"Great job! You only had %d mistakes!", misses]];
             }
             
+            AudioServicesPlaySystemSound(perfectSound);
             [speaker speakString:_infoTextView.text];
             
         } else {
