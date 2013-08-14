@@ -403,7 +403,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-zY-8OA" userLabel="Info">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-zY-8OA" userLabel="Info">
                                 <rect key="frame" x="74" y="144" width="876" height="479"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
@@ -418,19 +418,18 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointsTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="9n4-XV-Rov">
-                                <rect key="frame" x="928" y="0.0" width="76" height="79"/>
+                                <rect key="frame" x="928" y="0.0" width="96" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="gF8-Ut-Asq"/>
-                                    <constraint firstAttribute="height" constant="79" id="icG-4B-kcF"/>
+                                    <constraint firstAttribute="height" constant="79" id="8Y3-53-DdE"/>
+                                    <constraint firstAttribute="width" constant="96" id="FPH-A0-waI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5N-VJ-DCV">
-                                <rect key="frame" x="946" y="4" width="42" height="39"/>
+                                <rect key="frame" x="938" y="5" width="76" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="cSr-Rt-dDb"/>
-                                    <constraint firstAttribute="height" constant="39" id="xnf-Pj-5xA"/>
+                                    <constraint firstAttribute="height" constant="39" id="uvx-yo-yh5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="33"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -439,7 +438,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABu-ne-SeP" userLabel="Cards">
                                 <rect key="frame" x="197" y="279" width="630" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="140"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTK-qg-GXX" userLabel="Typed">
@@ -447,7 +446,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="140"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -456,11 +455,12 @@
                         <constraints>
                             <constraint firstItem="8HP-zY-8OA" firstAttribute="centerX" secondItem="CVm-CJ-4aS" secondAttribute="centerX" id="1u1-ip-Npw"/>
                             <constraint firstItem="hcJ-pA-R1X" firstAttribute="top" secondItem="8HP-zY-8OA" secondAttribute="bottom" constant="145" id="3GC-4h-XOE"/>
-                            <constraint firstItem="d5N-VJ-DCV" firstAttribute="top" secondItem="P0D-Xr-uH1" secondAttribute="bottom" constant="4" id="DMi-GH-1Xy"/>
-                            <constraint firstItem="9n4-XV-Rov" firstAttribute="top" secondItem="CVm-CJ-4aS" secondAttribute="top" id="F1K-hz-gvS"/>
-                            <constraint firstAttribute="trailing" secondItem="9n4-XV-Rov" secondAttribute="trailing" constant="20" id="QLk-js-f6w"/>
-                            <constraint firstAttribute="trailing" secondItem="d5N-VJ-DCV" secondAttribute="trailing" constant="36" id="pM2-pX-9Aw"/>
-                            <constraint firstItem="8HP-zY-8OA" firstAttribute="top" secondItem="9n4-XV-Rov" secondAttribute="bottom" constant="65" id="xdZ-cv-plh"/>
+                            <constraint firstItem="d5N-VJ-DCV" firstAttribute="top" secondItem="P0D-Xr-uH1" secondAttribute="bottom" constant="5" id="Dh9-Qa-oPq"/>
+                            <constraint firstItem="8HP-zY-8OA" firstAttribute="top" secondItem="9n4-XV-Rov" secondAttribute="bottom" constant="65" id="Ix0-Fg-3mX"/>
+                            <constraint firstItem="9n4-XV-Rov" firstAttribute="top" secondItem="CVm-CJ-4aS" secondAttribute="top" id="mf6-ay-Oib"/>
+                            <constraint firstAttribute="trailing" secondItem="d5N-VJ-DCV" secondAttribute="trailing" constant="10" id="qBm-3I-aY5"/>
+                            <constraint firstItem="d5N-VJ-DCV" firstAttribute="centerX" secondItem="9n4-XV-Rov" secondAttribute="centerX" id="tqN-ul-aQG"/>
+                            <constraint firstAttribute="trailing" secondItem="9n4-XV-Rov" secondAttribute="trailing" id="xbT-be-l8d"/>
                             <constraint firstItem="8HP-zY-8OA" firstAttribute="leading" secondItem="CVm-CJ-4aS" secondAttribute="leading" constant="74" id="yfr-ib-dhs"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
