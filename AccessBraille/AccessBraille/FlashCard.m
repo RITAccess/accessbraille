@@ -123,7 +123,8 @@
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
         
         // Checking to see if the deck is empty...
-        if (deck.count <= 29){
+        if (deck.count <= 0){
+            
             [_infoTextView setHidden:NO];
             [_cardTextView setHidden:YES];
             [_typedTextView setHidden:YES];
