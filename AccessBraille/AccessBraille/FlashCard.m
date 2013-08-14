@@ -15,7 +15,7 @@
     NSMutableString *stringFromInput;
     ABKeyboard *keyboard;
     ABSpeak *speaker;
-    int points;
+    int points, misses;
     NSString *finalPath, *path;
     SystemSoundID correctSound, incorrectSound;
 }
@@ -119,11 +119,21 @@
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
         
         // Checking to see if the deck is empty...
-        if (cards.count <= 0){
+        if (cards.count <= 29){
             [_infoTextView setHidden:NO];
-            [_infoTextView setText:@"You win!"];
             [_cardTextView setHidden:YES];
             [_typedTextView setHidden:YES];
+            
+            if (misses <= 0){
+                [_infoTextView setText:@"A perfect score! Congratulations!"];
+            } else if (misses == 1) {
+                [_infoTextView setText:[NSString stringWithFormat:@"Fantastic work! You had a mere %d mistake!", misses]];
+            } else {
+                [_infoTextView setText:[NSString stringWithFormat:@"Great job! You only had %d mistakes!", misses]];
+            }
+            
+            [speaker speakString:_infoTextView.text];
+            
         } else {
             [_cardTextView setText:cards[arc4random() % cards.count]];
             [speaker speakString:_cardTextView.text]; // Speak the new card.
@@ -132,6 +142,7 @@
         }
     } else {
         AudioServicesPlaySystemSound(incorrectSound);
+        misses++;
     }
 }
 
