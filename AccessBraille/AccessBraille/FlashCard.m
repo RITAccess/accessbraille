@@ -100,7 +100,6 @@
     [_cardTextView setHidden:NO];
     [_pointsTagView setHidden:NO];
     [_scoreLabel setHidden:NO];
-    [_typedTextView setTextColor:[UIColor greenColor]];  // Not working in Interface Builder for some reason...
     [_typedTextView setHidden:NO];
     [_typedTextView setText:@""];
     
