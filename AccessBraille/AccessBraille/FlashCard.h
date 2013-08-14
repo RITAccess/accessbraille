@@ -11,10 +11,6 @@
 #import <ABKeyboard/ABKeyboard.h>
 #import <ABKeyboard/ABSpeak.h>
 
-NSInteger const maxEasyCards = 30;
-NSInteger const maxMediumCards = 60;
-NSInteger const maxHardCards = 20;
-
 @interface FlashCard : UIViewController <ABKeyboard>
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;

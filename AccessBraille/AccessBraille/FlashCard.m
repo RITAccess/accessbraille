@@ -80,14 +80,13 @@
     //  Initialize Proper Cards
     if (gesture.direction == UISwipeGestureRecognizerDirectionUp){
         [self initializeCards:@"easy.plist"];
-        [_cardTextView setText:cards[arc4random() % maxEasyCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
         [self initializeCards:@"medium.plist"];
-        [_cardTextView setText:cards[arc4random() % maxMediumCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionDown){
         [self initializeCards:@"hard.plist"];
-        [_cardTextView setText:cards[arc4random() % maxHardCards]];
     }
+    
+    [_cardTextView setText:cards[arc4random() % cards.count]];
     
     // Defining font size - wasn't working in Storyboard for some reason...
     [_cardTextView setFont:[UIFont boldSystemFontOfSize:140]];
@@ -121,7 +120,7 @@
     if ([_cardTextView.text isEqualToString:_typedTextView.text]){
         AudioServicesPlaySystemSound(correctSound);
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
-        [_cardTextView setText:cards[arc4random() % maxHardCards]];
+        [_cardTextView setText:cards[arc4random() % cards.count]];
         [speaker speakString:_cardTextView.text]; // Speak the new card.
         [_typedTextView setText:@""];
         [stringFromInput setString:@""];
