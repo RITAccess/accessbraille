@@ -10,14 +10,14 @@
 
 @implementation FlashCard {
     UISwipeGestureRecognizer *swipeToSelectEasy, *swipeToSelectMedium, *swipeToSelectHard;
-    NSMutableArray *cards;
+    NSMutableArray *deck;
     NSArray *card, *letters;
     NSMutableString *stringFromInput;
     ABKeyboard *keyboard;
     ABSpeak *speaker;
-    int points;
+    int points, misses;
     NSString *finalPath, *path;
-    SystemSoundID correctSound, incorrectSound;
+    SystemSoundID correctSound, incorrectSound, perfectSound;
 }
 
 #pragma mark - View
@@ -33,6 +33,7 @@
     
     correctSound = [self createSoundID:@"correct.aiff"];
     incorrectSound = [self createSoundID:@"incorrect.aiff"];
+    perfectSound = [self createSoundID:@"finalCavernLeave.aiff"];
     
     stringFromInput = [[NSMutableString alloc] init];
     speaker = [[ABSpeak alloc] init];
@@ -69,6 +70,9 @@
     [speaker stopSpeaking];
 }
 
+
+#pragma mark - Gameplay
+
 /**
  * Initializes proper cards based on the direction of the swipe. Initializes
  * keyboard, disables gestures, and removes info text.
@@ -80,23 +84,18 @@
     //  Initialize Proper Cards
     if (gesture.direction == UISwipeGestureRecognizerDirectionUp){
         [self initializeCards:@"easy.plist"];
-        [_cardTextView setText:cards[arc4random() % maxEasyCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
         [self initializeCards:@"medium.plist"];
-        [_cardTextView setText:cards[arc4random() % maxMediumCards]];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionDown){
         [self initializeCards:@"hard.plist"];
-        [_cardTextView setText:cards[arc4random() % maxHardCards]];
     }
     
-    // Defining font size - wasn't working in Storyboard for some reason...
-    [_cardTextView setFont:[UIFont boldSystemFontOfSize:140]];
-    [_typedTextView setFont:[UIFont boldSystemFontOfSize:140]];
+    [_cardTextView setText:deck[arc4random() % deck.count]];
     
     keyboard = [[ABKeyboard alloc]initWithDelegate:self];
     [speaker speakString:_cardTextView.text];
     
-    [_infoTextView removeFromSuperview];
+    [_infoTextView setHidden:YES];
     [_cardTextView setHidden:NO];
     [_pointsTagView setHidden:NO];
     [_scoreLabel setHidden:NO];
@@ -110,7 +109,7 @@
     [swipeToSelectHard setEnabled:NO];
 }
 
-#pragma mark - Card Mode
+#pragma mark - Card Handling
 
 /**
  * Checks to see if typed word matches the card displayed. If so, play a correct sound
@@ -119,14 +118,37 @@
 - (void)checkCard
 {
     if ([_cardTextView.text isEqualToString:_typedTextView.text]){
+        [deck removeObject:_cardTextView.text];  // Remove correct card from the deck.
         AudioServicesPlaySystemSound(correctSound);
         [_scoreLabel setText:[NSString stringWithFormat:@"%d", ++points]];
-        [_cardTextView setText:cards[arc4random() % maxHardCards]];
-        [speaker speakString:_cardTextView.text]; // Speak the new card.
-        [_typedTextView setText:@""];
-        [stringFromInput setString:@""];
+        
+        // Checking to see if the deck is empty...
+        if (deck.count <= 0){
+            
+            [_infoTextView setHidden:NO];
+            [_cardTextView setHidden:YES];
+            [_typedTextView setHidden:YES];
+            
+            if (misses <= 0){
+                [_infoTextView setText:@"A perfect score! Congratulations!"];
+            } else if (misses == 1) {
+                [_infoTextView setText:[NSString stringWithFormat:@"Fantastic work! You had a mere %d mistake!", misses]];
+            } else {
+                [_infoTextView setText:[NSString stringWithFormat:@"Great job! You only had %d mistakes!", misses]];
+            }
+            
+            AudioServicesPlaySystemSound(perfectSound);
+            [speaker speakString:_infoTextView.text];
+            
+        } else {
+            [_cardTextView setText:deck[arc4random() % deck.count]];
+            [speaker speakString:_cardTextView.text]; // Speak the new card.
+            [_typedTextView setText:@""];
+            [stringFromInput setString:@""];
+        }
     } else {
         AudioServicesPlaySystemSound(incorrectSound);
+        misses++;
     }
 }
 
@@ -134,7 +156,7 @@
 {
     path = [[NSBundle mainBundle] bundlePath];
     finalPath = [path stringByAppendingPathComponent:withDifficulty];
-    cards = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+    deck = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
 }
 
 #pragma mark - Helper Methods
