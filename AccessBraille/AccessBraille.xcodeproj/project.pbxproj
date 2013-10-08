@@ -111,6 +111,7 @@
 		4C4FEB3116C446A400434F60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99671BE16810EFA00AAA322 /* AudioToolbox.framework */; };
 		4C65356316C443A900611B6F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65356216C443A900611B6F /* MainMenu.m */; };
 		4C751F1816FA052F003967D8 /* MenuTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C751F1716FA052F003967D8 /* MenuTitles.plist */; };
+		4C8217E018047DB00068DC1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8217DF18047DB00068DC1D /* Images.xcassets */; };
 		4C89EA9A16C0143B00318BE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C89EA9916C0143B00318BE2 /* CoreData.framework */; };
 		4C8AD31C17B4132400F812EA /* KeyboardResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C8AD31B17B4132400F812EA /* KeyboardResponder.h */; };
 		4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8EB643178B0B0700C1A317 /* Slt.framework */; };
@@ -313,6 +314,7 @@
 		4C751F1716FA052F003967D8 /* MenuTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuTitles.plist; sourceTree = "<group>"; };
 		4C7A1110177502AB00726199 /* numberLookup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = numberLookup.plist; sourceTree = "<group>"; };
 		4C7A1112177503FD00726199 /* prefixLevelThree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prefixLevelThree.plist; sourceTree = "<group>"; };
+		4C8217DF18047DB00068DC1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C89EA9916C0143B00318BE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C8AD31B17B4132400F812EA /* KeyboardResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardResponder.h; sourceTree = "<group>"; };
 		4C8EB643178B0B0700C1A317 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = Framework/OpenEars/Slt.framework; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 				A9479C471670034E00CE9475 /* AppDelegate.h */,
 				A9479C481670034E00CE9475 /* AppDelegate.m */,
 				A9479C501670034E00CE9475 /* MainStoryboard.storyboard */,
+				4C8217DF18047DB00068DC1D /* Images.xcassets */,
 				A9479C3F1670034E00CE9475 /* Supporting Files */,
 			);
 			path = AccessBraille;
@@ -961,6 +964,7 @@
 				2C100F8A17B3D3020024C8C5 /* finalCavernLeave.aiff in Resources */,
 				2C100F4417B3CE3D0024C8C5 /* Default-Landscape~ipad.png in Resources */,
 				2C100F5517B3CE3D0024C8C5 /* slideOutMenu.png in Resources */,
+				4C8217E018047DB00068DC1D /* Images.xcassets in Resources */,
 				2C100F9317B3D3020024C8C5 /* navClick.aiff in Resources */,
 				2C100F8317B3D3020024C8C5 /* darkCaveLeave.aiff in Resources */,
 				2CEA59CE17B91C010031DB6C /* menuItem3@2x.png in Resources */,
@@ -1303,6 +1307,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
@@ -1351,6 +1357,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
