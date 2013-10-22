@@ -49,7 +49,7 @@
     [self loadMenuItemsAnimated:YES];
     
     UIGraphicsBeginImageContext(CGSizeMake(1024, 768));
-    [[UIImage imageNamed:@"mainMenu.png"] drawInRect:CGRectMake(0, 0, 1024, 768)];
+    [[UIImage imageNamed:@"menuBackground"] drawInRect:CGRectMake(0, 0, 1024, 768)];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
