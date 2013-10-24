@@ -65,6 +65,7 @@
     [self addChildViewController:controller];
     
     doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowMenu:)];
+    [doubleTap setCancelsTouchesInView:NO];
     doubleTap.numberOfTapsRequired = 2;
     [controller.view addGestureRecognizer:doubleTap];
     

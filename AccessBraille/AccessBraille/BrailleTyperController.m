@@ -21,7 +21,7 @@
     ABKeyboard *keyboard;
     ABBrailleOutput *output;
     
-    UITapGestureRecognizer *doubleTap;
+    UITapGestureRecognizer *tripleTap;
     
     BOOL isZoomed;
 }
@@ -37,17 +37,11 @@
     [keyboard setOutput:_textField];
     [[NSUserDefaults standardUserDefaults] boolForKey:@"GradeTwoSelection"] ? [keyboard setGrade:ABGradeTwo] : [keyboard setGrade:ABGradeOne]; // Setting Grade.
     
-    output = [[ABBrailleOutput alloc] init];
-    [output setFrame:CGRectMake(25, 300, 100, 30)];
-    [output setText:@""];
-    [self.view addSubview:output];
-    [self.view bringSubviewToFront:output];
-
-    doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDisplayMenu:)];
-    [self.view addGestureRecognizer:doubleTap];
+    tripleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDisplayMenu:)];
+    [self.view addGestureRecognizer:tripleTap];
     
     UITapGestureRecognizer *tapToZoom = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapToZoom:)];
-    [tapToZoom setNumberOfTapsRequired:2];
+    [tapToZoom setNumberOfTapsRequired:3];
     [_textField addGestureRecognizer:tapToZoom];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -100,6 +94,10 @@
     [super didReceiveMemoryWarning];
 }
 
-
+- (IBAction)copyText:(id)sender
+{
+    [UIPasteboard generalPasteboard].string = _textField.text;
+    NSLog(@"In pasteboard: %@", [UIPasteboard generalPasteboard].string);
+}
 
 @end

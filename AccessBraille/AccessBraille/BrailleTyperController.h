@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *textOutput;
 @property (weak, nonatomic) IBOutlet UITextView *textField;
 
+- (IBAction)copyText:(id)sender;
+
 @end
