@@ -7,6 +7,7 @@
 //
 
 #import "InstructionsViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface InstructionsViewController ()
 
@@ -22,10 +23,11 @@
 {
     [super viewDidLoad];
     
-    [_labelContainerView.layer setCornerRadius:20];
-    speaker = [ABSpeak sharedInstance];
-    instructionViews = @[_firstTextView, _secondTextView, _thirdTextView];
-    [self speakInstructions];
+    
+//    [_labelContainerView.layer setCornerRadius:20];
+//    speaker = [ABSpeak sharedInstance];
+//    instructionViews = @[_firstTextView, _secondTextView, _thirdTextView];
+//    [self speakInstructions];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,9 +37,9 @@
 
 - (void)speakInstructions
 {
-    for (UITextView *textView in instructionViews){
-        [speaker speakString:textView.text];
-    }
+//    for (UITextView *textView in instructionViews){
+//        [speaker speakString:textView.text];
+//    }
 }
 
 @end
