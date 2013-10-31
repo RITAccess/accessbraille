@@ -11,6 +11,8 @@
 
 @interface InstructionsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *instructionsView;
+@property (weak, nonatomic) IBOutlet UITextView *navigationTextView;
+@property (weak, nonatomic) IBOutlet UITextView *typingTextView;
+@property (weak, nonatomic) IBOutlet UITextView *generalTextView;
 
 @end

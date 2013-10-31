@@ -16,18 +16,20 @@
 @implementation InstructionsViewController
 {
     ABSpeak *speaker;
-    NSArray *instructionViews;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    speaker = [ABSpeak sharedInstance];
     
+    UITapGestureRecognizer *instructionsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     
-//    [_labelContainerView.layer setCornerRadius:20];
-//    speaker = [ABSpeak sharedInstance];
-//    instructionViews = @[_firstTextView, _secondTextView, _thirdTextView];
-//    [self speakInstructions];
+    NSArray *instructionViews = @[_generalTextView, _navigationTextView, _typingTextView];
+    
+    for (UITextView *textView in instructionViews){
+        [textView addGestureRecognizer:instructionsTap];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,11 +37,10 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)speakInstructions
+- (void)speakInstruction:(UITapGestureRecognizer *)gestureRecognizer
 {
-//    for (UITextView *textView in instructionViews){
-//        [speaker speakString:textView.text];
-//    }
+    [speaker speakString:((UITextView *)(gestureRecognizer.view)).text];
 }
+
 
 @end

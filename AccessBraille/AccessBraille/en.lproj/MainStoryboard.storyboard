@@ -319,7 +319,9 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
                     <navigationItem key="navigationItem" id="CfK-HK-gML"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="instructionsView" destination="8V5-QD-IRM" id="Lb6-gd-lqq"/>
+                        <outlet property="generalTextView" destination="8V5-QD-IRM" id="UZR-qf-zBv"/>
+                        <outlet property="navigationTextView" destination="Mfs-aC-Hgy" id="ThV-qZ-hnh"/>
+                        <outlet property="typingTextView" destination="C8w-cj-ljI" id="5CS-UG-xUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-DB-Fes" userLabel="First Responder" sceneMemberID="firstResponder"/>
