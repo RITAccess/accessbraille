@@ -44,7 +44,7 @@
     [self.view addGestureRecognizer:swipeToSelectEasy];
     
     swipeToSelectMedium = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
-    [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionRight];
+    [swipeToSelectMedium setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeToSelectMedium];
     
     swipeToSelectHard = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(beginPlaying:)];
