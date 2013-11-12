@@ -84,7 +84,7 @@
     //  Initialize Proper Cards
     if (gesture.direction == UISwipeGestureRecognizerDirectionUp){
         [self initializeCards:@"easy.plist"];
-    } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
+    } else if (gesture.direction == UISwipeGestureRecognizerDirectionLeft){
         [self initializeCards:@"medium.plist"];
     } else if (gesture.direction == UISwipeGestureRecognizerDirectionDown){
         [self initializeCards:@"hard.plist"];
