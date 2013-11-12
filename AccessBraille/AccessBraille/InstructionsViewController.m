@@ -23,13 +23,13 @@
     [super viewDidLoad];
     speaker = [ABSpeak sharedInstance];
     
-    UITapGestureRecognizer *instructionsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
+    UITapGestureRecognizer *generalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
+    UITapGestureRecognizer *navigationTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
+    UITapGestureRecognizer *typingTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     
-    NSArray *instructionViews = @[_generalTextView, _navigationTextView, _typingTextView];
-    
-    for (UITextView *textView in instructionViews){
-        [textView addGestureRecognizer:instructionsTap];
-    }
+    [_generalTextView addGestureRecognizer:generalTap];
+    [_navigationTextView addGestureRecognizer:navigationTap];
+    [_typingTextView addGestureRecognizer:typingTap];
 }
 
 - (void)didReceiveMemoryWarning
