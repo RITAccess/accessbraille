@@ -78,6 +78,7 @@
 		2C100F9B17B3D6F90024C8C5 /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2C100F9A17B3D6F90024C8C5 /* About.rtf */; };
 		2C100F9E17B3E79F0024C8C5 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */; };
 		2C22726217B438EE00615B5E /* TimetripViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */; };
+		2C866072182024F7005E4E07 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C866071182024F7005E4E07 /* CoreText.framework */; };
 		2CAAC7A0175E2783004680F9 /* adventureTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAC79B175E2783004680F9 /* adventureTexts.plist */; };
 		2CAAC7A3175E2783004680F9 /* TimetripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAC79F175E2783004680F9 /* TimetripViewController.m */; };
 		2CCB7549173BF3220059E580 /* easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CCB7548173BF3220059E580 /* easy.plist */; };
@@ -267,6 +268,7 @@
 		2C100F9C17B3E79F0024C8C5 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		2C100F9D17B3E79F0024C8C5 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		2C22726117B438EE00615B5E /* TimetripViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewControllerTests.m; sourceTree = "<group>"; };
+		2C866071182024F7005E4E07 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2CAAC79B175E2783004680F9 /* adventureTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = adventureTexts.plist; sourceTree = "<group>"; };
 		2CAAC79E175E2783004680F9 /* TimetripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetripViewController.h; sourceTree = "<group>"; };
 		2CAAC79F175E2783004680F9 /* TimetripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetripViewController.m; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C866072182024F7005E4E07 /* CoreText.framework in Frameworks */,
 				4C8EB644178B0B0700C1A317 /* Slt.framework in Frameworks */,
 				3FFEFAFC1778D8A3004CBAF3 /* CoreFoundation.framework in Frameworks */,
 				4C05CE421778B42300F80C70 /* ABKeyboard.framework in Frameworks */,
@@ -632,6 +635,7 @@
 		A9479C371670034E00CE9475 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C866071182024F7005E4E07 /* CoreText.framework */,
 				4C8EB643178B0B0700C1A317 /* Slt.framework */,
 				3FFEFAFB1778D8A3004CBAF3 /* CoreFoundation.framework */,
 				4C05CE411778B42300F80C70 /* ABKeyboard.framework */,

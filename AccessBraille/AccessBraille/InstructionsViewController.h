@@ -11,9 +11,8 @@
 
 @interface InstructionsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *labelContainerView;
-@property (weak, nonatomic) IBOutlet UITextView *firstTextView;
-@property (weak, nonatomic) IBOutlet UITextView *secondTextView;
-@property (weak, nonatomic) IBOutlet UITextView *thirdTextView;
+@property (weak, nonatomic) IBOutlet UITextView *navigationTextView;
+@property (weak, nonatomic) IBOutlet UITextView *typingTextView;
+@property (weak, nonatomic) IBOutlet UITextView *generalTextView;
 
 @end
