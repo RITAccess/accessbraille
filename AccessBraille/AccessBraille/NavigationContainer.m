@@ -26,7 +26,7 @@
     UIButton *menu;
     CGRect menuOut, menuIn;
     
-    UITapGestureRecognizer *doubleTap;
+    UISwipeGestureRecognizer *swipeMenu;
 }
 
 -(void)viewDidLoad
@@ -64,11 +64,11 @@
     
     [self addChildViewController:controller];
     
-    doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowMenu:)];
-    [doubleTap setCancelsTouchesInView:NO];
-    doubleTap.numberOfTapsRequired = 2;
+    swipeMenu = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowMenu:)];
+    [swipeMenu setCancelsTouchesInView:NO];
+    [swipeMenu setDirection:UISwipeGestureRecognizerDirectionRight];
     
-    [controller.view addGestureRecognizer:doubleTap];
+    [controller.view addGestureRecognizer:swipeMenu];
     
     [self.view addSubview:controller.view];
     [controller viewDidAppear:animated];
