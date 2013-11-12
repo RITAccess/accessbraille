@@ -26,6 +26,7 @@
     UITapGestureRecognizer *generalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     UITapGestureRecognizer *navigationTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     UITapGestureRecognizer *typingTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
+    UITapGestureRecognizer *stopTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(stopSpeaking:)];
     
     NSArray *gestureTaps = @[generalTap, navigationTap, typingTap];
     
@@ -36,6 +37,7 @@
     [_generalTextView addGestureRecognizer:generalTap];
     [_navigationTextView addGestureRecognizer:navigationTap];
     [_typingTextView addGestureRecognizer:typingTap];
+    [self.view addGestureRecognizer:stopTap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +48,11 @@
 - (void)speakInstruction:(UITapGestureRecognizer *)gestureRecognizer
 {
     [speaker speakString:((UITextView *)(gestureRecognizer.view)).text];
+}
+
+- (void)stopSpeaking:(UITapGestureRecognizer *)gestureRecognizer
+{
+    [speaker stopSpeaking];
 }
 
 
