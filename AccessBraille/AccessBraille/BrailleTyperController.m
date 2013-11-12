@@ -44,6 +44,10 @@
     [tapToZoom setNumberOfTapsRequired:3];
     [_textField addGestureRecognizer:tapToZoom];
     
+    UILongPressGestureRecognizer *longPressCopy = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyText:)];
+    [longPressCopy setNumberOfTouchesRequired:3];
+    [_textField addGestureRecognizer:longPressCopy];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [_textField setFont:[UIFont boldSystemFontOfSize:[defaults floatForKey:ABFontSize]]];
     
