@@ -331,7 +331,6 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
         <!--About View Controller-->
         <scene sceneID="4PT-5s-sWW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="about" id="yUB-5E-RIE" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ph5-my-nYc"/>
@@ -571,6 +570,7 @@ The funding for this project will end in 2013, but the developers hope the proje
                         <outlet property="textView" destination="pu3-1S-5Bl" id="0nI-cn-MiI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="3212"/>
         </scene>
@@ -662,7 +662,7 @@ The funding for this project will end in 2013, but the developers hope the proje
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Welcome to Flash Card mode! Swipe UP to select easy mode, RIGHT for medium mode, and DOWN for hard mode. Once playing, swipe 6 fingers up to initialize the typing keyboard.</string>
+                                        <string key="content">Welcome to Flash Card mode! Swipe UP to select easy mode, LEFT for medium mode, and DOWN for hard mode. Once playing, swipe 6 fingers up to initialize the typing keyboard.</string>
                                         <attributes>
                                             <font key="NSFont" size="40" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
