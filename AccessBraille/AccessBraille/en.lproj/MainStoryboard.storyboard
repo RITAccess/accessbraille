@@ -244,8 +244,7 @@
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="
-">
+                                    <fragment content=" ">
                                         <attributes>
                                             <font key="NSFont" size="18" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -295,8 +294,7 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="
-">
+                                    <fragment content=" ">
                                         <attributes>
                                             <font key="NSFont" size="18" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -333,6 +331,7 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
         <!--About View Controller-->
         <scene sceneID="4PT-5s-sWW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="about" id="yUB-5E-RIE" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ph5-my-nYc"/>
@@ -342,12 +341,225 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-14-Ope">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu3-1S-5Bl">
+                                <rect key="frame" x="50" y="60" width="924" height="668"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
+                                <attributedString key="attributedText">
+                                    <fragment content="About AccessBraille">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Access Braille is a braille accessibility framework for iPad that creates an interface to type in braille on top of an application. The project focuses on providing a more efficient and accessible method of typing on an iOS device than the current defaults provided by Apple. We hope to inevitably facilitate device use for the visually impaired and blind.
+
+Access Braille is also a learning tool for young children who have not learned the braille system. It's designed around simple word-based games that require users to type in Grade 1 braille with the Access Braille keyboard framework.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Developers">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+The current active developers of this project are Michael Timbrook and Piper Chester. They are both undergraduate software engineering students at the Rochester Institute of Technology. The project is being led by Dr. Stephanie Ludi.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="External Frameworks">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+For iOS 6 users the developers have implemented Politepix's text-to-speech framework, OpenEars. The iOS 7 build implements Apple's AVSpeechSynthesizer.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Future Plans">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+The funding for this project will end in 2013, but the developers hope the project will continue to be developed within the open source community.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -356,10 +568,9 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
                     <navigationItem key="navigationItem" id="2Lb-uZ-qpb"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="aboutView" destination="lgh-14-Ope" id="PfH-aV-S7n"/>
+                        <outlet property="textView" destination="pu3-1S-5Bl" id="0nI-cn-MiI"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="3212"/>
         </scene>
