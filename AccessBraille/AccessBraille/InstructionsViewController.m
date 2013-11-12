@@ -27,6 +27,12 @@
     UITapGestureRecognizer *navigationTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     UITapGestureRecognizer *typingTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(speakInstruction:)];
     
+    NSArray *gestureTaps = @[generalTap, navigationTap, typingTap];
+    
+    for (UITapGestureRecognizer *tap in gestureTaps){
+        [tap setNumberOfTapsRequired:2];
+    }
+    
     [_generalTextView addGestureRecognizer:generalTap];
     [_navigationTextView addGestureRecognizer:navigationTap];
     [_typingTextView addGestureRecognizer:typingTap];
