@@ -28,6 +28,7 @@
         [defaults setFloat:0.4 forKey:KeyboardTransparency];
         [defaults setFloat:17.0 forKey:ABFontSize];
         
+        // Launch About controller on first run
         NavigationContainer *root = [NavigationContainer new];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         [root switchToController:[storyboard instantiateViewControllerWithIdentifier:InstructionsStoryBoardID] animated:NO withMenu:YES];

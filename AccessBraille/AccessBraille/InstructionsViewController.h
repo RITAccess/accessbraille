@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <ABKeyboard/ABSpeak.h>
 
-static NSString *const InstructionsStoryBoardID = @"InstructionsMenu";
+extern NSString *const InstructionsStoryBoardID;
 
 @interface InstructionsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *navigationTextView;
-@property (weak, nonatomic) IBOutlet UITextView *typingTextView;
-@property (weak, nonatomic) IBOutlet UITextView *generalTextView;
+@property (weak, nonatomic) IBOutlet UITextView *outputText;
 
 @end
