@@ -11,6 +11,7 @@
 #import "NavigationContainer.h"
 #import "BrailleTyperController.h"
 #import "SettingsViewController.h"
+#import "InstructionsViewController.h"
 
 @implementation AppDelegate
 
@@ -19,15 +20,22 @@
     // Override point for customization after application launch.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"firstRun"]) {
+        // Prevent running again
+        [defaults setObject:[NSDate date] forKey:@"firstRun"];
         
         // Set user defaults
         [defaults setBool:YES forKey:GradeTwoSet];
         [defaults setFloat:0.4 forKey:KeyboardTransparency];
         [defaults setFloat:17.0 forKey:ABFontSize];
-        [defaults setObject:[NSDate date] forKey:@"firstRun"];
+        
+        NavigationContainer *root = [NavigationContainer new];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        [root switchToController:[storyboard instantiateViewControllerWithIdentifier:InstructionsStoryBoardID] animated:NO withMenu:YES];
+        self.window.rootViewController = root;
+        
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
-
+    
     // Call once to stop lag and crash in main menu
     [ABSpeak sharedInstance];
     

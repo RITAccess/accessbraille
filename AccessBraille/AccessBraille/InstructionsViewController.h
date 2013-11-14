@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <ABKeyboard/ABSpeak.h>
 
+static NSString *const InstructionsStoryBoardID = @"InstructionsMenu";
+
 @interface InstructionsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *navigationTextView;

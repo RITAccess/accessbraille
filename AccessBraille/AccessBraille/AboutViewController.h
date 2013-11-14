@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const AboutStoryBoardID = @"about";
+
 @interface AboutViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;

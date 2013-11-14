@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nse-pc-Zh2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nse-pc-Zh2">
     <dependencies>
         <deployment version="1536" defaultVersion="1552" identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Braille Typer Controller-->
@@ -331,7 +331,6 @@ Once in a mode, to return to main navigation menu all the user needs to do is ta
         <!--About View Controller-->
         <scene sceneID="4PT-5s-sWW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="about" id="yUB-5E-RIE" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ph5-my-nYc"/>
@@ -571,6 +570,7 @@ The funding for this project will end in 2013, but the developers hope the proje
                         <outlet property="textView" destination="pu3-1S-5Bl" id="0nI-cn-MiI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SSm-4G-lQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="3212"/>
         </scene>
