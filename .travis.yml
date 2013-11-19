@@ -4,5 +4,5 @@ before_script:
 - brew update
 - brew install xctool
 script: 
-- xctool -project AccessBraille/AccessBraille.xcodeproj -scheme AccessBraille build test
+- xctool test -sdk iphonesimulator
 
