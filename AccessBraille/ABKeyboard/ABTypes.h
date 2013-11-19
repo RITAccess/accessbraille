@@ -20,24 +20,24 @@ enum ABGrade : NSUInteger {
 };
 
 /* String Constansts for keys in info dictionary */
-static NSString *const ABGestureInfoStatus = @"ABGestureInfoStatus";
-static NSString *const ABSpaceTyped = @"ABSpaceTyped";
-static NSString *const ABBackspaceReceived = @"ABBackspaceTyped";
+static NSString *const ABGestureInfoStatus  = @"ABGestureInfoStatus";
+static NSString *const ABSpaceTyped         = @"ABSpaceTyped";
+static NSString *const ABBackspaceReceived  = @"ABBackspaceTyped";
 
 /* String Space Constant */
-static NSString *const ABSpaceCharacter = @"(SPACE)";
-static NSString *const ABBackspace = @"(BACKSPACE)";
+static NSString *const ABSpaceCharacter     = @"(SPACE)";
+static NSString *const ABBackspace          = @"(BACKSPACE)";
 
 /* Audio Constants */
-static NSString *const ABBackspaceSound = @"BS";
-static NSString *const ABEnableSound = @"ES";
-static NSString *const ABDisableSound = @"DS";
+static NSString *const ABBackspaceSound     = @"BS";
+static NSString *const ABEnableSound        = @"ES";
+static NSString *const ABDisableSound       = @"DS";
 
 /* Config Constant */
 static NSString *const KeyboardTransparency = @"transparency";
 
 /* Ouptut Constant */
-static NSString *const ABFontSize = @"ABFontSize";
+static NSString *const ABFontSize           = @"ABFontSize";
 
 /* ABVector */
 typedef struct {
