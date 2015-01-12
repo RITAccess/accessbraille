@@ -101,7 +101,7 @@
     // Update output text object
     if (_output.text.length > 0) {
         _output.text = [_output.text substringToIndex:_output.text.length - 1];
-        [speak speakString:[_interpreter dropEndOffGraph]];
+        [speak speakString:[_interpreter dropEndOffGraph] ?: @"end"];
         [self playSound:ABBackspaceSound];
     }
     
