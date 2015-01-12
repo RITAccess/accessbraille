@@ -127,10 +127,14 @@ gradeLookup:
     [_wordGraph removeAllObjects];
 }
 
-- (void)dropEndOffGraph
+- (NSString *)dropEndOffGraph
 {
     if (_wordGraph.count > 0) {
+        NSString *t = [_wordGraph lastObject];
         [_wordGraph removeLastObject];
+        return t;
+    } else {
+        return nil;
     }
 }
 

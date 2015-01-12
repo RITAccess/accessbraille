@@ -44,9 +44,9 @@ static NSString *const ABPrefixLevelSeven = @"000110";
 - (void)reset;
 
 /**
- * Removes one off the end of the word graph
+ * Removes one off the end of the word graph and returns
  */
-- (void)dropEndOffGraph;
+- (NSString *)dropEndOffGraph;
 
 /**
  * Gets the current "Build" of the word
