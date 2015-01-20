@@ -13,6 +13,8 @@
 #import "MainMenuItemImage.h"
 #import <ABKeyboard/ABSpeak.h>
 
+#define MENU_SPACING 500
+
 @interface MainMenu ()
     
 /* Menu behavior properties */
@@ -22,7 +24,8 @@
 @end
 
 @implementation MainMenu {
-    UIPanGestureRecognizer *scrollMenu;
+    UISwipeGestureRecognizer *scrollMenuUp;
+    UISwipeGestureRecognizer *scrollMenuDown;
     NSArray *menuItemStoryboardReferanceName;
     ABSpeak *speak;
     NSNumber *active;
@@ -39,11 +42,20 @@
     [self.view setBackgroundColor:[UIColor blueColor]];
     
     // Pan gesture for scrolling and navigating
-    scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
-    scrollMenu.minimumNumberOfTouches = 1;
-    [self.view addGestureRecognizer:scrollMenu];
-    [_menuView makeClear];
+//    scrollMenu = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollMenu:)];
+//    scrollMenu.minimumNumberOfTouches = 1;
+    
+    // Swipe Gesture for navigating
+    scrollMenuUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shiftMenu:)];
+    [scrollMenuUp setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:scrollMenuUp];
+    
+    scrollMenuDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shiftMenu:)];
+    [scrollMenuDown setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:scrollMenuDown];
+    
     [self.view sendSubviewToBack:_menuView];
+    [_menuView makeClear];
     
     // Load side menu
     [self loadMenuItemsAnimated:YES];
@@ -60,12 +72,13 @@
     
     // Speaking
     speak = [ABSpeak sharedInstance];
-    
+    [super viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.view setFrame:CGRectMake(0, 0, 1024, 768)];
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload
@@ -109,14 +122,14 @@
 /**
  * Moves the menu items a set distance from the root menu item position
  **/
-- (void)moveMenuItemsByDelta:(float)delta
+- (void)moveMenuItemsByDeltaFromRoot:(float)delta
 {
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
     }];
     for (UIImageView *item in menuItems){
-        float diffFromRoot = 180 * (item.tag - 31);
+        float diffFromRoot = MENU_SPACING * (item.tag - 31);
         [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
     }
     if (![active isEqual:[self checkInBounds]]) {
@@ -162,7 +175,7 @@
         [menuItem setDelegate:self];
         // increment
         startTag++;
-        startPos = startPos + 180;
+        startPos = startPos + MENU_SPACING;
     }
 
     [self.view bringSubviewToFront:_menuView];
@@ -180,6 +193,24 @@
     }
 }
 
+
+/**
+ * Handle navigation
+ */
+- (void)shiftMenu:(UISwipeGestureRecognizer *)reg
+{
+    switch (reg.direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            [self moveMenuItemsByDeltaFromRoot:MENU_SPACING];
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            [self moveMenuItemsByDeltaFromRoot:-MENU_SPACING];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 /**
  * Handles Menu Scrolling.
@@ -200,7 +231,7 @@
                 // Speak menu item infomation
                 [speak speakString:[self getSpeakingStringAtLocation:active]];
             }
-            [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
+            [self moveMenuItemsByDeltaFromRoot:[reg translationInView:self.view].y];
             [self setMenuContentInformationAtLocation:[self checkInBounds]];
             if ([reg velocityInView:self.view].x > _swipeSensitivity) {
                 [self switchToControllerWithID:[self checkInBounds]];
