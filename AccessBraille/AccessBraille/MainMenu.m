@@ -13,7 +13,7 @@
 #import "MainMenuItemImage.h"
 #import <ABKeyboard/ABSpeak.h>
 
-#define MENU_SPACING 500
+#define MENU_SPACING 480
 
 @interface MainMenu ()
     
@@ -120,17 +120,40 @@
 }
 
 /**
- * Moves the menu items a set distance from the root menu item position
+ *  Moves the menu items a set distance from the root menu item position
+ */
+- (void)moveMenuItemsByDelta:(float)delta
+{
+    [self moveMenuItemsByDelta:delta fromRoot:YES];
+}
+
+/**
+ * Moves the menu items a set distance from the root menu item position, with a 
+ * option to move from root menu item.
  **/
-- (void)moveMenuItemsByDeltaFromRoot:(float)delta
+- (void)moveMenuItemsByDelta:(float)delta fromRoot:(BOOL)root
 {
     NSArray *menuItems = [NSArray arrayFromArray:self.view.subviews passingTest:^BOOL(id obj1) {
         UIImageView *img = (UIImageView *)obj1;
         return (img.tag >= 31);
     }];
-    for (UIImageView *item in menuItems){
-        float diffFromRoot = MENU_SPACING * (item.tag - 31);
-        [item setFrame:CGRectMake(item.frame.origin.x, _menuRootItemPosition + delta + diffFromRoot, item.frame.size.width, item.frame.size.height)];
+    NSNumber *itemid = [self checkInBounds];
+    if ((itemid.intValue == 0 && delta > 0) ||
+        (itemid.intValue == menuItems.count - 1 && delta < 0)) {
+        [speak speakString:@"end"];
+        return;
+    }
+    for (UIImageView *item in menuItems) {
+        float diffFromRoot = root ? MENU_SPACING * (item.tag - 31) : 0;
+        [UIView animateWithDuration:(root ? 0 : 0.2) animations:^{
+            [item setFrame:({
+                CGRectMake(item.frame.origin.x,
+                           (root ? _menuRootItemPosition : item.frame.origin.y) + delta + diffFromRoot,
+                           item.frame.size.width,
+                           item.frame.size.height
+                           );
+            })];
+        }];
     }
     if (![active isEqual:[self checkInBounds]]) {
         [speak stopSpeaking];
@@ -201,10 +224,10 @@
 {
     switch (reg.direction) {
         case UISwipeGestureRecognizerDirectionUp:
-            [self moveMenuItemsByDeltaFromRoot:MENU_SPACING];
+            [self moveMenuItemsByDelta:-MENU_SPACING fromRoot:NO];
             break;
         case UISwipeGestureRecognizerDirectionDown:
-            [self moveMenuItemsByDeltaFromRoot:-MENU_SPACING];
+            [self moveMenuItemsByDelta:MENU_SPACING fromRoot:NO];
             break;
             
         default:
@@ -231,7 +254,7 @@
                 // Speak menu item infomation
                 [speak speakString:[self getSpeakingStringAtLocation:active]];
             }
-            [self moveMenuItemsByDeltaFromRoot:[reg translationInView:self.view].y];
+            [self moveMenuItemsByDelta:[reg translationInView:self.view].y];
             [self setMenuContentInformationAtLocation:[self checkInBounds]];
             if ([reg velocityInView:self.view].x > _swipeSensitivity) {
                 [self switchToControllerWithID:[self checkInBounds]];
